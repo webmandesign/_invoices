@@ -5,7 +5,8 @@
  * Creates:
  * - "Invoice" post type from "Post" post type,
  * - "Invoice Item" post type from "Page" post type,
- * - "Client" taxonomy from "Category" taxonomy,
+ * - "Seller" taxonomy from "Category" taxonomy,
+ * - "Client" custom taxonomy,
  * - "Payment Method" custom taxonomy.
  *
  * Removes:
@@ -23,8 +24,9 @@
  *  0) Init
  * 10) Invoices
  * 20) Invoice Items
- * 30) Clients
- * 40) Payment Methods
+ * 30) Sellers
+ * 40) Clients
+ * 50) Payment Methods
  */
 class Invoices_Post_Types {
 
@@ -56,14 +58,31 @@ class Invoices_Post_Types {
 
 						add_action( 'init', __CLASS__ . '::invoice_setup' );
 						add_action( 'init', __CLASS__ . '::invoice_item_setup' );
+						add_action( 'init', __CLASS__ . '::clients_setup' );
 						add_action( 'init', __CLASS__ . '::payment_methods_setup' );
 
 						add_action( 'registered_post_type', __CLASS__ . '::invoice_post_type_object', 10, 2 );
 						add_action( 'registered_post_type', __CLASS__ . '::invoice_item_post_type_object', 10, 2 );
 
+						add_action( 'edit_form_top', __CLASS__ . '::invoice_predefined_title' );
+
+						// Invoice header
+						add_action( 'invoice_content', __CLASS__ . '::invoice_title', 100 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_companies', 110 );
+						// Invoice content
+						add_action( 'invoice_content', __CLASS__ . '::invoice_note', 200 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_items', 210 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_total', 220 );
+						// Invoice footer
+						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_dates', 300 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_symbols', 310 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_payment', 320 );
+
 					// Filters
 
-						add_filter( 'register_taxonomy_args', __CLASS__ . '::clients_setup', 10, 2 );
+						add_filter( 'register_taxonomy_args', __CLASS__ . '::sellers_setup', 10, 2 );
+
+						add_filter( 'post_class', __CLASS__ . '::invoice_post_class' );
 
 		} // /__construct
 
@@ -113,8 +132,13 @@ class Invoices_Post_Types {
 
 				// Post type support
 
+					remove_post_type_support( 'post', 'excerpt' );
 					remove_post_type_support( 'post', 'comments' );
 					remove_post_type_support( 'post', 'trackbacks' );
+					/**
+					 * We also remove content editor when ACF is active.
+					 * @see  class-advanced-custom-fields.php
+					 */
 
 				// Post type taxonomies
 
@@ -185,6 +209,200 @@ class Invoices_Post_Types {
 
 
 
+		/**
+		 * Setup predefined Invoice post title
+		 *
+		 * We presume, when a new invoice is being created,
+		 * it is being issued for the previous month.
+		 * So, we preset the invoice title as "Invoice YYMMDD01",
+		 * where "YY" represents last two digits of the year,
+		 * "MM" is a numeric representation of a month, with leading zeros,
+		 * and "DD" represents the number of days in the given month.
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  WP_Post $post  Post object.
+		 */
+		public static function invoice_predefined_title( $post ) {
+
+			// Requirements check
+
+				if ( trim( $post->post_title ) ) {
+					return;
+				}
+
+
+			// Helper variables
+
+				$post_type = get_post_type_object( 'post' );
+				$labels    = get_post_type_labels( $post_type );
+
+
+			// Processing
+
+				$GLOBALS['post']->post_title = sprintf(
+					$labels->singular_name . ' %s01',
+					date( 'ymt', strtotime( 'last month' ) )
+				);
+
+		} // /invoice_predefined_title
+
+
+
+		/**
+		 * Invoice post classes
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  array $classes
+		 */
+		public static function invoice_post_class( $classes ) {
+
+			// Processing
+
+				if ( 'post' === get_post_type() ) {
+					$classes[] = 'invoice';
+				}
+
+
+			// Output
+
+				return $classes;
+
+		} // /invoice_post_class
+
+
+
+		/**
+		 * Display invoice title
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function invoice_title() {
+
+			// Output
+
+				get_template_part( 'templates/parts/component/title', 'invoice' );
+
+		} // /invoice_title
+
+
+
+		/**
+		 * Display invoice note
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function invoice_note() {
+
+			// Output
+
+				get_template_part( 'templates/parts/component/note', 'invoice' );
+
+		} // /invoice_note
+
+
+
+		/**
+		 * Display invoice items
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function invoice_items() {
+
+			// Output
+
+				get_template_part( 'templates/parts/component/items', 'invoice' );
+
+		} // /invoice_items
+
+
+
+		/**
+		 * Display invoice total amount
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function invoice_total() {
+
+			// Output
+
+				get_template_part( 'templates/parts/component/total', 'invoice' );
+
+		} // /invoice_total
+
+
+
+		/**
+		 * Display invoice meta: Companies info
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function invoice_meta_companies() {
+
+			// Output
+
+				get_template_part( 'templates/parts/meta/meta-invoice', 'companies' );
+
+		} // /invoice_meta_companies
+
+
+
+		/**
+		 * Display invoice meta: Dates info
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function invoice_meta_dates() {
+
+			// Output
+
+				get_template_part( 'templates/parts/meta/meta-invoice', 'dates' );
+
+		} // /invoice_meta_dates
+
+
+
+		/**
+		 * Display invoice meta: Symbols info
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function invoice_meta_symbols() {
+
+			// Output
+
+				get_template_part( 'templates/parts/meta/meta-invoice', 'symbols' );
+
+		} // /invoice_meta_symbols
+
+
+
+		/**
+		 * Display invoice meta: Payment info
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function invoice_meta_payment() {
+
+			// Output
+
+				get_template_part( 'templates/parts/meta/meta-invoice', 'payment' );
+
+		} // /invoice_meta_payment
+
+
+
 
 
 	/**
@@ -205,6 +423,7 @@ class Invoices_Post_Types {
 
 					remove_post_type_support( 'page', 'comments' );
 					remove_post_type_support( 'page', 'trackbacks' );
+					remove_post_type_support( 'page', 'page-attributes' );
 
 		} // /invoice_item_setup
 
@@ -274,11 +493,11 @@ class Invoices_Post_Types {
 
 
 	/**
-	 * 30) Clients
+	 * 30) Sellers
 	 */
 
 		/**
-		 * Rename "Categories" taxonomy to "Clients"
+		 * Rename "Categories" taxonomy to "Sellers"
 		 *
 		 * @since    1.0.0
 		 * @version  1.0.0
@@ -286,7 +505,65 @@ class Invoices_Post_Types {
 		 * @param  array  $args      Array of arguments for registering a taxonomy.
      * @param  string $taxonomy  Taxonomy key.
 		 */
-		public static function clients_setup( $args, $taxonomy ) {
+		public static function sellers_setup( $args, $taxonomy ) {
+
+			// Helper variables
+
+				$labels = array(
+					'name'                  => esc_html_x( 'Sellers', 'taxonomy general name', '_invoices' ),
+					'singular_name'         => esc_html_x( 'Seller', 'taxonomy singular name', '_invoices' ),
+					'search_items'          => esc_html__( 'Search Sellers', '_invoices' ),
+					'all_items'             => esc_html__( 'All Sellers', '_invoices' ),
+					'parent_item'           => esc_html__( 'Parent Seller', '_invoices' ),
+					'parent_item_colon'     => esc_html__( 'Parent Seller:', '_invoices' ),
+					'edit_item'             => esc_html__( 'Edit Seller', '_invoices' ),
+					'view_item'             => esc_html__( 'View Seller', '_invoices' ),
+					'update_item'           => esc_html__( 'Update Seller', '_invoices' ),
+					'add_new_item'          => esc_html__( 'Add New Seller', '_invoices' ),
+					'new_item_name'         => esc_html__( 'New Seller Name', '_invoices' ),
+					'not_found'             => esc_html__( 'No Sellers found.', '_invoices' ),
+					'no_terms'              => esc_html__( 'No Sellers', '_invoices' ),
+					'items_list_navigation' => esc_html__( 'Sellers list navigation', '_invoices' ),
+					'items_list'            => esc_html__( 'Sellers list', '_invoices' ),
+				);
+
+
+			// Processing
+
+				// Labels
+
+					if ( 'category' === $taxonomy ) {
+						foreach ( $labels as $key => $value ) {
+							$args['labels'][ $key ] = $value;
+						}
+					}
+
+				// Description
+
+					$args['description'] = esc_html__( 'Seller who is issuing the invoice.', '_invoices' );
+
+
+			// Output
+
+				return $args;
+
+		} // /sellers_setup
+
+
+
+
+
+	/**
+	 * 40) Clients
+	 */
+
+		/**
+		 * Register Clients taxonomy
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function clients_setup() {
 
 			// Helper variables
 
@@ -308,19 +585,21 @@ class Invoices_Post_Types {
 					'items_list'            => esc_html__( 'Clients list', '_invoices' ),
 				);
 
+				$args = array(
+					'hierarchical'      => true,
+					'labels'            => $labels,
+					'show_admin_column' => true,
+					'description'       => esc_html__( 'Client to whom the invoice is issued.', '_invoices' ),
+				);
+
 
 			// Processing
 
-				if ( 'category' === $taxonomy ) {
-					foreach ( $labels as $key => $value ) {
-						$args['labels'][ $key ] = $value;
-					}
-				}
-
-
-			// Output
-
-				return $args;
+				register_taxonomy(
+					'client',
+					array( 'post' ),
+					$args
+				);
 
 		} // /clients_setup
 
@@ -329,7 +608,7 @@ class Invoices_Post_Types {
 
 
 	/**
-	 * 40) Payment Methods
+	 * 50) Payment Methods
 	 */
 
 		/**
@@ -363,11 +642,8 @@ class Invoices_Post_Types {
 				$args = array(
 					'hierarchical'      => true,
 					'labels'            => $labels,
-					'query_var'         => true,
-					'public'            => true,
-					'show_ui'           => true,
 					'show_admin_column' => true,
-					'rewrite'           => array( 'slug' => 'payment-method' ),
+					'description'       => esc_html__( 'Payment methods information provided to pay the invoice.', '_invoices' ),
 				);
 
 

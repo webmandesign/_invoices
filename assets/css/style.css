@@ -1,0 +1,58 @@
+/* FILE: style.scss */
+/* FILE: parts/_reset.scss */
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+body { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* FILE: parts/_base.scss */
+*, *::before, *::after { -webkit-box-sizing: inherit; box-sizing: inherit; }
+
+html { -webkit-box-sizing: border-box; box-sizing: border-box; line-height: 1.5; font-family: sans-serif; font-size: 10pt; background-color: #eee; color: #000; }
+
+@media print { html { font-size: 16px; background-color: transparent; } }
+
+@media screen { body { max-width: 210mm; padding: 15mm 0; margin: 0 auto; } }
+
+/* FILE: parts/_post.scss */
+.invoice { padding: 15mm; }
+
+@media screen { .invoice { background-color: #fff; -webkit-box-shadow: 0 5mm 20mm rgba(0, 0, 0, 0.1); box-shadow: 0 5mm 20mm rgba(0, 0, 0, 0.1); } }
+
+.invoice-title { padding: 5mm; margin-bottom: 2.5mm; background-color: #666; color: #fff; }
+
+.invoice-title h1 { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+
+.invoice-title-label { margin-right: 1em; text-transform: uppercase; }
+
+.invoice-title-number { font-size: 1.5em; font-weight: 700; }
+
+/* FILE: parts/_meta.scss */
+.invoice-meta-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin: 0 -2.5mm; }
+
+.invoice-meta-item { padding: 5mm; width: calc( 50% - 5mm); margin: 2.5mm; background-color: #eee; }
+
+.invoice-meta-item:nth-child(1):nth-last-child(1) { width: calc( 100% - 5mm); }
+
+.invoice-meta-item:nth-child(1):nth-last-child(3), .invoice-meta-item:nth-child(2):nth-last-child(2), .invoice-meta-item:nth-child(3):nth-last-child(1) { width: calc( 33.33% - 5mm); }
+
+.invoice-meta-company { background: transparent; border: 1px solid #666; }
+
+@media print { /* FILE: parts/_print.scss */
+  a { text-decoration: none; }
+  thead { display: table-header-group; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; } }

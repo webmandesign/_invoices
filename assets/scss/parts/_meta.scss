@@ -1,0 +1,38 @@
+/* FILE: parts/_meta.scss */
+
+.invoice-meta {
+
+	&-container {
+		display: flex;
+		justify-content: space-between;
+		margin: 0 ( -$gutter / 2 );
+	}
+
+	&-item {
+		padding: $gutter;
+		width: calc( 50% - #{ $gutter } );
+		margin: $gutter / 2;
+		background-color: $color_light_grey;
+
+		&:nth-child(1):nth-last-child(1) {
+			width: calc( 100% - #{ $gutter } );
+		}
+
+		&:nth-child(1):nth-last-child(3),
+		&:nth-child(2):nth-last-child(2),
+		&:nth-child(3):nth-last-child(1) {
+			width: calc( 33.33% - #{ $gutter } );
+		}
+
+	}
+
+
+
+	// Companies
+
+		&-company {
+			background: transparent;
+			border: 1px solid $color_dark_grey;
+		}
+
+}
