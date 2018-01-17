@@ -15,16 +15,46 @@
 
 // Helper variables
 
+	$taxonomies = array(
+		'category',
+		'client',
+	);
 
 
 ?>
 
 <div class="invoice-meta-company-container invoice-meta-container">
+<?php
 
+foreach ( $taxonomies as $taxonomy ) :
+
+	$terms = wp_get_post_terms( get_the_ID(), $taxonomy );
+
+	if (
+		is_wp_error( $terms )
+		|| empty( $terms )
+		|| ! isset( $terms[0]->description )
+	) {
+		continue;
+	}
+
+	?>
 	<div class="invoice-meta-company invoice-meta-item">
-	</div>
+		<h2 class="invoice-meta-label"><?php
 
-	<div class="invoice-meta-company invoice-meta-item">
-	</div>
+		$labels = get_taxonomy_labels( get_taxonomy( $taxonomy ) );
 
+		echo esc_html( $labels->singular_name );
+
+		?></h2>
+		<div class="invoice-meta-value">
+			<h3><?php echo esc_html( $terms[0]->name ); ?></h3>
+			<?php echo apply_filters( 'the_excerpt', $terms[0]->description ); ?>
+		</div>
+	</div>
+	<?php
+
+	endforeach;
+
+?>
 </div>

@@ -67,14 +67,14 @@ class Invoices_Post_Types {
 						add_action( 'edit_form_top', __CLASS__ . '::invoice_predefined_title' );
 
 						// Invoice header
-						add_action( 'invoice_content', __CLASS__ . '::invoice_title', 100 );
-						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_companies', 110 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_title', 110 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_companies', 120 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_dates', 130 );
 						// Invoice content
-						add_action( 'invoice_content', __CLASS__ . '::invoice_note', 200 );
-						add_action( 'invoice_content', __CLASS__ . '::invoice_items', 210 );
-						add_action( 'invoice_content', __CLASS__ . '::invoice_total', 220 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_note', 210 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_items', 220 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_total', 230 );
 						// Invoice footer
-						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_dates', 300 );
 						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_symbols', 310 );
 						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_payment', 320 );
 

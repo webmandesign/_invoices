@@ -15,6 +15,8 @@
 
 
 
+wp_footer();
+
 ?>
 
 </body>

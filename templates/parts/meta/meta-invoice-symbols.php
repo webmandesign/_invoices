@@ -15,6 +15,8 @@
 
 // Helper variables
 
+	$post_type = get_post_type_object( 'post' );
+	$labels    = get_post_type_labels( $post_type );
 
 
 ?>
@@ -22,9 +24,21 @@
 <div class="invoice-meta-symbol-container invoice-meta-container">
 
 	<div class="invoice-meta-symbol invoice-meta-item">
+		<h2 class="invoice-meta-label"><?php esc_html_e( 'Variable symbol', '_invoices' ); ?></h2>
+		<p class="invoice-meta-value"><?php
+
+		echo esc_html( str_replace(
+			$labels->singular_name . ' ',
+			'',
+			get_the_title()
+		) );
+
+		?></p>
 	</div>
 
 	<div class="invoice-meta-symbol invoice-meta-item">
+		<h2 class="invoice-meta-label"><?php esc_html_e( 'Constant symbol', '_invoices' ); ?></h2>
+		<p class="invoice-meta-value"><?php echo '@todo Invoice setup'; ?></p>
 	</div>
 
 </div>

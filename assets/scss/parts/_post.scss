@@ -1,7 +1,10 @@
 /* FILE: parts/_post.scss */
 
 .invoice {
-	padding: 15mm;
+	display: flex;
+	flex-direction: column;
+	height: calc( 297mm - #{ $gutter * 4 } ) ; // A4 paper size: 210 x 297 mm
+	padding: $gutter * 2;
 
 	@media screen {
 		background-color: #fff;
@@ -18,17 +21,22 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-		}
-
-		&-label {
-			margin-right: 1em;
-			text-transform: uppercase;
-		}
-
-		&-number {
-			font-size: 1.5em;
+			font-size: 1.62em;
 			font-weight: 700;
+			letter-spacing: .05em;
 		}
+
+	}
+
+	&-note {
+		margin: $gutter 0;
+	}
+
+	&-items {
+
+	}
+
+	&-total {
 
 	}
 
