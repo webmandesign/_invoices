@@ -73,7 +73,7 @@ class Invoices_Post_Types {
 						// Invoice content
 						add_action( 'invoice_content', __CLASS__ . '::invoice_note', 210 );
 						add_action( 'invoice_content', __CLASS__ . '::invoice_items', 220 );
-						add_action( 'invoice_content', __CLASS__ . '::invoice_total', 230 );
+						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_total', 230 );
 						// Invoice footer
 						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_symbols', 310 );
 						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_payment', 320 );
@@ -228,7 +228,10 @@ class Invoices_Post_Types {
 
 			// Requirements check
 
-				if ( trim( $post->post_title ) ) {
+				if (
+					'post' !== $post->post_type
+					|| trim( $post->post_title )
+				) {
 					return;
 				}
 
@@ -324,18 +327,18 @@ class Invoices_Post_Types {
 
 
 		/**
-		 * Display invoice total amount
+		 * Display invoice meta: Total amount
 		 *
 		 * @since    1.0.0
 		 * @version  1.0.0
 		 */
-		public static function invoice_total() {
+		public static function invoice_meta_total() {
 
 			// Output
 
-				get_template_part( 'templates/parts/component/total', 'invoice' );
+				get_template_part( 'templates/parts/meta/meta-invoice', 'total' );
 
-		} // /invoice_total
+		} // /invoice_meta_total
 
 
 

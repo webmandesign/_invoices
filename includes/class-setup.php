@@ -49,8 +49,6 @@ class Invoices_Setup {
 
 						add_action( 'after_setup_theme', __CLASS__ . '::setup' );
 
-						add_action( 'init', __CLASS__ . '::register_meta' );
-
 						add_action( 'admin_init', __CLASS__ . '::dashboard_widgets' );
 
 						add_action( 'admin_menu', __CLASS__ . '::admin_menu' );
@@ -206,28 +204,6 @@ class Invoices_Setup {
 					unset( $menu[10] );
 
 		} // /admin_menu
-
-
-
-
-
-	/**
-	 * 100) Others
-	 */
-
-		/**
-		 * Register post meta
-		 *
-		 * @since    1.0.0
-		 * @version  1.0.0
-		 */
-		public static function register_meta() {
-
-			// Processing
-
-				register_meta( 'post', 'content_layout', 'esc_attr' );
-
-		} // /register_meta
 
 
 

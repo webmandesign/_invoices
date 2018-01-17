@@ -22,7 +22,7 @@
 		padding: $gutter;
 		width: calc( 50% - #{ $gutter } );
 		margin: $gutter / 2;
-		background-color: $color_light_grey;
+		background-color: $color_shaded;
 
 		&:nth-child(1):nth-last-child(1) {
 			width: calc( 100% - #{ $gutter } );
@@ -49,22 +49,29 @@
 
 		&-company {
 			background: transparent;
-			border: 1px solid $color_dark_grey;
+			border: 1px solid $color_dark;
 
 			h3 {
-				margin: $gutter 0 0;
+				margin: 0;
 				font-size: 1.19em;
 				font-weight: 700;
+			}
+
+			.invoice-meta-value {
+				margin-top: $gutter;
+			}
+
+			&:last-child .invoice-meta-label-taxonomy {
+				display: none;
 			}
 
 		}
 
 
 
-	// Dates + Symbols
+	// Dates
 
-		&-date,
-		&-symbol {
+		&-date {
 			text-align: center;
 
 			.invoice-meta-value {
@@ -76,12 +83,70 @@
 
 
 
+	// Totals
+
+		&-total {
+			display: flex;
+			flex-direction: column;
+			text-align: right;
+			background-color: $color_dark;
+			color: #fff;
+
+			&-container {
+				margin-top: auto;
+			}
+
+			.invoice-meta-label {
+				order: 10;
+				margin-top: auto;
+				padding-top: $gutter / 2;
+				border-top: 1px solid;
+			}
+
+			.invoice-meta-value {
+				margin-bottom: $gutter / 2;
+				font-size: 2.62em;
+				font-weight: 700;
+
+				.currency {
+					font-size: .81em;
+				}
+
+			}
+
+			.dual-currency {
+				font-size: 1rem;
+				font-weight: 400;
+			}
+
+		}
+
+		&-stamp {
+			text-align: left;
+			background: transparent;
+			color: inherit;
+
+			img {
+				width: auto;
+				max-height: 20mm;
+			}
+
+		}
+
+
+
 	// Symbols
 
 		&-symbol {
 
-			&-container {
-				margin-top: auto;
+			.invoice-meta-label {
+				float: left;
+			}
+
+			.invoice-meta-value {
+				text-align: right;
+				font-size: 1.38em;
+				font-weight: 700;
 			}
 
 		}
@@ -91,7 +156,7 @@
 	// Payment methods
 
 		&-payment {
-			background-color: $color_dark_grey;
+			background-color: $color_dark;
 			color: #fff;
 			overflow: hidden;
 

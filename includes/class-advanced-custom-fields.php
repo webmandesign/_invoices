@@ -34,17 +34,15 @@ class Invoices_Advanced_Custom_Fields {
 		/**
 		 * Constructor
 		 *
+		 * IMPORTANT:
+		 * Do not bail if not in admin! We need this code to be included
+		 * in front-end, as repeater type field needs it to properly
+		 * register and retrieve values from related subfields.
+		 *
 		 * @since    1.0.0
 		 * @version  1.0.0
 		 */
 		private function __construct() {
-
-			// Requirements check
-
-				if ( ! is_admin() ) {
-					return;
-				}
-
 
 			// Processing
 
@@ -53,9 +51,11 @@ class Invoices_Advanced_Custom_Fields {
 					// Actions
 
 						add_action( 'init', __CLASS__ . '::invoice_disable_editor' );
-						add_action( 'init', __CLASS__ . '::invoice_items' );
-						add_action( 'init', __CLASS__ . '::invoice_setup' );
-						add_action( 'init', __CLASS__ . '::invoice_exchange' );
+
+						add_action( 'acf/init', __CLASS__ . '::invoice_items' );
+						add_action( 'acf/init', __CLASS__ . '::invoice_setup' );
+						add_action( 'acf/init', __CLASS__ . '::invoice_exchange' );
+						add_action( 'acf/init', __CLASS__ . '::seller_stamp' );
 
 						add_action( 'admin_menu', __CLASS__ . '::invoice_metabox_hide' );
 
@@ -116,75 +116,44 @@ class Invoices_Advanced_Custom_Fields {
 		 */
 		public static function invoice_items() {
 
-			// Helper variables
-
-				$group_no = 0;
-
-
 			// Processing
 
-				register_field_group( (array) apply_filters( 'wmhook_invoices_acf_register_field_group', array(
-					'id'     => 'invoice_items',
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_add_local_field_group', array(
+					'id'     => 'group_invoice_items',
 					'title'  => esc_html__( 'Invoice items', '_invoices' ),
 					'fields' => array(
 
 						100 => array(
-							'key'          => 'invoice_items_repeater',
-							'label'        => esc_html__( 'Invoice items', '_invoices' ),
+							'key'          => 'key_invoice_items',
 							'name'         => 'items',
 							'type'         => 'repeater',
-							'required'     => 1,
-							'collapsed'    => 'invoice_items_price',
-							'min'          => 1,
-							'max'          => 0,
-							'layout'       => 'table',
+							'label'        => esc_html__( 'Invoice items', '_invoices' ),
 							'button_label' => esc_html__( '+ Add invoice item', '_invoices' ),
+							'required'     => 1,
+							'collapsed'    => 'key_invoice_items_price',
+							'min'          => 1,
+							'layout'       => 'table',
 							'sub_fields'   => array(
 
 								100 => array(
-									'key'      => 'invoice_items_price',
-									'label'    => esc_html__( 'Price', '_invoices' ),
+									'key'      => 'key_invoice_items_price',
 									'name'     => 'price',
 									'type'     => 'number',
+									'label'    => esc_html__( 'Price', '_invoices' ),
 									'required' => 1,
 									'wrapper'  => array(
-										'width' => '15',
-										'class' => '',
-										'id'    => '',
+										'width' => '20',
 									),
 								),
 
 								200 => array(
-									'key'      => 'invoice_items_currency',
-									'label'    => esc_html__( 'Currency', '_invoices' ),
-									'name'     => 'currency',
-									'type'     => 'select',
-									'required' => 1,
-									'wrapper'  => array(
-										'width' => '10',
-										'class' => '',
-										'id'    => '',
-									),
-									'choices' => array(
-										'USD' => 'USD',
-										'EUR' => 'EUR',
-									),
-									'default_value' => array(
-										0 => 'USD',
-									),
-									'return_format' => 'value',
-								),
-
-								300 => array(
-									'key'      => 'invoice_items_quantity',
-									'label'    => esc_html__( 'Qty', '_invoices' ),
+									'key'      => 'key_invoice_items_quantity',
 									'name'     => 'quantity',
 									'type'     => 'number',
+									'label'    => esc_html__( 'Qty', '_invoices' ),
 									'required' => 1,
 									'wrapper'  => array(
 										'width' => '5',
-										'class' => '',
-										'id'    => '',
 									),
 									'default_value' => 1,
 									'min'           => 1,
@@ -192,39 +161,31 @@ class Invoices_Advanced_Custom_Fields {
 									'step'          => 1,
 								),
 
-								400 => array(
-									'key'      => 'invoice_items_invoice_item',
-									'label'    => esc_html__( 'Select item', '_invoices' ),
-									'name'     => 'invoice_item',
+								300 => array(
+									'key'      => 'key_invoice_items_item',
+									'name'     => 'item',
 									'type'     => 'post_object',
-									'required' => 0,
+									'label'    => esc_html__( 'Item', '_invoices' ),
 									'wrapper'  => array(
-										'width' => '20',
-										'class' => '',
-										'id'    => '',
+										'width' => '25',
 									),
 									'post_type' => array(
 										0 => 'page',
 									),
+									'allow_null'    => 1,
 									'return_format' => 'object',
 								),
 
-								500 => array(
-									'key'      => 'invoice_items_description',
-									'label'    => esc_html__( 'Optional item description', '_invoices' ),
+								400 => array(
+									'key'      => 'key_invoice_items_description',
 									'name'     => 'description',
 									'type'     => 'wysiwyg',
-									'required' => 0,
+									'label'    => esc_html__( 'Optional (additional) item info', '_invoices' ),
 									'wrapper'  => array(
 										'width' => '50',
-										'class' => '',
-										'id'    => '',
 									),
-									'default_value' => '',
-									'tabs'          => 'all',
-									'toolbar'       => 'basic',
-									'media_upload'  => 0,
-									'delay'         => 1,
+									'media_upload' => 0,
+									'delay'        => 1,
 								),
 
 							),
@@ -239,8 +200,6 @@ class Invoices_Advanced_Custom_Fields {
 								'param'    => 'post_type',
 								'operator' => '==',
 								'value'    => 'post',
-								'order_no' => 0,
-								'group_no' => $group_no++,
 							),
 
 						),
@@ -249,7 +208,7 @@ class Invoices_Advanced_Custom_Fields {
 					'menu_order' => 10,
 					'position'   => 'acf_after_title',
 					'style'      => 'seamless',
-				), 'invoice_items', $group_no ) );
+				), 'invoice_items' ) );
 
 		} // /invoice_items
 
@@ -263,118 +222,75 @@ class Invoices_Advanced_Custom_Fields {
 		 */
 		public static function invoice_setup() {
 
-			// Helper variables
-
-				$group_no = 0;
-
-
 			// Processing
 
-				register_field_group( (array) apply_filters( 'wmhook_invoices_acf_register_field_group', array(
-					'id'     => 'invoice_setup',
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_add_local_field_group', array(
+					'id'     => 'group_invoice_setup',
 					'title'  => esc_html__( 'Invoice setup', '_invoices' ),
 					'fields' => array(
 
 						100 => array(
-							'key'          => 'invoice_setup_seller',
-							'label'        => esc_html__( 'Seller', '_invoices' ),
-							'name'         => 'seller',
-							'type'         => 'taxonomy',
-							'instructions' => esc_html__( 'Company issuing the invoice.', '_invoices' ),
-							'required'     => 1,
-							'wrapper'      => array(
-								'width' => '38',
-								'class' => '',
-								'id'    => '',
-							),
+							'key'           => 'key_invoice_setup_seller',
+							'name'          => 'seller',
+							'type'          => 'taxonomy',
+							'label'         => esc_html__( 'Seller', '_invoices' ),
+							'instructions'  => esc_html__( 'Company issuing the invoice.', '_invoices' ),
+							'required'      => 1,
 							'taxonomy'      => 'category',
 							'field_type'    => 'radio',
-							'allow_null'    => 0,
 							'add_term'      => 0,
 							'save_terms'    => 1,
 							'load_terms'    => 1,
 							'return_format' => 'object',
-							'multiple'      => 0,
 						),
 
 						200 => array(
-							'key'          => 'invoice_setup_client',
-							'label'        => esc_html__( 'Client', '_invoices' ),
-							'name'         => 'client',
-							'type'         => 'taxonomy',
-							'instructions' => esc_html__( 'Customer receiving the invoice.', '_invoices' ),
-							'required'     => 1,
-							'wrapper'      => array(
-								'width' => '38',
-								'class' => '',
-								'id'    => '',
-							),
+							'key'           => 'key_invoice_setup_client',
+							'name'          => 'client',
+							'type'          => 'taxonomy',
+							'label'         => esc_html__( 'Client', '_invoices' ),
+							'instructions'  => esc_html__( 'Customer receiving the invoice.', '_invoices' ),
+							'required'      => 1,
 							'taxonomy'      => 'client',
 							'field_type'    => 'select',
-							'allow_null'    => 0,
 							'add_term'      => 0,
 							'save_terms'    => 1,
 							'load_terms'    => 1,
 							'return_format' => 'object',
-							'multiple'      => 0,
 						),
 
 						300 => array(
-							'key'          => 'invoice_setup_payment_method',
-							'label'        => esc_html__( 'Payment method', '_invoices' ),
-							'name'         => 'payment_method',
-							'type'         => 'taxonomy',
-							'instructions' => esc_html__( 'Preferred payment method to pay the invoice.', '_invoices' ),
-							'required'     => 1,
-							'wrapper'      => array(
-								'width' => '38',
-								'class' => '',
-								'id'    => '',
-							),
+							'key'           => 'key_invoice_setup_payment_method',
+							'name'          => 'payment_method',
+							'type'          => 'taxonomy',
+							'label'         => esc_html__( 'Payment method', '_invoices' ),
+							'instructions'  => esc_html__( 'Preferred payment method to pay the invoice.', '_invoices' ),
+							'required'      => 1,
 							'taxonomy'      => 'payment_method',
 							'field_type'    => 'checkbox',
-							'allow_null'    => 0,
 							'add_term'      => 0,
 							'save_terms'    => 1,
 							'load_terms'    => 1,
 							'return_format' => 'object',
-							'multiple'      => 0,
 						),
 
 						400 => array(
-							'key'          => 'invoice_setup_currency',
-							'label'        => esc_html__( 'Currency', '_invoices' ),
-							'name'         => 'currency',
-							'type'         => 'select',
-							'instructions' => esc_html__( 'Invoice currency for total pay amount calculation and display.', '_invoices' ),
-							'required'     => 1,
-							'choices'      => array(
-								'USD' => 'USD',
-								'EUR' => 'EUR',
-							),
-							'default_value' => array(
-								0 => 'EUR',
-							),
-							'return_format' => 'value',
+							'key'           => 'key_invoice_setup_symbol_constant',
+							'name'          => 'symbol_constant',
+							'type'          => 'text',
+							'label'         => esc_html__( 'Constant symbol', '_invoices' ),
+							'instructions'  => esc_html__( 'Optional invoice constant symbol.', '_invoices' ),
+							'default_value' => esc_html_x( '308', 'Invoice default constant symbol.', '_invoices' ),
 						),
 
 						500 => array(
-							'key'          => 'invoice_setup_notes',
-							'label'        => esc_html__( 'Notes', '_invoices' ),
+							'key'          => 'key_invoice_setup_notes',
 							'name'         => 'notes',
 							'type'         => 'wysiwyg',
+							'label'        => esc_html__( 'Notes', '_invoices' ),
 							'instructions' => esc_html__( 'Optional invoice notes, displayed before invoice items.', '_invoices' ),
-							'required'     => 0,
-							'wrapper'      => array(
-								'width' => '',
-								'class' => '',
-								'id'    => '',
-							),
-							'default_value' => '',
-							'tabs'          => 'all',
-							'toolbar'       => 'basic',
-							'media_upload'  => 0,
-							'delay'         => 1,
+							'media_upload' => 0,
+							'delay'        => 1,
 						),
 
 					),
@@ -386,8 +302,6 @@ class Invoices_Advanced_Custom_Fields {
 								'param'    => 'post_type',
 								'operator' => '==',
 								'value'    => 'post',
-								'order_no' => 0,
-								'group_no' => $group_no++,
 							),
 
 						),
@@ -405,7 +319,7 @@ class Invoices_Advanced_Custom_Fields {
 						4 => 'comments',
 						5 => 'slug',
 					),
-				), 'invoice_setup', $group_no ) );
+				), 'invoice_setup' ) );
 
 		} // /invoice_setup
 
@@ -419,66 +333,64 @@ class Invoices_Advanced_Custom_Fields {
 		 */
 		public static function invoice_exchange() {
 
-			// Helper variables
-
-				$group_no = 0;
-
-
 			// Processing
 
-				register_field_group( (array) apply_filters( 'wmhook_invoices_acf_register_field_group', array(
-					'id'     => 'invoice_exchange',
-					'title'  => esc_html__( 'Exchange rate', '_invoices' ),
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_add_local_field_group', array(
+					'id'     => 'group_invoice_exchange',
+					'title'  => esc_html__( 'Dual currency display', '_invoices' ),
 					'fields' => array(
 
 						100 => array(
-							'key'          => 'invoice_exchange_exchange_rate',
-							'label'        => esc_html__( 'Exchange rate', '_invoices' ),
-							'name'         => 'exchange_rate',
-							'type'         => 'number',
-							'instructions' => esc_html__( 'Optional currency exchange rate setup relevant to the invoice.', '_invoices' ) . ' <a href="' . esc_url( _x( 'https://www.nbs.sk/en/statistics/exchange-rates/monthly-cumulative-and-annual-exchange-rates', 'Exchange rate reference website URL.', '_invoices' ) ) . '" target="_blank">' . esc_html_x( 'www.nbs.sk', 'Exchange rate reference website title.', '_invoices' ) . '</a>',
+							'key'           => 'key_invoice_exchange_exchange_rate',
+							'name'          => 'exchange_rate',
+							'type'          => 'number',
+							'label'         => esc_html__( 'Exchange rate', '_invoices' ),
+							'instructions'  => '<a href="' . esc_url( _x( 'https://www.nbs.sk/en/statistics/exchange-rates/monthly-cumulative-and-annual-exchange-rates', 'Exchange rate reference website URL.', '_invoices' ) ) . '" target="_blank">' . esc_html_x( 'www.nbs.sk', 'Exchange rate reference website title.', '_invoices' ) . '</a>',
+							'default_value' => 0,
+							'required'      => 1,
 						),
 
 						200 => array(
-							'key'     => 'invoice_exchange_exchange_from',
-							'label'   => esc_html__( 'Currency to exchange FROM', '_invoices' ),
-							'name'    => 'exchange_from',
-							'type'    => 'select',
-							'choices' => array(
-								'USD' => 'USD',
-								'EUR' => 'EUR',
-							),
-							'default_value' => array(
-								0 => 'USD',
-							),
+							'key'           => 'key_invoice_exchange_exchange_from',
+							'name'          => 'exchange_from',
+							'type'          => 'select',
+							'label'         => esc_html__( 'Client (invoice) currency', '_invoices' ),
+							'instructions'  => esc_html__( 'Currency to exchange FROM.', '_invoices' ) . ' ' . esc_html__( 'This becomes the main invoice currency.', '_invoices' ),
+							'choices'       => Invoices_Customize::get_currencies_array(),
+							'default_value' => Invoices_Customize::get_currency_exchange_from(),
 							'return_format' => 'value',
+							'required'      => 1,
 						),
 
 						300 => array(
-							'key'     => 'invoice_exchange_exchange_to',
-							'label'   => esc_html__( 'Currency to exchange TO', '_invoices' ),
-							'name'    => 'exchange_to',
-							'type'    => 'select',
-							'choices' => array(
-								'USD' => 'USD',
-								'EUR' => 'EUR',
-							),
-							'default_value' => array(
-								0 => 'EUR',
-							),
+							'key'           => 'key_invoice_exchange_exchange_to',
+							'name'          => 'exchange_to',
+							'type'          => 'select',
+							'label'         => esc_html__( 'Seller currency', '_invoices' ),
+							'instructions'  => esc_html__( 'Currency to exchange TO.', '_invoices' ) . ' ' . esc_html__( 'If it differs from client currency, exchanged amount will be calculated automatically from provided rate.', '_invoices' ) . ' ' . esc_html__( 'For seller accounting purposes.', '_invoices' ),
+							'choices'       => Invoices_Customize::get_currencies_array(),
+							'default_value' => Invoices_Customize::get_currency_exchange_to(),
 							'return_format' => 'value',
+							'required'      => 1,
 						),
 
 						400 => array(
-							'key'            => 'invoice_exchange_exchange_date',
-							'label'          => esc_html__( 'Date', '_invoices' ),
+							'key'            => 'key_invoice_exchange_exchange_date',
 							'name'           => 'exchange_date',
 							'type'           => 'date_picker',
+							'label'          => esc_html__( 'Date', '_invoices' ),
 							'instructions'   => esc_html__( 'Date of the exchange rate value for the record.', '_invoices' ),
 							'display_format' => 'Y/m/d',
 							'return_format'  => 'Ymd',
 							'first_day'      => 1,
 							'default_value'  => date( 'Ymt', strtotime( 'last month' ) ),
+						),
+
+						500 => array(
+							'key'     => 'key_invoice_exchange_message',
+							'type'    => 'message',
+							'label'   => esc_html__( 'Info', '_invoices' ),
+							'message' => esc_html__( 'Automatic exchange calculation and dual currency display of invoice amounts will take place only if exchange rate is higher than zero and currencies differs.', '_invoices' ),
 						),
 
 					),
@@ -490,8 +402,6 @@ class Invoices_Advanced_Custom_Fields {
 								'param'    => 'post_type',
 								'operator' => '==',
 								'value'    => 'post',
-								'order_no' => 0,
-								'group_no' => $group_no++,
 							),
 
 						),
@@ -500,7 +410,7 @@ class Invoices_Advanced_Custom_Fields {
 					'menu_order'      => 30,
 					'position'        => 'side',
 					'style'           => 'default',
-				), 'invoice_exchange', $group_no ) );
+				), 'invoice_exchange' ) );
 
 		} // /invoice_exchange
 
@@ -521,6 +431,51 @@ class Invoices_Advanced_Custom_Fields {
 				remove_meta_box( 'payment_methoddiv', 'post', 'side' );
 
 		} // /invoice_metabox_hide
+
+
+
+		/**
+		 * Invoice seller stamp image
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function seller_stamp() {
+
+			// Processing
+
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_add_local_field_group', array(
+					'key'    => 'group_seller_stamp',
+					'title'  => esc_html__( 'Seller options', '_invoices' ),
+					'fields' => array(
+
+						100 => array(
+							'key'           => 'key_seller_stamp_image_stamp',
+							'label'         => esc_html__( 'Stamp image', '_invoices' ),
+							'name'          => 'image_stamp',
+							'type'          => 'image',
+							'return_format' => 'id',
+							'preview_size'  => 'medium',
+						),
+
+					),
+					'location' => array(
+
+						100 => array(
+
+							100 => array(
+								'param'    => 'taxonomy',
+								'operator' => '==',
+								'value'    => 'category',
+							),
+
+						),
+
+					),
+					'style' => 'seamless',
+				), 'seller_stamp' ) );
+
+		} // /seller_stamp
 
 
 

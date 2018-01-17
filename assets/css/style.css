@@ -154,6 +154,12 @@ h1, h2, h3, h4, p { margin: 0 0 2.5mm; }
 
 h1:last-child, h2:last-child, h3:last-child, h4:last-child, p:last-child { margin-bottom: 0; }
 
+table { border-collapse: collapse; vertical-align: top; }
+
+table thead, table tbody, table tfoot, table tr, table th, table td { vertical-align: inherit; }
+
+img { max-width: 100%; height: auto; }
+
 /* FILE: parts/_post.scss */
 .invoice { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; height: calc( 297mm - 20mm); padding: 10mm; }
 
@@ -164,6 +170,34 @@ h1:last-child, h2:last-child, h3:last-child, h4:last-child, p:last-child { margi
 .invoice-title h1 { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; font-size: 1.62em; font-weight: 700; letter-spacing: .05em; }
 
 .invoice-note { margin: 5mm 0; }
+
+.invoice-note h2, .invoice-note h3 { margin: 0; font-size: 1rem; font-weight: 700; }
+
+.invoice-items { width: 100%; text-align: center; }
+
+.invoice-items thead { text-transform: uppercase; font-size: .81rem; letter-spacing: .05em; }
+
+.invoice-items thead th { font-weight: 400; }
+
+.invoice-items th, .invoice-items td { padding: 2.5mm; border-bottom: 1px solid #ccc; }
+
+.invoice-items th { border-bottom: 3px solid; }
+
+.invoice-items-column-order { width: 5%; font-size: .81rem; }
+
+.invoice-items-column-description { width: 60%; text-align: left; }
+
+.invoice-items-column-description h2, .invoice-items-column-description h3, .invoice-items-column-description strong:first-child { margin: 0; font-size: 1rem; font-weight: 700; }
+
+.invoice-items-column-description .item-description { font-size: .91em; }
+
+.invoice-items-column-quantity { width: 5%; }
+
+.invoice-items-column-price { width: 15%; text-align: right; }
+
+.invoice-items-column-total { width: 15%; text-align: right; font-weight: 700; }
+
+.invoice .dual-currency { display: block; }
 
 /* FILE: parts/_meta.scss */
 .invoice-meta-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin: 0 -2.5mm; }
@@ -180,13 +214,35 @@ h1:last-child, h2:last-child, h3:last-child, h4:last-child, p:last-child { margi
 
 .invoice-meta-company { background: transparent; border: 1px solid #666; }
 
-.invoice-meta-company h3 { margin: 5mm 0 0; font-size: 1.19em; font-weight: 700; }
+.invoice-meta-company h3 { margin: 0; font-size: 1.19em; font-weight: 700; }
 
-.invoice-meta-date, .invoice-meta-symbol { text-align: center; }
+.invoice-meta-company .invoice-meta-value { margin-top: 5mm; }
 
-.invoice-meta-date .invoice-meta-value, .invoice-meta-symbol .invoice-meta-value { font-size: 1.38em; font-weight: 700; }
+.invoice-meta-company:last-child .invoice-meta-label-taxonomy { display: none; }
 
-.invoice-meta-symbol-container { margin-top: auto; }
+.invoice-meta-date { text-align: center; }
+
+.invoice-meta-date .invoice-meta-value { font-size: 1.38em; font-weight: 700; }
+
+.invoice-meta-total { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; text-align: right; background-color: #666; color: #fff; }
+
+.invoice-meta-total-container { margin-top: auto; }
+
+.invoice-meta-total .invoice-meta-label { -webkit-box-ordinal-group: 11; -ms-flex-order: 10; order: 10; margin-top: auto; padding-top: 2.5mm; border-top: 1px solid; }
+
+.invoice-meta-total .invoice-meta-value { margin-bottom: 2.5mm; font-size: 2.62em; font-weight: 700; }
+
+.invoice-meta-total .invoice-meta-value .currency { font-size: .81em; }
+
+.invoice-meta-total .dual-currency { font-size: 1rem; font-weight: 400; }
+
+.invoice-meta-stamp { text-align: left; background: transparent; color: inherit; }
+
+.invoice-meta-stamp img { width: auto; max-height: 20mm; }
+
+.invoice-meta-symbol .invoice-meta-label { float: left; }
+
+.invoice-meta-symbol .invoice-meta-value { text-align: right; font-size: 1.38em; font-weight: 700; }
 
 .invoice-meta-payment { background-color: #666; color: #fff; overflow: hidden; }
 

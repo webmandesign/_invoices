@@ -83,6 +83,11 @@
 
 	// Advanced Custom Fields
 
-		if ( function_exists( 'register_field_group' ) && is_admin() ) {
+		/**
+		 * We need to include the file even on front-end as otherwise
+		 * ACF can not get values from repeater field type.
+		 * That's why we don't check for admin in the condition below.
+		 */
+		if ( function_exists( 'acf_add_local_field_group' ) ) {
 			require INVOICES_PATH_INCLUDES . 'class-advanced-custom-fields.php';
 		}

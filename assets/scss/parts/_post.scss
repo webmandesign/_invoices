@@ -11,33 +11,111 @@
 		box-shadow: 0 5mm 20mm rgba( #000, .1 );
 	}
 
-	&-title {
-		padding: $gutter;
-		margin-bottom: $gutter / 2;
-		background-color: $color_dark_grey;
-		color: #fff;
 
-		h1 {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			font-size: 1.62em;
-			font-weight: 700;
-			letter-spacing: .05em;
+
+	// Title
+
+		&-title {
+			padding: $gutter;
+			margin-bottom: $gutter / 2;
+			background-color: $color_dark;
+			color: #fff;
+
+			h1 {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				font-size: 1.62em;
+				font-weight: 700;
+				letter-spacing: .05em;
+			}
+
 		}
 
-	}
 
-	&-note {
-		margin: $gutter 0;
-	}
 
-	&-items {
+	// Notes
 
-	}
+		&-note {
+			margin: $gutter 0;
 
-	&-total {
+			h2, h3 {
+				margin: 0;
+				font-size: 1rem;
+				font-weight: 700;
+			}
 
-	}
+		}
+
+
+
+	// Items
+
+		&-items {
+			width: 100%;
+			text-align: center;
+
+			thead {
+				text-transform: uppercase;
+				font-size: .81rem;
+				letter-spacing: .05em;
+
+				th {
+					font-weight: 400;
+				}
+
+			}
+
+			th, td {
+				padding: $gutter / 2;
+				border-bottom: 1px solid #ccc;
+			}
+
+			th {
+				border-bottom: 3px solid;
+			}
+
+			&-column-order {
+				width: 5%;
+				font-size: .81rem;
+			}
+
+			&-column-description {
+				width: 60%;
+				text-align: left;
+
+				h2, h3,
+				strong:first-child {
+					margin: 0;
+					font-size: 1rem; // Required for when inside .item-description
+					font-weight: 700;
+				}
+
+				.item-description {
+					font-size: .91em;
+				}
+
+			}
+
+			&-column-quantity {
+				width: 5%;
+			}
+
+			&-column-price {
+				width: 15%;
+				text-align: right;
+			}
+
+			&-column-total {
+				width: 15%;
+				text-align: right;
+				font-weight: 700;
+			}
+
+		}
+
+		.dual-currency {
+			display: block;
+		}
 
 }

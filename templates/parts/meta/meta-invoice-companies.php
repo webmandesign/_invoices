@@ -15,6 +15,8 @@
 
 // Helper variables
 
+	global $invoice_helper;
+
 	$taxonomies = array(
 		'category',
 		'client',
@@ -38,15 +40,21 @@ foreach ( $taxonomies as $taxonomy ) :
 		continue;
 	}
 
+	$invoice_helper['company'][ $taxonomy ] = $terms[0];
+
 	?>
 	<div class="invoice-meta-company invoice-meta-item">
-		<h2 class="invoice-meta-label"><?php
+		<h2 class="invoice-meta-label">
+			<span class="invoice-meta-label-taxonomy"><?php
 
-		$labels = get_taxonomy_labels( get_taxonomy( $taxonomy ) );
+			$labels = get_taxonomy_labels( get_taxonomy( $taxonomy ) );
+			echo esc_html( $labels->singular_name );
 
-		echo esc_html( $labels->singular_name );
-
-		?></h2>
+			?></span>
+			<?php if ( 'client' === $taxonomy ) : ?>
+			<span class="invoice-meta-label-shipping"><?php esc_html_e( 'Shipping address', '_invoices' ); ?></span>
+			<?php endif; ?>
+		</h2>
 		<div class="invoice-meta-value">
 			<h3><?php echo esc_html( $terms[0]->name ); ?></h3>
 			<?php echo apply_filters( 'the_excerpt', $terms[0]->description ); ?>

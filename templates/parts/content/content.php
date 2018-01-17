@@ -15,6 +15,13 @@
 
 
 
+// Helper variables
+
+	global $invoice_helper;
+
+	$invoice_helper = array();
+
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

@@ -16,7 +16,8 @@
 // Helper variables
 
 	$publish_date = get_the_date();
-	$due_days     = 21;
+	$due_period   = absint( get_theme_mod( 'invoice_due_period', 21 ) );
+	$due_date     = strtotime( '+' . $due_period . ' days', strtotime( get_the_date( 'd-m-Y' ) ) );
 
 
 ?>
@@ -35,7 +36,7 @@
 
 	<div class="invoice-meta-date invoice-meta-item">
 		<h2 class="invoice-meta-label"><?php esc_html_e( 'Due date', '_invoices' ); ?></h2>
-		<p class="invoice-meta-value"><?php echo date( get_option( 'date_format' ), strtotime( '+' . $due_days . ' days', strtotime( get_the_date( 'd-m-Y' ) ) ) ); ?></p>
+		<p class="invoice-meta-value"><?php echo date( get_option( 'date_format' ), $due_date ); ?></p>
 	</div>
 
 </div>
