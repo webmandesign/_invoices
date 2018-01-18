@@ -3,7 +3,7 @@
 .invoice {
 	display: flex;
 	flex-direction: column;
-	height: calc( 297mm - #{ $gutter * 4 } ) ; // A4 paper size: 210 x 297 mm
+	height: 295mm;
 	padding: $gutter * 2;
 
 	@media screen {
@@ -16,18 +16,18 @@
 	// Title
 
 		&-title {
-			padding: $gutter;
 			margin-bottom: $gutter / 2;
-			background-color: $color_dark;
-			color: #fff;
 
 			h1 {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				font-size: 1.62em;
+				font-size: 2.62em;
 				font-weight: 700;
-				letter-spacing: .05em;
+			}
+
+			&-label {
+				font-weight: 400;
 			}
 
 		}
@@ -68,20 +68,20 @@
 
 			th, td {
 				padding: $gutter / 2;
-				border-bottom: 1px solid #ccc;
+				border-bottom: 1pt dashed;
 			}
 
 			th {
-				border-bottom: 3px solid;
+				border-bottom: 1pt solid;
 			}
 
 			&-column-order {
-				width: 5%;
+				width: 4%;
 				font-size: .81rem;
 			}
 
 			&-column-description {
-				width: 60%;
+				width: 55%;
 				text-align: left;
 
 				h2, h3,
@@ -102,12 +102,12 @@
 			}
 
 			&-column-price {
-				width: 15%;
+				width: 18%;
 				text-align: right;
 			}
 
 			&-column-total {
-				width: 15%;
+				width: 18%;
 				text-align: right;
 				font-weight: 700;
 			}

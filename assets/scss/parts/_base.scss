@@ -45,15 +45,17 @@ h1, h2, h3, h4, p {
 }
 
 table {
-	border-collapse: collapse;
 	vertical-align: top;
+}
 
 	thead, tbody, tfoot,
 	tr, th, td {
 		vertical-align: inherit;
 	}
 
-}
+	th, td {
+		border: 1mm solid transparent;
+	}
 
 img {
 	max-width: 100%;

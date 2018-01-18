@@ -45,14 +45,10 @@ foreach ( $taxonomies as $taxonomy ) :
 	?>
 	<div class="invoice-meta-company invoice-meta-item">
 		<h2 class="invoice-meta-label">
-			<span class="invoice-meta-label-taxonomy"><?php
-
-			$labels = get_taxonomy_labels( get_taxonomy( $taxonomy ) );
-			echo esc_html( $labels->singular_name );
-
-			?></span>
-			<?php if ( 'client' === $taxonomy ) : ?>
-			<span class="invoice-meta-label-shipping"><?php esc_html_e( 'Shipping address', '_invoices' ); ?></span>
+			<?php if ( 'category' === $taxonomy ) : ?>
+			<span class="invoice-meta-label-supplier"><?php echo esc_html_x( 'Supplier', 'Invoice company info label.', '_invoices' ); ?></span>
+			<?php else : ?>
+			<span class="invoice-meta-label-customer"><?php echo esc_html_x( 'Client', 'Invoice company info label.', '_invoices' ); ?></span>
 			<?php endif; ?>
 		</h2>
 		<div class="invoice-meta-value">

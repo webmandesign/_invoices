@@ -22,7 +22,7 @@
 		padding: $gutter;
 		width: calc( 50% - #{ $gutter } );
 		margin: $gutter / 2;
-		background-color: $color_shaded;
+		border: 1pt solid;
 
 		&:nth-child(1):nth-last-child(1) {
 			width: calc( 100% - #{ $gutter } );
@@ -49,7 +49,7 @@
 
 		&-company {
 			background: transparent;
-			border: 1px solid $color_dark;
+			border: 1pt solid;
 
 			h3 {
 				margin: 0;
@@ -61,10 +61,6 @@
 				margin-top: $gutter;
 			}
 
-			&:last-child .invoice-meta-label-taxonomy {
-				display: none;
-			}
-
 		}
 
 
@@ -74,9 +70,19 @@
 		&-date {
 			text-align: center;
 
+			&-container {
+				margin-bottom: $gutter;
+			}
+
 			.invoice-meta-value {
 				font-size: 1.38em;
 				font-weight: 700;
+			}
+
+			.sep {
+				margin: 0 1mm;
+				font-size: .81em;
+				opacity: .33;
 			}
 
 		}
@@ -89,8 +95,8 @@
 			display: flex;
 			flex-direction: column;
 			text-align: right;
-			background-color: $color_dark;
-			color: #fff;
+			background: transparent;
+			border: 0;
 
 			&-container {
 				margin-top: auto;
@@ -100,7 +106,7 @@
 				order: 10;
 				margin-top: auto;
 				padding-top: $gutter / 2;
-				border-top: 1px solid;
+				border-top: 3pt double;
 			}
 
 			.invoice-meta-value {
@@ -115,8 +121,7 @@
 			}
 
 			.dual-currency {
-				font-size: 1rem;
-				font-weight: 400;
+				font-size: .62em;
 			}
 
 		}
@@ -129,6 +134,10 @@
 			img {
 				width: auto;
 				max-height: 20mm;
+			}
+
+			.invoice-meta-label {
+				border-top: 1pt solid;
 			}
 
 		}
@@ -156,8 +165,6 @@
 	// Payment methods
 
 		&-payment {
-			background-color: $color_dark;
-			color: #fff;
 			overflow: hidden;
 
 			.invoice-meta-label {
