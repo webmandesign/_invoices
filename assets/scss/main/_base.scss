@@ -1,4 +1,4 @@
-/* FILE: parts/_base.scss */
+/* FILE: main/_base.scss */
 
 *,
 *::before,
@@ -24,7 +24,6 @@ body {
 
 	@media screen {
 		max-width: 210mm; // A4 paper size: 210 x 297 mm
-		padding: ( $gutter * 2 ) 0;
 		margin: 0 auto;
 	}
 
@@ -60,4 +59,20 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+a {
+	text-decoration: none;
+	color: #09c;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: inherit;
+	}
+
+	@media print {
+		color: inherit;
+	}
+
 }

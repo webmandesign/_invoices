@@ -1,4 +1,4 @@
-/* FILE: parts/_meta.scss */
+/* FILE: main/_meta.scss */
 
 .invoice-meta {
 
@@ -69,6 +69,7 @@
 
 		&-date {
 			text-align: center;
+			border-style: dashed;
 
 			&-container {
 				margin-bottom: $gutter;
@@ -104,12 +105,12 @@
 
 			.invoice-meta-label {
 				order: 10;
-				margin-top: auto;
 				padding-top: $gutter / 2;
 				border-top: 3pt double;
 			}
 
 			.invoice-meta-value {
+				margin-top: auto;
 				margin-bottom: $gutter / 2;
 				font-size: 2.62em;
 				font-weight: 700;
@@ -147,6 +148,7 @@
 	// Symbols
 
 		&-symbol {
+			border-style: dashed;
 
 			.invoice-meta-label {
 				float: left;

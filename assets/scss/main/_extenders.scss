@@ -1,0 +1,13 @@
+/* FILE: main/_extenders.scss */
+
+%site_meta {
+	padding: $gutter * 2;
+	margin: ( $gutter * 4 ) ( -2 * $gutter );
+	background-color: $color_dark;
+	color: #fff;
+
+	@media print {
+		display: none;
+	}
+
+}

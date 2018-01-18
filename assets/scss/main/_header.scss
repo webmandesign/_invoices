@@ -1,0 +1,15 @@
+/* FILE: main/_header.scss */
+
+.page {
+
+	&-header {
+		@extend %site_meta;
+		margin-top: 0;
+	}
+
+	&-title {
+		font-size: 1.62em;
+		font-weight: 700;
+	}
+
+}

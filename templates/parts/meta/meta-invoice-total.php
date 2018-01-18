@@ -17,8 +17,15 @@
 
 	global $invoice_helper, $totals;
 
-	$totals[ $invoice_helper['currency_from'] ] += $invoice_helper['total'][ $invoice_helper['currency_from'] ];
-	$totals[ $invoice_helper['currency_to'] ]   += $invoice_helper['total'][ $invoice_helper['currency_to'] ];
+	if ( $invoice_helper['total'][ $invoice_helper['currency_from'] ] ) {
+		$totals[ $invoice_helper['currency_from'] ]['amount'] += $invoice_helper['total'][ $invoice_helper['currency_from'] ];
+		$totals[ $invoice_helper['currency_from'] ]['source'][ get_the_ID() ] = get_the_title();
+	}
+
+	if ( $invoice_helper['total'][ $invoice_helper['currency_to'] ] ) {
+		$totals[ $invoice_helper['currency_to'] ]['amount'] += $invoice_helper['total'][ $invoice_helper['currency_to'] ];
+		$totals[ $invoice_helper['currency_to'] ]['source'][ get_the_ID() ] = get_the_title();
+	}
 
 
 ?>

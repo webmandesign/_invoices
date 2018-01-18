@@ -1,0 +1,30 @@
+/* FILE: admin/_layout.scss */
+
+@media screen and ( min-width: 1600px ) {
+
+	.post-type-post {
+
+		#poststuff {
+
+			$sidebar_width : .3333; // In fraction
+			$main_width : $sidebar_width / ( 1 - $sidebar_width );
+
+			#post-body.columns-2 {
+				margin-right: percentage( $sidebar_width );
+
+				#postbox-container-1 {
+					margin-right: percentage( -1 * $main_width );
+					width: calc( #{ percentage( $main_width ) } - 20px );
+				}
+
+				#side-sortables {
+					width: 100%;
+				}
+
+			}
+
+		}
+
+	}
+
+}

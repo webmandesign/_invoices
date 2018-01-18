@@ -64,7 +64,7 @@ class Invoices_Post_Types {
 						add_action( 'registered_post_type', __CLASS__ . '::invoice_post_type_object', 10, 2 );
 						add_action( 'registered_post_type', __CLASS__ . '::invoice_item_post_type_object', 10, 2 );
 
-						add_action( 'edit_form_top', __CLASS__ . '::invoice_predefined_title' );
+						add_action( 'edit_form_top', __CLASS__ . '::invoice_predefined' );
 
 						// Invoice header
 						add_action( 'invoice_content', __CLASS__ . '::invoice_title', 110 );
@@ -210,7 +210,7 @@ class Invoices_Post_Types {
 
 
 		/**
-		 * Setup predefined Invoice post title
+		 * Setup predefined Invoice post attributes
 		 *
 		 * We presume, when a new invoice is being created,
 		 * it is being issued for the previous month.
@@ -224,7 +224,7 @@ class Invoices_Post_Types {
 		 *
 		 * @param  WP_Post $post  Post object.
 		 */
-		public static function invoice_predefined_title( $post ) {
+		public static function invoice_predefined( $post ) {
 
 			// Requirements check
 
@@ -244,12 +244,18 @@ class Invoices_Post_Types {
 
 			// Processing
 
-				$GLOBALS['post']->post_title = sprintf(
-					$labels->singular_name . ' %s01',
-					date( 'ymt', strtotime( 'last month' ) )
-				);
+				// Title
 
-		} // /invoice_predefined_title
+					$GLOBALS['post']->post_title = sprintf(
+						$labels->singular_name . ' %s01',
+						date( 'ymt', strtotime( 'last month' ) )
+					);
+
+				// Publish date
+
+					$GLOBALS['post']->post_date = date( 'Y-m-t 01:00:00', strtotime( 'last month' ) );
+
+		} // /invoice_predefined
 
 
 

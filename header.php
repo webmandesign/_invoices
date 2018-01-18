@@ -27,8 +27,12 @@
 	global $totals;
 	$totals = Invoices_Customize::get_currencies_array();
 	foreach ( $totals as $key => $value ) {
-		$totals[ $key ] = 0;
+		$totals[ $key ] = array(
+			'amount' => 0,
+			'source' => array(),
+		);
 	}
+	$totals['invoice_count'] = 0;
 
 	/**
 	 * Create helper global variable so we can store and pass

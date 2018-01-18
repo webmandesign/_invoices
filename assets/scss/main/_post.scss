@@ -1,15 +1,68 @@
-/* FILE: parts/_post.scss */
+/* FILE: main/_post.scss */
 
 .invoice {
 	display: flex;
 	flex-direction: column;
+	position: relative;
 	height: 295mm;
 	padding: $gutter * 2;
+	margin: ( $gutter * 2 ) 0;
+
+	+ .invoice {
+		margin-top: $gutter * 4;
+	}
 
 	@media screen {
 		background-color: #fff;
 		box-shadow: 0 5mm 20mm rgba( #000, .1 );
 	}
+
+	@media print {
+		page-break-inside: avoid;
+		margin: 0 !important;
+	}
+
+
+
+	// Link/anchor
+
+		&-anchors {
+			position: absolute;
+			left: 100%;
+			top: 0;
+			padding-top: 2.5 * $gutter;
+			margin-left: $gutter;
+			margin-top: -3.5 * $gutter;
+			text-align: center;
+			font-size: 1.38em;
+
+			@media print {
+				display: none;
+			}
+
+			a {
+				display: block;
+				min-width: $gutter * 3;
+				padding: $gutter / 2;
+				margin: 2mm 0;
+			}
+
+		}
+
+		.permalink {
+			font-size: .62em;
+		}
+
+		&-navigation {
+			font-weight: 900;
+			color: inherit;
+			border: 1px solid;
+		}
+
+		&:first-child .previous,
+		&:last-child .next {
+			display: none;
+		}
 
 
 
@@ -18,12 +71,15 @@
 		&-title {
 			margin-bottom: $gutter / 2;
 
-			h1 {
+			h1, h2 {
+				font-size: 2.62em;
+				font-weight: 700;
+			}
+
+			a {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				font-size: 2.62em;
-				font-weight: 700;
 			}
 
 			&-label {

@@ -1,0 +1,44 @@
+/* FILE: main/_summary.scss */
+
+.screen-summary {
+
+	&-title {
+		margin: 0 0 ( $gutter / 2 );
+		text-align: left;
+		text-transform: uppercase;
+		letter-spacing: .05em;
+	}
+
+	&-list {
+		display: flex;
+		padding: 0;
+		margin: 0 ( -$gutter / 2 );
+		list-style: none;
+		font-size: 1.38em;
+	}
+
+	&-item {
+		flex: 1 1 auto;
+		padding: $gutter;
+		margin: 0 ( $gutter / 2 );
+		border: 3pt double;
+	}
+
+	&-amount {
+		font-size: 1.62em;
+		font-weight: 700;
+	}
+
+	&-source-count {
+		display: inline-block;
+		width: 1.5em;
+		font-size: 1rem;
+		font-weight: 700;
+		background-color: #fff;
+		color: #444;
+		border-radius: 1.5em;
+		vertical-align: top;
+		cursor: help;
+	}
+
+}

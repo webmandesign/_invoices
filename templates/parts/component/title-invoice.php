@@ -15,23 +15,33 @@
 
 // Helper variables
 
-	$post_type = get_post_type_object( 'post' );
-	$labels    = get_post_type_labels( $post_type );
+	$post_type   = get_post_type_object( 'post' );
+	$labels      = get_post_type_labels( $post_type );
+	$heading_tag = ( is_singular() ) ? ( 'h1' ) : ( 'h2' );
 
 
 ?>
 
 <div class="invoice-title">
-	<h1>
-		<span class="invoice-title-label"><?php echo esc_html( $labels->singular_name ); ?></span>
-		<span class="invoice-title-number"><?php
+	<<?php echo tag_escape( $heading_tag ); ?>>
+		<a href="<?php echo esc_url( get_permalink() ); ?>">
 
-		echo esc_html( str_replace(
-			$labels->singular_name . ' ',
-			'',
-			get_the_title()
-		) );
+			<span class="invoice-title-label">
+				<?php echo esc_html( $labels->singular_name ); ?>
+			</span>
 
-		?></span>
-	</h1>
+			<span class="invoice-title-number">
+				<?php
+
+				echo esc_html( str_replace(
+					$labels->singular_name . ' ',
+					'',
+					get_the_title()
+				) );
+
+				?>
+			</span>
+
+		</a>
+	</<?php echo tag_escape( $heading_tag ); ?>>
 </div>

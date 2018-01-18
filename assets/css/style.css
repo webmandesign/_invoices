@@ -1,5 +1,5 @@
 /* FILE: style.scss */
-/* FILE: parts/_reset.scss */
+/* FILE: main/_reset.scss */
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document ========================================================================== */
 /** 1. Correct the line height in all browsers. 2. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS. */
@@ -137,16 +137,16 @@ template { display: none; }
 /** Add the correct display in IE 10-. */
 [hidden] { display: none; }
 
-/* FILE: parts/_base.scss */
+/* FILE: main/_base.scss */
 *, *::before, *::after { -webkit-box-sizing: inherit; box-sizing: inherit; }
 
-html { -webkit-box-sizing: border-box; box-sizing: border-box; font-family: sans-serif; font-size: 10pt; background-color: #eee; color: #000; }
+html { -webkit-box-sizing: border-box; box-sizing: border-box; font-family: sans-serif; font-size: 10pt; background-color: #ddd; color: #000; }
 
 @media print { html { background-color: transparent; } }
 
 body { line-height: 1.5; }
 
-@media screen { body { max-width: 210mm; padding: 10mm 0; margin: 0 auto; } }
+@media screen { body { max-width: 210mm; margin: 0 auto; } }
 
 h1, h2, h3, h4 { font-size: 1em; font-weight: inherit; }
 
@@ -162,14 +162,48 @@ th, td { border: 1mm solid transparent; }
 
 img { max-width: 100%; height: auto; }
 
-/* FILE: parts/_post.scss */
-.invoice { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; height: 295mm; padding: 10mm; }
+a { text-decoration: none; color: #09c; }
+
+a:hover, a:active, a:focus { color: inherit; }
+
+@media print { a { color: inherit; } }
+
+/* FILE: main/_extenders.scss */
+.page-header, .site-footer { padding: 10mm; margin: 20mm -10mm; background-color: #444; color: #fff; }
+
+@media print { .page-header, .site-footer { display: none; } }
+
+/* FILE: main/_header.scss */
+.page-header { margin-top: 0; }
+
+.page-title { font-size: 1.62em; font-weight: 700; }
+
+/* FILE: main/_post.scss */
+.invoice { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; position: relative; height: 295mm; padding: 10mm; margin: 10mm 0; }
+
+.invoice + .invoice { margin-top: 20mm; }
 
 @media screen { .invoice { background-color: #fff; -webkit-box-shadow: 0 5mm 20mm rgba(0, 0, 0, 0.1); box-shadow: 0 5mm 20mm rgba(0, 0, 0, 0.1); } }
 
+@media print { .invoice { page-break-inside: avoid; margin: 0 !important; } }
+
+.invoice-anchors { position: absolute; left: 100%; top: 0; padding-top: 12.5mm; margin-left: 5mm; margin-top: -17.5mm; text-align: center; font-size: 1.38em; }
+
+@media print { .invoice-anchors { display: none; } }
+
+.invoice-anchors a { display: block; min-width: 15mm; padding: 2.5mm; margin: 2mm 0; }
+
+.invoice .permalink { font-size: .62em; }
+
+.invoice-navigation { font-weight: 900; color: inherit; border: 1px solid; }
+
+.invoice:first-child .previous, .invoice:last-child .next { display: none; }
+
 .invoice-title { margin-bottom: 2.5mm; }
 
-.invoice-title h1 { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; font-size: 2.62em; font-weight: 700; }
+.invoice-title h1, .invoice-title h2 { font-size: 2.62em; font-weight: 700; }
+
+.invoice-title a { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 
 .invoice-title-label { font-weight: 400; }
 
@@ -203,7 +237,7 @@ img { max-width: 100%; height: auto; }
 
 .invoice .dual-currency { display: block; }
 
-/* FILE: parts/_meta.scss */
+/* FILE: main/_meta.scss */
 .invoice-meta-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin: 0 -2.5mm; }
 
 .invoice-meta-container:last-child, .invoice-meta-container:last-child .invoice-meta-item { margin-bottom: 0; }
@@ -222,7 +256,7 @@ img { max-width: 100%; height: auto; }
 
 .invoice-meta-company .invoice-meta-value { margin-top: 5mm; }
 
-.invoice-meta-date { text-align: center; }
+.invoice-meta-date { text-align: center; border-style: dashed; }
 
 .invoice-meta-date-container { margin-bottom: 5mm; }
 
@@ -234,9 +268,9 @@ img { max-width: 100%; height: auto; }
 
 .invoice-meta-total-container { margin-top: auto; }
 
-.invoice-meta-total .invoice-meta-label { -webkit-box-ordinal-group: 11; -ms-flex-order: 10; order: 10; margin-top: auto; padding-top: 2.5mm; border-top: 3pt double; }
+.invoice-meta-total .invoice-meta-label { -webkit-box-ordinal-group: 11; -ms-flex-order: 10; order: 10; padding-top: 2.5mm; border-top: 3pt double; }
 
-.invoice-meta-total .invoice-meta-value { margin-bottom: 2.5mm; font-size: 2.62em; font-weight: 700; }
+.invoice-meta-total .invoice-meta-value { margin-top: auto; margin-bottom: 2.5mm; font-size: 2.62em; font-weight: 700; }
 
 .invoice-meta-total .invoice-meta-value .currency { font-size: .81em; }
 
@@ -248,6 +282,8 @@ img { max-width: 100%; height: auto; }
 
 .invoice-meta-stamp .invoice-meta-label { border-top: 1pt solid; }
 
+.invoice-meta-symbol { border-style: dashed; }
+
 .invoice-meta-symbol .invoice-meta-label { float: left; }
 
 .invoice-meta-symbol .invoice-meta-value { text-align: right; font-size: 1.38em; font-weight: 700; }
@@ -258,7 +294,31 @@ img { max-width: 100%; height: auto; }
 
 .invoice-meta-payment .invoice-meta-value { margin-left: 33.33%; }
 
-@media print { /* FILE: parts/_print.scss */
+/* FILE: main/_footer.scss */
+.site-footer { margin-bottom: 0; text-align: center; }
+
+.site-footer-menu { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -ms-flex-wrap: wrap; flex-wrap: wrap; padding: 0; margin: 5mm 0; list-style: none; font-size: 1.38em; font-weight: 700; border: 1pt solid; }
+
+.site-footer-menu a { position: relative; display: block; padding: 2.5mm 5mm; color: inherit; }
+
+.site-footer-menu a::before, .site-footer-menu a::after { content: ''; display: block; position: absolute; width: .38em; height: .38em; left: 0; top: 50%; border: 1pt solid; -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg); -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg); transform: translateX(-50%) translateY(-50%) rotate(45deg); }
+
+.site-footer-menu a::after { left: 100%; }
+
+.site-info { margin-top: 10mm; font-size: .81em; opacity: .5; }
+
+/* FILE: main/_summary.scss */
+.screen-summary-title { margin: 0 0 2.5mm; text-align: left; text-transform: uppercase; letter-spacing: .05em; }
+
+.screen-summary-list { display: -webkit-box; display: -ms-flexbox; display: flex; padding: 0; margin: 0 -2.5mm; list-style: none; font-size: 1.38em; }
+
+.screen-summary-item { -webkit-box-flex: 1; -ms-flex: 1 1 auto; flex: 1 1 auto; padding: 5mm; margin: 0 2.5mm; border: 3pt double; }
+
+.screen-summary-amount { font-size: 1.62em; font-weight: 700; }
+
+.screen-summary-source-count { display: inline-block; width: 1.5em; font-size: 1rem; font-weight: 700; background-color: #fff; color: #444; border-radius: 1.5em; vertical-align: top; cursor: help; }
+
+@media print { /* FILE: main/_print.scss */
   a { text-decoration: none; }
   thead { display: table-header-group; }
   tr, img { page-break-inside: avoid; }

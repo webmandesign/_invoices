@@ -47,9 +47,9 @@
 	<thead>
 		<tr>
 			<th class="invoice-items-column-order"><?php esc_html_e( '#', '_invoices' ); ?></th>
-			<th class="invoice-items-column-description"><?php esc_html_e( 'Name and description', '_invoices' ); ?></th>
+			<th class="invoice-items-column-description"><?php esc_html_e( 'Item name and description', '_invoices' ); ?></th>
 			<th class="invoice-items-column-quantity"><?php esc_html_e( 'Qty', '_invoices' ); ?></th>
-			<th class="invoice-items-column-price"><?php esc_html_e( 'Price', '_invoices' ); ?></th>
+			<th class="invoice-items-column-price"><?php esc_html_e( 'Unit price', '_invoices' ); ?></th>
 			<th class="invoice-items-column-total"><?php esc_html_e( 'Total', '_invoices' ); ?></th>
 		</tr>
 	</thead>

@@ -16,8 +16,8 @@
 
 // Variables
 
-	$color_shaded : #eee;
-	$color_dark : #666;
+	$color_shaded : #ddd;
+	$color_dark : #444;
 
 	$gutter: 5mm;
 
@@ -25,14 +25,22 @@
 
 // Imports
 
-	@import 'parts/reset';
+	@import 'main/reset';
 
-	@import 'parts/base';
+	@import 'main/base';
 
-	@import 'parts/post';
+	@import 'main/extenders';
 
-	@import 'parts/meta';
+	@import 'main/header';
+
+	@import 'main/post';
+
+	@import 'main/meta';
+
+	@import 'main/footer';
+
+	@import 'main/summary';
 
 	@media print {
-		@import 'parts/print';
+		@import 'main/print';
 	}

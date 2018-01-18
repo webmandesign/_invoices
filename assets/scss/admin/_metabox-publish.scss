@@ -1,0 +1,33 @@
+/* FILE: admin/_metabox-publish.scss */
+
+// Button size
+
+	@media screen and ( min-width: 1600px ) {
+
+		#publishing-action {
+			width: 62%;
+
+			.button {
+				width: 62%;
+				height: auto;
+				padding: .62em;
+				text-transform: uppercase;
+			}
+
+		}
+
+	}
+
+
+
+// Publish date fields
+
+	#timestampdiv {
+		display: block !important;
+	}
+
+	.edit-timestamp,
+	.save-timestamp,
+	.cancel-timestamp {
+		display: none !important;
+	}

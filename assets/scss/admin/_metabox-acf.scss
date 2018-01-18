@@ -1,0 +1,47 @@
+/* FILE: admin/_metabox-acf.scss */
+
+.post-type-post {
+
+	// Repeater
+
+		// Hide "Collapse row" button
+		// (It is being forced by JS not to collapse repeater row fields.)
+
+			.acf-repeater .acf-row-handle .acf-icon[data-event="collapse-row"] {
+				display: none !important;
+			}
+
+		// "Add new item" repeater button
+
+			.acf-actions .button {
+				width: 100%;
+				height: auto;
+				padding: .62em;
+				text-align: center;
+				text-transform: uppercase;
+			}
+
+
+
+	// Radio buttons and multi-checkboxes
+
+		.acf-taxonomy-field {
+
+			.categorychecklist-holder {
+				padding: 10px 0;
+				border: 0;
+				overflow: visible;
+			}
+
+			.acf-checkbox-list {
+				padding: 0;
+			}
+
+		}
+
+		.acf-bl > li {
+			display: inline-block;
+			margin-right: 1em;
+		}
+
+}

@@ -22,6 +22,14 @@
 
 get_header();
 
-	// @todo
+	if ( have_posts() ) :
+
+		get_template_part( 'templates/parts/loop/loop', 'index' );
+
+	else :
+
+		get_template_part( 'templates/parts/content/content', 'none' );
+
+	endif;
 
 get_footer();
