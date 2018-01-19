@@ -10,10 +10,9 @@
  *
  * Contents:
  *
- *   0) Init
- *  10) Setup
- *  20) Admin
- * 100) Others
+ *  0) Init
+ * 10) Setup
+ * 20) Admin
  */
 class Invoices_Setup {
 
@@ -166,10 +165,10 @@ class Invoices_Setup {
 
 			// Processing
 
-        remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // "At a Glance"
-        remove_meta_box( 'dashboard_activity', 'dashboard', 'normal'); // "Activity"
-        remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // "Quick Draft"
-        remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // "WordPress Events and News"
+				remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // "At a Glance"
+				remove_meta_box( 'dashboard_activity', 'dashboard', 'normal'); // "Activity"
+				remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // "Quick Draft"
+				remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // "WordPress Events and News"
 
 		} // /dashboard_widgets
 
@@ -195,7 +194,6 @@ class Invoices_Setup {
 					remove_menu_page( 'edit-comments.php' );
 
 					remove_submenu_page( 'options-general.php', 'options-discussion.php' );
-					remove_submenu_page( 'options-general.php', 'options-permalink.php' );
 
 				// Modify order
 

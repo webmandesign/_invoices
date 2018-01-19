@@ -9,8 +9,9 @@
  *
  * Contents:
  *
- * 10) Repeater row expanded
- * 20) Realtime total counting
+ * 10) Read-only fields
+ * 20) Repeater row expanded
+ * 30) Realtime total counting
  */
 
 
@@ -24,7 +25,18 @@
 
 
 	/**
-	 * 10) Repeater row expanded
+	 * 10) Read-only fields
+	 */
+
+		$( '.acf-field-key-invoice-items-total input[type="number"], #acf-key_invoice_total' )
+			.attr( 'readonly', 'true' );
+
+
+
+
+
+	/**
+	 * 20) Repeater row expanded
 	 */
 
 		$( '.acf-repeater' )
@@ -44,7 +56,7 @@
 									.removeAttr( 'colspan' );
 
 						}
-					}, 99 );
+					}, 10 );
 
 				}
 
@@ -59,14 +71,11 @@
 
 
 	/**
-	 * 20) Realtime total counting
+	 * 30) Realtime total counting
 	 */
 
-		$( '.acf-row .acf-field[data-name="total"] input[type="number"]' )
-			.attr( 'readonly', 'true' );
-
-		$( '.acf-row .acf-field[data-name="price"], .acf-row .acf-field[data-name="quantity"]' )
-			.on( 'change keyup', 'input[type="number"]', function() {
+		$( document )
+			.on( 'change keyup', '.acf-field-key-invoice-items-price input[type="number"], .acf-field-key-invoice-items-quantity input[type="number"]', function() {
 
 				var
 					$this     = $( this ),
@@ -78,9 +87,10 @@
 					.find( '.acf-field[data-name="total"] input[type="number"]' )
 						.val( ( $price * $quantity ).toFixed( 2 ) );
 
-			} );
+				$( '.acf-field-key-invoice-total' )
+					.slideUp();
 
-		// @todo Make it work also when adding new rows.
+			} );
 
 
 

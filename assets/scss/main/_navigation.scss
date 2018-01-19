@@ -1,0 +1,72 @@
+/* FILE: main/_navigation.scss */
+
+.main-navigation {
+
+	ul {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		padding: 0;
+		margin: $gutter 0;
+		list-style: none;
+		font-size: 1.38em;
+		font-weight: 700;
+		border: 1pt solid;
+	}
+
+	a {
+		position: relative;
+		display: block;
+		padding: .5em 1em;
+		color: inherit;
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: .38em;
+			height: .38em;
+			left: 0;
+			top: 50%;
+			border: 1pt solid;
+			transform: translateX( -50% ) translateY( -50% ) rotate( 45deg );
+		}
+
+		&::after {
+			left: 100%;
+		}
+
+		&[href="#screen-summary"],
+		&[href="#top"] {
+			padding: 1em 2em;
+			line-height: 3;
+			text-transform: uppercase;
+			font-size: .5em;
+
+			&::before,
+			&::after {
+				display: none;
+			}
+
+		}
+
+		&[href="#screen-summary"] {
+
+			.site-footer & {
+				display: none;
+			}
+
+		}
+
+		&[href="#top"] {
+
+			.site-header & {
+				display: none;
+			}
+
+		}
+
+	}
+
+}

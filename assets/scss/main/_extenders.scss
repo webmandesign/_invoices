@@ -1,10 +1,16 @@
 /* FILE: main/_extenders.scss */
 
 %site_meta {
-	padding: $gutter * 2;
-	margin: ( $gutter * 4 ) ( -2 * $gutter );
-	background-color: $color_dark;
-	color: #fff;
+	padding: ( $gutter * 2 ) 0;
+	margin: ( $gutter * 4 ) 0;
+
+	&:first-child {
+		padding-bottom: 0;
+	}
+
+	&:last-child {
+		padding-top: 0;
+	}
 
 	@media print {
 		display: none;

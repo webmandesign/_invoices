@@ -2,10 +2,6 @@
 /**
  * Post Types Class
  *
- * @todo  Post saving totals calculation.
- * @todo  Post saving publish date.
- * @todo  Post saving title overriding? -> Title will be read only then?
- *
  * Creates:
  * - "Invoice" post type from "Post" post type,
  * - "Invoice Item" post type from "Page" post type,
@@ -71,6 +67,7 @@ class Invoices_Post_Types {
 						add_action( 'edit_form_top', __CLASS__ . '::invoice_predefined' );
 
 						// Invoice header
+						add_action( 'invoice_content', __CLASS__ . '::invoice_anchors', 105 );
 						add_action( 'invoice_content', __CLASS__ . '::invoice_title', 110 );
 						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_companies', 120 );
 						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_dates', 130 );
@@ -85,6 +82,8 @@ class Invoices_Post_Types {
 					// Filters
 
 						add_filter( 'register_taxonomy_args', __CLASS__ . '::sellers_setup', 10, 2 );
+
+						add_filter( 'wp_insert_post_data', __CLASS__ . '::invoice_post_data', 10, 2 );
 
 						add_filter( 'post_class', __CLASS__ . '::invoice_post_class' );
 
@@ -264,6 +263,53 @@ class Invoices_Post_Types {
 
 
 		/**
+		 * Modify invoice post data just before saving
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  array $data     An array of slashed post data.
+		 * @param  array $postarr  An array of sanitized, but otherwise unmodified post data.
+		 */
+		public static function invoice_post_data( $data, $postarr ) {
+
+			// Requirements check
+
+				if (
+					'post' !== $data['post_type']
+					|| ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+				) {
+					return $data;
+				}
+
+
+			// Processing
+
+				// Change publish date to set value
+
+					if (
+						isset( $_POST['aa'] )
+						&& isset( $_POST['mm'] )
+						&& isset( $_POST['jj'] )
+						&& isset( $_POST['hh'] )
+						&& isset( $_POST['mn'] )
+						&& isset( $_POST['ss'] )
+					) {
+						$post_date  = $_POST['aa'] . '-' . $_POST['mm'] . '-' . $_POST['jj'];
+						$post_date .= ' ' . $_POST['hh'] . ':' . $_POST['mn'] . ':' . $_POST['ss'];
+						$data['post_date'] = $post_date;
+					}
+
+
+			// Output
+
+				return $data;
+
+		} // /invoice_post_data
+
+
+
+		/**
 		 * Invoice post classes
 		 *
 		 * @since    1.0.0
@@ -285,6 +331,22 @@ class Invoices_Post_Types {
 				return $classes;
 
 		} // /invoice_post_class
+
+
+
+		/**
+		 * Display invoice links/anchors
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function invoice_anchors() {
+
+			// Output
+
+				get_template_part( 'templates/parts/component/anchors', 'invoice' );
+
+		} // /invoice_anchors
 
 
 

@@ -11,7 +11,8 @@
  * Contents:
  *
  *  0) Init
- * 10) Exchange rate
+ * 10) Reset
+ * 20) Exchange rate
  */
 class Invoices_Helper {
 
@@ -32,7 +33,57 @@ class Invoices_Helper {
 
 
 	/**
-	 * 10) Exchange rate
+	 * 10) Reset
+	 */
+
+		/**
+		 * Reset $invoice_helper array
+		 */
+		public static function reset_invoice_helper() {
+
+			// Helper variables
+
+				$output = array(
+
+					'company' => array(
+						'category' => null,
+						'client'   => null,
+					),
+
+					'publish_date_raw'     => get_the_date( 'Y-m-d' ),
+					'publish_date_display' => get_the_date(),
+
+					'total' => Invoices_Customize::get_currencies_array(),
+
+					'currency_from'   => '',
+					'currency_to'     => '',
+					'dual_currency'   => false,
+					'exchange_rate'   => 0,
+
+					'symbol_constant' => '',
+
+				);
+
+
+			// Processing
+
+				foreach ( $output['total'] as $key => $value ) {
+					$output['total'][ $key ] = 0;
+				}
+
+
+			// Output
+
+				return $output;
+
+		} // /reset_invoice_helper
+
+
+
+
+
+	/**
+	 * 20) Exchange rate
 	 */
 
 		/**

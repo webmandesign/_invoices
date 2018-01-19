@@ -30,7 +30,15 @@
 
 	<div class="invoice-meta-date invoice-meta-item">
 		<h2 class="invoice-meta-label"><?php esc_html_e( 'Date of issue (d/m/y)', '_invoices' ); ?></h2>
-		<p class="invoice-meta-value"><?php echo $publish_date; ?></p>
+		<p class="invoice-meta-value">
+			<a href="<?php echo esc_url( get_day_link(
+				date( 'Y', strtotime( $invoice_helper['publish_date_raw'] ) ),
+				date( 'm', strtotime( $invoice_helper['publish_date_raw'] ) ),
+				date( 'd', strtotime( $invoice_helper['publish_date_raw'] ) )
+			) ); ?>">
+				<?php echo $publish_date; ?>
+			</a>
+		</p>
 	</div>
 
 	<div class="invoice-meta-date invoice-meta-item">

@@ -4,6 +4,18 @@
 
 	// Repeater
 
+		// Label over items repeater field, not left
+
+			.acf-field-repeater[data-name="items"] {
+
+				> .acf-label,
+				> .acf-input {
+					float: none;
+					width: 100%;
+				}
+
+			}
+
 		// Hide "Collapse row" button
 		// (It is being forced by JS not to collapse repeater row fields.)
 
@@ -25,18 +37,35 @@
 
 			.acf-table [data-name="total"] {
 				text-align: right;
-
-				input[type="number"] {
-					padding: 0;
-					text-align: inherit;
-					font-weight: 700;
-					background: none;
-					border: 0;
-					box-shadow: none;
-					cursor: help;
-				}
-
 			}
+
+		// Read-only fields
+
+			.acf-field input[type="number"][readonly] {
+				padding: 0;
+				text-align: inherit;
+				font-weight: 700;
+				background: none;
+				border: 0;
+				box-shadow: none;
+				cursor: help;
+			}
+
+
+
+	// Invoice total
+
+		.acf-field-key-invoice-total {
+
+			input[type="number"][readonly] {
+				height: auto;
+				padding: .38em;
+				text-align: right;
+				font-size: 1.62em;
+				border: 4px double;
+			}
+
+		}
 
 
 

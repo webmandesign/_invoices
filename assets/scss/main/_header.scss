@@ -1,10 +1,24 @@
 /* FILE: main/_header.scss */
 
+.site-header {
+
+	@media print {
+		display: none;
+	}
+
+}
+
 .page {
 
 	&-header {
-		@extend %site_meta;
-		margin-top: 0;
+		padding: $gutter;
+		margin-bottom: $gutter * 4;
+		border: 3pt double;
+
+		@media print {
+			display: none;
+		}
+
 	}
 
 	&-title {

@@ -15,55 +15,21 @@
 
 
 
-// Helper variables
-
-	global $totals;
-
-
 ?>
 
-<footer class="site-footer">
+	<footer class="site-footer">
 
-	<div class="screen-summary" id="screen-summary">
-		<h2 class="screen-summary-title"><?php esc_html_e( 'Screen summary:', '_invoices' ); ?></h2>
-		<ul class="screen-summary-list">
-			<?php
+		<?php get_template_part( 'templates/parts/component/summary', 'screen' ); ?>
 
-			foreach ( $totals as $currency => $atts ) :
+		<?php get_template_part( 'templates/parts/menu/menu', 'primary' ); ?>
 
-				if ( ! $source_count = count( $atts['source'] ) ) {
-					continue;
-				}
+		<div class="site-info">
+			<?php esc_html_e( '&copy; WebMan Design', '_invoices' ); ?>
+		</div>
 
-			?>
-			<li class="screen-summary-item summary-currency-<?php echo sanitize_html_class( $currency ); ?>" title="<?php printf( esc_html__( 'Number of invoices calculated from: %d', '_invoices' ), absint( $source_count ) ); ?>">
+	</footer>
 
-				<span class="screen-summary-amount">
-					<?php echo esc_html( sprintf( '%.2f', $atts['amount'] ) ); ?>
-				</span>
-
-				<span class="screen-summary-currency">
-					<?php echo esc_html( $currency ); ?>
-				</span>
-
-				<span class="screen-summary-source-count">
-					<?php echo absint( $source_count ); ?>
-				</span>
-
-			</li>
-			<?php endforeach; ?>
-		</ul>
-	</div>
-
-	<ul class="site-footer-menu">
-		<?php wp_get_archives( 'type=yearly' ); ?>
-	</ul>
-
-	<div class="site-info">
-		<?php esc_html_e( '&copy; WebMan Design', '_invoices' ); ?>
-	</div>
-
-</footer>
+</div><!-- /.site -->
 
 <?php wp_footer(); ?>
 

@@ -58,6 +58,10 @@
 
 		require INVOICES_PATH_INCLUDES . 'class-assets.php';
 
+	// Loop
+
+		require INVOICES_PATH_INCLUDES . 'class-loop.php';
+
 	// Post types
 
 		require INVOICES_PATH_INCLUDES . 'class-post-types.php';

@@ -52,7 +52,11 @@ foreach ( $taxonomies as $taxonomy ) :
 			<?php endif; ?>
 		</h2>
 		<div class="invoice-meta-value">
-			<h3><?php echo esc_html( $terms[0]->name ); ?></h3>
+			<h3>
+				<a href="<?php echo esc_url( get_term_link( $terms[0] ) ); ?>">
+					<?php echo esc_html( $terms[0]->name ); ?>
+				</a>
+			</h3>
 			<?php echo apply_filters( 'the_excerpt', $terms[0]->description ); ?>
 		</div>
 	</div>

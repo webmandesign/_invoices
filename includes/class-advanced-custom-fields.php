@@ -59,6 +59,8 @@ class Invoices_Advanced_Custom_Fields {
 
 						add_action( 'admin_menu', __CLASS__ . '::invoice_metabox_hide' );
 
+						add_action( 'save_post', __CLASS__ . '::invoice_save', 5, 3 );
+
 		} // /__construct
 
 
@@ -124,6 +126,15 @@ class Invoices_Advanced_Custom_Fields {
 					'fields' => array(
 
 						100 => array(
+							'key'           => 'key_invoice_total',
+							'name'          => 'invoice_total',
+							'type'          => 'number',
+							'label'         => esc_html__( 'Invoice total', '_invoices' ),
+							'instructions'  => esc_html__( 'Save/update the invoice to recalculate the value.', '_invoices' ),
+							'default_value' => 0,
+						),
+
+						200 => array(
 							'key'          => 'key_invoice_items',
 							'name'         => 'items',
 							'type'         => 'repeater',
@@ -216,9 +227,10 @@ class Invoices_Advanced_Custom_Fields {
 						),
 
 					),
-					'menu_order' => 10,
-					'position'   => 'acf_after_title',
-					'style'      => 'seamless',
+					'menu_order'      => 10,
+					'position'        => 'acf_after_title',
+					'style'           => 'seamless',
+					'label_placement' => 'left',
 				), 'invoice_items' ) );
 
 		} // /invoice_items
@@ -469,6 +481,59 @@ class Invoices_Advanced_Custom_Fields {
 				), 'seller_stamp' ) );
 
 		} // /seller_stamp
+
+
+
+		/**
+		 * Count rows totals before saving the post
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  int     $post_id  Post ID.
+		 * @param  WP_Post $post     Post object.
+		 * @param  bool    $update   Whether this is an existing post being updated or not.
+		 */
+		public static function invoice_save( $post_id, $post, $update ) {
+
+			// Requirements check
+
+				if (
+					! isset( $_POST['acf']['key_invoice_items'] )
+					|| ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+				) {
+					return $post_id;
+				}
+
+
+			// Helper variables
+
+				$total_invoice = 0;
+
+
+			// Processing
+
+				foreach ( (array) $_POST['acf']['key_invoice_items'] as $key => $subfields ) {
+					if (
+						isset( $subfields['key_invoice_items_price'] )
+						&& isset( $subfields['key_invoice_items_quantity'] )
+					) {
+
+						$total_row = (float) $subfields['key_invoice_items_price'] * absint( $subfields['key_invoice_items_quantity'] );
+
+						$_POST['acf']['key_invoice_items'][ $key ]['key_invoice_items_total'] = sprintf( '%.2f', $total_row );
+						$_POST['_acf_changed'] = 1;
+
+						$total_invoice += $total_row;
+
+					}
+				}
+
+				if ( $total_invoice ) {
+					$_POST['acf']['key_invoice_total'] = sprintf( '%.2f', $total_invoice );
+				}
+
+		} // /invoice_save
 
 
 

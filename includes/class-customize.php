@@ -43,7 +43,7 @@ class Invoices_Customize {
 
 					// Actions
 
-						// add_action( 'wp_enqueue_scripts', __CLASS__ . '::enqueue_styles' );
+						add_action( 'customize_register', __CLASS__ . '::theme_options' );
 
 		} // /__construct
 
@@ -83,14 +83,219 @@ class Invoices_Customize {
 		 *
 		 * @since    1.0.0
 		 * @version  1.0.0
+		 *
+		 * @param  object $wp_customize  WP customizer object.
 		 */
-		public static function customize() {
+		public static function theme_options( $wp_customize ) {
+
+			// Helper variables
+
+				$priority  = 10;
+				$transport = 'postMessage'; // Or 'refresh'
+
 
 			// Processing
 
-				// @todo
+				// Panel
 
-		} // /customize
+					$wp_customize->add_panel(
+						'theme_options',
+						array(
+							'title' => esc_html__( 'Theme Options', '_invoices' ),
+						)
+					);
+
+
+
+				// Section: currency
+
+					$wp_customize->add_section(
+						'currency',
+						array(
+							'title' => esc_html__( 'Currency', '_invoices' ),
+							'panel' => 'theme_options',
+						)
+					);
+
+					// Option: currency/currencies
+
+						$wp_customize->add_setting(
+							'currencies',
+							array(
+								'default'           => 'USD,EUR',
+								'transport'         => $transport,
+								'sanitize_callback' => 'esc_textarea',
+							)
+						);
+
+						$wp_customize->add_control(
+							'currencies',
+							array(
+								'label'       => esc_html__( 'Currencies', '_invoices' ),
+								'description' => esc_html__( 'List accountable currencies international codes, separated with comma (no empty spaces).', '_invoices' ),
+								'section'     => 'currency',
+								'type'        => 'textarea',
+								'priority'    => ++$priority,
+							)
+						);
+
+					// Option: currency/currency_exchange_from
+
+						$wp_customize->add_setting(
+							'currency_exchange_from',
+							array(
+								'default'           => 'USD',
+								'transport'         => $transport,
+								'sanitize_callback' => 'esc_textarea',
+							)
+						);
+
+						$wp_customize->add_control(
+							'currency_exchange_from',
+							array(
+								'label'       => esc_html__( 'Default exchange FROM currency', '_invoices' ),
+								'description' => esc_html__( 'This becomes the default invoice currency selected.', '_invoices' ),
+								'section'     => 'currency',
+								'type'        => 'text',
+								'priority'    => ++$priority,
+							)
+						);
+
+					// Option: currency/currency_exchange_to
+
+						$wp_customize->add_setting(
+							'currency_exchange_to',
+							array(
+								'default'           => 'EUR',
+								'transport'         => $transport,
+								'sanitize_callback' => 'esc_textarea',
+							)
+						);
+
+						$wp_customize->add_control(
+							'currency_exchange_to',
+							array(
+								'label'       => esc_html__( 'Default exchange TO currency', '_invoices' ),
+								'description' => esc_html__( 'Set this to your accounting currency - will be used for exchange calculation in dual currency invoices.', '_invoices' ),
+								'section'     => 'currency',
+								'type'        => 'text',
+								'priority'    => ++$priority,
+							)
+						);
+
+
+
+				// Section: accounting
+
+					$wp_customize->add_section(
+						'accounting',
+						array(
+							'title' => esc_html__( 'Accounting', '_invoices' ),
+							'panel' => 'theme_options',
+						)
+					);
+
+					// Option: accounting/month_tax_pay
+
+						$wp_customize->add_setting(
+							'month_tax_pay',
+							array(
+								'default'           => 3,
+								'transport'         => $transport,
+								'sanitize_callback' => 'absint',
+							)
+						);
+
+						$wp_customize->add_control(
+							'month_tax_pay',
+							array(
+								'label'       => esc_html__( 'Taxation month', '_invoices' ),
+								'description' => esc_html__( 'Until this month passes, a previous year invoices will also be displayed on homepage.', '_invoices' ),
+								'section'     => 'accounting',
+								'type'        => 'select',
+								'priority'    => ++$priority,
+								'choices'     => array(
+									 1 => esc_html( 'January', '_invoices' ),
+									 2 => esc_html( 'February', '_invoices' ),
+									 3 => esc_html( 'March', '_invoices' ),
+									 4 => esc_html( 'April', '_invoices' ),
+									 5 => esc_html( 'May', '_invoices' ),
+									 6 => esc_html( 'June', '_invoices' ),
+									 7 => esc_html( 'July', '_invoices' ),
+									 8 => esc_html( 'August', '_invoices' ),
+									 9 => esc_html( 'September', '_invoices' ),
+									10 => esc_html( 'October', '_invoices' ),
+									11 => esc_html( 'November', '_invoices' ),
+									12 => esc_html( 'December', '_invoices' ),
+								),
+							)
+						);
+
+					// Option: accounting/invoice_due_period
+
+						$wp_customize->add_setting(
+							'invoice_due_period',
+							array(
+								'default'           => 21,
+								'transport'         => $transport,
+								'sanitize_callback' => 'absint',
+							)
+						);
+
+						$wp_customize->add_control(
+							'invoice_due_period',
+							array(
+								'label'       => esc_html__( 'Invoice due period in days', '_invoices' ),
+								'section'     => 'accounting',
+								'type'        => 'number',
+								'priority'    => ++$priority,
+								'input_attrs' => array(
+									'min'  => 1,
+									'max'  => 31,
+									'step' => 1,
+								),
+							)
+						);
+
+
+
+				// Section: invoice_list
+
+					$wp_customize->add_section(
+						'invoice_list',
+						array(
+							'title' => esc_html__( 'Invoice List', '_invoices' ),
+							'panel' => 'theme_options',
+						)
+					);
+
+					// Option: invoice_list/count_invoices_per_month
+
+						$wp_customize->add_setting(
+							'count_invoices_per_month',
+							array(
+								'default'           => 5,
+								'transport'         => $transport,
+								'sanitize_callback' => 'absint',
+							)
+						);
+
+						$wp_customize->add_control(
+							'count_invoices_per_month',
+							array(
+								'label'       => esc_html__( 'Max number of invoices created monthly', '_invoices' ),
+								'section'     => 'invoice_list',
+								'type'        => 'number',
+								'priority'    => ++$priority,
+								'input_attrs' => array(
+									'min'  => 1,
+									'max'  => 31,
+									'step' => 1,
+								),
+							)
+						);
+
+		} // /theme_options
 
 
 

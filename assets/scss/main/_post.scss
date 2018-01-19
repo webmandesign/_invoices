@@ -79,19 +79,31 @@
 				display: block;
 				min-width: $gutter * 3;
 				padding: $gutter / 2;
-				margin: 2mm 0;
+				margin: $gutter 0;
 			}
 
 		}
 
-		.permalink {
+		.permalink,
+		.post-edit-link {
 			font-size: .62em;
+		}
+
+		.post-edit-link {
+			text-transform: uppercase;
+			font-weight: 700;
+			border: 1pt dashed;
 		}
 
 		&-navigation {
 			font-weight: 900;
 			color: inherit;
-			border: 1px solid;
+			border: 1pt solid;
+
+			.single & {
+				display: none;
+			}
+
 		}
 
 		&:first-child .previous,

@@ -56,3 +56,8 @@
 
 
 <body <?php body_class(); ?>>
+<div id="page" class="site">
+
+	<header class="site-header">
+		<?php get_template_part( 'templates/parts/menu/menu', 'primary' ); ?>
+	</header>

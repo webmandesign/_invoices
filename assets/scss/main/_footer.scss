@@ -6,45 +6,6 @@
 		@extend %site_meta;
 		margin-bottom: 0;
 		text-align: center;
-
-		&-menu {
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-			padding: 0;
-			margin: $gutter 0;
-			list-style: none;
-			font-size: 1.38em;
-			font-weight: 700;
-			border: 1pt solid;
-
-			a {
-				position: relative;
-				display: block;
-				padding: ( $gutter / 2 ) $gutter;
-				color: inherit;
-
-				&::before,
-				&::after {
-					content: '';
-					display: block;
-					position: absolute;
-					width: .38em;
-					height: .38em;
-					left: 0;
-					top: 50%;
-					border: 1pt solid;
-					transform: translateX( -50% ) translateY( -50% ) rotate( 45deg );
-				}
-
-				&::after {
-					left: 100%;
-				}
-
-			}
-
-		}
-
 	}
 
 	&-info {

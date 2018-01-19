@@ -13,13 +13,17 @@
 .edit-timestamp, .save-timestamp, .cancel-timestamp { display: none !important; }
 
 /* FILE: admin/_metabox-acf.scss */
+.post-type-post .acf-field-repeater[data-name="items"] > .acf-label, .post-type-post .acf-field-repeater[data-name="items"] > .acf-input { float: none; width: 100%; }
+
 .post-type-post .acf-repeater .acf-row-handle .acf-icon[data-event="collapse-row"] { display: none !important; }
 
 .post-type-post .acf-actions .button { width: 100%; height: auto; padding: .62em; text-align: center; text-transform: uppercase; }
 
 .post-type-post .acf-table [data-name="total"] { text-align: right; }
 
-.post-type-post .acf-table [data-name="total"] input[type="number"] { padding: 0; text-align: inherit; font-weight: 700; background: none; border: 0; -webkit-box-shadow: none; box-shadow: none; cursor: help; }
+.post-type-post .acf-field input[type="number"][readonly] { padding: 0; text-align: inherit; font-weight: 700; background: none; border: 0; -webkit-box-shadow: none; box-shadow: none; cursor: help; }
+
+.post-type-post .acf-field-key-invoice-total input[type="number"][readonly] { height: auto; padding: .38em; text-align: right; font-size: 1.62em; border: 4px double; }
 
 .post-type-post .acf-taxonomy-field .categorychecklist-holder { padding: 10px 0; border: 0; overflow: visible; }
 

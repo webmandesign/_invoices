@@ -51,7 +51,9 @@
 
 		?>
 		<div class="invoice-meta-value">
-			<?php echo apply_filters( 'the_excerpt', $term->description ); ?>
+			<a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
+				<?php echo apply_filters( 'the_excerpt', $term->description ); ?>
+			</a>
 		</div>
 		<?php
 

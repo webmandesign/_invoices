@@ -22,14 +22,10 @@
 
 get_header();
 
-	if ( have_posts() ) :
-
+	if ( have_posts() ) {
 		get_template_part( 'templates/parts/loop/loop', 'index' );
-
-	else :
-
+	} else {
 		get_template_part( 'templates/parts/content/content', 'none' );
-
-	endif;
+	}
 
 get_footer();
