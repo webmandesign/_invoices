@@ -168,6 +168,8 @@ a:hover, a:active, a:focus { color: inherit; }
 
 @media print { a { color: inherit; } }
 
+.currency-code { font-size: .81em; font-weight: 400; }
+
 /* FILE: main/_extenders.scss */
 .page-header, .site-footer { padding: 10mm; margin: 20mm -10mm; background-color: #444; color: #fff; }
 
@@ -183,7 +185,11 @@ a:hover, a:active, a:focus { color: inherit; }
 
 .invoice + .invoice { margin-top: 20mm; }
 
-@media screen { .invoice { background-color: #fff; -webkit-box-shadow: 0 5mm 20mm rgba(0, 0, 0, 0.1); box-shadow: 0 5mm 20mm rgba(0, 0, 0, 0.1); } }
+@media screen { .invoice { background-color: #fff; -webkit-box-shadow: 0 5mm 20mm rgba(0, 0, 0, 0.1); box-shadow: 0 5mm 20mm rgba(0, 0, 0, 0.1); }
+  .posts .invoice { -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
+  .posts .invoice::before, .posts .invoice::after { content: ''; display: block; position: absolute; width: 100%; height: 100%; left: 0; top: 0; background-color: inherit; z-index: -1; background-color: #f9f9f9; -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); -webkit-transform: rotate(0.5deg) translateY(5pt); -ms-transform: rotate(0.5deg) translateY(5pt); transform: rotate(0.5deg) translateY(5pt); -webkit-transition: -webkit-transform .2s; transition: -webkit-transform .2s; -o-transition: transform .2s; transition: transform .2s; transition: transform .2s, -webkit-transform .2s; }
+  .posts .invoice::after { background-color: #f3f3f3; z-index: -2; -webkit-box-shadow: 0 5mm 20mm rgba(0, 0, 0, 0.1); box-shadow: 0 5mm 20mm rgba(0, 0, 0, 0.1); -webkit-transform: rotate(-0.75deg) translateY(-1pt); -ms-transform: rotate(-0.75deg) translateY(-1pt); transform: rotate(-0.75deg) translateY(-1pt); }
+  .posts .invoice:hover::before, .posts .invoice:hover::after { -webkit-transform: rotate(0) translateY(0); -ms-transform: rotate(0) translateY(0); transform: rotate(0) translateY(0); } }
 
 @media print { .invoice { page-break-inside: avoid; margin: 0 !important; } }
 
@@ -207,11 +213,15 @@ a:hover, a:active, a:focus { color: inherit; }
 
 .invoice-title-label { font-weight: 400; }
 
-.invoice-note { margin: 5mm 0; }
+.invoice-note + .invoice-note { margin-top: 2.5mm; }
 
 .invoice-note h2, .invoice-note h3 { margin: 0; font-size: 1rem; font-weight: 700; }
 
+.invoice-note-exchange { font-size: .81em; }
+
 .invoice-items { width: 100%; text-align: center; }
+
+.invoice-note + .invoice-items { margin-top: 5mm; }
 
 .invoice-items thead { text-transform: uppercase; font-size: .81rem; letter-spacing: .05em; }
 
@@ -264,15 +274,13 @@ a:hover, a:active, a:focus { color: inherit; }
 
 .invoice-meta-date .sep { margin: 0 1mm; font-size: .81em; opacity: .33; }
 
-.invoice-meta-total { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; text-align: right; background: transparent; border: 0; }
+.invoice-meta-total { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding-top: 0; text-align: right; background: transparent; border: 0; }
 
 .invoice-meta-total-container { margin-top: auto; }
 
 .invoice-meta-total .invoice-meta-label { -webkit-box-ordinal-group: 11; -ms-flex-order: 10; order: 10; padding-top: 2.5mm; border-top: 3pt double; }
 
 .invoice-meta-total .invoice-meta-value { margin-top: auto; margin-bottom: 2.5mm; font-size: 2.62em; font-weight: 700; }
-
-.invoice-meta-total .invoice-meta-value .currency { font-size: .81em; }
 
 .invoice-meta-total .dual-currency { font-size: .62em; }
 

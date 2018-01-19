@@ -17,8 +17,14 @@
 
 .post-type-post .acf-actions .button { width: 100%; height: auto; padding: .62em; text-align: center; text-transform: uppercase; }
 
+.post-type-post .acf-table [data-name="total"] { text-align: right; }
+
+.post-type-post .acf-table [data-name="total"] input[type="number"] { padding: 0; text-align: inherit; font-weight: 700; background: none; border: 0; -webkit-box-shadow: none; box-shadow: none; cursor: help; }
+
 .post-type-post .acf-taxonomy-field .categorychecklist-holder { padding: 10px 0; border: 0; overflow: visible; }
 
 .post-type-post .acf-taxonomy-field .acf-checkbox-list { padding: 0; }
 
 .post-type-post .acf-bl > li { display: inline-block; margin-right: 1em; }
+
+input[type="number"][readonly]::-webkit-inner-spin-button { display: none; }

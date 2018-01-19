@@ -15,13 +15,14 @@
 
 // Helper variables
 
-	$publish_date = get_the_date();
+	global $invoice_helper;
+
 	$due_period   = absint( get_theme_mod( 'invoice_due_period', 21 ) );
-	$due_date     = strtotime( '+' . $due_period . ' days', strtotime( get_the_date( 'd-m-Y' ) ) );
+	$due_date     = strtotime( '+' . $due_period . ' days', strtotime( $invoice_helper['publish_date_raw'] ) );
 	$due_date     = date( get_option( 'date_format' ), $due_date );
 
-	$publish_date = str_replace( '/', '<span class="sep">/</span>', $publish_date );
-	$due_date     = str_replace( '/', '<span class="sep">/</span>', $due_date );
+	$publish_date = str_replace( '/', '<span class="sep">/</span>', esc_html( $invoice_helper['publish_date_display'] ) );
+	$due_date     = str_replace( '/', '<span class="sep">/</span>', esc_html( $due_date ) );
 
 ?>
 

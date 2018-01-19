@@ -2,6 +2,10 @@
 /**
  * Post Types Class
  *
+ * @todo  Post saving totals calculation.
+ * @todo  Post saving publish date.
+ * @todo  Post saving title overriding? -> Title will be read only then?
+ *
  * Creates:
  * - "Invoice" post type from "Post" post type,
  * - "Invoice Item" post type from "Page" post type,
@@ -326,7 +330,7 @@ class Invoices_Post_Types {
 
 			// Output
 
-				get_template_part( 'templates/parts/component/items', 'invoice' );
+				get_template_part( 'templates/parts/loop/loop', 'invoice-items' );
 
 		} // /invoice_items
 

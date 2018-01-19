@@ -16,6 +16,7 @@
  *  10) Theme setup
  *  20) Frontend
  *  30) Features
+ *  40) Others
  * 999) Plugins integration
  */
 
@@ -72,6 +73,18 @@
 	// Theme Customization
 
 		require INVOICES_PATH_INCLUDES . 'class-customize.php';
+
+
+
+
+
+/**
+ * 40) Others
+ */
+
+	// Helper
+
+		require INVOICES_PATH_INCLUDES . 'class-helper.php';
 
 
 

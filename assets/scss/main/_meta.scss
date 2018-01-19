@@ -95,6 +95,7 @@
 		&-total {
 			display: flex;
 			flex-direction: column;
+			padding-top: 0;
 			text-align: right;
 			background: transparent;
 			border: 0;
@@ -114,11 +115,6 @@
 				margin-bottom: $gutter / 2;
 				font-size: 2.62em;
 				font-weight: 700;
-
-				.currency {
-					font-size: .81em;
-				}
-
 			}
 
 			.dual-currency {

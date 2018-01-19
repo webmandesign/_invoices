@@ -21,6 +21,23 @@
 				text-transform: uppercase;
 			}
 
+		// Total fields
+
+			.acf-table [data-name="total"] {
+				text-align: right;
+
+				input[type="number"] {
+					padding: 0;
+					text-align: inherit;
+					font-weight: 700;
+					background: none;
+					border: 0;
+					box-shadow: none;
+					cursor: help;
+				}
+
+			}
+
 
 
 	// Radio buttons and multi-checkboxes
@@ -44,4 +61,8 @@
 			margin-right: 1em;
 		}
 
+}
+
+input[type="number"][readonly]::-webkit-inner-spin-button {
+	display: none;
 }

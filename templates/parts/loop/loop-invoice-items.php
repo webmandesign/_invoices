@@ -2,6 +2,13 @@
 /**
  * Invoice: Items list
  *
+ * CURRENCY EXCHANGE CALCULATION
+ *
+ * Exchange rate value is relevant to invoice (post) publish date.
+ * An informational note will be displayed above invoice items list.
+ *
+ * @see  Invoices_Helper::get_exchange_rate()
+ *
  * @package    Invoices
  * @copyright  WebMan Design, Oliver Juhas
  *
@@ -17,30 +24,34 @@
 
 	global $invoice_helper;
 
-	$invoice_helper['total'] = Invoices_Customize::get_currencies_array();
-	foreach ( $invoice_helper['total'] as $key => $value ) {
-		$invoice_helper['total'][ $key ] = 0;
-	}
-
-	$invoice_helper['symbol_constant'] = '';
-	$invoice_helper['currency_from']   = '';
-	$invoice_helper['currency_to']     = '';
-	$invoice_helper['exchange_rate']   = '';
-	$invoice_helper['dual_currency']   = false;
-
-
-// Processing
-
 	if ( function_exists( 'get_field' ) ) {
-		$invoice_helper['symbol_constant'] = (string) get_field( 'symbol_constant' );
 		$invoice_helper['currency_from']   = (string) get_field( 'exchange_from' );
 		$invoice_helper['currency_to']     = (string) get_field( 'exchange_to' );
-		$invoice_helper['exchange_rate']   = (string) get_field( 'exchange_rate' );
-		$invoice_helper['dual_currency']   = (bool) ( $invoice_helper['currency_from'] !== $invoice_helper['currency_to'] ) && $invoice_helper['exchange_rate'];
+		$invoice_helper['dual_currency']   = (bool) ( $invoice_helper['currency_from'] !== $invoice_helper['currency_to'] );
+		$invoice_helper['symbol_constant'] = (string) get_field( 'symbol_constant' );
 	}
+
+	$invoice_helper['exchange_rate'] = (float) Invoices_Helper::get_exchange_rate( $invoice_helper );
 
 
 ?>
+
+<?php if ( $invoice_helper['dual_currency'] ) : ?>
+<div class="invoice-note invoice-note-exchange">
+	<?php
+
+	printf(
+		/* translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date. */
+		esc_html__( '%1$s to %2$s exchange rate of %3$f valid on %4$s', '_invoices' ),
+		$invoice_helper['currency_from'],
+		$invoice_helper['currency_to'],
+		$invoice_helper['exchange_rate'],
+		$invoice_helper['publish_date_display']
+	);
+
+	?>
+</div>
+<?php endif; ?>
 
 <table class="invoice-items">
 
@@ -102,11 +113,11 @@
 
 					<td class="invoice-items-column-price">
 						<span class="price"><?php echo esc_html( sprintf( '%.2f', $price ) ); ?></span>
-						<span class="currency"><?php echo esc_html( $invoice_helper['currency_from'] ); ?></span>
+						<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_from'] ); ?></span>
 						<?php if ( $invoice_helper['dual_currency'] ) : ?>
 						<small class="dual-currency">
 							<span class="price"><?php echo esc_html( sprintf( '%.2f', round( $price * $invoice_helper['exchange_rate'], 2 ) ) ); ?></span>
-							<span class="currency"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
+							<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
 						</small>
 						<?php endif; ?>
 					</td>
@@ -119,7 +130,7 @@
 
 						?>
 						<span class="price"><?php echo esc_html( sprintf( '%.2f', $total_row ) ); ?></span>
-						<span class="currency"><?php echo esc_html( $invoice_helper['currency_from'] ); ?></span>
+						<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_from'] ); ?></span>
 						<?php if ( $invoice_helper['dual_currency'] ) : ?>
 						<small class="dual-currency">
 							<?php
@@ -129,7 +140,7 @@
 
 							?>
 							<span class="price"><?php echo esc_html( sprintf( '%.2f', $total_row ) ); ?></span>
-							<span class="currency"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
+							<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
 						</small>
 						<?php endif; ?>
 					</td>

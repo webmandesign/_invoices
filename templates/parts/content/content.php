@@ -19,9 +19,34 @@
 
 	global $invoice_helper, $totals;
 
-	$invoice_helper = array();
-
 	++$totals['invoice_count'];
+
+	// Invoice helper variable reset
+
+		$invoice_helper = array(
+
+			'company' => array(
+				'category' => null,
+				'client'   => null,
+			),
+
+			'publish_date_raw'     => get_the_date( 'Y-m-d' ),
+			'publish_date_display' => get_the_date(),
+
+			'total' => Invoices_Customize::get_currencies_array(),
+
+			'currency_from'   => '',
+			'currency_to'     => '',
+			'dual_currency'   => false,
+			'exchange_rate'   => 0,
+
+			'symbol_constant' => '',
+
+		);
+
+		foreach ( $invoice_helper['total'] as $key => $value ) {
+			$invoice_helper['total'][ $key ] = 0;
+		}
 
 
 ?>

@@ -9,7 +9,8 @@
  *
  * Contents:
  *
- * 10) ACF metaboxes
+ * 10) Repeater row expanded
+ * 20) Realtime total counting
  */
 
 
@@ -23,39 +24,63 @@
 
 
 	/**
-	 * 10) ACF metaboxes
+	 * 10) Repeater row expanded
 	 */
 
-		/**
-		 * Make all repeater subfields expanded all the time
-		 */
+		$( '.acf-repeater' )
+			.on( 'click a[data-event="collapse-row"]', function() {
 
-			$( '.acf-repeater' )
-				.on( 'click a[data-event="collapse-row"]', function() {
+				if (
+					'undefined' !== typeof( acf )
+					&& 'undefined' !== typeof( acf.add_action )
+				) {
 
-					if (
-						'undefined' !== typeof( acf )
-						&& 'undefined' !== typeof( acf.add_action )
-					) {
+					acf.add_action( 'hide', function( $tr, $scope ) {
+						if ( 'collapse' === $scope ) {
 
-						acf.add_action( 'hide', function( $tr, $scope ) {
-							if ( 'collapse' === $scope ) {
+							$( $tr )
+								.removeClass( '-collapsed' )
+								.find( 'td' )
+									.removeAttr( 'colspan' );
 
-								$( $tr )
-									.removeClass( '-collapsed' )
-									.find( 'td' )
-										.removeAttr( 'colspan' );
+						}
+					}, 99 );
 
-							}
-						}, 99 );
+				}
 
-					}
+			} )
+			.find( '.acf-row' )
+				.removeClass( '-collapsed' )
+				.find( 'td' )
+					.removeAttr( 'colspan' );
 
-				} )
-				.find( '.acf-row' )
-					.removeClass( '-collapsed' )
-					.find( 'td' )
-						.removeAttr( 'colspan' );
+
+
+
+
+	/**
+	 * 20) Realtime total counting
+	 */
+
+		$( '.acf-row .acf-field[data-name="total"] input[type="number"]' )
+			.attr( 'readonly', 'true' );
+
+		$( '.acf-row .acf-field[data-name="price"], .acf-row .acf-field[data-name="quantity"]' )
+			.on( 'change keyup', 'input[type="number"]', function() {
+
+				var
+					$this     = $( this ),
+					$row      = $this.closest( '.acf-row' ),
+					$price    = $row.find( '.acf-field[data-name="price"] input[type="number"]' ).val(),
+					$quantity = $row.find( '.acf-field[data-name="quantity"] input[type="number"]' ).val();
+
+				$row
+					.find( '.acf-field[data-name="total"] input[type="number"]' )
+						.val( ( $price * $quantity ).toFixed( 2 ) );
+
+			} );
+
+		// @todo Make it work also when adding new rows.
 
 
 

@@ -142,7 +142,7 @@ class Invoices_Advanced_Custom_Fields {
 									'label'    => esc_html__( 'Price', '_invoices' ),
 									'required' => 1,
 									'wrapper'  => array(
-										'width' => '20',
+										'width' => '15',
 									),
 								),
 
@@ -153,7 +153,7 @@ class Invoices_Advanced_Custom_Fields {
 									'label'    => esc_html__( 'Qty', '_invoices' ),
 									'required' => 1,
 									'wrapper'  => array(
-										'width' => '5',
+										'width' => '8',
 									),
 									'default_value' => 1,
 									'min'           => 1,
@@ -182,10 +182,21 @@ class Invoices_Advanced_Custom_Fields {
 									'type'     => 'textarea',
 									'label'    => esc_html__( 'Optional (additional) item info', '_invoices' ),
 									'wrapper'  => array(
-										'width' => '50',
+										'width' => '40',
 									),
 									'rows'      => 2,
 									'new_lines' => 'br',
+								),
+
+								500 => array(
+									'key'      => 'key_invoice_items_total',
+									'name'     => 'total',
+									'type'     => 'number',
+									'label'    => esc_html__( 'Total', '_invoices' ),
+									'wrapper'  => array(
+										'width' => '12',
+									),
+									'default_value' => 0,
 								),
 
 							),
@@ -340,19 +351,18 @@ class Invoices_Advanced_Custom_Fields {
 					'title'  => esc_html__( 'Dual currency display', '_invoices' ),
 					'fields' => array(
 
-						100 => array(
-							'key'           => 'key_invoice_exchange_exchange_rate',
-							'name'          => 'exchange_rate',
-							'type'          => 'number',
-							'label'         => sprintf(
-								esc_html_x( 'Exchange rate (%s)', '%s = link to exchange rate website.', '_invoices' ),
-								'<a href="' . esc_url( _x( 'https://www.nbs.sk/en/statistics/exchange-rates/monthly-cumulative-and-annual-exchange-rates', 'Exchange rate reference website URL.', '_invoices' ) ) . '" target="_blank">' . esc_html_x( 'www.nbs.sk', 'Exchange rate reference website title.', '_invoices' ) . '</a>'
-							),
-							'default_value' => 0,
-							'required'      => 1,
+						50 => array(
+							'key'     => 'key_invoice_exchange_message',
+							'type'    => 'message',
+							'message' => esc_html__( 'Dual currency display of the invoice amounts will take place only if currencies differs.', '_invoices' )
+							             . ' '
+							             . sprintf(
+							             	esc_html__( 'Automatic exchange calculation will then be provided using %s API.', '_invoices' ),
+							             	'<a href="' . esc_url( esc_attr_x( 'http://fixer.io', 'Currency exchange rate API URL, just for information purposes.', '_invoices' ) ) . '" target="_blank">' . str_replace( array( 'http://', 'https://' ), '', esc_attr_x( 'http://fixer.io', 'Currency exchange rate API URL, just for information purposes.', '_invoices' ) ) . '</a>'
+							             ),
 						),
 
-						200 => array(
+						100 => array(
 							'key'           => 'key_invoice_exchange_exchange_from',
 							'name'          => 'exchange_from',
 							'type'          => 'select',
@@ -364,7 +374,7 @@ class Invoices_Advanced_Custom_Fields {
 							'required'      => 1,
 						),
 
-						300 => array(
+						200 => array(
 							'key'           => 'key_invoice_exchange_exchange_to',
 							'name'          => 'exchange_to',
 							'type'          => 'select',
@@ -374,24 +384,6 @@ class Invoices_Advanced_Custom_Fields {
 							'default_value' => Invoices_Customize::get_currency_exchange_to(),
 							'return_format' => 'value',
 							'required'      => 1,
-						),
-// @todo Make it load remote data relevant to invoice publish date!
-						400 => array(
-							'key'            => 'key_invoice_exchange_exchange_date',
-							'name'           => 'exchange_date',
-							'type'           => 'date_picker',
-							'label'          => esc_html__( 'Date (for the record only)', '_invoices' ),
-							'display_format' => 'Y/m/d',
-							'return_format'  => 'Ymd',
-							'first_day'      => 1,
-							'default_value'  => date( 'Ymt', strtotime( 'last month' ) ),
-						),
-
-						500 => array(
-							'key'     => 'key_invoice_exchange_message',
-							'type'    => 'message',
-							'label'   => esc_html__( 'Info', '_invoices' ),
-							'message' => esc_html__( 'Automatic exchange calculation and dual currency display of invoice amounts will take place only if exchange rate is higher than zero and currencies differs.', '_invoices' ),
 						),
 
 					),
