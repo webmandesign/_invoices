@@ -13,6 +13,7 @@
  *  0) Init
  * 10) Setup
  * 20) Admin
+ * 30) Login required
  */
 class Invoices_Setup {
 
@@ -51,6 +52,8 @@ class Invoices_Setup {
 						add_action( 'admin_init', __CLASS__ . '::dashboard_widgets' );
 
 						add_action( 'admin_menu', __CLASS__ . '::admin_menu' );
+
+						add_action( 'template_redirect', __CLASS__ . '::login_required' );
 
 		} // /__construct
 
@@ -202,6 +205,31 @@ class Invoices_Setup {
 					unset( $menu[10] );
 
 		} // /admin_menu
+
+
+
+
+
+	/**
+	 * 30) Login required
+	 */
+
+		/**
+		 * No page is displayed unless a visitor is logged in
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function login_required() {
+
+			// Processing
+
+				if ( ! is_user_logged_in() ) {
+					wp_redirect( wp_login_url( get_permalink() ) );
+					die;
+				}
+
+		} // /login_required
 
 
 
