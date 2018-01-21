@@ -12,7 +12,8 @@
  *
  *  0) Init
  * 10) Reset
- * 20) Exchange rate
+ * 20) Invoice companies
+ * 30) Exchange rate
  */
 class Invoices_Helper {
 
@@ -43,24 +44,23 @@ class Invoices_Helper {
 
 			// Helper variables
 
+				$post_id = get_the_ID();
+
 				$output = array(
 
-					'company' => array(
-						'category' => null,
-						'client'   => null,
-					),
+					'company' => self::get_invoice_companies(),
 
 					'publish_date_raw'     => get_the_date( 'Y-m-d' ),
 					'publish_date_display' => get_the_date(),
 
 					'total' => Invoices_Customize::get_currencies_array(),
 
-					'currency_from'   => '',
-					'currency_to'     => '',
+					'currency_from'   => (string) get_post_meta( $post_id, 'exchange_from', true ),
+					'currency_to'     => (string) get_post_meta( $post_id, 'exchange_to', true ),
 					'dual_currency'   => false,
 					'exchange_rate'   => 0,
 
-					'symbol_constant' => '',
+					'symbol_constant' => (string) get_post_meta( $post_id, 'symbol_constant', true ),
 
 				);
 
@@ -70,6 +70,11 @@ class Invoices_Helper {
 				foreach ( $output['total'] as $key => $value ) {
 					$output['total'][ $key ] = 0;
 				}
+				$output['total'][ $output['currency_from'] ] = (float) get_post_meta( $post_id, 'invoice_total', true );
+
+				$output['dual_currency'] = (bool) ( $output['currency_from'] !== $output['currency_to'] );
+
+				$output['exchange_rate'] = (float) self::get_exchange_rate( $output );
 
 
 			// Output
@@ -83,7 +88,64 @@ class Invoices_Helper {
 
 
 	/**
-	 * 20) Exchange rate
+	 * 20) Invoice companies
+	 */
+
+		/**
+		 * Get invoice companies
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  absint $post_id
+		 */
+		public static function get_invoice_companies( $post_id = 0 ) {
+
+			// Helper variables
+
+				$post_id = absint( $post_id );
+
+				if ( empty( $post_id ) ) {
+					$post_id = get_the_ID();
+				}
+
+				$taxonomies = array(
+					'category',
+					'client',
+				);
+
+				$output = array();
+
+
+			// Processing
+
+				foreach ( $taxonomies as $taxonomy ) {
+					$terms = wp_get_post_terms( $post_id, $taxonomy );
+
+					if (
+						is_wp_error( $terms )
+						|| empty( $terms )
+						|| ! isset( $terms[0]->description )
+					) {
+						continue;
+					}
+
+					$output[ $taxonomy ] = $terms[0];
+				}
+
+
+			// Output
+
+				return (array) $output;
+
+		} // /get_invoice_companies
+
+
+
+
+
+	/**
+	 * 30) Exchange rate
 	 */
 
 		/**

@@ -23,8 +23,7 @@
 // Requirements check
 
 	if (
-		! function_exists( 'get_field' )
-		|| ! function_exists( 'have_rows' )
+		! function_exists( 'have_rows' )
 		|| ! function_exists( 'the_row' )
 		|| ! function_exists( 'get_sub_field' )
 	) {
@@ -35,12 +34,6 @@
 // Helper variables
 
 	global $invoice_helper;
-
-	$invoice_helper['currency_from']   = (string) get_field( 'exchange_from' );
-	$invoice_helper['currency_to']     = (string) get_field( 'exchange_to' );
-	$invoice_helper['dual_currency']   = (bool) ( $invoice_helper['currency_from'] !== $invoice_helper['currency_to'] );
-	$invoice_helper['symbol_constant'] = (string) get_field( 'symbol_constant' );
-	$invoice_helper['exchange_rate']   = (float) Invoices_Helper::get_exchange_rate( $invoice_helper );
 
 
 ?>
@@ -78,8 +71,8 @@
 		<?php
 
 		if ( have_rows( 'items' ) ) :
-
 			$i = 0;
+
 			while ( have_rows( 'items' ) ) :
 				the_row();
 
@@ -147,11 +140,12 @@
 						<td class="invoice-items-column-price">
 							<span class="price"><?php echo esc_html( sprintf( '%.2f', $price ) ); ?></span>
 							<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_from'] ); ?></span>
+
 							<?php if ( $invoice_helper['dual_currency'] ) : ?>
-							<small class="dual-currency">
-								<span class="price"><?php echo esc_html( sprintf( '%.2f', round( $price * $invoice_helper['exchange_rate'], 2 ) ) ); ?></span>
-								<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
-							</small>
+								<small class="dual-currency">
+									<span class="price"><?php echo esc_html( sprintf( '%.2f', round( $price * $invoice_helper['exchange_rate'], 2 ) ) ); ?></span>
+									<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
+								</small>
 							<?php endif; ?>
 						</td>
 
@@ -163,25 +157,16 @@
 
 						?>
 						<td class="invoice-items-column-total">
-							<?php
-
-							$total_row = round( (float) get_sub_field( 'total' ), 2 );
-							$invoice_helper['total'][ $invoice_helper['currency_from'] ] += (float) $total_row;
-
-							?>
+							<?php $total_row = round( (float) get_sub_field( 'total' ), 2 ); ?>
 							<span class="price"><?php echo esc_html( sprintf( '%.2f', $total_row ) ); ?></span>
 							<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_from'] ); ?></span>
+
 							<?php if ( $invoice_helper['dual_currency'] ) : ?>
-							<small class="dual-currency">
-								<?php
-
-								$total_row = round( $total_row * $invoice_helper['exchange_rate'], 2 );
-								$invoice_helper['total'][ $invoice_helper['currency_to'] ] += (float) $total_row;
-
-								?>
-								<span class="price"><?php echo esc_html( sprintf( '%.2f', $total_row ) ); ?></span>
-								<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
-							</small>
+								<small class="dual-currency">
+									<?php $total_exchanged = round( $total_row * $invoice_helper['exchange_rate'], 2 ); ?>
+									<span class="price"><?php echo esc_html( sprintf( '%.2f', $total_exchanged ) ); ?></span>
+									<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
+								</small>
 							<?php endif; ?>
 						</td>
 

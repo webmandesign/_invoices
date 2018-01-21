@@ -3,15 +3,47 @@
 .site {
 
 	&-footer {
-		@extend %site_meta;
-		margin-bottom: 0;
 		text-align: center;
+
+		@media screen {
+			padding: 0 0 ( $gutter * 2 );
+			margin: ( $gutter * 4 ) 0 0;
+		}
+
+		@media print {
+			page-break-before: always;
+			page-break-inside: avoid;
+			position: relative;
+			padding: $gutter * 4.5;
+
+			&::after {
+				content: '';
+				position: absolute;
+				width: calc( 100% - #{ $gutter * 2 * 2 } );
+				height: calc( 100% - #{ $gutter * 2 * 2 } );
+				left: 0;
+				top: 0;
+				margin: $gutter * 2;
+				border: ( $gutter * .5 ) solid $color_shaded;
+			}
+
+			.single & {
+				display: none;
+			}
+
+		}
+
 	}
 
 	&-info {
 		margin-top: $gutter * 2;
 		font-size: .81em;
-		opacity: .5;
+
+		@media screen {
+			margin-top: $gutter;
+			opacity: .5;
+		}
+
 	}
 
 }

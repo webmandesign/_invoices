@@ -1,19 +1,23 @@
 /* FILE: main/_extenders.scss */
 
-%site_meta {
-	padding: ( $gutter * 2 ) 0;
-	margin: ( $gutter * 4 ) 0;
+%new_year_label {
 
-	&:first-child {
-		padding-bottom: 0;
-	}
+	&::before {
+		content: attr( data-year );
+		position: absolute;
+		right: 100%;
+		top: 50%;
+		padding: $gutter;
+		line-height: .75;
+		font-size: 2.62em;
+		font-weight: 700;
+		transform: translateY( -50% );
+		cursor: help;
 
-	&:last-child {
-		padding-top: 0;
-	}
+		@media print {
+			display: none;
+		}
 
-	@media print {
-		display: none;
 	}
 
 }

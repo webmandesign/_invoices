@@ -322,7 +322,13 @@ class Invoices_Post_Types {
 			// Processing
 
 				if ( 'post' === get_post_type() ) {
-					$classes[] = 'invoice';
+					if ( is_single() || is_archive() ) {
+						// Full display on single and archive pages
+						$classes[] = 'invoice';
+					} else {
+						// Simple display otherwise
+						$classes[] = 'invoice-simple';
+					}
 				}
 
 

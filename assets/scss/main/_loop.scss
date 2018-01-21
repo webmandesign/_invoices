@@ -1,0 +1,162 @@
+/* FILE: main/_loop.scss */
+
+.posts {
+
+	@media screen {
+		margin-top: $gutter * 4;
+	}
+
+	.invoice {
+
+		// Full display in archive pages
+		@media screen {
+			box-shadow: 0 1px 1px rgba( #000, .1 );
+
+			&::before,
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				background-color: inherit;
+				z-index: -1;
+				background-color: #f9f9f9;
+				box-shadow: 0 1px 1px rgba( #000, .1 );
+				transform: rotate( .5deg ) translateY( 5pt );
+				transition: transform .2s;
+			}
+
+			&::after {
+				background-color: #f3f3f3;
+				z-index: -2;
+				box-shadow: 0 5mm 20mm rgba( #000, .1 );
+				transform: rotate( -.75deg ) translateY( -1pt );
+			}
+
+			&:hover::before,
+			&:hover::after {
+				transform: rotate( 0 ) translateY( 0 );
+			}
+
+		}
+
+	}
+
+}
+
+
+
+// Simple invoice display in homepage posts list
+
+	.invoice-simple {
+		display: flex;
+		align-items: center;
+		position: relative;
+		height: auto;
+		padding: $gutter;
+		padding-right: 0;
+		margin: 0;
+		background: transparent;
+		border-bottom: 1pt solid;
+		box-shadow: none;
+
+		&:last-child {
+			border: 0;
+		}
+
+		@media print {
+			padding: ( $gutter / 2 ) 0;
+			margin: 0 ( $gutter * 2 );
+
+			&:first-child {
+				margin-top: $gutter * 2;
+				border-top: 4pt solid;
+			}
+
+			&:last-child {
+				margin-bottom: $gutter * 2;
+				border-bottom: 4pt solid;
+			}
+
+		}
+
+		> div,
+		> h2 {
+			margin-right: $gutter;
+		}
+
+		&-date {
+			width: 15%;
+			text-transform: uppercase;
+
+			.year {
+				font-weight: 700;
+			}
+
+		}
+
+			&:first-child {
+				@extend %new_year_label;
+			}
+			@for $year from 2015 through 2025 {
+				&[data-year="#{ $year }"] + [data-year="#{ $year - 1 }"] {
+					@extend %new_year_label;
+				}
+			}
+
+		&-title {
+			width: 30%;
+			margin: 0;
+			font-size: 1.38em;
+			font-weight: 700;
+		}
+
+			.post-edit-link {
+				margin-left: 1em;
+				text-transform: uppercase;
+				font-size: .81rem;
+				font-weight: 400;
+				letter-spacing: .05em;
+
+				&::before {
+					content: '[';
+				}
+
+				&::after {
+					content: ']';
+				}
+
+				@media print {
+					display: none;
+				}
+
+			}
+
+		&-company {
+			font-weight: 700;
+
+			&-label {
+				text-transform: uppercase;
+				font-weight: 400;
+				font-size: .81em;
+				letter-spacing: .05em;
+			}
+
+		}
+
+		&-total {
+			margin-left: auto;
+			text-align: right;
+			font-weight: 700;
+
+			.dual-currency {
+				font-size: inherit;
+				cursor: help;
+			}
+
+		}
+
+	}

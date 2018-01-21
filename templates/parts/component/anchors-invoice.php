@@ -28,6 +28,10 @@
 
 	<?php edit_post_link( esc_html__( 'Edit', '_invoices' ) ); ?>
 
+	<a href="javascript:window.print()" class="print">
+		<?php esc_html_e( 'Print', '_invoices' ); ?>
+	</a>
+
 	<a href="#post-item-<?php echo absint( $totals['invoice_count'] - 1 ); ?>" class="invoice-navigation previous">
 		&uarr;
 	</a>

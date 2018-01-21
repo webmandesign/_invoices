@@ -4,6 +4,8 @@
  *
  * @link  https://developer.wordpress.org/themes/basics/theme-functions/
  *
+ * @todo  Import old invoices (either as CSV or make a WordPress import XML from them). You can use `printr( get_post_meta( get_the_ID() ) );` to see how ACF fields are structured in invoice and maybe export existing ones to see how XML is structured then. You can also try to modify the exported XML and try to import it again to see if it works.
+ *
  * @package    Invoices
  * @copyright  WebMan Design, Oliver Juhas
  *

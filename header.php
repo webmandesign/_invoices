@@ -48,10 +48,13 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<link rel="profile" href="http://gmpg.org/xfn/11">
+<?php
 
-<?php wp_head(); ?>
+get_template_part( 'templates/parts/header/head' );
+
+wp_head();
+
+?>
 </head>
 
 
@@ -59,5 +62,11 @@
 <div id="page" class="site">
 
 	<header class="site-header">
-		<?php get_template_part( 'templates/parts/menu/menu', 'primary' ); ?>
+		<?php
+
+		get_template_part( 'templates/parts/header/site', 'branding' );
+
+		get_template_part( 'templates/parts/menu/menu', 'primary' );
+
+		?>
 	</header>

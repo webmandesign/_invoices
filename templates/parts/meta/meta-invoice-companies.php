@@ -17,52 +17,33 @@
 
 	global $invoice_helper;
 
-	$taxonomies = array(
-		'category',
-		'client',
-	);
-
 
 ?>
 
 <div class="invoice-meta-company-container invoice-meta-container">
-<?php
+<?php foreach ( $invoice_helper['company'] as $taxonomy => $term ) : ?>
 
-foreach ( $taxonomies as $taxonomy ) :
-
-	$terms = wp_get_post_terms( get_the_ID(), $taxonomy );
-
-	if (
-		is_wp_error( $terms )
-		|| empty( $terms )
-		|| ! isset( $terms[0]->description )
-	) {
-		continue;
-	}
-
-	$invoice_helper['company'][ $taxonomy ] = $terms[0];
-
-	?>
 	<div class="invoice-meta-company invoice-meta-item">
 		<h2 class="invoice-meta-label">
 			<?php if ( 'category' === $taxonomy ) : ?>
-			<span class="invoice-meta-label-supplier"><?php echo esc_html_x( 'Supplier', 'Invoice company info label.', '_invoices' ); ?></span>
+			<span class="invoice-meta-label-supplier">
+				<?php echo esc_html_x( 'Supplier', 'Invoice company info label.', '_invoices' ); ?>
+			</span>
 			<?php else : ?>
-			<span class="invoice-meta-label-customer"><?php echo esc_html_x( 'Client', 'Invoice company info label.', '_invoices' ); ?></span>
+			<span class="invoice-meta-label-customer">
+				<?php echo esc_html_x( 'Client', 'Invoice company info label.', '_invoices' ); ?>
+			</span>
 			<?php endif; ?>
 		</h2>
 		<div class="invoice-meta-value">
 			<h3>
-				<a href="<?php echo esc_url( get_term_link( $terms[0] ) ); ?>">
-					<?php echo esc_html( $terms[0]->name ); ?>
+				<a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
+					<?php echo esc_html( $term->name ); ?>
 				</a>
 			</h3>
-			<?php echo apply_filters( 'the_excerpt', $terms[0]->description ); ?>
+			<?php echo apply_filters( 'the_excerpt', $term->description ); ?>
 		</div>
 	</div>
-	<?php
 
-	endforeach;
-
-?>
+<?php endforeach; ?>
 </div>

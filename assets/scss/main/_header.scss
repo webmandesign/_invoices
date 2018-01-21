@@ -27,3 +27,29 @@
 	}
 
 }
+
+.site {
+
+	&-branding {
+		margin: $gutter 0;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: .05em;
+
+		a {
+			color: inherit;
+		}
+
+	}
+
+	&-title {
+		margin: 0;
+		font-size: 1.62em;
+		font-weight: 700;
+	}
+
+	&-description {
+		margin: 0;
+	}
+
+}

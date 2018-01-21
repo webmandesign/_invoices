@@ -45,17 +45,19 @@
 
 		foreach ( $terms as $term ) :
 
-		if ( ! isset( $term->description ) ) {
-			continue;
-		}
+			if ( ! isset( $term->description ) ) {
+				continue;
+			}
 
-		?>
-		<div class="invoice-meta-value">
-			<a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
-				<?php echo apply_filters( 'the_excerpt', $term->description ); ?>
-			</a>
-		</div>
-		<?php
+			?>
+
+			<div class="invoice-meta-value">
+				<a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
+					<?php echo apply_filters( 'the_excerpt', $term->description ); ?>
+				</a>
+			</div>
+
+			<?php
 
 		endforeach;
 

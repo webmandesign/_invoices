@@ -63,7 +63,7 @@ img {
 
 a {
 	text-decoration: none;
-	color: #09c;
+	color: #06f;
 
 	&:hover,
 	&:active,
@@ -77,6 +77,10 @@ a {
 
 }
 
+small {
+	font-size: .81em;
+}
+
 .archive-title-label,
 .currency-code {
 	font-size: .81em;
@@ -88,4 +92,8 @@ a {
 	text-transform: uppercase;
 	font-size: 1rem;
 	letter-spacing: .05em;
+}
+
+.dual-currency {
+	display: block;
 }
