@@ -28,7 +28,7 @@ h1 {
 
 .welcome-panel {
 	clear: both;
-	padding: 4% 6%;
+	padding: 2.62em 6%;
 	font-size: 15px;
 }
 
@@ -41,6 +41,10 @@ h1 {
 		margin-bottom: .62rem;
 		font-size: 2.62em;
 		font-weight: 700;
+	}
+
+	.welcome-panel h2 small {
+		font-weight: 400;
 	}
 
 	.welcome-panel h3 {
@@ -63,6 +67,10 @@ h1 {
 		line-height: 1.5;
 	}
 
+	.welcome-panel .button {
+		font-weight: 700;
+	}
+
 .welcome-panel-content {
 	margin: 0;
 	max-width: 100%;
@@ -71,11 +79,12 @@ h1 {
 .welcome-panel-column-container {
 	display: flex;
 	justify-content: space-between;
-	margin-top: 3.62em;
+	margin-top: 2.62em;
 }
 
 	.welcome-panel-column-container + .welcome-panel-column-container {
-		padding-top: 3.62em;
+		padding-top: 2.62em;
+		margin-top: 2.62em;
 		border-top: 1px solid #ddd;
 	}
 
@@ -96,6 +105,15 @@ h1 {
 		border: 1px solid #ddd;
 	}
 
+		.welcome-panel .welcome-panel-links ul {
+			overflow: hidden;
+		}
+
+		.welcome-panel .welcome-panel-links li {
+			float: left;
+			width: 50%;
+		}
+
 	.welcome-panel .welcome-panel-customize {
 		padding: 2.62em;
 		border: 1px solid #ddd;
@@ -103,13 +121,22 @@ h1 {
 
 	.welcome-panel-requirements {
 		padding: 2.62em;
-		background: #d04;
+		background-color: #c03;
+		background-image: radial-gradient( circle at 50% 91%, rgba(255,255,255,.33) 0, transparent 100% );
 		color: #fff;
+		border: 1px solid #c03;
 	}
 
 		.welcome-panel-column.welcome-panel-requirements *:not(.button) {
 			color: inherit;
 		}
+
+	.welcome-panel footer {
+		margin-top: 2.62em;
+		text-align: right;
+		font-size: .81em;
+		border-top: 1px solid #ddd;
+	}
 
 .metabox-holder .postbox-container .empty-container {
 	border: 0;
