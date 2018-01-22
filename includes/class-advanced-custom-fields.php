@@ -52,7 +52,7 @@ class Invoices_Advanced_Custom_Fields {
 
 						add_action( 'init', __CLASS__ . '::invoice_disable_editor' );
 
-						add_action( 'acf/init', __CLASS__ . '::invoice_items' );
+						add_action( 'acf/init', __CLASS__ . '::invoice_products' );
 						add_action( 'acf/init', __CLASS__ . '::invoice_setup' );
 						add_action( 'acf/init', __CLASS__ . '::invoice_exchange' );
 						add_action( 'acf/init', __CLASS__ . '::seller_stamp' );
@@ -111,18 +111,18 @@ class Invoices_Advanced_Custom_Fields {
 
 
 		/**
-		 * Invoice items metabox
+		 * Invoice Products/Services metabox
 		 *
 		 * @since    1.0.0
 		 * @version  1.0.0
 		 */
-		public static function invoice_items() {
+		public static function invoice_products() {
 
 			// Processing
 
 				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_add_local_field_group', array(
-					'id'     => 'group_invoice_items',
-					'title'  => esc_html__( 'Invoice items', '_invoices' ),
+					'id'     => 'group_invoice_products',
+					'title'  => esc_html__( 'Products/services invoiced', '_invoices' ),
 					'fields' => array(
 
 						100 => array(
@@ -135,19 +135,19 @@ class Invoices_Advanced_Custom_Fields {
 						),
 
 						200 => array(
-							'key'          => 'key_invoice_items',
-							'name'         => 'items',
+							'key'          => 'key_invoice_products',
+							'name'         => 'products',
 							'type'         => 'repeater',
-							'label'        => esc_html__( 'Invoice items', '_invoices' ),
-							'button_label' => esc_html__( '+ Add invoice item', '_invoices' ),
+							'label'        => esc_html__( 'Products invoiced', '_invoices' ),
+							'button_label' => esc_html__( '+ Add Invoiced Product', '_invoices' ),
 							'required'     => 1,
-							'collapsed'    => 'key_invoice_items_price',
+							'collapsed'    => 'key_invoice_products_price',
 							'min'          => 1,
 							'layout'       => 'table',
 							'sub_fields'   => array(
 
 								100 => array(
-									'key'      => 'key_invoice_items_price',
+									'key'      => 'key_invoice_products_price',
 									'name'     => 'price',
 									'type'     => 'number',
 									'label'    => esc_html__( 'Price', '_invoices' ),
@@ -158,7 +158,7 @@ class Invoices_Advanced_Custom_Fields {
 								),
 
 								200 => array(
-									'key'      => 'key_invoice_items_quantity',
+									'key'      => 'key_invoice_products_quantity',
 									'name'     => 'quantity',
 									'type'     => 'number',
 									'label'    => esc_html__( 'Qty', '_invoices' ),
@@ -173,10 +173,10 @@ class Invoices_Advanced_Custom_Fields {
 								),
 
 								300 => array(
-									'key'      => 'key_invoice_items_item',
-									'name'     => 'item',
+									'key'      => 'key_invoice_products_product',
+									'name'     => 'product',
 									'type'     => 'post_object',
-									'label'    => esc_html__( 'Item', '_invoices' ),
+									'label'    => esc_html__( 'Product', '_invoices' ),
 									'wrapper'  => array(
 										'width' => '25',
 									),
@@ -188,10 +188,10 @@ class Invoices_Advanced_Custom_Fields {
 								),
 
 								400 => array(
-									'key'      => 'key_invoice_items_description',
+									'key'      => 'key_invoice_products_description',
 									'name'     => 'description',
 									'type'     => 'textarea',
-									'label'    => esc_html__( 'Optional (additional) item info', '_invoices' ),
+									'label'    => esc_html__( 'Optional additional product info', '_invoices' ),
 									'wrapper'  => array(
 										'width' => '40',
 									),
@@ -200,7 +200,7 @@ class Invoices_Advanced_Custom_Fields {
 								),
 
 								500 => array(
-									'key'      => 'key_invoice_items_total',
+									'key'      => 'key_invoice_products_total',
 									'name'     => 'total',
 									'type'     => 'number',
 									'label'    => esc_html__( 'Total', '_invoices' ),
@@ -231,9 +231,9 @@ class Invoices_Advanced_Custom_Fields {
 					'position'        => 'acf_after_title',
 					'style'           => 'seamless',
 					'label_placement' => 'left',
-				), 'invoice_items' ) );
+				), 'invoice_products' ) );
 
-		} // /invoice_items
+		} // /invoice_products
 
 
 
@@ -311,7 +311,7 @@ class Invoices_Advanced_Custom_Fields {
 							'name'         => 'notes',
 							'type'         => 'textarea',
 							'label'        => esc_html__( 'Notes', '_invoices' ),
-							'instructions' => esc_html__( 'Optional invoice notes, displayed before invoice items.', '_invoices' ),
+							'instructions' => esc_html__( 'Optional invoice notes, displayed before invoiced products/services list.', '_invoices' ),
 							'rows'         => 3,
 							'new_lines'    => 'br',
 						),
@@ -499,7 +499,7 @@ class Invoices_Advanced_Custom_Fields {
 			// Requirements check
 
 				if (
-					! isset( $_POST['acf']['key_invoice_items'] )
+					! isset( $_POST['acf']['key_invoice_products'] )
 					|| ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 				) {
 					return $post_id;
@@ -513,15 +513,15 @@ class Invoices_Advanced_Custom_Fields {
 
 			// Processing
 
-				foreach ( (array) $_POST['acf']['key_invoice_items'] as $key => $subfields ) {
+				foreach ( (array) $_POST['acf']['key_invoice_products'] as $key => $subfields ) {
 					if (
-						isset( $subfields['key_invoice_items_price'] )
-						&& isset( $subfields['key_invoice_items_quantity'] )
+						isset( $subfields['key_invoice_products_price'] )
+						&& isset( $subfields['key_invoice_products_quantity'] )
 					) {
 
-						$total_row = (float) $subfields['key_invoice_items_price'] * absint( $subfields['key_invoice_items_quantity'] );
+						$total_row = (float) $subfields['key_invoice_products_price'] * absint( $subfields['key_invoice_products_quantity'] );
 
-						$_POST['acf']['key_invoice_items'][ $key ]['key_invoice_items_total'] = sprintf( '%.2f', $total_row );
+						$_POST['acf']['key_invoice_products'][ $key ]['key_invoice_products_total'] = sprintf( '%.2f', $total_row );
 						$_POST['_acf_changed'] = 1;
 
 						$total_invoice += $total_row;

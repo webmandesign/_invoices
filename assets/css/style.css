@@ -258,31 +258,31 @@ small { font-size: .81em; }
 
 .invoice-note-exchange { font-size: .81em; }
 
-.invoice-items { width: 100%; text-align: center; }
+.invoice-products { width: 100%; text-align: center; }
 
-.invoice-note + .invoice-items { margin-top: 5mm; }
+.invoice-note + .invoice-products { margin-top: 5mm; }
 
-.invoice-items thead { text-transform: uppercase; font-size: .81rem; letter-spacing: .05em; }
+.invoice-products thead { text-transform: uppercase; font-size: .81rem; letter-spacing: .05em; }
 
-.invoice-items thead th { font-weight: 400; }
+.invoice-products thead th { font-weight: 400; }
 
-.invoice-items th, .invoice-items td { padding: 2.5mm; border-bottom: 1pt dashed; }
+.invoice-products th, .invoice-products td { padding: 2.5mm; border-bottom: 1pt dashed; }
 
-.invoice-items th { border-bottom: 1pt solid; }
+.invoice-products th { border-bottom: 1pt solid; }
 
-.invoice-items-column-order { width: 4%; font-size: .81rem; }
+.invoice-products-column-order { width: 4%; font-size: .81rem; }
 
-.invoice-items-column-description { width: 55%; text-align: left; }
+.invoice-products-column-description { width: 55%; text-align: left; }
 
-.invoice-items-column-description h2, .invoice-items-column-description h3, .invoice-items-column-description strong:first-child { margin: 0; font-size: 1rem; font-weight: 700; }
+.invoice-products-column-description h2, .invoice-products-column-description h3, .invoice-products-column-description strong:first-child { margin: 0; font-size: 1rem; font-weight: 700; }
 
-.invoice-items-column-description .item-description { font-size: .91em; }
+.invoice-products-column-description .description { font-size: .91em; }
 
-.invoice-items-column-quantity { width: 5%; }
+.invoice-products-column-quantity { width: 5%; }
 
-.invoice-items-column-price { width: 18%; text-align: right; }
+.invoice-products-column-price { width: 18%; text-align: right; }
 
-.invoice-items-column-total { width: 18%; text-align: right; font-weight: 700; }
+.invoice-products-column-total { width: 18%; text-align: right; font-weight: 700; }
 
 /* FILE: main/_loop.scss */
 @media screen { .posts { margin-top: 20mm; } }

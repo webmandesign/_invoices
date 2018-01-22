@@ -127,9 +127,9 @@
 
 
 
-	// Items
+	// Products
 
-		&-items {
+		&-products {
 			width: 100%;
 			text-align: center;
 
@@ -169,11 +169,11 @@
 				h2, h3,
 				strong:first-child {
 					margin: 0;
-					font-size: 1rem; // Required for when inside .item-description
+					font-size: 1rem; // Required for when inside .description
 					font-weight: 700;
 				}
 
-				.item-description {
+				.description {
 					font-size: .91em;
 				}
 

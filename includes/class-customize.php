@@ -112,7 +112,7 @@ class Invoices_Customize {
 					$wp_customize->add_section(
 						'currency',
 						array(
-							'title' => esc_html__( 'Currency', '_invoices' ),
+							'title' => esc_html__( 'Currency Exchange', '_invoices' ),
 							'panel' => 'theme_options',
 						)
 					);

@@ -20,7 +20,7 @@
 
 ?>
 
-<div class="invoice-anchors" id="post-item-<?php echo absint( $totals['invoice_count'] ); ?>">
+<div class="invoice-anchors" id="post-number-<?php echo absint( $totals['invoice_count'] ); ?>">
 
 	<a href="<?php echo esc_url( get_permalink() ); ?>" class="permalink">
 		#<?php the_ID(); ?>
@@ -32,11 +32,11 @@
 		<?php esc_html_e( 'Print', '_invoices' ); ?>
 	</a>
 
-	<a href="#post-item-<?php echo absint( $totals['invoice_count'] - 1 ); ?>" class="invoice-navigation previous">
+	<a href="#post-number-<?php echo absint( $totals['invoice_count'] - 1 ); ?>" class="invoice-navigation previous">
 		&uarr;
 	</a>
 
-	<a href="#post-item-<?php echo absint( $totals['invoice_count'] + 1 ); ?>" class="invoice-navigation next">
+	<a href="#post-number-<?php echo absint( $totals['invoice_count'] + 1 ); ?>" class="invoice-navigation next">
 		&darr;
 	</a>
 

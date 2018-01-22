@@ -28,7 +28,7 @@
 	 * 10) Read-only fields
 	 */
 
-		$( '.acf-field-key-invoice-items-total input[type="number"], #acf-key_invoice_total' )
+		$( '.acf-field-key-invoice-products-total input[type="number"], #acf-key_invoice_total' )
 			.attr( 'readonly', 'true' );
 
 
@@ -75,7 +75,7 @@
 	 */
 
 		$( document )
-			.on( 'change keyup', '.acf-field-key-invoice-items-price input[type="number"], .acf-field-key-invoice-items-quantity input[type="number"]', function() {
+			.on( 'change keyup', '.acf-field-key-invoice-products-price input[type="number"], .acf-field-key-invoice-products-quantity input[type="number"]', function() {
 
 				var
 					$this     = $( this ),

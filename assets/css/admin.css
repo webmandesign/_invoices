@@ -13,7 +13,7 @@
 .edit-timestamp, .save-timestamp, .cancel-timestamp { display: none !important; }
 
 /* FILE: admin/_metabox-acf.scss */
-.post-type-post .acf-field-repeater[data-name="items"] > .acf-label, .post-type-post .acf-field-repeater[data-name="items"] > .acf-input { float: none; width: 100%; }
+.post-type-post .acf-field-repeater[data-name="products"] > .acf-label, .post-type-post .acf-field-repeater[data-name="products"] > .acf-input { float: none; width: 100%; }
 
 .post-type-post .acf-repeater .acf-row-handle .acf-icon[data-event="collapse-row"] { display: none !important; }
 

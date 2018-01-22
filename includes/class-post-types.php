@@ -4,9 +4,10 @@
  *
  * Creates:
  * - "Invoice" post type from "Post" post type,
- * - "Invoice Item" post type from "Page" post type,
+ * - "Product" post type from "Page" post type,
  * - "Seller" taxonomy from "Category" taxonomy,
  * - "Client" custom taxonomy,
+ * - "Product Type" custom taxonomy,
  * - "Payment Method" custom taxonomy.
  *
  * Removes:
@@ -23,10 +24,11 @@
  *
  *  0) Init
  * 10) Invoices
- * 20) Invoice Items
+ * 20) Products
  * 30) Sellers
  * 40) Clients
- * 50) Payment Methods
+ * 50) Product Types
+ * 60) Payment Methods
  */
 class Invoices_Post_Types {
 
@@ -57,12 +59,13 @@ class Invoices_Post_Types {
 					// Actions
 
 						add_action( 'init', __CLASS__ . '::invoice_setup' );
-						add_action( 'init', __CLASS__ . '::invoice_item_setup' );
+						add_action( 'init', __CLASS__ . '::products_setup' );
 						add_action( 'init', __CLASS__ . '::clients_setup' );
+						add_action( 'init', __CLASS__ . '::product_types_setup' );
 						add_action( 'init', __CLASS__ . '::payment_methods_setup' );
 
 						add_action( 'registered_post_type', __CLASS__ . '::invoice_post_type_object', 10, 2 );
-						add_action( 'registered_post_type', __CLASS__ . '::invoice_item_post_type_object', 10, 2 );
+						add_action( 'registered_post_type', __CLASS__ . '::products_post_type_object', 10, 2 );
 
 						add_action( 'edit_form_top', __CLASS__ . '::invoice_predefined' );
 
@@ -73,7 +76,7 @@ class Invoices_Post_Types {
 						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_dates', 130 );
 						// Invoice content
 						add_action( 'invoice_content', __CLASS__ . '::invoice_note', 210 );
-						add_action( 'invoice_content', __CLASS__ . '::invoice_items', 220 );
+						add_action( 'invoice_content', __CLASS__ . '::products', 220 );
 						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_total', 230 );
 						// Invoice footer
 						add_action( 'invoice_content', __CLASS__ . '::invoice_meta_symbols', 310 );
@@ -389,18 +392,18 @@ class Invoices_Post_Types {
 
 
 		/**
-		 * Display invoice items
+		 * Display invoiced products
 		 *
 		 * @since    1.0.0
 		 * @version  1.0.0
 		 */
-		public static function invoice_items() {
+		public static function products() {
 
 			// Output
 
-				get_template_part( 'templates/parts/loop/loop', 'invoice-items' );
+				get_template_part( 'templates/parts/loop/loop', 'products' );
 
-		} // /invoice_items
+		} // /products
 
 
 
@@ -487,16 +490,16 @@ class Invoices_Post_Types {
 
 
 	/**
-	 * 20) Invoice Items
+	 * 20) Products
 	 */
 
 		/**
-		 * Setup Invoice Items CPT from "Pages"
+		 * Setup Product CPT from "Pages"
 		 *
 		 * @since    1.0.0
 		 * @version  1.0.0
 		 */
-		public static function invoice_item_setup() {
+		public static function products_setup() {
 
 			// Processing
 
@@ -506,12 +509,12 @@ class Invoices_Post_Types {
 					remove_post_type_support( 'page', 'trackbacks' );
 					remove_post_type_support( 'page', 'page-attributes' );
 
-		} // /invoice_item_setup
+		} // /products_setup
 
 
 
 		/**
-		 * Modify Invoice Items post type object
+		 * Modify Product post type object
 		 *
 		 * @since    1.0.0
 		 * @version  1.0.0
@@ -519,7 +522,7 @@ class Invoices_Post_Types {
 		 * @param  string       $post_type         Post type.
      * @param  WP_Post_Type $post_type_object  Arguments used to register the post type.
 		 */
-		public static function invoice_item_post_type_object( $post_type, $post_type_object ) {
+		public static function products_post_type_object( $post_type, $post_type_object ) {
 
 			// Requirements check
 
@@ -531,27 +534,27 @@ class Invoices_Post_Types {
 			// Helper variables
 
 				$labels = array(
-					'name'                  => esc_html_x( 'Invoice Items', 'post type general name', '_invoices' ),
-					'singular_name'         => esc_html_x( 'Invoice Item', 'post type singular name', '_invoices' ),
-					'add_new_item'          => esc_html__( 'Add New Invoice Item', '_invoices' ),
-					'edit_item'             => esc_html__( 'Edit Invoice Item', '_invoices' ),
-					'new_item'              => esc_html__( 'New Invoice Item', '_invoices' ),
-					'view_item'             => esc_html__( 'View Invoice Item', '_invoices' ),
-					'view_items'            => esc_html__( 'View Invoice Items', '_invoices' ),
-					'search_items'          => esc_html__( 'Search Invoice Items', '_invoices' ),
-					'not_found'             => esc_html__( 'No Invoice Items found.', '_invoices' ),
-					'not_found_in_trash'    => esc_html__( 'No Invoice Items found in Trash.', '_invoices' ),
-					'parent_item_colon'     => esc_html__( 'Parent Invoice Item:', '_invoices' ),
-					'all_items'             => esc_html__( 'All Invoice Items', '_invoices' ),
-					'archives'              => esc_html__( 'Invoice Item Archives', '_invoices' ),
-					'attributes'            => esc_html__( 'Invoice Item Attributes', '_invoices' ),
-					'insert_into_item'      => esc_html__( 'Insert into Invoice Item', '_invoices' ),
-					'uploaded_to_this_item' => esc_html__( 'Uploaded to this Invoice Item', '_invoices' ),
-					'filter_items_list'     => esc_html__( 'Filter Invoice Items list', '_invoices' ),
-					'items_list_navigation' => esc_html__( 'Invoice Items list navigation', '_invoices' ),
-					'items_list'            => esc_html__( 'Invoice Items list', '_invoices' ),
-					'menu_name'             => esc_html__( 'Invoice Items', '_invoices' ),
-					'name_admin_bar'        => esc_html__( 'Invoice Item', '_invoices' ),
+					'name'                  => esc_html_x( 'Products', 'post type general name', '_invoices' ),
+					'singular_name'         => esc_html_x( 'Product', 'post type singular name', '_invoices' ),
+					'add_new_item'          => esc_html__( 'Add New Product', '_invoices' ),
+					'edit_item'             => esc_html__( 'Edit Product', '_invoices' ),
+					'new_item'              => esc_html__( 'New Product', '_invoices' ),
+					'view_item'             => esc_html__( 'View Product', '_invoices' ),
+					'view_items'            => esc_html__( 'View Products', '_invoices' ),
+					'search_items'          => esc_html__( 'Search Products', '_invoices' ),
+					'not_found'             => esc_html__( 'No Products found.', '_invoices' ),
+					'not_found_in_trash'    => esc_html__( 'No Products found in Trash.', '_invoices' ),
+					'parent_item_colon'     => esc_html__( 'Parent Product:', '_invoices' ),
+					'all_items'             => esc_html__( 'All Products', '_invoices' ),
+					'archives'              => esc_html__( 'Product Archives', '_invoices' ),
+					'attributes'            => esc_html__( 'Product Attributes', '_invoices' ),
+					'insert_into_item'      => esc_html__( 'Insert into Product', '_invoices' ),
+					'uploaded_to_this_item' => esc_html__( 'Uploaded to this Product', '_invoices' ),
+					'filter_items_list'     => esc_html__( 'Filter Products list', '_invoices' ),
+					'items_list_navigation' => esc_html__( 'Products list navigation', '_invoices' ),
+					'items_list'            => esc_html__( 'Products list', '_invoices' ),
+					'menu_name'             => esc_html__( 'Products', '_invoices' ),
+					'name_admin_bar'        => esc_html__( 'Product', '_invoices' ),
 				);
 
 
@@ -565,9 +568,9 @@ class Invoices_Post_Types {
 
 				// Change admin menu icon
 
-					$post_type_object->menu_icon = 'dashicons-editor-ul';
+					$post_type_object->menu_icon = 'dashicons-products';
 
-		} // /invoice_item_post_type_object
+		} // /products_post_type_object
 
 
 
@@ -689,7 +692,61 @@ class Invoices_Post_Types {
 
 
 	/**
-	 * 50) Payment Methods
+	 * 50) Product Types
+	 */
+
+		/**
+		 * Register Product Types taxonomy
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function product_types_setup() {
+
+			// Helper variables
+
+				$labels = array(
+					'name'                  => esc_html_x( 'Product Types', 'taxonomy general name', '_invoices' ),
+					'singular_name'         => esc_html_x( 'Product Type', 'taxonomy singular name', '_invoices' ),
+					'search_items'          => esc_html__( 'Search Product Types', '_invoices' ),
+					'all_items'             => esc_html__( 'All Product Types', '_invoices' ),
+					'parent_item'           => esc_html__( 'Parent Product Type', '_invoices' ),
+					'parent_item_colon'     => esc_html__( 'Parent Product Type:', '_invoices' ),
+					'edit_item'             => esc_html__( 'Edit Product Type', '_invoices' ),
+					'view_item'             => esc_html__( 'View Product Type', '_invoices' ),
+					'update_item'           => esc_html__( 'Update Product Type', '_invoices' ),
+					'add_new_item'          => esc_html__( 'Add New Product Type', '_invoices' ),
+					'new_item_name'         => esc_html__( 'New Product Type Name', '_invoices' ),
+					'not_found'             => esc_html__( 'No Product Types found.', '_invoices' ),
+					'no_terms'              => esc_html__( 'No Product Types', '_invoices' ),
+					'items_list_navigation' => esc_html__( 'Product Types list navigation', '_invoices' ),
+					'items_list'            => esc_html__( 'Product Types list', '_invoices' ),
+				);
+
+				$args = array(
+					'hierarchical'      => true,
+					'labels'            => $labels,
+					'show_admin_column' => true,
+					'description'       => esc_html__( 'Product types for better products organization.', '_invoices' ),
+				);
+
+
+			// Processing
+
+				register_taxonomy(
+					'product_type',
+					array( 'page' ),
+					$args
+				);
+
+		} // /product_types_setup
+
+
+
+
+
+	/**
+	 * 60) Payment Methods
 	 */
 
 		/**

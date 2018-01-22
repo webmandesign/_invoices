@@ -1,11 +1,11 @@
 <?php
 /**
- * Invoice: Items list
+ * Invoice: Products list
  *
  * CURRENCY EXCHANGE CALCULATION
  *
  * Exchange rate value is relevant to invoice (post) publish date.
- * An informational note will be displayed above invoice items list.
+ * An informational note will be displayed above invoice products list.
  *
  * @see  Invoices_Helper::get_exchange_rate()
  *
@@ -55,25 +55,25 @@
 </div>
 <?php endif; ?>
 
-<table class="invoice-items">
+<table class="invoice-products">
 
 	<thead>
 		<tr>
-			<th class="invoice-items-column-order"><?php esc_html_e( '#', '_invoices' ); ?></th>
-			<th class="invoice-items-column-description"><?php esc_html_e( 'Item name and description', '_invoices' ); ?></th>
-			<th class="invoice-items-column-quantity"><?php esc_html_e( 'Qty', '_invoices' ); ?></th>
-			<th class="invoice-items-column-price"><?php esc_html_e( 'Unit price', '_invoices' ); ?></th>
-			<th class="invoice-items-column-total"><?php esc_html_e( 'Total', '_invoices' ); ?></th>
+			<th class="invoice-products-column-order"><?php esc_html_e( '#', '_invoices' ); ?></th>
+			<th class="invoice-products-column-description"><?php esc_html_e( 'Product/Service description', '_invoices' ); ?></th>
+			<th class="invoice-products-column-quantity"><?php esc_html_e( 'Qty', '_invoices' ); ?></th>
+			<th class="invoice-products-column-price"><?php esc_html_e( 'Unit price', '_invoices' ); ?></th>
+			<th class="invoice-products-column-total"><?php esc_html_e( 'Total', '_invoices' ); ?></th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<?php
 
-		if ( have_rows( 'items' ) ) :
+		if ( have_rows( 'products' ) ) :
 			$i = 0;
 
-			while ( have_rows( 'items' ) ) :
+			while ( have_rows( 'products' ) ) :
 				the_row();
 
 				?>
@@ -83,35 +83,35 @@
 					<?php
 
 					/**
-					 * Item number
+					 * Product number
 					 */
 
 						?>
-						<td class="invoice-items-column-order">
+						<td class="invoice-products-column-order">
 							<?php echo ++$i; ?>
 						</td>
 
 					<?php
 
 					/**
-					 * Item description
+					 * Product description
 					 */
 
 						?>
-						<td class="invoice-items-column-description">
+						<td class="invoice-products-column-description">
 
-							<?php if ( $item_selected = get_sub_field( 'item' ) ) : ?>
-								<h3 class="item-selected-title item-title">
-									<?php echo esc_html( $item_selected->post_title ); ?>
+							<?php if ( $product = get_sub_field( 'product' ) ) : ?>
+								<h3 class="product-title">
+									<?php echo esc_html( $product->post_title ); ?>
 								</h3>
-								<div class="item-selected-content item-description">
-									<?php echo apply_filters( 'the_content', $item_selected->post_content ); ?>
+								<div class="product-content product-description">
+									<?php echo apply_filters( 'the_content', $product->post_content ); ?>
 								</div>
 							<?php endif; ?>
 
-							<?php if ( $item_description = get_sub_field( 'description' ) ) : ?>
-								<div class="item-description">
-									<?php echo apply_filters( 'the_content', $item_description ); ?>
+							<?php if ( $description = get_sub_field( 'description' ) ) : ?>
+								<div class="product-description">
+									<?php echo apply_filters( 'the_content', $description ); ?>
 								</div>
 							<?php endif; ?>
 
@@ -124,7 +124,7 @@
 					 */
 
 						?>
-						<td class="invoice-items-column-quantity">
+						<td class="invoice-products-column-quantity">
 							<?php echo absint( get_sub_field( 'quantity' ) ); ?>
 						</td>
 
@@ -137,7 +137,7 @@
 						$price = round( (float) get_sub_field( 'price' ), 2 );
 
 						?>
-						<td class="invoice-items-column-price">
+						<td class="invoice-products-column-price">
 							<span class="price"><?php echo esc_html( sprintf( '%.2f', $price ) ); ?></span>
 							<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_from'] ); ?></span>
 
@@ -156,7 +156,7 @@
 					 */
 
 						?>
-						<td class="invoice-items-column-total">
+						<td class="invoice-products-column-total">
 							<?php $total_row = round( (float) get_sub_field( 'total' ), 2 ); ?>
 							<span class="price"><?php echo esc_html( sprintf( '%.2f', $total_row ) ); ?></span>
 							<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_from'] ); ?></span>

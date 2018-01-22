@@ -55,6 +55,9 @@ class Invoices_Setup {
 
 						add_action( 'template_redirect', __CLASS__ . '::login_required' );
 
+						remove_action( 'welcome_panel', 'wp_welcome_panel' );
+						   add_action( 'welcome_panel', __CLASS__ . '::dashboard_welcome_panel' );
+
 		} // /__construct
 
 
@@ -192,7 +195,7 @@ class Invoices_Setup {
 
 			// Processing
 
-				// Remove items
+				// Remove admin menus
 
 					remove_menu_page( 'edit-comments.php' );
 
@@ -205,6 +208,22 @@ class Invoices_Setup {
 					unset( $menu[10] );
 
 		} // /admin_menu
+
+
+
+		/**
+		 * Dashboard welcome panel
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function dashboard_welcome_panel() {
+
+			// Processing
+
+				get_template_part( 'templates/parts/admin/dashboard', 'welcome-panel' );
+
+		} // /dashboard_welcome_panel
 
 
 
