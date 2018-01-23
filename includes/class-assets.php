@@ -105,7 +105,7 @@ class Invoices_Assets {
 	 */
 
 		/**
-		 * Admin inline styles
+		 * Enqueue assets in admin
 		 *
 		 * @since    1.0.0
 		 * @version  1.0.0
@@ -114,30 +114,39 @@ class Invoices_Assets {
 		 */
 		public static function enqueue_admin( $scope = '' ) {
 
-			// Requirements check
-
-				// Only on post edit screen
-				if ( ! in_array( $scope, array( 'post-new.php', 'post.php' ) ) ) {
-					return;
-				}
-
-
 			// Processing
 
-				wp_enqueue_style(
-					'invoices-admin-styles',
-					get_theme_file_uri( 'assets/css/admin.css' )
-				);
+				// Dashboard
 
-				if ( wp_script_is( 'acf-pro-input', 'enqueued' ) ) {
-					wp_enqueue_script(
-						'invoices-admin-scripts',
-						get_theme_file_uri( 'assets/js/scripts-admin-acf.js' ),
-						array( 'acf-pro-input' ),
-						false,
-						true
-					);
-				}
+					if ( 'index.php' === $scope ) {
+
+						wp_enqueue_style(
+							'invoices-dashboard-styles',
+							get_theme_file_uri( 'assets/css/admin-dashboard.css' )
+						);
+
+					}
+
+				// Add/edit post
+
+					if ( in_array( $scope, array( 'post-new.php', 'post.php' ) ) ) {
+
+						wp_enqueue_style(
+							'invoices-admin-styles',
+							get_theme_file_uri( 'assets/css/admin.css' )
+						);
+
+						if ( wp_script_is( 'acf-pro-input', 'enqueued' ) ) {
+							wp_enqueue_script(
+								'invoices-admin-scripts',
+								get_theme_file_uri( 'assets/js/scripts-admin-acf.js' ),
+								array( 'acf-pro-input' ),
+								false,
+								true
+							);
+						}
+
+					}
 
 		} // /enqueue_admin
 

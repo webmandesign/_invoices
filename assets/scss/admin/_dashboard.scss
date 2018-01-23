@@ -1,0 +1,179 @@
+/* FILE: admin/_dashboard.scss */
+
+// Dashboard
+
+	h1 {
+		position: absolute !important;
+		width: 1px;
+		height: 1px;
+		line-height: 1px;
+		word-wrap: normal !important;
+		clip-path: inset( 50% );
+		clip: rect( 1px, 1px, 1px, 1px );
+		overflow: hidden;
+	}
+
+	#dashboard-widgets .meta-box-sortables {
+		min-height: 1.62em;
+	}
+
+	.metabox-holder .postbox-container .empty-container {
+		height: 1.62em;
+		border: 0;
+	}
+
+
+
+
+// Welcome panel
+
+	.welcome-panel {
+		clear: both;
+		padding: 2.62em 6%;
+		font-size: 15px;
+
+		&-content {
+			margin: 0;
+			max-width: 100%;
+		}
+
+
+
+		// Elements
+
+			h2,
+			h3 {
+				margin-bottom: .62rem;
+				font-size: 2.62em;
+				font-weight: 700;
+
+				small {
+					font-weight: 400;
+				}
+
+			}
+
+			h3 {
+				margin-top: 0;
+				margin-bottom: 1em;
+				font-size: 1.38em;
+			}
+
+			p,
+			li {
+				font-size: 1em;
+			}
+
+			.button {
+				font-weight: 700;
+			}
+
+			&-close {
+				display: none;
+			}
+
+
+
+		// Columns
+
+			&-column {
+				width: auto;
+				max-width: 70ch;
+				margin-left: 2.62em;
+
+				.welcome-panel &:first-child {
+					width: auto; // Overriding WP styles.
+					margin-left: 0;
+				}
+
+				&-container {
+					display: flex;
+					justify-content: space-between;
+					margin-top: 2.62em;
+
+					& + & {
+						padding-top: 2.62em;
+						margin-top: 2.62em;
+						border-top: 1px solid #ddd;
+					}
+
+				}
+
+				&:not(.welcome-panel-links) ul {
+					margin-left: 1.62em;
+				}
+
+				&:not(.welcome-panel-links) li {
+					list-style: disc;
+					line-height: 1.5;
+				}
+
+
+
+				// Links
+
+					&-links {
+						max-width: 100%;
+						padding: 2.62em;
+						border: 1px solid #ddd;
+
+						.welcome-panel &:first-child {
+							width: 62%; // Overriding WP styles.
+						}
+
+						ul {
+							overflow: hidden;
+						}
+
+						li {
+							float: left;
+							width: 50%;
+						}
+
+					}
+
+
+
+				// Customize
+
+					&-customize {
+						max-width: 45ch;
+						padding: 2.62em;
+						background-color: #eee;
+						background-image: radial-gradient( circle at 0% 100%, rgba(255,255,255,.66) 0, transparent 100% );
+						border: 1px solid #ddd;
+					}
+
+
+
+				// Requirements
+
+					&-requirements {
+						max-width: 45ch;
+						padding: 2.62em;
+						background-color: #c03;
+						background-image: radial-gradient( circle at 0% 100%, rgba(255,255,255,.33) 0, transparent 100% );
+						color: #fff;
+						border: 1px solid #c03;
+
+						&.welcome-panel-column *:not(.button) {
+							color: inherit;
+						}
+
+					}
+
+			}
+
+
+
+		// Footer
+
+			&-footer {
+				padding-top: 1em;
+				margin-top: 2.62em;
+				text-align: right;
+				font-size: .81em;
+				border-top: 1px solid #ddd;
+			}
+
+	}

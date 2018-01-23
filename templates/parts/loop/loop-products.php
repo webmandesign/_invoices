@@ -60,7 +60,7 @@
 	<thead>
 		<tr>
 			<th class="invoice-products-column-order"><?php esc_html_e( '#', '_invoices' ); ?></th>
-			<th class="invoice-products-column-description"><?php esc_html_e( 'Product/Service description', '_invoices' ); ?></th>
+			<th class="invoice-products-column-description"><?php esc_html_e( 'Item description', '_invoices' ); ?></th>
 			<th class="invoice-products-column-quantity"><?php esc_html_e( 'Qty', '_invoices' ); ?></th>
 			<th class="invoice-products-column-price"><?php esc_html_e( 'Unit price', '_invoices' ); ?></th>
 			<th class="invoice-products-column-total"><?php esc_html_e( 'Total', '_invoices' ); ?></th>

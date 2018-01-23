@@ -46,7 +46,7 @@
 	<div class="invoice-meta-total invoice-meta-stamp invoice-meta-item">
 
 		<h2 class="invoice-meta-label">
-			<?php esc_html_e( 'Administrator', '_invoices' ); ?>
+			<?php esc_html_e( 'Issued by', '_invoices' ); ?>
 		</h2>
 
 		<div class="invoice-meta-value">
@@ -68,7 +68,7 @@
 	<div class="invoice-meta-total invoice-meta-item">
 
 		<h2 class="invoice-meta-label">
-			<?php esc_html_e( 'Total payable amount', '_invoices' ); ?>
+			<?php esc_html_e( 'Invoice total', '_invoices' ); ?>
 		</h2>
 
 		<div class="invoice-meta-value">

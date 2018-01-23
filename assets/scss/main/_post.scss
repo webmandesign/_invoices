@@ -8,7 +8,7 @@
 	padding: $gutter * 2;
 	margin: ( $gutter * 2 ) 0;
 
-	+ .invoice {
+	& + & {
 		margin-top: $gutter * 4;
 	}
 
@@ -109,7 +109,7 @@
 
 		&-note {
 
-			+ .invoice-note {
+			& + & {
 				margin-top: $gutter / 2;
 			}
 
