@@ -30,9 +30,9 @@ h1 { position: absolute !important; width: 1px; height: 1px; line-height: 1px; w
 
 .welcome-panel-column-container + .welcome-panel-column-container { padding-top: 2.62em; margin-top: 2.62em; border-top: 1px solid #ddd; }
 
-.welcome-panel-column:not(.welcome-panel-links) ul { margin-left: 1.62em; }
+.welcome-panel-column:not(.welcome-panel-column-links) ul { margin-left: 1.62em; }
 
-.welcome-panel-column:not(.welcome-panel-links) li { list-style: disc; line-height: 1.5; }
+.welcome-panel-column:not(.welcome-panel-column-links) li { list-style: disc; line-height: 1.5; }
 
 .welcome-panel-column-links { max-width: 100%; padding: 2.62em; border: 1px solid #ddd; }
 

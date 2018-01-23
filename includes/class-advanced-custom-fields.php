@@ -111,7 +111,7 @@ class Invoices_Advanced_Custom_Fields {
 
 
 		/**
-		 * Invoice Products/Services metabox
+		 * Invoice products metabox
 		 *
 		 * @since    1.0.0
 		 * @version  1.0.0
@@ -122,7 +122,7 @@ class Invoices_Advanced_Custom_Fields {
 
 				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_add_local_field_group', array(
 					'id'     => 'group_invoice_products',
-					'title'  => esc_html__( 'Products/services invoiced', '_invoices' ),
+					'title'  => esc_html__( 'Invoiced items', '_invoices' ),
 					'fields' => array(
 
 						100 => array(
@@ -138,8 +138,8 @@ class Invoices_Advanced_Custom_Fields {
 							'key'          => 'key_invoice_products',
 							'name'         => 'products',
 							'type'         => 'repeater',
-							'label'        => esc_html__( 'Products invoiced', '_invoices' ),
-							'button_label' => esc_html__( '+ Add Invoiced Product', '_invoices' ),
+							'label'        => esc_html__( 'Invoiced items', '_invoices' ),
+							'button_label' => esc_html__( '+ Add Invoiced Item', '_invoices' ),
 							'required'     => 1,
 							'collapsed'    => 'key_invoice_products_price',
 							'min'          => 1,
@@ -176,7 +176,7 @@ class Invoices_Advanced_Custom_Fields {
 									'key'      => 'key_invoice_products_product',
 									'name'     => 'product',
 									'type'     => 'post_object',
-									'label'    => esc_html__( 'Product', '_invoices' ),
+									'label'    => esc_html__( 'Item', '_invoices' ),
 									'wrapper'  => array(
 										'width' => '25',
 									),
@@ -191,7 +191,7 @@ class Invoices_Advanced_Custom_Fields {
 									'key'      => 'key_invoice_products_description',
 									'name'     => 'description',
 									'type'     => 'textarea',
-									'label'    => esc_html__( 'Optional additional product info', '_invoices' ),
+									'label'    => esc_html__( 'Optional additional item info', '_invoices' ),
 									'wrapper'  => array(
 										'width' => '40',
 									),
@@ -311,7 +311,7 @@ class Invoices_Advanced_Custom_Fields {
 							'name'         => 'notes',
 							'type'         => 'textarea',
 							'label'        => esc_html__( 'Notes', '_invoices' ),
-							'instructions' => esc_html__( 'Optional invoice notes, displayed before invoiced products/services list.', '_invoices' ),
+							'instructions' => esc_html__( 'Optional invoice notes, displayed before invoiced items list.', '_invoices' ),
 							'rows'         => 3,
 							'new_lines'    => 'br',
 						),

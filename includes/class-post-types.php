@@ -185,7 +185,6 @@ class Invoices_Post_Types {
 					'search_items'          => esc_html__( 'Search Invoices', '_invoices' ),
 					'not_found'             => esc_html__( 'No Invoices found.', '_invoices' ),
 					'not_found_in_trash'    => esc_html__( 'No Invoices found in Trash.', '_invoices' ),
-					'parent_item_colon'     => esc_html__( 'Parent Invoice:', '_invoices' ),
 					'all_items'             => esc_html__( 'All Invoices', '_invoices' ),
 					'archives'              => esc_html__( 'Invoice Archives', '_invoices' ),
 					'attributes'            => esc_html__( 'Invoice Attributes', '_invoices' ),

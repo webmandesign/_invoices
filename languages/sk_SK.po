@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-01-23 14:54+0100\n"
-"PO-Revision-Date: 2018-01-23 14:54+0100\n"
+"POT-Creation-Date: 2018-01-23 19:32+0100\n"
+"PO-Revision-Date: 2018-01-23 20:10+0100\n"
 "Last-Translator: Oliver Juhas, WebMan Design\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language: sk_SK\n"
@@ -21,908 +21,932 @@ msgstr ""
 
 #: footer.php:27
 msgid "&copy; WebMan Design"
-msgstr ""
+msgstr "&copy; WebMan Design"
 
 #: includes/class-advanced-custom-fields.php:125
-msgid "Products/services invoiced"
-msgstr ""
+#: includes/class-advanced-custom-fields.php:141
+msgid "Invoiced items"
+msgstr "Fakturované položky"
 
 #: includes/class-advanced-custom-fields.php:132
 #: templates/parts/meta/meta-invoice-total.php:71
 msgid "Invoice total"
-msgstr ""
+msgstr "Suma na úhradu"
 
 #: includes/class-advanced-custom-fields.php:133
 msgid "Save/update the invoice to recalculate the value."
-msgstr ""
-
-#: includes/class-advanced-custom-fields.php:141
-msgid "Products invoiced"
-msgstr ""
+msgstr "Hodnota sa prepočíta po uložení/aktulizovaní faktúry."
 
 #: includes/class-advanced-custom-fields.php:142
-msgid "+ Add Invoiced Product"
-msgstr ""
+msgid "+ Add Invoiced Item"
+msgstr "+ Pridať fakturovanú položku"
 
 #: includes/class-advanced-custom-fields.php:153
 msgid "Price"
-msgstr ""
+msgstr "Cena"
 
 #: includes/class-advanced-custom-fields.php:164
 #: templates/parts/loop/loop-products.php:64
 msgid "Qty"
-msgstr ""
+msgstr "Množstvo"
 
 #: includes/class-advanced-custom-fields.php:179
-#: includes/class-post-types.php:557
-msgid "Product"
-msgstr ""
+msgid "Item"
+msgstr "Položka"
 
 #: includes/class-advanced-custom-fields.php:194
-msgid "Optional additional product info"
-msgstr ""
+msgid "Optional additional item info"
+msgstr "Dodatočné nepovinné info o položke"
 
 #: includes/class-advanced-custom-fields.php:206
 #: templates/parts/loop/loop-products.php:66
 msgid "Total"
-msgstr ""
+msgstr "Spolu"
 
 #: includes/class-advanced-custom-fields.php:252
 msgid "Invoice setup"
-msgstr ""
+msgstr "Nastavenia faktúry"
 
 #: includes/class-advanced-custom-fields.php:259
 msgid "Seller"
-msgstr ""
+msgstr "Predajca"
 
 #: includes/class-advanced-custom-fields.php:260
 msgid "Company issuing the invoice."
-msgstr ""
+msgstr "Spoločnosť vystavujúca faktúru."
 
 #: includes/class-advanced-custom-fields.php:274
 msgid "Client"
-msgstr ""
+msgstr "Klient"
 
 #: includes/class-advanced-custom-fields.php:275
 msgid "Customer receiving the invoice."
-msgstr ""
+msgstr "Zákazník prijímajúci faktúru."
 
 #: includes/class-advanced-custom-fields.php:289
 msgid "Payment method"
-msgstr ""
+msgstr "Spôsob platby"
 
 #: includes/class-advanced-custom-fields.php:290
 msgid "Preferred payment method to pay the invoice."
-msgstr ""
+msgstr "Preferovaný spôsob platby za faktúru."
 
 #: includes/class-advanced-custom-fields.php:304
 #: templates/parts/meta/meta-invoice-symbols.php:43
 msgid "Constant symbol"
-msgstr ""
+msgstr "Konštantný symbol"
 
 #: includes/class-advanced-custom-fields.php:305
 msgid "Optional invoice constant symbol."
-msgstr ""
+msgstr "Nepovinný konštantný symbol faktúry."
 
 #: includes/class-advanced-custom-fields.php:306
 msgctxt "Invoice default constant symbol."
 msgid "308"
-msgstr ""
+msgstr "308"
 
 #: includes/class-advanced-custom-fields.php:313
 msgid "Notes"
-msgstr ""
+msgstr "Poznámky"
 
 #: includes/class-advanced-custom-fields.php:314
-msgid ""
-"Optional invoice notes, displayed before invoiced products/services list."
+msgid "Optional invoice notes, displayed before invoiced items list."
 msgstr ""
+"Nepovinné poznámky k faktúre, zobrazené nad zoznamom fakturovaných položiek."
 
 #: includes/class-advanced-custom-fields.php:363
 msgid "Dual currency display"
-msgstr ""
+msgstr "Duálne zobrazenie meny"
 
 #: includes/class-advanced-custom-fields.php:369
 msgid ""
 "Dual currency display of the invoice amounts will take place only if "
 "currencies differs."
 msgstr ""
+"Duálne zobrazenie čiastok faktúry bude použité iba v prípade, že zvolíte "
+"rôzne meny."
 
 #: includes/class-advanced-custom-fields.php:372
 #, php-format
 msgid "Automatic exchange calculation will then be provided using %s API."
 msgstr ""
+"Prepočítanie podľa aktuálneho kurzu bude uskutočnené automaticky pomocou %s "
+"API."
 
 #: includes/class-advanced-custom-fields.php:373
 msgctxt "Currency exchange rate API URL, just for information purposes."
 msgid "http://fixer.io"
-msgstr ""
+msgstr "http://fixer.io"
 
 #: includes/class-advanced-custom-fields.php:381
 msgid "Client (invoice) currency (FROM)"
-msgstr ""
+msgstr "Platobná mena klienta (faktúry) (PREPOČET Z)"
 
 #: includes/class-advanced-custom-fields.php:382
 msgid "This becomes the main invoice currency."
-msgstr ""
+msgstr "Táto mena sa použije vo faktúre ako hlavná."
 
 #: includes/class-advanced-custom-fields.php:393
 msgid "Seller currency (TO)"
-msgstr ""
+msgstr "Platobná mena predajcu (PREPOČET DO)"
 
 #: includes/class-advanced-custom-fields.php:394
 msgid "For seller accounting purposes."
-msgstr ""
+msgstr "Pre účtovné záznamy predajcu."
 
 #: includes/class-advanced-custom-fields.php:454
 msgid "Seller options"
-msgstr ""
+msgstr "Nastavenia predajcu"
 
 #: includes/class-advanced-custom-fields.php:459
 msgid "Stamp image"
-msgstr ""
+msgstr "Obrázok pečiatky"
 
 #: includes/class-customize.php:104
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:58
 msgid "Theme Options"
-msgstr ""
+msgstr "Nastavenia témy"
 
 #: includes/class-customize.php:115
 msgid "Currency Exchange"
-msgstr ""
+msgstr "Zmenáreň"
 
 #: includes/class-customize.php:134
 msgid "Currencies"
-msgstr ""
+msgstr "Platobné meny"
 
 #: includes/class-customize.php:135
 msgid ""
 "List accountable currencies international codes, separated with comma (no "
 "empty spaces)."
 msgstr ""
+"Zadajte medzinárodné kódy platobných mien pre účtovné účely, každú menu "
+"oddeľte čiarkou (bez akýchkoľvek medzier)."
 
 #: includes/class-customize.php:156
 msgid "Default exchange FROM currency"
-msgstr ""
+msgstr "Predvolená mena PREPOČTU Z"
 
 #: includes/class-customize.php:157
 msgid "This becomes the default invoice currency selected."
-msgstr ""
+msgstr "Táto mena sa použije vo faktúre ako hlavná predvolená mena."
 
 #: includes/class-customize.php:178
 msgid "Default exchange TO currency"
-msgstr ""
+msgstr "Predvolená mena PREPOČTU DO"
 
 #: includes/class-customize.php:179
 msgid ""
 "Set this to your accounting currency - will be used for exchange calculation "
 "in dual currency invoices."
 msgstr ""
+"Nastavte ju pre potreby vášho účtovníctva - bude zobrazená pri kalkulácii "
+"prepočtu vo faktúrach s duálnou menou."
 
 #: includes/class-customize.php:193
 msgid "Accounting"
-msgstr ""
+msgstr "Účtovníctvo"
 
 #: includes/class-customize.php:212
 msgid "Taxation month"
-msgstr ""
+msgstr "Zdaňovací mesiac"
 
 #: includes/class-customize.php:213
 msgid ""
 "Until this month passes, a previous year invoices will also be displayed on "
 "homepage."
 msgstr ""
+"Kým neprejde tento mesiac, na domovskej stránke sa zobrazia aj faktúry z "
+"predošlého roku."
 
 #: includes/class-customize.php:248
 msgid "Invoice due period in days"
-msgstr ""
+msgstr "Obdobie splatnosti faktúry v dňoch"
 
 #: includes/class-customize.php:267
 msgid "Invoice List"
-msgstr ""
+msgstr "Zoznam faktúr"
 
 #: includes/class-customize.php:286
 msgid "Max number of invoices created monthly"
-msgstr ""
+msgstr "Maximálny počet faktúr vytvorených mesačne"
 
 #: includes/class-post-types.php:178
 msgctxt "post type general name"
 msgid "Invoices"
-msgstr ""
+msgstr "Faktúry"
 
 #: includes/class-post-types.php:179
 msgctxt "post type singular name"
 msgid "Invoice"
-msgstr ""
+msgstr "Faktúra"
 
 #: includes/class-post-types.php:180
 msgid "Add New Invoice"
-msgstr ""
+msgstr "Pridať novú faktúru"
 
 #: includes/class-post-types.php:181
 msgid "Edit Invoice"
-msgstr ""
+msgstr "Upraviť faktúru"
 
 #: includes/class-post-types.php:182
 msgid "New Invoice"
-msgstr ""
+msgstr "Nová faktúra"
 
 #: includes/class-post-types.php:183
 msgid "View Invoice"
-msgstr ""
+msgstr "Zobraziť faktúru"
 
 #: includes/class-post-types.php:184
 msgid "View Invoices"
-msgstr ""
+msgstr "Zobraziť faktúry"
 
 #: includes/class-post-types.php:185
 msgid "Search Invoices"
-msgstr ""
+msgstr "Vyhľadať faktúry"
 
 #: includes/class-post-types.php:186
 msgid "No Invoices found."
-msgstr ""
+msgstr "Nenašli sa žiadne faktúry."
 
 #: includes/class-post-types.php:187
 msgid "No Invoices found in Trash."
-msgstr ""
+msgstr "V koši sa nenašli žiadne faktúry."
 
 #: includes/class-post-types.php:188
-msgid "Parent Invoice:"
-msgstr ""
+msgid "All Invoices"
+msgstr "Všetky faktúry"
 
 #: includes/class-post-types.php:189
-msgid "All Invoices"
-msgstr ""
+msgid "Invoice Archives"
+msgstr "Archív faktúr"
 
 #: includes/class-post-types.php:190
-msgid "Invoice Archives"
-msgstr ""
+msgid "Invoice Attributes"
+msgstr "Atribúty faktúry"
 
 #: includes/class-post-types.php:191
-msgid "Invoice Attributes"
-msgstr ""
+msgid "Insert into Invoice"
+msgstr "Vložiť do faktúry"
 
 #: includes/class-post-types.php:192
-msgid "Insert into Invoice"
-msgstr ""
+msgid "Uploaded to this Invoice"
+msgstr "Nahrané do tejto faktúry"
 
 #: includes/class-post-types.php:193
-msgid "Uploaded to this Invoice"
-msgstr ""
+msgid "Filter Invoices list"
+msgstr "Filtrovať zoznam faktúr"
 
 #: includes/class-post-types.php:194
-msgid "Filter Invoices list"
-msgstr ""
+msgid "Invoices list navigation"
+msgstr "Navigácia v zozname faktúr"
 
 #: includes/class-post-types.php:195
-msgid "Invoices list navigation"
-msgstr ""
+msgid "Invoices list"
+msgstr "Zoznam faktúr"
 
 #: includes/class-post-types.php:196
-msgid "Invoices list"
-msgstr ""
+msgid "Invoices"
+msgstr "Faktúry"
 
 #: includes/class-post-types.php:197
-msgid "Invoices"
-msgstr ""
-
-#: includes/class-post-types.php:198
 msgid "Invoice"
-msgstr ""
+msgstr "Faktúra"
 
-#: includes/class-post-types.php:537
+#: includes/class-post-types.php:536
 msgctxt "post type general name"
 msgid "Products"
-msgstr ""
+msgstr "Produkty"
 
-#: includes/class-post-types.php:538
+#: includes/class-post-types.php:537
 msgctxt "post type singular name"
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
+
+#: includes/class-post-types.php:538
+msgid "Add New Product"
+msgstr "Pridať novy produkt"
 
 #: includes/class-post-types.php:539
-msgid "Add New Product"
-msgstr ""
+msgid "Edit Product"
+msgstr "Upraviť produkt"
 
 #: includes/class-post-types.php:540
-msgid "Edit Product"
-msgstr ""
+msgid "New Product"
+msgstr "Nový produkt"
 
 #: includes/class-post-types.php:541
-msgid "New Product"
-msgstr ""
+msgid "View Product"
+msgstr "Zobraziť produkt"
 
 #: includes/class-post-types.php:542
-msgid "View Product"
-msgstr ""
+msgid "View Products"
+msgstr "Zobraziť produkty"
 
 #: includes/class-post-types.php:543
-msgid "View Products"
-msgstr ""
+msgid "Search Products"
+msgstr "Vyhľadať produkty"
 
 #: includes/class-post-types.php:544
-msgid "Search Products"
-msgstr ""
+msgid "No Products found."
+msgstr "Nenašli sa žiadne produkty."
 
 #: includes/class-post-types.php:545
-msgid "No Products found."
-msgstr ""
+msgid "No Products found in Trash."
+msgstr "V koši sa nenašli žiadne produkty."
 
 #: includes/class-post-types.php:546
-msgid "No Products found in Trash."
-msgstr ""
+msgid "Parent Product:"
+msgstr "Nadradený produkt:"
 
 #: includes/class-post-types.php:547
-msgid "Parent Product:"
-msgstr ""
+msgid "All Products"
+msgstr "Všetky produkty"
 
 #: includes/class-post-types.php:548
-msgid "All Products"
-msgstr ""
+msgid "Product Archives"
+msgstr "Archív produktov"
 
 #: includes/class-post-types.php:549
-msgid "Product Archives"
-msgstr ""
+msgid "Product Attributes"
+msgstr "Atribúty produktu"
 
 #: includes/class-post-types.php:550
-msgid "Product Attributes"
-msgstr ""
+msgid "Insert into Product"
+msgstr "Vložiť do produktu"
 
 #: includes/class-post-types.php:551
-msgid "Insert into Product"
-msgstr ""
+msgid "Uploaded to this Product"
+msgstr "Nahrané do tohto produktu"
 
 #: includes/class-post-types.php:552
-msgid "Uploaded to this Product"
-msgstr ""
+msgid "Filter Products list"
+msgstr "Filtrovať zoznam produktov"
 
 #: includes/class-post-types.php:553
-msgid "Filter Products list"
-msgstr ""
+msgid "Products list navigation"
+msgstr "Navigácia v zozname produktov"
 
 #: includes/class-post-types.php:554
-msgid "Products list navigation"
-msgstr ""
+msgid "Products list"
+msgstr "Zoznam produktov"
 
 #: includes/class-post-types.php:555
-msgid "Products list"
-msgstr ""
+msgid "Products"
+msgstr "Produkty"
 
 #: includes/class-post-types.php:556
-msgid "Products"
-msgstr ""
+msgid "Product"
+msgstr "Produkt"
 
-#: includes/class-post-types.php:597
+#: includes/class-post-types.php:596
 msgctxt "taxonomy general name"
 msgid "Sellers"
-msgstr ""
+msgstr "Predajcovia"
 
-#: includes/class-post-types.php:598
+#: includes/class-post-types.php:597
 msgctxt "taxonomy singular name"
 msgid "Seller"
-msgstr ""
+msgstr "Predajca"
+
+#: includes/class-post-types.php:598
+msgid "Search Sellers"
+msgstr "Vyhľadať predajcov"
 
 #: includes/class-post-types.php:599
-msgid "Search Sellers"
-msgstr ""
+msgid "All Sellers"
+msgstr "Všetci predajcovia"
 
 #: includes/class-post-types.php:600
-msgid "All Sellers"
-msgstr ""
+msgid "Parent Seller"
+msgstr "Nadradený predajca"
 
 #: includes/class-post-types.php:601
-msgid "Parent Seller"
-msgstr ""
+msgid "Parent Seller:"
+msgstr "Nadradený predajca:"
 
 #: includes/class-post-types.php:602
-msgid "Parent Seller:"
-msgstr ""
+msgid "Edit Seller"
+msgstr "Upraviť predajcu"
 
 #: includes/class-post-types.php:603
-msgid "Edit Seller"
-msgstr ""
+msgid "View Seller"
+msgstr "Zobraziť predajcu"
 
 #: includes/class-post-types.php:604
-msgid "View Seller"
-msgstr ""
+msgid "Update Seller"
+msgstr "Aktualizovať predajcu"
 
 #: includes/class-post-types.php:605
-msgid "Update Seller"
-msgstr ""
+msgid "Add New Seller"
+msgstr "Pridať nového predajcu"
 
 #: includes/class-post-types.php:606
-msgid "Add New Seller"
-msgstr ""
+msgid "New Seller Name"
+msgstr "Názov nového predajcu"
 
 #: includes/class-post-types.php:607
-msgid "New Seller Name"
-msgstr ""
+msgid "No Sellers found."
+msgstr "Nenašli sa žiadny predajcovia."
 
 #: includes/class-post-types.php:608
-msgid "No Sellers found."
-msgstr ""
+msgid "No Sellers"
+msgstr "Žiadny predajcovia"
 
 #: includes/class-post-types.php:609
-msgid "No Sellers"
-msgstr ""
+msgid "Sellers list navigation"
+msgstr "Navigácia v zozname predajcov"
 
 #: includes/class-post-types.php:610
-msgid "Sellers list navigation"
-msgstr ""
-
-#: includes/class-post-types.php:611
 msgid "Sellers list"
-msgstr ""
+msgstr "Zoznam predajcov"
 
-#: includes/class-post-types.php:627
+#: includes/class-post-types.php:626
 msgid "Seller who is issuing the invoice."
-msgstr ""
+msgstr "Predajca vystavujúci faktúru."
 
-#: includes/class-post-types.php:655
+#: includes/class-post-types.php:654
 msgctxt "taxonomy general name"
 msgid "Clients"
-msgstr ""
+msgstr "Klienti"
 
-#: includes/class-post-types.php:656
+#: includes/class-post-types.php:655
 msgctxt "taxonomy singular name"
 msgid "Client"
-msgstr ""
+msgstr "Klient"
+
+#: includes/class-post-types.php:656
+msgid "Search Clients"
+msgstr "Vyhľadať klientov"
 
 #: includes/class-post-types.php:657
-msgid "Search Clients"
-msgstr ""
+msgid "All Clients"
+msgstr "Všetci klienti"
 
 #: includes/class-post-types.php:658
-msgid "All Clients"
-msgstr ""
+msgid "Parent Client"
+msgstr "Nadradený klient"
 
 #: includes/class-post-types.php:659
-msgid "Parent Client"
-msgstr ""
+msgid "Parent Client:"
+msgstr "Nadradený klient:"
 
 #: includes/class-post-types.php:660
-msgid "Parent Client:"
-msgstr ""
+msgid "Edit Client"
+msgstr "Upraviť klienta"
 
 #: includes/class-post-types.php:661
-msgid "Edit Client"
-msgstr ""
+msgid "View Client"
+msgstr "Zobraziť klienta"
 
 #: includes/class-post-types.php:662
-msgid "View Client"
-msgstr ""
+msgid "Update Client"
+msgstr "Aktualizovať klienta"
 
 #: includes/class-post-types.php:663
-msgid "Update Client"
-msgstr ""
+msgid "Add New Client"
+msgstr "Pridať nového klienta"
 
 #: includes/class-post-types.php:664
-msgid "Add New Client"
-msgstr ""
+msgid "New Client Name"
+msgstr "Názov nového klienta"
 
 #: includes/class-post-types.php:665
-msgid "New Client Name"
-msgstr ""
+msgid "No Clients found."
+msgstr "Nebol nájdený žiaden klient."
 
 #: includes/class-post-types.php:666
-msgid "No Clients found."
-msgstr ""
+msgid "No Clients"
+msgstr "Žiadny klienti"
 
 #: includes/class-post-types.php:667
-msgid "No Clients"
-msgstr ""
+msgid "Clients list navigation"
+msgstr "Navigácia v zozname klientov"
 
 #: includes/class-post-types.php:668
-msgid "Clients list navigation"
-msgstr ""
-
-#: includes/class-post-types.php:669
 msgid "Clients list"
-msgstr ""
+msgstr "Zoznam klientov"
 
-#: includes/class-post-types.php:676
+#: includes/class-post-types.php:675
 msgid "Client to whom the invoice is issued."
-msgstr ""
+msgstr "Klient, ktorému je faktúra vystavená."
 
-#: includes/class-post-types.php:709
+#: includes/class-post-types.php:708
 msgctxt "taxonomy general name"
 msgid "Product Types"
-msgstr ""
+msgstr "Typy produktov"
 
-#: includes/class-post-types.php:710
+#: includes/class-post-types.php:709
 msgctxt "taxonomy singular name"
 msgid "Product Type"
-msgstr ""
+msgstr "Typ produktu"
+
+#: includes/class-post-types.php:710
+msgid "Search Product Types"
+msgstr "Vyhľadať typy produktov"
 
 #: includes/class-post-types.php:711
-msgid "Search Product Types"
-msgstr ""
+msgid "All Product Types"
+msgstr "Všetky typy produktov"
 
 #: includes/class-post-types.php:712
-msgid "All Product Types"
-msgstr ""
+msgid "Parent Product Type"
+msgstr "Nadradený typ produktu"
 
 #: includes/class-post-types.php:713
-msgid "Parent Product Type"
-msgstr ""
+msgid "Parent Product Type:"
+msgstr "Nadradený typ produktu:"
 
 #: includes/class-post-types.php:714
-msgid "Parent Product Type:"
-msgstr ""
+msgid "Edit Product Type"
+msgstr "Upraviť typ produktu"
 
 #: includes/class-post-types.php:715
-msgid "Edit Product Type"
-msgstr ""
+msgid "View Product Type"
+msgstr "Zobraziť typ produktu"
 
 #: includes/class-post-types.php:716
-msgid "View Product Type"
-msgstr ""
+msgid "Update Product Type"
+msgstr "Aktualizovať typ produktu"
 
 #: includes/class-post-types.php:717
-msgid "Update Product Type"
-msgstr ""
+msgid "Add New Product Type"
+msgstr "Pridať nový typ produktu"
 
 #: includes/class-post-types.php:718
-msgid "Add New Product Type"
-msgstr ""
+msgid "New Product Type Name"
+msgstr "Názov nového typu produktu"
 
 #: includes/class-post-types.php:719
-msgid "New Product Type Name"
-msgstr ""
+msgid "No Product Types found."
+msgstr "Nenašli sa žiadne typy produktov."
 
 #: includes/class-post-types.php:720
-msgid "No Product Types found."
-msgstr ""
+msgid "No Product Types"
+msgstr "Žiadne typy produktov"
 
 #: includes/class-post-types.php:721
-msgid "No Product Types"
-msgstr ""
+msgid "Product Types list navigation"
+msgstr "Navigácia v zozname typov produktov"
 
 #: includes/class-post-types.php:722
-msgid "Product Types list navigation"
-msgstr ""
-
-#: includes/class-post-types.php:723
 msgid "Product Types list"
-msgstr ""
+msgstr "Zoznam typov produktov"
 
-#: includes/class-post-types.php:730
+#: includes/class-post-types.php:729
 msgid "Product types for better products organization."
-msgstr ""
+msgstr "Typy produktov pre lepšiu organizáciu produktov."
 
-#: includes/class-post-types.php:763
+#: includes/class-post-types.php:762
 msgctxt "taxonomy general name"
 msgid "Payment Methods"
-msgstr ""
+msgstr "Spôsoby platby"
 
-#: includes/class-post-types.php:764
+#: includes/class-post-types.php:763
 msgctxt "taxonomy singular name"
 msgid "Payment Method"
-msgstr ""
+msgstr "Spôsob platby"
+
+#: includes/class-post-types.php:764
+msgid "Search Payment Methods"
+msgstr "Vyhľadať spôsoby platby"
 
 #: includes/class-post-types.php:765
-msgid "Search Payment Methods"
-msgstr ""
+msgid "All Payment Methods"
+msgstr "Všetky spôsoby platby"
 
 #: includes/class-post-types.php:766
-msgid "All Payment Methods"
-msgstr ""
+msgid "Parent Payment Method"
+msgstr "Nadradený spôsob platby"
 
 #: includes/class-post-types.php:767
-msgid "Parent Payment Method"
-msgstr ""
+msgid "Parent Payment Method:"
+msgstr "Nadradený spôsob platby:"
 
 #: includes/class-post-types.php:768
-msgid "Parent Payment Method:"
-msgstr ""
+msgid "Edit Payment Method"
+msgstr "Upraviť spôsob platby"
 
 #: includes/class-post-types.php:769
-msgid "Edit Payment Method"
-msgstr ""
+msgid "View Payment Method"
+msgstr "Zobraziť spôsob platby"
 
 #: includes/class-post-types.php:770
-msgid "View Payment Method"
-msgstr ""
+msgid "Update Payment Method"
+msgstr "Aktualizovať spôsob platby"
 
 #: includes/class-post-types.php:771
-msgid "Update Payment Method"
-msgstr ""
+msgid "Add New Payment Method"
+msgstr "Pridať nový spôsob platby"
 
 #: includes/class-post-types.php:772
-msgid "Add New Payment Method"
-msgstr ""
+msgid "New Payment Method Name"
+msgstr "Názov nového spôsobu platby"
 
 #: includes/class-post-types.php:773
-msgid "New Payment Method Name"
-msgstr ""
+msgid "No Payment Methods found."
+msgstr "Nenašli sa žiadne spôsoby platby."
 
 #: includes/class-post-types.php:774
-msgid "No Payment Methods found."
-msgstr ""
+msgid "No Payment Methods"
+msgstr "Žiadne spôsoby platby"
 
 #: includes/class-post-types.php:775
-msgid "No Payment Methods"
-msgstr ""
+msgid "Payment Methods list navigation"
+msgstr "Navigácia v zozname spôsobov platby"
 
 #: includes/class-post-types.php:776
-msgid "Payment Methods list navigation"
-msgstr ""
-
-#: includes/class-post-types.php:777
 msgid "Payment Methods list"
-msgstr ""
+msgstr "Zoznam spôsobov platby"
 
-#: includes/class-post-types.php:784
+#: includes/class-post-types.php:783
 msgid "Payment methods information provided to pay the invoice."
-msgstr ""
+msgstr "Informácia o spôsobe platby za faktúru."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:24
 msgid "Manage your content"
-msgstr ""
+msgstr "Správa obsahu"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:28
 msgid "Add an Invoice"
-msgstr ""
+msgstr "Pridať faktúru"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:32
 msgid "Add a Product (or Service)"
-msgstr ""
+msgstr "Pridať produkt (alebo službu)"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:36
 msgid "Manage Sellers"
-msgstr ""
+msgstr "Správa predajcov"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:40
 msgid "Manage Clients"
-msgstr ""
+msgstr "Správa klientov"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:44
 msgid "Manage Payment Methods"
-msgstr ""
+msgstr "Správa spôsobov platby"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:48
 msgid "View your site"
-msgstr ""
+msgstr "Zobraziť stránku"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:61
 msgid ""
 "Set currency exchange, accounting and invoices display options in theme "
 "customizer."
 msgstr ""
+"Upravte možnosti zmenárne, účtovníctva a zobrazenia faktúr v nastaveniach "
+"témy."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:65
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:69
 msgid "Set Theme Options &rarr;"
-msgstr ""
+msgstr "Nastavenia témy &rarr;"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:79
 msgid "Requirements"
-msgstr ""
+msgstr "Požiadavky"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:82
 msgid ""
 "As the theme uses the repeater field, Advanced Custom Field PRO plugin is "
 "required."
 msgstr ""
+"Keďže téma používa opakovacie pole, vyžaduje inštaláciu pluginu Advanced "
+"Custom Fields PRO."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:85
 msgid "Get ACF PRO now &rarr;"
-msgstr ""
+msgstr "Získať ACF PRO &rarr;"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:24
 msgid "Creating an invoice"
-msgstr ""
+msgstr "Tvorba faktúr"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:27
 msgid ""
 "Add a seller(s), clients and payment methods first, so they can be used in "
 "invoices."
 msgstr ""
+"Najskôr pridajte predajcu, klientov a spôsoby platby, aby ste ich mohli "
+"použiť vo faktúrach."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:28
 msgid "Find those under \"Invoices\" admin menu."
-msgstr ""
+msgstr "Tieto položky nájdete v administračnom menu \"Faktúry\"."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:31
 msgid ""
 "When creating or editing an invoice, totals are calculated only after saving/"
 "publishing the invoice!"
-msgstr ""
+msgstr "Súčty súm sa vypočítajú až po uložení/publikácii faktúry."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:34
 msgid "Do not forget to set a proper invoice publish date!"
-msgstr ""
+msgstr "Nezabudnite zadať správny dátum publikovania faktúry!"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:35
 msgid ""
 "Publish date is being used as invoice issue date and due date is calculated "
 "from it."
 msgstr ""
+"Dátum publikovania sa použije ako dátum vystavenia faktúry a vypočíta sa z "
+"neho aj dátum splatnosti."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:43
 msgid "Prices, VAT and exchange"
-msgstr ""
+msgstr "Ceny, DPH a zmenáreň"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:46
 msgid "All prices are VAT exclusive!"
-msgstr ""
+msgstr "Všetky ceny sú bez DPH!"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:47
 msgid "Current version of theme does not include any VAT management."
-msgstr ""
+msgstr "Aktuálna verzia témy neumožňuje správu DPH."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:50
 msgid ""
 "For dual currency invoice display select a different exchange currencies "
 "when editing the invoice."
 msgstr ""
+"Pre duálne zobrazenie platobných mien vo faktúre zvoľte rôzne meny v sekcii "
+"zmenáreň."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:53
 msgid ""
 "Theme will automatically exchange invoice totals depending on exchange rate "
 "(with open-source Fixer.io API) relevant to invoice publish date."
 msgstr ""
+"Téma automaticky zamení fakturované sumy použitím kurzu ku dňu publikácie "
+"faktúry (za pomoci Fixer.io API)."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:61
 msgid "Display and printing"
-msgstr ""
+msgstr "Zobrazenie a tlač"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:64
 msgid "Homepage displays current year invoices in a simplified list."
-msgstr ""
+msgstr "Na domovskej stránke sa faktúry zobrazujú v zjednodušenom zozname."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:65
 msgid ""
 "If previewing homepage before the end of taxation month (set in customizer), "
 "the previous year invoices are also displayed."
 msgstr ""
+"Pri zobrazení domovskej stránky pred koncom zdaňovacieho mesiaca sa v "
+"zozname zobrazia aj faktúry predchádzajúceho roku."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:68
 msgid ""
 "Yearly archives display full invoice previews, so you can easily print them "
 "out, all at once."
 msgstr ""
+"Plná verzia faktúr bude zobrazená v ročných archívoch pre jednoduchú tlač."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:71
 msgid ""
 "When printing invoice lists, the last page contains a summary of invoices "
 "totals by currency."
 msgstr ""
+"Pri tlači zoznamov faktúr bude posledná stránka obsahovať zhrnutie súm podľa "
+"platobných mien."
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:79
 msgid "Technical info"
-msgstr ""
+msgstr "Technické informácie"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:82
 msgid "\"Posts\" were renamed to \"Invoices\""
-msgstr ""
+msgstr "\"Články\" sú premenované na \"Faktúry\""
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:83
 msgid "\"Pages\" were renamed to Products\""
-msgstr ""
+msgstr "\"Stránky\" sú premenované na \"Produkty\""
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:84
 msgid "\"Categories\" were renamed to \"Sellers\""
-msgstr ""
+msgstr "\"Kategórie\" sú premenované na \"Predajcovia\""
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:85
 msgid ""
 "\"Clients\", \"Payment Methods\", \"Product Types\" are custom taxonomies"
 msgstr ""
+"\"Klienti\", \"Spôsoby platby\", \"Typy produktov\" sú vlastné taxonómie"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:86
 msgid "\"Post Tags\" taxonomy was removed"
-msgstr ""
+msgstr "Taxonómia \"Značky\" bola odstránená"
 
 #: templates/parts/admin/dashboard-welcome-panel.php:25
 #, php-format
 msgid "Welcome to %s theme!"
-msgstr ""
+msgstr "Vitajte v téme %s!"
 
 #: templates/parts/admin/dashboard-welcome-panel.php:32
 msgid "Manage your business invoices easily, like a pro!"
-msgstr ""
+msgstr "Spravujte faktúry vašej spoločnosti jednoducho, ako profesionál!"
 
 #: templates/parts/admin/dashboard-welcome-panel.php:33
 msgid "Here is some information to get you started:"
-msgstr ""
+msgstr "Zopár informácií na začiatok:"
 
 #: templates/parts/component/anchors-invoice.php:29
 #: templates/parts/content/content-simple.php:52
 msgid "Edit"
-msgstr ""
+msgstr "Upraviť"
 
 #: templates/parts/component/anchors-invoice.php:32
 #: templates/parts/menu/menu-primary.php:23
 msgid "Print"
-msgstr ""
+msgstr "Tlačiť"
 
 #: templates/parts/component/summary.php:30
 msgid "Summary:"
-msgstr ""
+msgstr "Zhrnutie:"
 
 #: templates/parts/component/summary.php:49
 #, php-format
 msgctxt "%s = currency international code."
 msgid "Invoces %s"
-msgstr ""
+msgstr "Faktúry %s"
 
 #: templates/parts/component/summary.php:106
 #, php-format
 msgid "Number of invoices calculated from: %d"
-msgstr ""
+msgstr "Počet faktúr použitých pri kalkulácii: %d"
 
 #: templates/parts/content/content-none.php:23
 msgid "Nothing Found"
-msgstr ""
+msgstr "Nenašli sa žiadne záznamy"
 
 #: templates/parts/content/content-none.php:27
 msgid "It seems we can not find what you are looking for, sorry."
-msgstr ""
+msgstr "Prepáčte, zdá sa, že nemôžeme nájsť, čo hľadáte."
 
 #: templates/parts/content/content-simple.php:58
 #: templates/parts/meta/meta-invoice-companies.php:30
 msgctxt "Invoice company info label."
 msgid "Supplier"
-msgstr ""
+msgstr "Dodávateľ"
 
 #: templates/parts/content/content-simple.php:67
 #: templates/parts/meta/meta-invoice-companies.php:34
 msgctxt "Invoice company info label."
 msgid "Client"
-msgstr ""
+msgstr "Odberateľ"
 
 #. translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date.
 #: templates/parts/loop/loop-products.php:47
 #, php-format
 msgid "%1$s to %2$s exchange rate of %3$f valid on %4$s (D/M/Y)"
-msgstr ""
+msgstr "Zmena %1$s na %2$s podľa kurzu %3$f platného dňa %4$s (ď/m/r)"
 
 #: templates/parts/loop/loop-products.php:62
 msgid "#"
-msgstr ""
+msgstr "Č."
 
 #: templates/parts/loop/loop-products.php:63
 msgid "Item description"
-msgstr ""
+msgstr "Popis položky"
 
 #: templates/parts/loop/loop-products.php:65
 msgid "Unit price"
-msgstr ""
+msgstr "Jednotková cena"
 
 #: templates/parts/loop/loop-products.php:185
 msgid "Sorry, something went wrong! Please check your data and/or code!"
-msgstr ""
+msgstr "Ľutujeme, nastala chyba! Skontrolujte vaše dáta alebo kód!"
 
 #: templates/parts/menu/menu-primary.php:18
 msgid "Primary Menu"
-msgstr ""
+msgstr "Hlavné menu"
 
 #: templates/parts/menu/menu-primary.php:21
 msgid "Summary &darr;"
-msgstr ""
+msgstr "Zhrnutie &darr;"
 
 #: templates/parts/menu/menu-primary.php:22
 msgid "Top &uarr;"
-msgstr ""
+msgstr "Na začiatok &uarr;"
 
 #: templates/parts/meta/meta-invoice-dates.php:32
 msgid "Date of issue (d/m/y)"
-msgstr ""
+msgstr "Dátum vydania (ď/m/r)"
 
 #: templates/parts/meta/meta-invoice-dates.php:45
 msgid "Date of delivery (d/m/y)"
-msgstr ""
+msgstr "Dátum dodania (ď/m/r)"
 
 #: templates/parts/meta/meta-invoice-dates.php:50
 msgid "Due date (d/m/y)"
-msgstr ""
+msgstr "Dátum splatnosti (ď/m/r)"
 
 #: templates/parts/meta/meta-invoice-symbols.php:29
 msgid "Variable symbol"
-msgstr ""
+msgstr "Variabilný symbol"
 
 #: templates/parts/meta/meta-invoice-total.php:49
 msgid "Issued by"
-msgstr ""
+msgstr "Vydal"
