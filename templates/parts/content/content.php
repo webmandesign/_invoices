@@ -17,9 +17,9 @@
 
 // Helper variables
 
-	global $invoice_helper, $totals;
+	global $invoice_helper, $summary;
 
-	++$totals['invoice_count'];
+	++$summary['invoice_count'];
 
 	$invoice_helper = Invoices_Helper::reset_invoice_helper();
 

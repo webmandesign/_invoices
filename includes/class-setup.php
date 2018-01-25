@@ -11,9 +11,10 @@
  * Contents:
  *
  *  0) Init
- * 10) Setup
- * 20) Admin
- * 30) Login required
+ * 10) Installation
+ * 20) Setup
+ * 30) Admin
+ * 40) Login required
  */
 class Invoices_Setup {
 
@@ -46,6 +47,8 @@ class Invoices_Setup {
 				// Hooks
 
 					// Actions
+
+						add_action( 'load-themes.php', __CLASS__ . '::admin_notice_welcome_activation' );
 
 						add_action( 'after_setup_theme', __CLASS__ . '::setup' );
 
@@ -88,7 +91,55 @@ class Invoices_Setup {
 
 
 	/**
-	 * 10) Setup
+	 * 10) Installation
+	 */
+
+		/**
+		 * Initiate "Welcome" admin notice
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function admin_notice_welcome_activation() {
+
+			// Processing
+
+				global $pagenow;
+
+				if (
+					is_admin()
+					&& 'themes.php' == $pagenow
+					&& isset( $_GET['activated'] )
+				) {
+
+					add_action( 'admin_notices', __CLASS__ . '::admin_notice_welcome', 99 );
+
+				}
+
+		} // /admin_notice_welcome_activation
+
+
+
+		/**
+		 * Display "Welcome" admin notice
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 */
+		public static function admin_notice_welcome() {
+
+			// Processing
+
+				get_template_part( 'templates/parts/admin/notice', 'welcome' );
+
+		} // /admin_notice_welcome
+
+
+
+
+
+	/**
+	 * 20) Setup
 	 */
 
 		/**
@@ -158,7 +209,7 @@ class Invoices_Setup {
 
 
 	/**
-	 * 20) Admin
+	 * 30) Admin
 	 */
 
 		/**
@@ -230,7 +281,7 @@ class Invoices_Setup {
 
 
 	/**
-	 * 30) Login required
+	 * 40) Login required
 	 */
 
 		/**

@@ -23,7 +23,7 @@
 
 	printf(
 		esc_html__( 'Welcome to %s theme!', '_invoices' ),
-		'<strong>' . $theme->get( 'Name' ) . ' <small>' . $theme->get( 'Version' ) . '</small></strong>'
+		'<strong>' . $theme->display( 'Name' ) . ' <small>' . $theme->display( 'Version' ) . '</small></strong>'
 	);
 
 	?></h2>

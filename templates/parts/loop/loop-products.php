@@ -182,7 +182,7 @@
 
 			<tr>
 				<td colspan="5">
-					<code><?php esc_html_e( 'Sorry, something went wrong! Please check your data and/or code!', '_includes' ); ?></code>
+					<code><?php esc_html_e( 'Sorry, something went wrong! Please check your data and/or code!', '_invoices' ); ?></code>
 				</td>
 			</tr>
 

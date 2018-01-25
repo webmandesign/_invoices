@@ -31,15 +31,7 @@
 			</span>
 
 			<span class="invoice-title-number">
-				<?php
-
-				echo esc_html( str_replace(
-					$labels->singular_name . ' ',
-					'',
-					get_the_title()
-				) );
-
-				?>
+				<?php echo esc_html( Invoices_Post_Types::get_the_title_invoice() ); ?>
 			</span>
 
 		</a>

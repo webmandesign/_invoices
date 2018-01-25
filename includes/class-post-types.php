@@ -241,20 +241,11 @@ class Invoices_Post_Types {
 				}
 
 
-			// Helper variables
-
-				$post_type = get_post_type_object( 'post' );
-				$labels    = get_post_type_labels( $post_type );
-
-
 			// Processing
 
 				// Title
 
-					$GLOBALS['post']->post_title = sprintf(
-						$labels->singular_name . ' %s01',
-						date( 'ymt', strtotime( 'last month' ) )
-					);
+					$GLOBALS['post']->post_title = date( 'ymt', strtotime( 'last month' ) ) . '0#';
 
 				// Publish date
 
@@ -483,6 +474,38 @@ class Invoices_Post_Types {
 				get_template_part( 'templates/parts/meta/meta-invoice', 'payment' );
 
 		} // /invoice_meta_payment
+
+
+
+		/**
+		 * Get invoice title
+		 *
+		 * @since    1.0.0
+		 * @version  1.0.0
+		 *
+		 * @param  string $post_title
+		 */
+		public static function get_the_title_invoice( $post_title = '' ) {
+
+			// Helper variables
+
+				$post_type = get_post_type_object( 'post' );
+				$labels    = get_post_type_labels( $post_type );
+
+				if ( empty( $post_title ) ) {
+					$post_title = get_the_title();
+				}
+
+
+			// Output
+
+				return str_replace(
+					$labels->singular_name . ' ',
+					'',
+					$post_title
+				);
+
+		} // /get_the_title_invoice
 
 
 

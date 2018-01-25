@@ -22,20 +22,20 @@
 
 // Helper variables
 
-	global $invoice_helper, $totals;
+	global $invoice_helper, $summary;
 
 	$post_id    = get_the_ID();
 	$post_title = get_the_title();
 
 	if ( $invoice_helper['total'][ $invoice_helper['currency_from'] ] ) {
-		$totals[ $invoice_helper['currency_from'] ]['amount'] += $invoice_helper['total'][ $invoice_helper['currency_from'] ];
-		$totals[ $invoice_helper['currency_from'] ]['source'][ $post_id ] = $post_title;
+		$summary[ $invoice_helper['currency_from'] ]['amount'] += $invoice_helper['total'][ $invoice_helper['currency_from'] ];
+		$summary[ $invoice_helper['currency_from'] ]['source'][ $post_id ] = $post_title;
 	}
 
 	if ( $invoice_helper['dual_currency'] ) {
 		$total_exchanged = round( $invoice_helper['total'][ $invoice_helper['currency_from'] ] * $invoice_helper['exchange_rate'], 2 );
-		$totals[ $invoice_helper['currency_to'] ]['amount'] += $total_exchanged;
-		$totals[ $invoice_helper['currency_to'] ]['source'][ $post_id ] = $post_title;
+		$summary[ $invoice_helper['currency_to'] ]['amount'] += $total_exchanged;
+		$summary[ $invoice_helper['currency_to'] ]['source'][ $post_id ] = $post_title;
 	}
 
 

@@ -17,9 +17,6 @@
 
 	global $invoice_helper;
 
-	$post_type = get_post_type_object( 'post' );
-	$labels    = get_post_type_labels( $post_type );
-
 
 ?>
 
@@ -27,15 +24,7 @@
 
 	<div class="invoice-meta-symbol invoice-meta-item">
 		<h2 class="invoice-meta-label"><?php esc_html_e( 'Variable symbol', '_invoices' ); ?></h2>
-		<p class="invoice-meta-value"><?php
-
-		echo esc_html( str_replace(
-			$labels->singular_name . ' ',
-			'',
-			get_the_title()
-		) );
-
-		?></p>
+		<p class="invoice-meta-value"><?php echo esc_html( Invoices_Post_Types::get_the_title_invoice() ); ?></p>
 	</div>
 	<?php if ( $invoice_helper['symbol_constant'] ) : ?>
 

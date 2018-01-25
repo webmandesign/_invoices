@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-01-23 19:32+0100\n"
-"PO-Revision-Date: 2018-01-23 20:10+0100\n"
+"POT-Creation-Date: 2018-01-25 20:18+0100\n"
+"PO-Revision-Date: 2018-01-25 20:19+0100\n"
 "Last-Translator: Oliver Juhas, WebMan Design\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language: sk_SK\n"
@@ -92,7 +92,7 @@ msgid "Preferred payment method to pay the invoice."
 msgstr "Preferovaný spôsob platby za faktúru."
 
 #: includes/class-advanced-custom-fields.php:304
-#: templates/parts/meta/meta-invoice-symbols.php:43
+#: templates/parts/meta/meta-invoice-symbols.php:32
 msgid "Constant symbol"
 msgstr "Konštantný symbol"
 
@@ -313,353 +313,353 @@ msgstr "Faktúry"
 msgid "Invoice"
 msgstr "Faktúra"
 
-#: includes/class-post-types.php:536
+#: includes/class-post-types.php:559
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Produkty"
 
-#: includes/class-post-types.php:537
+#: includes/class-post-types.php:560
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Produkt"
 
-#: includes/class-post-types.php:538
+#: includes/class-post-types.php:561
 msgid "Add New Product"
 msgstr "Pridať novy produkt"
 
-#: includes/class-post-types.php:539
+#: includes/class-post-types.php:562
 msgid "Edit Product"
 msgstr "Upraviť produkt"
 
-#: includes/class-post-types.php:540
+#: includes/class-post-types.php:563
 msgid "New Product"
 msgstr "Nový produkt"
 
-#: includes/class-post-types.php:541
+#: includes/class-post-types.php:564
 msgid "View Product"
 msgstr "Zobraziť produkt"
 
-#: includes/class-post-types.php:542
+#: includes/class-post-types.php:565
 msgid "View Products"
 msgstr "Zobraziť produkty"
 
-#: includes/class-post-types.php:543
+#: includes/class-post-types.php:566
 msgid "Search Products"
 msgstr "Vyhľadať produkty"
 
-#: includes/class-post-types.php:544
+#: includes/class-post-types.php:567
 msgid "No Products found."
 msgstr "Nenašli sa žiadne produkty."
 
-#: includes/class-post-types.php:545
+#: includes/class-post-types.php:568
 msgid "No Products found in Trash."
 msgstr "V koši sa nenašli žiadne produkty."
 
-#: includes/class-post-types.php:546
+#: includes/class-post-types.php:569
 msgid "Parent Product:"
 msgstr "Nadradený produkt:"
 
-#: includes/class-post-types.php:547
+#: includes/class-post-types.php:570
 msgid "All Products"
 msgstr "Všetky produkty"
 
-#: includes/class-post-types.php:548
+#: includes/class-post-types.php:571
 msgid "Product Archives"
 msgstr "Archív produktov"
 
-#: includes/class-post-types.php:549
+#: includes/class-post-types.php:572
 msgid "Product Attributes"
 msgstr "Atribúty produktu"
 
-#: includes/class-post-types.php:550
+#: includes/class-post-types.php:573
 msgid "Insert into Product"
 msgstr "Vložiť do produktu"
 
-#: includes/class-post-types.php:551
+#: includes/class-post-types.php:574
 msgid "Uploaded to this Product"
 msgstr "Nahrané do tohto produktu"
 
-#: includes/class-post-types.php:552
+#: includes/class-post-types.php:575
 msgid "Filter Products list"
 msgstr "Filtrovať zoznam produktov"
 
-#: includes/class-post-types.php:553
+#: includes/class-post-types.php:576
 msgid "Products list navigation"
 msgstr "Navigácia v zozname produktov"
 
-#: includes/class-post-types.php:554
+#: includes/class-post-types.php:577
 msgid "Products list"
 msgstr "Zoznam produktov"
 
-#: includes/class-post-types.php:555
+#: includes/class-post-types.php:578
 msgid "Products"
 msgstr "Produkty"
 
-#: includes/class-post-types.php:556
+#: includes/class-post-types.php:579
 msgid "Product"
 msgstr "Produkt"
 
-#: includes/class-post-types.php:596
+#: includes/class-post-types.php:619
 msgctxt "taxonomy general name"
 msgid "Sellers"
 msgstr "Predajcovia"
 
-#: includes/class-post-types.php:597
+#: includes/class-post-types.php:620
 msgctxt "taxonomy singular name"
 msgid "Seller"
 msgstr "Predajca"
 
-#: includes/class-post-types.php:598
+#: includes/class-post-types.php:621
 msgid "Search Sellers"
 msgstr "Vyhľadať predajcov"
 
-#: includes/class-post-types.php:599
+#: includes/class-post-types.php:622
 msgid "All Sellers"
 msgstr "Všetci predajcovia"
 
-#: includes/class-post-types.php:600
+#: includes/class-post-types.php:623
 msgid "Parent Seller"
 msgstr "Nadradený predajca"
 
-#: includes/class-post-types.php:601
+#: includes/class-post-types.php:624
 msgid "Parent Seller:"
 msgstr "Nadradený predajca:"
 
-#: includes/class-post-types.php:602
+#: includes/class-post-types.php:625
 msgid "Edit Seller"
 msgstr "Upraviť predajcu"
 
-#: includes/class-post-types.php:603
+#: includes/class-post-types.php:626
 msgid "View Seller"
 msgstr "Zobraziť predajcu"
 
-#: includes/class-post-types.php:604
+#: includes/class-post-types.php:627
 msgid "Update Seller"
 msgstr "Aktualizovať predajcu"
 
-#: includes/class-post-types.php:605
+#: includes/class-post-types.php:628
 msgid "Add New Seller"
 msgstr "Pridať nového predajcu"
 
-#: includes/class-post-types.php:606
+#: includes/class-post-types.php:629
 msgid "New Seller Name"
 msgstr "Názov nového predajcu"
 
-#: includes/class-post-types.php:607
+#: includes/class-post-types.php:630
 msgid "No Sellers found."
 msgstr "Nenašli sa žiadny predajcovia."
 
-#: includes/class-post-types.php:608
+#: includes/class-post-types.php:631
 msgid "No Sellers"
 msgstr "Žiadny predajcovia"
 
-#: includes/class-post-types.php:609
+#: includes/class-post-types.php:632
 msgid "Sellers list navigation"
 msgstr "Navigácia v zozname predajcov"
 
-#: includes/class-post-types.php:610
+#: includes/class-post-types.php:633
 msgid "Sellers list"
 msgstr "Zoznam predajcov"
 
-#: includes/class-post-types.php:626
+#: includes/class-post-types.php:649
 msgid "Seller who is issuing the invoice."
 msgstr "Predajca vystavujúci faktúru."
 
-#: includes/class-post-types.php:654
+#: includes/class-post-types.php:677
 msgctxt "taxonomy general name"
 msgid "Clients"
 msgstr "Klienti"
 
-#: includes/class-post-types.php:655
+#: includes/class-post-types.php:678
 msgctxt "taxonomy singular name"
 msgid "Client"
 msgstr "Klient"
 
-#: includes/class-post-types.php:656
+#: includes/class-post-types.php:679
 msgid "Search Clients"
 msgstr "Vyhľadať klientov"
 
-#: includes/class-post-types.php:657
+#: includes/class-post-types.php:680
 msgid "All Clients"
 msgstr "Všetci klienti"
 
-#: includes/class-post-types.php:658
+#: includes/class-post-types.php:681
 msgid "Parent Client"
 msgstr "Nadradený klient"
 
-#: includes/class-post-types.php:659
+#: includes/class-post-types.php:682
 msgid "Parent Client:"
 msgstr "Nadradený klient:"
 
-#: includes/class-post-types.php:660
+#: includes/class-post-types.php:683
 msgid "Edit Client"
 msgstr "Upraviť klienta"
 
-#: includes/class-post-types.php:661
+#: includes/class-post-types.php:684
 msgid "View Client"
 msgstr "Zobraziť klienta"
 
-#: includes/class-post-types.php:662
+#: includes/class-post-types.php:685
 msgid "Update Client"
 msgstr "Aktualizovať klienta"
 
-#: includes/class-post-types.php:663
+#: includes/class-post-types.php:686
 msgid "Add New Client"
 msgstr "Pridať nového klienta"
 
-#: includes/class-post-types.php:664
+#: includes/class-post-types.php:687
 msgid "New Client Name"
 msgstr "Názov nového klienta"
 
-#: includes/class-post-types.php:665
+#: includes/class-post-types.php:688
 msgid "No Clients found."
 msgstr "Nebol nájdený žiaden klient."
 
-#: includes/class-post-types.php:666
+#: includes/class-post-types.php:689
 msgid "No Clients"
 msgstr "Žiadny klienti"
 
-#: includes/class-post-types.php:667
+#: includes/class-post-types.php:690
 msgid "Clients list navigation"
 msgstr "Navigácia v zozname klientov"
 
-#: includes/class-post-types.php:668
+#: includes/class-post-types.php:691
 msgid "Clients list"
 msgstr "Zoznam klientov"
 
-#: includes/class-post-types.php:675
+#: includes/class-post-types.php:698
 msgid "Client to whom the invoice is issued."
 msgstr "Klient, ktorému je faktúra vystavená."
 
-#: includes/class-post-types.php:708
+#: includes/class-post-types.php:731
 msgctxt "taxonomy general name"
 msgid "Product Types"
 msgstr "Typy produktov"
 
-#: includes/class-post-types.php:709
+#: includes/class-post-types.php:732
 msgctxt "taxonomy singular name"
 msgid "Product Type"
 msgstr "Typ produktu"
 
-#: includes/class-post-types.php:710
+#: includes/class-post-types.php:733
 msgid "Search Product Types"
 msgstr "Vyhľadať typy produktov"
 
-#: includes/class-post-types.php:711
+#: includes/class-post-types.php:734
 msgid "All Product Types"
 msgstr "Všetky typy produktov"
 
-#: includes/class-post-types.php:712
+#: includes/class-post-types.php:735
 msgid "Parent Product Type"
 msgstr "Nadradený typ produktu"
 
-#: includes/class-post-types.php:713
+#: includes/class-post-types.php:736
 msgid "Parent Product Type:"
 msgstr "Nadradený typ produktu:"
 
-#: includes/class-post-types.php:714
+#: includes/class-post-types.php:737
 msgid "Edit Product Type"
 msgstr "Upraviť typ produktu"
 
-#: includes/class-post-types.php:715
+#: includes/class-post-types.php:738
 msgid "View Product Type"
 msgstr "Zobraziť typ produktu"
 
-#: includes/class-post-types.php:716
+#: includes/class-post-types.php:739
 msgid "Update Product Type"
 msgstr "Aktualizovať typ produktu"
 
-#: includes/class-post-types.php:717
+#: includes/class-post-types.php:740
 msgid "Add New Product Type"
 msgstr "Pridať nový typ produktu"
 
-#: includes/class-post-types.php:718
+#: includes/class-post-types.php:741
 msgid "New Product Type Name"
 msgstr "Názov nového typu produktu"
 
-#: includes/class-post-types.php:719
+#: includes/class-post-types.php:742
 msgid "No Product Types found."
 msgstr "Nenašli sa žiadne typy produktov."
 
-#: includes/class-post-types.php:720
+#: includes/class-post-types.php:743
 msgid "No Product Types"
 msgstr "Žiadne typy produktov"
 
-#: includes/class-post-types.php:721
+#: includes/class-post-types.php:744
 msgid "Product Types list navigation"
 msgstr "Navigácia v zozname typov produktov"
 
-#: includes/class-post-types.php:722
+#: includes/class-post-types.php:745
 msgid "Product Types list"
 msgstr "Zoznam typov produktov"
 
-#: includes/class-post-types.php:729
+#: includes/class-post-types.php:752
 msgid "Product types for better products organization."
 msgstr "Typy produktov pre lepšiu organizáciu produktov."
 
-#: includes/class-post-types.php:762
+#: includes/class-post-types.php:785
 msgctxt "taxonomy general name"
 msgid "Payment Methods"
 msgstr "Spôsoby platby"
 
-#: includes/class-post-types.php:763
+#: includes/class-post-types.php:786
 msgctxt "taxonomy singular name"
 msgid "Payment Method"
 msgstr "Spôsob platby"
 
-#: includes/class-post-types.php:764
+#: includes/class-post-types.php:787
 msgid "Search Payment Methods"
 msgstr "Vyhľadať spôsoby platby"
 
-#: includes/class-post-types.php:765
+#: includes/class-post-types.php:788
 msgid "All Payment Methods"
 msgstr "Všetky spôsoby platby"
 
-#: includes/class-post-types.php:766
+#: includes/class-post-types.php:789
 msgid "Parent Payment Method"
 msgstr "Nadradený spôsob platby"
 
-#: includes/class-post-types.php:767
+#: includes/class-post-types.php:790
 msgid "Parent Payment Method:"
 msgstr "Nadradený spôsob platby:"
 
-#: includes/class-post-types.php:768
+#: includes/class-post-types.php:791
 msgid "Edit Payment Method"
 msgstr "Upraviť spôsob platby"
 
-#: includes/class-post-types.php:769
+#: includes/class-post-types.php:792
 msgid "View Payment Method"
 msgstr "Zobraziť spôsob platby"
 
-#: includes/class-post-types.php:770
+#: includes/class-post-types.php:793
 msgid "Update Payment Method"
 msgstr "Aktualizovať spôsob platby"
 
-#: includes/class-post-types.php:771
+#: includes/class-post-types.php:794
 msgid "Add New Payment Method"
 msgstr "Pridať nový spôsob platby"
 
-#: includes/class-post-types.php:772
+#: includes/class-post-types.php:795
 msgid "New Payment Method Name"
 msgstr "Názov nového spôsobu platby"
 
-#: includes/class-post-types.php:773
+#: includes/class-post-types.php:796
 msgid "No Payment Methods found."
 msgstr "Nenašli sa žiadne spôsoby platby."
 
-#: includes/class-post-types.php:774
+#: includes/class-post-types.php:797
 msgid "No Payment Methods"
 msgstr "Žiadne spôsoby platby"
 
-#: includes/class-post-types.php:775
+#: includes/class-post-types.php:798
 msgid "Payment Methods list navigation"
 msgstr "Navigácia v zozname spôsobov platby"
 
-#: includes/class-post-types.php:776
+#: includes/class-post-types.php:799
 msgid "Payment Methods list"
 msgstr "Zoznam spôsobov platby"
 
-#: includes/class-post-types.php:783
+#: includes/class-post-types.php:806
 msgid "Payment methods information provided to pay the invoice."
 msgstr "Informácia o spôsobe platby za faktúru."
 
@@ -740,7 +740,7 @@ msgstr "Tieto položky nájdete v administračnom menu \"Faktúry\"."
 msgid ""
 "When creating or editing an invoice, totals are calculated only after saving/"
 "publishing the invoice!"
-msgstr "Súčty súm sa vypočítajú až po uložení/publikácii faktúry."
+msgstr "Súčty súm sa vypočítajú až po uložení/publikácii faktúry!"
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:34
 msgid "Do not forget to set a proper invoice publish date!"
@@ -852,8 +852,24 @@ msgstr "Spravujte faktúry vašej spoločnosti jednoducho, ako profesionál!"
 msgid "Here is some information to get you started:"
 msgstr "Zopár informácií na začiatok:"
 
+#: templates/parts/admin/notice-welcome.php:28
+#, php-format
+msgctxt "%s: Theme name."
+msgid "Thank you for installing %s!"
+msgstr "Ďakujeme, že používate %s!"
+
+#: templates/parts/admin/notice-welcome.php:35
+msgid "Please read info in dashboard page about the theme setup."
+msgstr "Prečítajte si informácie o nastavení témy na nástenke."
+
+#: templates/parts/admin/notice-welcome.php:42
+#, php-format
+msgctxt "%s: Theme name."
+msgid "Get started with %s"
+msgstr "Začíname s %s"
+
 #: templates/parts/component/anchors-invoice.php:29
-#: templates/parts/content/content-simple.php:52
+#: templates/parts/content/content-simple.php:41
 msgid "Edit"
 msgstr "Upraviť"
 
@@ -862,17 +878,17 @@ msgstr "Upraviť"
 msgid "Print"
 msgstr "Tlačiť"
 
-#: templates/parts/component/summary.php:30
+#: templates/parts/component/summary.php:27
 msgid "Summary:"
 msgstr "Zhrnutie:"
 
-#: templates/parts/component/summary.php:49
+#: templates/parts/component/summary.php:46
 #, php-format
 msgctxt "%s = currency international code."
 msgid "Invoces %s"
 msgstr "Faktúry %s"
 
-#: templates/parts/component/summary.php:106
+#: templates/parts/component/summary.php:95
 #, php-format
 msgid "Number of invoices calculated from: %d"
 msgstr "Počet faktúr použitých pri kalkulácii: %d"
@@ -885,13 +901,13 @@ msgstr "Nenašli sa žiadne záznamy"
 msgid "It seems we can not find what you are looking for, sorry."
 msgstr "Prepáčte, zdá sa, že nemôžeme nájsť, čo hľadáte."
 
-#: templates/parts/content/content-simple.php:58
+#: templates/parts/content/content-simple.php:47
 #: templates/parts/meta/meta-invoice-companies.php:30
 msgctxt "Invoice company info label."
 msgid "Supplier"
 msgstr "Dodávateľ"
 
-#: templates/parts/content/content-simple.php:67
+#: templates/parts/content/content-simple.php:56
 #: templates/parts/meta/meta-invoice-companies.php:34
 msgctxt "Invoice company info label."
 msgid "Client"
@@ -943,7 +959,7 @@ msgstr "Dátum dodania (ď/m/r)"
 msgid "Due date (d/m/y)"
 msgstr "Dátum splatnosti (ď/m/r)"
 
-#: templates/parts/meta/meta-invoice-symbols.php:29
+#: templates/parts/meta/meta-invoice-symbols.php:26
 msgid "Variable symbol"
 msgstr "Variabilný symbol"
 

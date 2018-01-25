@@ -18,21 +18,21 @@
 // Helper variables
 
 	/**
-	 * Create $totals global variable so we can display
+	 * Create $summary global variable so we can display
 	 * total amount of all displayed invoices on the screen
 	 * in the website footer.
 	 * This is just for informational purposes and will not
 	 * be print.
 	 */
-	global $totals;
-	$totals = Invoices_Customize::get_currencies_array();
-	foreach ( $totals as $key => $value ) {
-		$totals[ $key ] = array(
+	global $summary;
+	$summary = Invoices_Customize::get_currencies_array();
+	foreach ( $summary as $key => $value ) {
+		$summary[ $key ] = array(
 			'amount' => 0,
 			'source' => array(),
 		);
 	}
-	$totals['invoice_count'] = 0;
+	$summary['invoice_count'] = 0;
 
 	/**
 	 * Create helper global variable so we can store and pass

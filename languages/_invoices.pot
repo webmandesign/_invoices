@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-01-23 19:32+0100\n"
+"POT-Creation-Date: 2018-01-25 20:18+0100\n"
 "PO-Revision-Date: 2015-05-12 20:39+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -93,7 +93,7 @@ msgid "Preferred payment method to pay the invoice."
 msgstr ""
 
 #: includes/class-advanced-custom-fields.php:304
-#: templates/parts/meta/meta-invoice-symbols.php:43
+#: templates/parts/meta/meta-invoice-symbols.php:32
 msgid "Constant symbol"
 msgstr ""
 
@@ -303,353 +303,353 @@ msgstr ""
 msgid "Invoice"
 msgstr ""
 
-#: includes/class-post-types.php:536
+#: includes/class-post-types.php:559
 msgctxt "post type general name"
 msgid "Products"
 msgstr ""
 
-#: includes/class-post-types.php:537
+#: includes/class-post-types.php:560
 msgctxt "post type singular name"
 msgid "Product"
 msgstr ""
 
-#: includes/class-post-types.php:538
+#: includes/class-post-types.php:561
 msgid "Add New Product"
 msgstr ""
 
-#: includes/class-post-types.php:539
+#: includes/class-post-types.php:562
 msgid "Edit Product"
 msgstr ""
 
-#: includes/class-post-types.php:540
+#: includes/class-post-types.php:563
 msgid "New Product"
 msgstr ""
 
-#: includes/class-post-types.php:541
+#: includes/class-post-types.php:564
 msgid "View Product"
 msgstr ""
 
-#: includes/class-post-types.php:542
+#: includes/class-post-types.php:565
 msgid "View Products"
 msgstr ""
 
-#: includes/class-post-types.php:543
+#: includes/class-post-types.php:566
 msgid "Search Products"
 msgstr ""
 
-#: includes/class-post-types.php:544
+#: includes/class-post-types.php:567
 msgid "No Products found."
 msgstr ""
 
-#: includes/class-post-types.php:545
+#: includes/class-post-types.php:568
 msgid "No Products found in Trash."
 msgstr ""
 
-#: includes/class-post-types.php:546
+#: includes/class-post-types.php:569
 msgid "Parent Product:"
 msgstr ""
 
-#: includes/class-post-types.php:547
+#: includes/class-post-types.php:570
 msgid "All Products"
 msgstr ""
 
-#: includes/class-post-types.php:548
+#: includes/class-post-types.php:571
 msgid "Product Archives"
 msgstr ""
 
-#: includes/class-post-types.php:549
+#: includes/class-post-types.php:572
 msgid "Product Attributes"
 msgstr ""
 
-#: includes/class-post-types.php:550
+#: includes/class-post-types.php:573
 msgid "Insert into Product"
 msgstr ""
 
-#: includes/class-post-types.php:551
+#: includes/class-post-types.php:574
 msgid "Uploaded to this Product"
 msgstr ""
 
-#: includes/class-post-types.php:552
+#: includes/class-post-types.php:575
 msgid "Filter Products list"
 msgstr ""
 
-#: includes/class-post-types.php:553
+#: includes/class-post-types.php:576
 msgid "Products list navigation"
 msgstr ""
 
-#: includes/class-post-types.php:554
+#: includes/class-post-types.php:577
 msgid "Products list"
 msgstr ""
 
-#: includes/class-post-types.php:555
+#: includes/class-post-types.php:578
 msgid "Products"
 msgstr ""
 
-#: includes/class-post-types.php:556
+#: includes/class-post-types.php:579
 msgid "Product"
 msgstr ""
 
-#: includes/class-post-types.php:596
+#: includes/class-post-types.php:619
 msgctxt "taxonomy general name"
 msgid "Sellers"
 msgstr ""
 
-#: includes/class-post-types.php:597
+#: includes/class-post-types.php:620
 msgctxt "taxonomy singular name"
 msgid "Seller"
 msgstr ""
 
-#: includes/class-post-types.php:598
+#: includes/class-post-types.php:621
 msgid "Search Sellers"
 msgstr ""
 
-#: includes/class-post-types.php:599
+#: includes/class-post-types.php:622
 msgid "All Sellers"
 msgstr ""
 
-#: includes/class-post-types.php:600
+#: includes/class-post-types.php:623
 msgid "Parent Seller"
 msgstr ""
 
-#: includes/class-post-types.php:601
+#: includes/class-post-types.php:624
 msgid "Parent Seller:"
 msgstr ""
 
-#: includes/class-post-types.php:602
+#: includes/class-post-types.php:625
 msgid "Edit Seller"
 msgstr ""
 
-#: includes/class-post-types.php:603
+#: includes/class-post-types.php:626
 msgid "View Seller"
 msgstr ""
 
-#: includes/class-post-types.php:604
+#: includes/class-post-types.php:627
 msgid "Update Seller"
 msgstr ""
 
-#: includes/class-post-types.php:605
+#: includes/class-post-types.php:628
 msgid "Add New Seller"
 msgstr ""
 
-#: includes/class-post-types.php:606
+#: includes/class-post-types.php:629
 msgid "New Seller Name"
 msgstr ""
 
-#: includes/class-post-types.php:607
+#: includes/class-post-types.php:630
 msgid "No Sellers found."
 msgstr ""
 
-#: includes/class-post-types.php:608
+#: includes/class-post-types.php:631
 msgid "No Sellers"
 msgstr ""
 
-#: includes/class-post-types.php:609
+#: includes/class-post-types.php:632
 msgid "Sellers list navigation"
 msgstr ""
 
-#: includes/class-post-types.php:610
+#: includes/class-post-types.php:633
 msgid "Sellers list"
 msgstr ""
 
-#: includes/class-post-types.php:626
+#: includes/class-post-types.php:649
 msgid "Seller who is issuing the invoice."
 msgstr ""
 
-#: includes/class-post-types.php:654
+#: includes/class-post-types.php:677
 msgctxt "taxonomy general name"
 msgid "Clients"
 msgstr ""
 
-#: includes/class-post-types.php:655
+#: includes/class-post-types.php:678
 msgctxt "taxonomy singular name"
 msgid "Client"
 msgstr ""
 
-#: includes/class-post-types.php:656
+#: includes/class-post-types.php:679
 msgid "Search Clients"
 msgstr ""
 
-#: includes/class-post-types.php:657
+#: includes/class-post-types.php:680
 msgid "All Clients"
 msgstr ""
 
-#: includes/class-post-types.php:658
+#: includes/class-post-types.php:681
 msgid "Parent Client"
 msgstr ""
 
-#: includes/class-post-types.php:659
+#: includes/class-post-types.php:682
 msgid "Parent Client:"
 msgstr ""
 
-#: includes/class-post-types.php:660
+#: includes/class-post-types.php:683
 msgid "Edit Client"
 msgstr ""
 
-#: includes/class-post-types.php:661
+#: includes/class-post-types.php:684
 msgid "View Client"
 msgstr ""
 
-#: includes/class-post-types.php:662
+#: includes/class-post-types.php:685
 msgid "Update Client"
 msgstr ""
 
-#: includes/class-post-types.php:663
+#: includes/class-post-types.php:686
 msgid "Add New Client"
 msgstr ""
 
-#: includes/class-post-types.php:664
+#: includes/class-post-types.php:687
 msgid "New Client Name"
 msgstr ""
 
-#: includes/class-post-types.php:665
+#: includes/class-post-types.php:688
 msgid "No Clients found."
 msgstr ""
 
-#: includes/class-post-types.php:666
+#: includes/class-post-types.php:689
 msgid "No Clients"
 msgstr ""
 
-#: includes/class-post-types.php:667
+#: includes/class-post-types.php:690
 msgid "Clients list navigation"
 msgstr ""
 
-#: includes/class-post-types.php:668
+#: includes/class-post-types.php:691
 msgid "Clients list"
 msgstr ""
 
-#: includes/class-post-types.php:675
+#: includes/class-post-types.php:698
 msgid "Client to whom the invoice is issued."
 msgstr ""
 
-#: includes/class-post-types.php:708
+#: includes/class-post-types.php:731
 msgctxt "taxonomy general name"
 msgid "Product Types"
 msgstr ""
 
-#: includes/class-post-types.php:709
+#: includes/class-post-types.php:732
 msgctxt "taxonomy singular name"
 msgid "Product Type"
 msgstr ""
 
-#: includes/class-post-types.php:710
+#: includes/class-post-types.php:733
 msgid "Search Product Types"
 msgstr ""
 
-#: includes/class-post-types.php:711
+#: includes/class-post-types.php:734
 msgid "All Product Types"
 msgstr ""
 
-#: includes/class-post-types.php:712
+#: includes/class-post-types.php:735
 msgid "Parent Product Type"
 msgstr ""
 
-#: includes/class-post-types.php:713
+#: includes/class-post-types.php:736
 msgid "Parent Product Type:"
 msgstr ""
 
-#: includes/class-post-types.php:714
+#: includes/class-post-types.php:737
 msgid "Edit Product Type"
 msgstr ""
 
-#: includes/class-post-types.php:715
+#: includes/class-post-types.php:738
 msgid "View Product Type"
 msgstr ""
 
-#: includes/class-post-types.php:716
+#: includes/class-post-types.php:739
 msgid "Update Product Type"
 msgstr ""
 
-#: includes/class-post-types.php:717
+#: includes/class-post-types.php:740
 msgid "Add New Product Type"
 msgstr ""
 
-#: includes/class-post-types.php:718
+#: includes/class-post-types.php:741
 msgid "New Product Type Name"
 msgstr ""
 
-#: includes/class-post-types.php:719
+#: includes/class-post-types.php:742
 msgid "No Product Types found."
 msgstr ""
 
-#: includes/class-post-types.php:720
+#: includes/class-post-types.php:743
 msgid "No Product Types"
 msgstr ""
 
-#: includes/class-post-types.php:721
+#: includes/class-post-types.php:744
 msgid "Product Types list navigation"
 msgstr ""
 
-#: includes/class-post-types.php:722
+#: includes/class-post-types.php:745
 msgid "Product Types list"
 msgstr ""
 
-#: includes/class-post-types.php:729
+#: includes/class-post-types.php:752
 msgid "Product types for better products organization."
 msgstr ""
 
-#: includes/class-post-types.php:762
+#: includes/class-post-types.php:785
 msgctxt "taxonomy general name"
 msgid "Payment Methods"
 msgstr ""
 
-#: includes/class-post-types.php:763
+#: includes/class-post-types.php:786
 msgctxt "taxonomy singular name"
 msgid "Payment Method"
 msgstr ""
 
-#: includes/class-post-types.php:764
+#: includes/class-post-types.php:787
 msgid "Search Payment Methods"
 msgstr ""
 
-#: includes/class-post-types.php:765
+#: includes/class-post-types.php:788
 msgid "All Payment Methods"
 msgstr ""
 
-#: includes/class-post-types.php:766
+#: includes/class-post-types.php:789
 msgid "Parent Payment Method"
 msgstr ""
 
-#: includes/class-post-types.php:767
+#: includes/class-post-types.php:790
 msgid "Parent Payment Method:"
 msgstr ""
 
-#: includes/class-post-types.php:768
+#: includes/class-post-types.php:791
 msgid "Edit Payment Method"
 msgstr ""
 
-#: includes/class-post-types.php:769
+#: includes/class-post-types.php:792
 msgid "View Payment Method"
 msgstr ""
 
-#: includes/class-post-types.php:770
+#: includes/class-post-types.php:793
 msgid "Update Payment Method"
 msgstr ""
 
-#: includes/class-post-types.php:771
+#: includes/class-post-types.php:794
 msgid "Add New Payment Method"
 msgstr ""
 
-#: includes/class-post-types.php:772
+#: includes/class-post-types.php:795
 msgid "New Payment Method Name"
 msgstr ""
 
-#: includes/class-post-types.php:773
+#: includes/class-post-types.php:796
 msgid "No Payment Methods found."
 msgstr ""
 
-#: includes/class-post-types.php:774
+#: includes/class-post-types.php:797
 msgid "No Payment Methods"
 msgstr ""
 
-#: includes/class-post-types.php:775
+#: includes/class-post-types.php:798
 msgid "Payment Methods list navigation"
 msgstr ""
 
-#: includes/class-post-types.php:776
+#: includes/class-post-types.php:799
 msgid "Payment Methods list"
 msgstr ""
 
-#: includes/class-post-types.php:783
+#: includes/class-post-types.php:806
 msgid "Payment methods information provided to pay the invoice."
 msgstr ""
 
@@ -824,8 +824,24 @@ msgstr ""
 msgid "Here is some information to get you started:"
 msgstr ""
 
+#: templates/parts/admin/notice-welcome.php:28
+#, php-format
+msgctxt "%s: Theme name."
+msgid "Thank you for installing %s!"
+msgstr ""
+
+#: templates/parts/admin/notice-welcome.php:35
+msgid "Please read info in dashboard page about the theme setup."
+msgstr ""
+
+#: templates/parts/admin/notice-welcome.php:42
+#, php-format
+msgctxt "%s: Theme name."
+msgid "Get started with %s"
+msgstr ""
+
 #: templates/parts/component/anchors-invoice.php:29
-#: templates/parts/content/content-simple.php:52
+#: templates/parts/content/content-simple.php:41
 msgid "Edit"
 msgstr ""
 
@@ -834,17 +850,17 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-#: templates/parts/component/summary.php:30
+#: templates/parts/component/summary.php:27
 msgid "Summary:"
 msgstr ""
 
-#: templates/parts/component/summary.php:49
+#: templates/parts/component/summary.php:46
 #, php-format
 msgctxt "%s = currency international code."
 msgid "Invoces %s"
 msgstr ""
 
-#: templates/parts/component/summary.php:106
+#: templates/parts/component/summary.php:95
 #, php-format
 msgid "Number of invoices calculated from: %d"
 msgstr ""
@@ -857,13 +873,13 @@ msgstr ""
 msgid "It seems we can not find what you are looking for, sorry."
 msgstr ""
 
-#: templates/parts/content/content-simple.php:58
+#: templates/parts/content/content-simple.php:47
 #: templates/parts/meta/meta-invoice-companies.php:30
 msgctxt "Invoice company info label."
 msgid "Supplier"
 msgstr ""
 
-#: templates/parts/content/content-simple.php:67
+#: templates/parts/content/content-simple.php:56
 #: templates/parts/meta/meta-invoice-companies.php:34
 msgctxt "Invoice company info label."
 msgid "Client"
@@ -915,7 +931,7 @@ msgstr ""
 msgid "Due date (d/m/y)"
 msgstr ""
 
-#: templates/parts/meta/meta-invoice-symbols.php:29
+#: templates/parts/meta/meta-invoice-symbols.php:26
 msgid "Variable symbol"
 msgstr ""
 

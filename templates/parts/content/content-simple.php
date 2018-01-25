@@ -17,14 +17,11 @@
 
 // Helper variables
 
-	global $invoice_helper, $totals;
+	global $invoice_helper, $summary;
 
-	++$totals['invoice_count'];
+	++$summary['invoice_count'];
 
 	$invoice_helper = Invoices_Helper::reset_invoice_helper();
-
-	$post_type = get_post_type_object( 'post' );
-	$labels    = get_post_type_labels( $post_type );
 
 
 ?>
@@ -39,15 +36,7 @@
 
 	<h2 class="invoice-simple-title">
 		<a href="<?php echo esc_url( get_permalink() ); ?>">
-			<?php
-
-			echo str_replace(
-				$labels->singular_name . ' ',
-				'',
-				esc_html( get_the_title() )
-			);
-
-			?>
+			<?php echo esc_html( Invoices_Post_Types::get_the_title_invoice() ); ?>
 		</a>
 		<?php edit_post_link( esc_html__( 'Edit', '_invoices' ) ); ?>
 	</h2>
@@ -79,14 +68,14 @@
 		$post_title = get_the_title();
 
 		if ( $invoice_helper['total'][ $invoice_helper['currency_from'] ] ) {
-			$totals[ $invoice_helper['currency_from'] ]['amount'] += $invoice_helper['total'][ $invoice_helper['currency_from'] ];
-			$totals[ $invoice_helper['currency_from'] ]['source'][ $post_id ] = $post_title;
+			$summary[ $invoice_helper['currency_from'] ]['amount'] += $invoice_helper['total'][ $invoice_helper['currency_from'] ];
+			$summary[ $invoice_helper['currency_from'] ]['source'][ $post_id ] = $post_title;
 		}
 
 		if ( $invoice_helper['dual_currency'] ) {
 			$total_exchanged = round( $invoice_helper['total'][ $invoice_helper['currency_from'] ] * $invoice_helper['exchange_rate'], 2 );
-			$totals[ $invoice_helper['currency_to'] ]['amount'] += $total_exchanged;
-			$totals[ $invoice_helper['currency_to'] ]['source'][ $post_id ] = $post_title;
+			$summary[ $invoice_helper['currency_to'] ]['amount'] += $total_exchanged;
+			$summary[ $invoice_helper['currency_to'] ]['source'][ $post_id ] = $post_title;
 		}
 
 		?>
