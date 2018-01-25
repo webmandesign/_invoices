@@ -2,11 +2,13 @@
 /* FILE: admin/_dashboard.scss */
 h1 { position: absolute !important; width: 1px; height: 1px; line-height: 1px; word-wrap: normal !important; -webkit-clip-path: inset(50%); clip-path: inset(50%); clip: rect(1px, 1px, 1px, 1px); overflow: hidden; }
 
-#dashboard-widgets .meta-box-sortables { min-height: 1.62em; }
+#dashboard-widgets .meta-box-sortables { min-height: 1px; }
 
-.metabox-holder .postbox-container .empty-container { height: 1.62em; border: 0; }
+.metabox-holder .postbox-container .empty-container { height: 1px; border: 0; }
 
-.welcome-panel { clear: both; padding: 2.62em 6%; font-size: 15px; }
+#screen-meta-links { position: relative; z-index: 10; }
+
+.welcome-panel { clear: both; top: -27px; padding: 2.62em 6%; margin: 0 -20px; font-size: 15px; }
 
 .welcome-panel-content { margin: 0; max-width: 100%; }
 
@@ -28,7 +30,7 @@ h1 { position: absolute !important; width: 1px; height: 1px; line-height: 1px; w
 
 .welcome-panel-column-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-top: 2.62em; }
 
-.welcome-panel-column-container + .welcome-panel-column-container { padding-top: 2.62em; margin-top: 2.62em; border-top: 1px solid #ddd; }
+.welcome-panel-column-container + .welcome-panel-column-container { margin-top: 2.62em; }
 
 .welcome-panel-column:not(.welcome-panel-column-links) ul { margin-left: 1.62em; }
 
@@ -42,7 +44,7 @@ h1 { position: absolute !important; width: 1px; height: 1px; line-height: 1px; w
 
 .welcome-panel-column-links li { float: left; width: 50%; }
 
-.welcome-panel-column-customize { max-width: 45ch; padding: 2.62em; background-color: #eee; background-image: -o-radial-gradient(0% 100%, circle, rgba(255, 255, 255, 0.66) 0, transparent 100%); background-image: radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.66) 0, transparent 100%); border: 1px solid #ddd; }
+.welcome-panel-column-customize { max-width: 50ch; padding: 2.62em; background-color: #eee; background-image: -o-radial-gradient(0% 100%, circle, rgba(255, 255, 255, 0.66) 0, transparent 100%); background-image: radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.66) 0, transparent 100%); border: 1px solid #ddd; }
 
 .welcome-panel-column-requirements { max-width: 45ch; padding: 2.62em; background-color: #c03; background-image: -o-radial-gradient(0% 100%, circle, rgba(255, 255, 255, 0.33) 0, transparent 100%); background-image: radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.33) 0, transparent 100%); color: #fff; border: 1px solid #c03; }
 

@@ -14,12 +14,17 @@
 	}
 
 	#dashboard-widgets .meta-box-sortables {
-		min-height: 1.62em;
+		min-height: 1px;
 	}
 
 	.metabox-holder .postbox-container .empty-container {
-		height: 1.62em;
+		height: 1px;
 		border: 0;
+	}
+
+	#screen-meta-links {
+		position: relative;
+		z-index: 10;
 	}
 
 
@@ -29,7 +34,9 @@
 
 	.welcome-panel {
 		clear: both;
+		top: -27px;
 		padding: 2.62em 6%;
+		margin: 0 -20px;
 		font-size: 15px;
 
 		&-content {
@@ -92,9 +99,9 @@
 					margin-top: 2.62em;
 
 					& + & {
-						padding-top: 2.62em;
+						// padding-top: 2.62em;
 						margin-top: 2.62em;
-						border-top: 1px solid #ddd;
+						// border-top: 1px solid #ddd;
 					}
 
 				}
@@ -137,7 +144,7 @@
 				// Customize
 
 					&-customize {
-						max-width: 45ch;
+						max-width: 50ch;
 						padding: 2.62em;
 						background-color: #eee;
 						background-image: radial-gradient( circle at 0% 100%, rgba(255,255,255,.66) 0, transparent 100% );

@@ -43,7 +43,7 @@
 
 
 	<footer class="welcome-panel-footer">
-		&copy; <?php echo date( 'Y' ); ?> WebMan Design, <a href="https://www.webmandesign.eu">webmandesign.eu</a>
+		&copy; <?php echo date( 'Y' ); ?> <a href="https://www.webmandesign.eu">WebManDesign.eu</a>
 	</footer>
 
 </div>
