@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-01-25 20:18+0100\n"
-"PO-Revision-Date: 2018-01-25 20:19+0100\n"
+"POT-Creation-Date: 2018-01-27 14:45+0100\n"
+"PO-Revision-Date: 2018-01-27 14:48+0100\n"
 "Last-Translator: Oliver Juhas, WebMan Design\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language: sk_SK\n"
@@ -841,8 +841,8 @@ msgstr "Taxonómia \"Značky\" bola odstránená"
 
 #: templates/parts/admin/dashboard-welcome-panel.php:25
 #, php-format
-msgid "Welcome to %s theme!"
-msgstr "Vitajte v téme %s!"
+msgid "Welcome to %s theme"
+msgstr "Vitajte v téme %s"
 
 #: templates/parts/admin/dashboard-welcome-panel.php:32
 msgid "Manage your business invoices easily, like a pro!"
@@ -855,8 +855,8 @@ msgstr "Zopár informácií na začiatok:"
 #: templates/parts/admin/notice-welcome.php:28
 #, php-format
 msgctxt "%s: Theme name."
-msgid "Thank you for installing %s!"
-msgstr "Ďakujeme, že používate %s!"
+msgid "Thank you for installing %s theme!"
+msgstr "Ďakujeme, za inštaláciu témy %s!"
 
 #: templates/parts/admin/notice-welcome.php:35
 msgid "Please read info in dashboard page about the theme setup."
@@ -965,4 +965,4 @@ msgstr "Variabilný symbol"
 
 #: templates/parts/meta/meta-invoice-total.php:49
 msgid "Issued by"
-msgstr "Vydal"
+msgstr "Vystavil"

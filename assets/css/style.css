@@ -264,7 +264,7 @@ small { font-size: .81em; }
 
 .invoice-products thead { text-transform: uppercase; font-size: .81rem; letter-spacing: .05em; }
 
-.invoice-products thead th { font-weight: 400; }
+.invoice-products thead th { font-weight: 400; white-space: nowrap; }
 
 .invoice-products th, .invoice-products td { padding: 2.5mm; border-bottom: 1pt dashed; }
 

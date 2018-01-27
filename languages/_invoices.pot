@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-01-25 20:18+0100\n"
+"POT-Creation-Date: 2018-01-27 14:45+0100\n"
 "PO-Revision-Date: 2015-05-12 20:39+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -813,7 +813,7 @@ msgstr ""
 
 #: templates/parts/admin/dashboard-welcome-panel.php:25
 #, php-format
-msgid "Welcome to %s theme!"
+msgid "Welcome to %s theme"
 msgstr ""
 
 #: templates/parts/admin/dashboard-welcome-panel.php:32
@@ -827,7 +827,7 @@ msgstr ""
 #: templates/parts/admin/notice-welcome.php:28
 #, php-format
 msgctxt "%s: Theme name."
-msgid "Thank you for installing %s!"
+msgid "Thank you for installing %s theme!"
 msgstr ""
 
 #: templates/parts/admin/notice-welcome.php:35

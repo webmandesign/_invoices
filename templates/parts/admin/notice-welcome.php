@@ -25,7 +25,7 @@
 		<?php
 
 		printf(
-			esc_html_x( 'Thank you for installing %s!', '%s: Theme name.', '_invoices' ),
+			esc_html_x( 'Thank you for installing %s theme!', '%s: Theme name.', '_invoices' ),
 			'<strong>' . $theme_name . '</strong>'
 		);
 

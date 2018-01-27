@@ -22,7 +22,7 @@
 	$theme = wp_get_theme( '_invoices' );
 
 	printf(
-		esc_html__( 'Welcome to %s theme!', '_invoices' ),
+		esc_html__( 'Welcome to %s theme', '_invoices' ),
 		'<strong>' . $theme->display( 'Name' ) . ' <small>' . $theme->display( 'Version' ) . '</small></strong>'
 	);
 
