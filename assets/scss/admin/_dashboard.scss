@@ -130,6 +130,11 @@
 
 						ul {
 							overflow: hidden;
+
+							.welcome-panel & {
+								margin-top: 2em;
+							}
+
 						}
 
 						li {

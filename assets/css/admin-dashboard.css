@@ -42,6 +42,8 @@ h1 { position: absolute !important; width: 1px; height: 1px; line-height: 1px; w
 
 .welcome-panel-column-links ul { overflow: hidden; }
 
+.welcome-panel .welcome-panel-column-links ul { margin-top: 2em; }
+
 .welcome-panel-column-links li { float: left; width: 50%; }
 
 .welcome-panel-column-customize { max-width: 50ch; padding: 2.62em; background-color: #eee; background-image: -o-radial-gradient(0% 100%, circle, rgba(255, 255, 255, 0.66) 0, transparent 100%); background-image: radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.66) 0, transparent 100%); border: 1px solid #ddd; }
