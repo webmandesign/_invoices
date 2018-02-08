@@ -1,5 +1,18 @@
 # Invoices Changelog
 
+## 1.1.1
+
+* **Update**: Improving theme options
+* **Fix**: Invoice exchange rate info not displayed
+
+### Files changed:
+
+	changelog.md
+	style.css
+	includes/class-customize.php
+	templates/parts/component/note-invoice.php
+
+
 ## 1.1.0
 
 * **Add**: Option to select default values for Invoice custom fields

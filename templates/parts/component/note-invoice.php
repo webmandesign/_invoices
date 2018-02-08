@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.1.0
+ * @version  1.1.1
  */
 
 
@@ -20,12 +20,7 @@
 	$content = get_post_meta( get_the_ID(), 'notes', true );
 
 
-// Requirements check
-
-	if ( empty( $content ) ) {
-		return;
-	}
-
+if ( ! empty( $content ) ) :
 
 ?>
 
@@ -33,7 +28,14 @@
 	<?php echo apply_filters( 'the_content', $content ); ?>
 </div>
 
-<?php if ( $invoice_helper['dual_currency'] ) : ?>
+<?php
+
+endif;
+
+if ( $invoice_helper['dual_currency'] ) :
+
+?>
+
 <div class="invoice-note invoice-note-exchange">
 	<a href="<?php echo esc_url( add_query_arg( array(
 		'base'    => $invoice_helper['currency_from'],
@@ -53,4 +55,7 @@
 		?>
 	</a>
 </div>
-<?php endif; ?>
+
+<?php
+
+endif;

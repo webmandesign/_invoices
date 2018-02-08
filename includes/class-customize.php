@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.1.0
+ * @version  1.1.1
  *
  * Contents:
  *
@@ -89,7 +89,7 @@ class Invoices_Customize {
 		 * Theme customizer options
 		 *
 		 * @since    1.0.0
-		 * @version  1.1.0
+		 * @version  1.1.1
 		 *
 		 * @param  object $wp_customize  WP customizer object.
 		 */
@@ -318,7 +318,7 @@ class Invoices_Customize {
 							array(
 								'label'    => esc_html__( 'Client selector field type', '_invoices' ),
 								'section'  => 'invoice',
-								'type'     => 'select',
+								'type'     => 'radio',
 								'priority' => ++$priority,
 								'choices'  => array(
 									'select' => esc_html__( 'Dropdown (select)', '_invoices' ),
