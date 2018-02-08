@@ -10,12 +10,13 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.1.0
  *
  * Contents:
  *
- *  0) Init
- * 10) Invoice
+ *   0) Init
+ *  10) Invoice
+ * 100) Helpers
  */
 class Invoices_Advanced_Custom_Fields {
 
@@ -40,7 +41,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * register and retrieve values from related subfields.
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.1.0
 		 */
 		private function __construct() {
 
@@ -60,6 +61,12 @@ class Invoices_Advanced_Custom_Fields {
 						add_action( 'admin_menu', __CLASS__ . '::invoice_metabox_hide' );
 
 						add_action( 'save_post', __CLASS__ . '::invoice_save', 5, 3 );
+
+					// Filters
+
+						foreach ( (array) Invoices_Customize::$default_value_fields as $field_name ) {
+							add_filter( 'acf/prepare_field/name=' . $field_name, __CLASS__ . '::default_field_value', 20 );
+						}
 
 		} // /__construct
 
@@ -114,7 +121,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice products metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.1.0
 		 */
 		public static function invoice_products() {
 
@@ -184,7 +191,7 @@ class Invoices_Advanced_Custom_Fields {
 										0 => 'page',
 									),
 									'allow_null'    => 1,
-									'return_format' => 'object',
+									'return_format' => 'id',
 								),
 
 								400 => array(
@@ -241,7 +248,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice setup options metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.1.0
 		 */
 		public static function invoice_setup() {
 
@@ -264,7 +271,7 @@ class Invoices_Advanced_Custom_Fields {
 							'add_term'      => 0,
 							'save_terms'    => 1,
 							'load_terms'    => 1,
-							'return_format' => 'object',
+							'return_format' => 'id',
 						),
 
 						200 => array(
@@ -275,11 +282,11 @@ class Invoices_Advanced_Custom_Fields {
 							'instructions'  => esc_html__( 'Customer receiving the invoice.', '_invoices' ),
 							'required'      => 1,
 							'taxonomy'      => 'client',
-							'field_type'    => 'select',
+							'field_type'    => get_theme_mod( 'field_type_client', 'radio' ),
 							'add_term'      => 0,
 							'save_terms'    => 1,
 							'load_terms'    => 1,
-							'return_format' => 'object',
+							'return_format' => 'id',
 						),
 
 						300 => array(
@@ -294,7 +301,7 @@ class Invoices_Advanced_Custom_Fields {
 							'add_term'      => 0,
 							'save_terms'    => 1,
 							'load_terms'    => 1,
-							'return_format' => 'object',
+							'return_format' => 'id',
 						),
 
 						400 => array(
@@ -534,6 +541,37 @@ class Invoices_Advanced_Custom_Fields {
 				}
 
 		} // /invoice_save
+
+
+
+
+
+	/**
+	 * 10) Invoice
+	 */
+
+		/**
+		 * Load default field value
+		 *
+		 * @link  https://support.advancedcustomfields.com/forums/topic/default-value-for-the-taxonomy-field-type/
+		 *
+		 * @since    1.1.0
+		 * @version  1.1.0
+		 */
+		public static function default_field_value( $field ) {
+
+			// Processing
+
+				if ( empty( $field['value'] ) ) {
+					$field['value'] = get_theme_mod( 'default_' . $field['_name'] );
+				}
+
+
+			// Output
+
+		  	return $field;
+
+		} // /default_field_value
 
 
 

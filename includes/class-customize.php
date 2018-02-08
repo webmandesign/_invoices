@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.1.0
  *
  * Contents:
  *
@@ -26,6 +26,13 @@ class Invoices_Customize {
 	 */
 
 		private static $instance;
+
+		public static $default_value_fields = array(
+			'category'       => 'seller',
+			'client'         => 'client',
+			'page'           => 'product',
+			'payment_method' => 'payment_method',
+		);
 
 
 
@@ -82,7 +89,7 @@ class Invoices_Customize {
 		 * Theme customizer options
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.1.0
 		 *
 		 * @param  object $wp_customize  WP customizer object.
 		 */
@@ -259,17 +266,17 @@ class Invoices_Customize {
 
 
 
-				// Section: invoice_list
+				// Section: invoice
 
 					$wp_customize->add_section(
-						'invoice_list',
+						'invoice',
 						array(
-							'title' => esc_html__( 'Invoice List', '_invoices' ),
+							'title' => esc_html__( 'Invoice', '_invoices' ),
 							'panel' => 'theme_options',
 						)
 					);
 
-					// Option: invoice_list/count_invoices_per_month
+					// Option: invoice/count_invoices_per_month
 
 						$wp_customize->add_setting(
 							'count_invoices_per_month',
@@ -284,7 +291,7 @@ class Invoices_Customize {
 							'count_invoices_per_month',
 							array(
 								'label'       => esc_html__( 'Max number of invoices created monthly', '_invoices' ),
-								'section'     => 'invoice_list',
+								'section'     => 'invoice',
 								'type'        => 'number',
 								'priority'    => ++$priority,
 								'input_attrs' => array(
@@ -294,6 +301,96 @@ class Invoices_Customize {
 								),
 							)
 						);
+
+					// Option: invoice/field_type_client
+
+						$wp_customize->add_setting(
+							'field_type_client',
+							array(
+								'default'           => 'radio',
+								'transport'         => $transport,
+								'sanitize_callback' => 'esc_attr',
+							)
+						);
+
+						$wp_customize->add_control(
+							'field_type_client',
+							array(
+								'label'    => esc_html__( 'Client selector field type', '_invoices' ),
+								'section'  => 'invoice',
+								'type'     => 'select',
+								'priority' => ++$priority,
+								'choices'  => array(
+									'select' => esc_html__( 'Dropdown (select)', '_invoices' ),
+									'radio'  => esc_html__( 'Radio buttons', '_invoices' ),
+								),
+							)
+						);
+
+					// Option: invoice/default_{$field_name}
+
+						foreach ( (array) self::$default_value_fields as $object => $field_name ) {
+
+							$wp_customize->add_setting(
+								'default_' . $field_name,
+								array(
+									'default'           => 0,
+									'transport'         => $transport,
+									'sanitize_callback' => 'absint',
+								)
+							);
+
+							$label   = '-';
+							$choices = array( 0 => '-' );
+
+							if ( taxonomy_exists( $object ) ) {
+
+								if ( '-' === $label ) {
+									$label = get_taxonomy_labels( get_taxonomy( $object ) )->singular_name;
+								}
+
+								$terms = get_terms( array(
+									'taxonomy'   => $object,
+									'hide_empty' => false,
+								) );
+
+								if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+									foreach ( $terms as $term ) {
+										$choices[ $term->term_id ] = $term->name;
+									}
+								}
+
+							} elseif ( post_type_exists( $object ) ) {
+
+								if ( '-' === $label ) {
+									$label = get_post_type_labels( get_post_type_object( $object ) )->singular_name;
+								}
+
+								$posts = get_posts( array(
+									'post_type'   => $object,
+									'numberposts' => 100,
+								) );
+
+								if ( ! is_wp_error( $posts ) && ! empty( $posts ) ) {
+									foreach ( $posts as $post ) {
+										$choices[ $post->ID ] = $post->post_title;
+									}
+								}
+
+							}
+
+							$wp_customize->add_control(
+								'default_' . $field_name,
+								array(
+									'label'    => sprintf( esc_html__( 'Preselected value for: %s', '_invoices' ), $label ),
+									'section'  => 'invoice',
+									'type'     => 'select',
+									'priority' => ++$priority,
+									'choices'  => (array) $choices,
+								)
+							);
+
+						}
 
 		} // /theme_options
 

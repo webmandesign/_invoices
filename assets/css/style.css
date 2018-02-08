@@ -416,7 +416,12 @@ small { font-size: .81em; }
 @media screen { .screen-summary-data { display: none; } }
 
 @media print { /* FILE: main/_print.scss */
-  a { text-decoration: none; }
+  @page { size: A4;
+    margin: 0; } }
+
+@media print { html, body { width: 210mm; height: 297mm; } }
+
+@media print { a { text-decoration: none; }
   thead { display: table-header-group; }
   tr, img { page-break-inside: avoid; }
   img { max-width: 100% !important; }

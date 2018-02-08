@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.1.0
  *
  * Contents:
  *
@@ -65,6 +65,10 @@
 	// Post types
 
 		require INVOICES_PATH_INCLUDES . 'class-post-types.php';
+
+	// Taxonomies
+
+		require INVOICES_PATH_INCLUDES . 'class-taxonomies.php';
 
 
 
