@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-02-08 17:32+0100\n"
-"PO-Revision-Date: 2018-02-08 17:34+0100\n"
+"POT-Creation-Date: 2018-02-09 20:31+0100\n"
+"PO-Revision-Date: 2018-02-09 20:43+0100\n"
 "Last-Translator: Oliver Juhas, WebMan Design\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language: sk_SK\n"
@@ -22,6 +22,10 @@ msgstr ""
 #: footer.php:27
 msgid "&copy; WebMan Design"
 msgstr "&copy; WebMan Design"
+
+#: footer.php:28
+msgid "Generator &rarr;"
+msgstr "Generátor &rarr;"
 
 #: includes/class-advanced-custom-fields.php:132
 #: includes/class-advanced-custom-fields.php:148
@@ -676,6 +680,15 @@ msgstr "Zoznam spôsobov platby"
 msgid "Payment methods information provided to pay the invoice."
 msgstr "Informácia o spôsobe platby za faktúru."
 
+#. translators: Custom page template name.
+#: templates/generator.php:13 templates/generator.php:25
+msgid "Generator"
+msgstr "Generátor"
+
+#: templates/generator.php:29
+msgid "Reload this page &#8629;"
+msgstr "Obnoviť túto stránku &#8629;"
+
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:24
 msgid "Manage your content"
 msgstr "Správa obsahu"
@@ -892,7 +905,7 @@ msgid "Print"
 msgstr "Tlačiť"
 
 #. translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date.
-#: templates/parts/component/note-invoice.php:46
+#: templates/parts/component/note-invoice.php:48
 #, php-format
 msgid "%1$s to %2$s exchange rate of %3$f valid on %4$s (D/M/Y)"
 msgstr "Zmena %1$s na %2$s podľa kurzu %3$f platného dňa %4$s (ď/m/r)"
@@ -931,6 +944,97 @@ msgstr "Dodávateľ"
 msgctxt "Invoice company info label."
 msgid "Client"
 msgstr "Odberateľ"
+
+#: templates/parts/generator/generator-import.php:29
+msgid "Import XML generator"
+msgstr "Generátor XML importu"
+
+#: templates/parts/generator/generator-import.php:34
+msgid "Sorry, something went wrong!"
+msgstr "Ľutujeme, niečo sa pokazilo!"
+
+#: templates/parts/generator/generator-import.php:35
+msgid "Please check your input data."
+msgstr "Skontrolujte vstupné dáta."
+
+#: templates/parts/generator/generator-import.php:43
+msgid "CSV data to convert to import XML data"
+msgstr "CSV dáta, ktoré chcete skonvertovať na XML dáta"
+
+#: templates/parts/generator/generator-import.php:48
+msgid "Enter CSV data here&hellip;"
+msgstr "Zadajte dáta CSV &hellip;"
+
+#: templates/parts/generator/generator-import.php:50
+#: templates/parts/generator/generator-import.php:111
+msgid "Click inside to select the content."
+msgstr "Kliknutím dovnútra označíte obsah."
+
+#: templates/parts/generator/generator-import.php:53
+msgid "First column is treated as an invoice issue date."
+msgstr "Prvý stĺpec sa považuje za dátum vystavenia faktúry."
+
+#: templates/parts/generator/generator-import.php:54
+msgid ""
+"Each subsequent column represents an invoice for the particular date and is "
+"related to a specific client, with value of \"total/sales\" (sales are "
+"optional)."
+msgstr ""
+"Každý ďalší stĺpec reprezentuje faktúru pre daný dátum a je vypísaná na "
+"špecifického klienta, s hodnotou \"suma/predaje\" (počet predajov nie je "
+"povinný)."
+
+#: templates/parts/generator/generator-import.php:55
+msgid ""
+"You have to set correct client:product pairs below, so this information can "
+"be used to parse CSV columns correctly."
+msgstr ""
+"Je nutné zadať správne páry klient:produkt, aby bolo možné stĺpce CSV dát "
+"správne priradiť."
+
+#: templates/parts/generator/generator-import.php:56
+msgid ""
+"There is no control for multiple invoice items (products), nor seller, nor "
+"payment method (predefined values are used in those cases)."
+msgstr ""
+"Nie je možné kontrolovať viaceré položky faktúry (produkty), ani predajcu, "
+"ani spôsoby platby (použijú sa prednastavené)."
+
+#: templates/parts/generator/generator-import.php:61
+msgid "CSV delimiter"
+msgstr "CSV oddeľovač"
+
+#: templates/parts/generator/generator-import.php:72
+msgid "Start from row"
+msgstr "Spustiť od riadku"
+
+#: templates/parts/generator/generator-import.php:81
+msgid "Maybe you want to skip the first row of column headings?"
+msgstr "Možno budete chcieť preskočiť prvý riadok záhlavia stĺpcov?"
+
+#: templates/parts/generator/generator-import.php:86
+msgid ""
+"Client:Product (ID or slug) pairs for each CSV column (separated with "
+"delimiter)"
+msgstr ""
+"Páry klient:produkt (ID alebo slug) pre každý stĺpec CSV dát (oddeľte "
+"oddeľovačom)"
+
+#: templates/parts/generator/generator-import.php:93
+msgid ""
+"This has to match the number of CSV columns minus 1 (the first column is "
+"treated as invoice date, remember?)."
+msgstr ""
+"Táto hodnota musí byť zadaná pre všetky stĺpce CSV dát okrem jedného (prvý "
+"stĺpec sa používa ako dátum faktúry, pamätáte?)."
+
+#: templates/parts/generator/generator-import.php:98
+msgid "Convert to import XML format"
+msgstr "Konvertuj na formát XML importu"
+
+#: templates/parts/generator/generator-import.php:106
+msgid "Generated results:"
+msgstr "Generované výsledky:"
 
 #: templates/parts/loop/loop-products.php:45
 msgid "#"

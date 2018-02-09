@@ -176,6 +176,8 @@ small { font-size: .81em; }
 
 .dual-currency { display: block; }
 
+pre, textarea { -moz-tab-size: 2; -o-tab-size: 2; tab-size: 2; }
+
 /* FILE: main/_extenders.scss */
 .invoice-simple:first-child::before, .invoice-simple[data-year="2015"] + [data-year="2014"]::before, .invoice-simple[data-year="2016"] + [data-year="2015"]::before, .invoice-simple[data-year="2017"] + [data-year="2016"]::before, .invoice-simple[data-year="2018"] + [data-year="2017"]::before, .invoice-simple[data-year="2019"] + [data-year="2018"]::before, .invoice-simple[data-year="2020"] + [data-year="2019"]::before, .invoice-simple[data-year="2021"] + [data-year="2020"]::before, .invoice-simple[data-year="2022"] + [data-year="2021"]::before, .invoice-simple[data-year="2023"] + [data-year="2022"]::before, .invoice-simple[data-year="2024"] + [data-year="2023"]::before, .invoice-simple[data-year="2025"] + [data-year="2024"]::before { content: attr(data-year); position: absolute; right: 100%; top: 50%; padding: 5mm; line-height: .75; font-size: 2.62em; font-weight: 700; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); cursor: help; }
 
@@ -283,6 +285,34 @@ small { font-size: .81em; }
 .invoice-products-column-price { width: 18%; text-align: right; }
 
 .invoice-products-column-total { width: 18%; text-align: right; font-weight: 700; }
+
+.generator h1, .generator h2 { font-size: 1.38em; font-weight: 700; }
+
+.generator h1 { font-size: 1.62em; }
+
+.generator p { clear: both; margin-bottom: 5mm; overflow: hidden; }
+
+.generator p:last-child { margin-bottom: 0; }
+
+.generator label { display: block; padding-bottom: .62em; }
+
+.generator input, .generator textarea { width: 100%; padding: .62em; font-family: monospace; font-weight: 700; }
+
+.generator [type="submit"] { width: auto; padding: 1em 2em; font-family: inherit; cursor: pointer; }
+
+.generator .reload { display: block; margin: 1.62em 0; text-align: right; font-style: italic; }
+
+.generator .error { padding: 1em; border: 2pt dotted; }
+
+.generator .error a { display: block; margin-top: 1em; }
+
+.generator .column { clear: none; float: left; width: 48%; }
+
+.generator .column + .column { float: right; }
+
+.generator .description { display: block; margin-top: 1.25mm; font-size: .81em; font-style: italic; }
+
+.generator-section { padding: 2em; margin: 2em 0; border: 1pt solid rgba(0, 0, 0, 0.25); }
 
 /* FILE: main/_loop.scss */
 @media screen { .posts { margin-top: 20mm; } }

@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.2.0
  *
  * Contents:
  *
@@ -39,6 +39,9 @@ class Invoices_Helper {
 
 		/**
 		 * Reset $invoice_helper array
+		 *
+		 * @since    1.0.0
+		 * @version  1.2.0
 		 */
 		public static function reset_invoice_helper() {
 

@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.1.0
+ * @version  1.2.0
  *
  * Contents:
  *
@@ -81,6 +81,10 @@
 	// Theme Customization
 
 		require INVOICES_PATH_INCLUDES . 'class-customize.php';
+
+	// Generator
+
+		require INVOICES_PATH_INCLUDES . 'class-generator.php';
 
 
 

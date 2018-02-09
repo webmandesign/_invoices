@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.2.0
  */
 
 
@@ -25,6 +25,7 @@
 
 		<div class="site-info">
 			<?php esc_html_e( '&copy; WebMan Design', '_invoices' ); ?>
+			| <a href="?<?php echo esc_attr( Invoices_Generator::$url_load_parameter ); ?>"><?php esc_html_e( 'Generator &rarr;', '_invoices' ); ?></a>
 		</div>
 
 	</footer>

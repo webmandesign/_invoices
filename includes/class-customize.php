@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.1.1
+ * @version  1.2.0
  *
  * Contents:
  *
@@ -89,7 +89,7 @@ class Invoices_Customize {
 		 * Theme customizer options
 		 *
 		 * @since    1.0.0
-		 * @version  1.1.1
+		 * @version  1.2.0
 		 *
 		 * @param  object $wp_customize  WP customizer object.
 		 */
@@ -329,7 +329,7 @@ class Invoices_Customize {
 
 					// Option: invoice/default_{$field_name}
 
-						foreach ( (array) self::$default_value_fields as $object => $field_name ) {
+						foreach ( (array) self::$default_value_fields as $object_name => $field_name ) {
 
 							$wp_customize->add_setting(
 								'default_' . $field_name,
@@ -343,14 +343,14 @@ class Invoices_Customize {
 							$label   = '-';
 							$choices = array( 0 => '-' );
 
-							if ( taxonomy_exists( $object ) ) {
+							if ( taxonomy_exists( $object_name ) ) {
 
 								if ( '-' === $label ) {
-									$label = get_taxonomy_labels( get_taxonomy( $object ) )->singular_name;
+									$label = get_taxonomy_labels( get_taxonomy( $object_name ) )->singular_name;
 								}
 
 								$terms = get_terms( array(
-									'taxonomy'   => $object,
+									'taxonomy'   => $object_name,
 									'hide_empty' => false,
 								) );
 
@@ -360,14 +360,14 @@ class Invoices_Customize {
 									}
 								}
 
-							} elseif ( post_type_exists( $object ) ) {
+							} elseif ( post_type_exists( $object_name ) ) {
 
 								if ( '-' === $label ) {
-									$label = get_post_type_labels( get_post_type_object( $object ) )->singular_name;
+									$label = get_post_type_labels( get_post_type_object( $object_name ) )->singular_name;
 								}
 
 								$posts = get_posts( array(
-									'post_type'   => $object,
+									'post_type'   => $object_name,
 									'numberposts' => 100,
 								) );
 

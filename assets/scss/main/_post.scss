@@ -198,3 +198,91 @@
 		}
 
 }
+
+
+
+.generator {
+
+	h1, h2 {
+		font-size: 1.38em;
+		font-weight: 700;
+	}
+
+	h1 {
+		font-size: 1.62em;
+	}
+
+	p {
+		clear: both;
+		margin-bottom: $gutter;
+		overflow: hidden;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+	}
+
+	label {
+		display: block;
+		padding-bottom: .62em;
+	}
+
+	input,
+	textarea {
+		width: 100%;
+		padding: .62em;
+		font-family: monospace;
+		font-weight: 700;
+	}
+
+	[type="submit"] {
+		width: auto;
+		padding: 1em 2em;
+		font-family: inherit;
+		cursor: pointer;
+	}
+
+	.reload {
+		display: block;
+		margin: 1.62em 0;
+		text-align: right;
+		font-style: italic;
+	}
+
+	.error {
+		padding: 1em;
+		border: 2pt dotted;
+
+		a {
+			display: block;
+			margin-top: 1em;
+		}
+
+	}
+
+	.column {
+		clear: none;
+		float: left;
+		width: 48%;
+
+		+ .column {
+			float: right;
+		}
+
+	}
+
+	.description {
+		display: block;
+		margin-top: $gutter / 4;
+		font-size: .81em;
+		font-style: italic;
+	}
+
+	&-section {
+		padding: 2em;
+		margin: 2em 0;
+		border: 1pt solid rgba( #000, .25 );
+	}
+
+}

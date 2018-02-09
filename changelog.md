@@ -1,5 +1,26 @@
 # Invoices Changelog
 
+## 1.2.0
+
+* **Add**: Import XML file generator (from CSV data)
+
+### Files changed:
+
+	changelog.md
+	footer.php
+	functions.php
+	style.css
+	includes/class-customize.php
+	includes/class-generator.php
+	includes/class-helper.php
+	languages/*.*
+	templates/generator.php
+	templates/parts/generator/generator-import.php
+	templates/parts/generator/generator-xml-footer.php
+	templates/parts/generator/generator-xml-header.php
+	templates/parts/generator/generator-xml-item.php
+
+
 ## 1.1.1
 
 * **Update**: Improving theme options
