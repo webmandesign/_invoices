@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.2.0
- * @version  1.2.0
+ * @version  1.2.1
  *
  * Contents:
  *
@@ -89,7 +89,7 @@ class Invoices_Generator {
 		 * XML generator
 		 *
 		 * @since    1.2.0
-		 * @version  1.2.0
+		 * @version  1.2.1
 		 *
 		 * @param  string $output_type
 		 * @param  string $input_data
@@ -108,7 +108,10 @@ class Invoices_Generator {
 
 				$output = '';
 
+				$input_data = trim( $input_data );
+
 				$args = wp_parse_args( $args, array(
+					'cache'         => array(),
 					'delimiter'     => ';',
 					'setup_columns' => '',
 					'start_row'     => 2,
@@ -155,16 +158,26 @@ class Invoices_Generator {
 									continue;
 								}
 
-								if ( is_numeric( $args['setup_columns'][ $column_key - 1 ][0] ) ) {
-									$client = get_term( absint( $args['setup_columns'][ $column_key - 1 ][0] ) );
+								if ( ! isset( $args['cache']['taxonomy']['client'][ $args['setup_columns'][ $column_key - 1 ][0] ] ) ) {
+									if ( is_numeric( $args['setup_columns'][ $column_key - 1 ][0] ) ) {
+										$client = get_term( absint( $args['setup_columns'][ $column_key - 1 ][0] ) );
+									} else {
+										$client = get_term_by( 'slug', (string) $args['setup_columns'][ $column_key - 1 ][0], 'client' );
+									}
+									$args['cache']['taxonomy']['client'][ $args['setup_columns'][ $column_key - 1 ][0] ] = $client;
 								} else {
-									$client = get_term_by( 'slug', (string) $args['setup_columns'][ $column_key - 1 ][0], 'client' );
+									$client = $args['cache']['taxonomy']['client'][ $args['setup_columns'][ $column_key - 1 ][0] ];
 								}
 
-								if ( is_numeric( $args['setup_columns'][ $column_key - 1 ][1] ) ) {
-									$product = get_post( absint( $args['setup_columns'][ $column_key - 1 ][1] ) );
+								if ( ! isset( $args['cache']['post_type']['product'][ $args['setup_columns'][ $column_key - 1 ][1] ] ) ) {
+									if ( is_numeric( $args['setup_columns'][ $column_key - 1 ][1] ) ) {
+										$product = get_post( absint( $args['setup_columns'][ $column_key - 1 ][1] ) );
+									} else {
+										$product = get_page_by_path( (string) $args['setup_columns'][ $column_key - 1 ][1] );
+									}
+									$args['cache']['post_type']['product'][ $args['setup_columns'][ $column_key - 1 ][1] ] = $product;
 								} else {
-									$product = get_page_by_path( (string) $args['setup_columns'][ $column_key - 1 ][1] );
+									$product = $args['cache']['post_type']['product'][ $args['setup_columns'][ $column_key - 1 ][1] ];
 								}
 
 								$replacements = array(
@@ -187,7 +200,7 @@ class Invoices_Generator {
 								);
 
 								ob_start();
-									get_template_part( 'templates/parts/generator/generator-xml', 'item' );
+									get_template_part( 'templates/parts/generator/xml', 'item' );
 								$items[] = strtr( ob_get_clean(), $replacements );
 							}
 
@@ -196,9 +209,9 @@ class Invoices_Generator {
 
 					if ( ! empty( $items ) ) {
 						ob_start();
-							get_template_part( 'templates/parts/generator/generator-xml', 'header' );
+							get_template_part( 'templates/parts/generator/xml', 'header' );
 							echo implode( "\n\n", (array) $items );
-							get_template_part( 'templates/parts/generator/generator-xml', 'footer' );
+							get_template_part( 'templates/parts/generator/xml', 'footer' );
 						$output = ob_get_clean();
 					}
 

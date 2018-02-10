@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.2.0
- * @version  1.2.0
+ * @version  1.2.1
  */
 
 
@@ -17,7 +17,7 @@
 
 	$generated = Invoices_Generator::get_output( 'import' );
 
-	$csv_example  = 'Date;TF Withdrawal/Sales;CM Withdrawal/Sales;BB Withdrawal/Sales' . "\r\n";
+	$csv_example  = 'DATE;TF earnings/sales;CM earnings/sales;BB earnings' . "\r\n";
 	$csv_example .= '2010-01-31;1111.11/111;111.11/11;11.11' . "\r\n";
 	$csv_example .= '2010-02-28;2222.22/222;222.22/22;0';
 
@@ -88,7 +88,7 @@
 					id="import-setup_columns"
 					type="text"
 					name="setup_columns"
-					value="envato:withdrawal;cm:withdrawal;fastline:affiliate" >
+					value="tf:withdrawal;cm:withdrawal;bb:affiliate" >
 				<span class="description">
 					<?php esc_html_e( 'This has to match the number of CSV columns minus 1 (the first column is treated as invoice date, remember?).', '_invoices' ); ?>
 				</span>

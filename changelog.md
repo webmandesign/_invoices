@@ -1,5 +1,22 @@
 # Invoices Changelog
 
+## 1.2.1
+
+* **Update**: Improving import XML file generator
+* **Update**: Improving styles
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets/scss/style.scss
+	includes/class-generator.php
+	templates/parts/generator/generator-import.php
+	templates/parts/generator/xml-footer.php
+	templates/parts/generator/xml-header.php
+	templates/parts/generator/xml-item.php
+
+
 ## 1.2.0
 
 * **Add**: Import XML file generator (from CSV data)
@@ -10,6 +27,7 @@
 	footer.php
 	functions.php
 	style.css
+	assets/scss/style.scss
 	includes/class-customize.php
 	includes/class-generator.php
 	includes/class-helper.php
@@ -48,6 +66,7 @@
 	changelog.md
 	functions.php
 	style.css
+	assets/scss/style.scss
 	includes/class-advanced-custom-fields.php
 	includes/class-customize.php
 	includes/class-post-types.php

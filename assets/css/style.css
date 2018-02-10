@@ -201,6 +201,8 @@ pre, textarea { -moz-tab-size: 2; -o-tab-size: 2; tab-size: 2; }
 .site-description { margin: 0; }
 
 /* FILE: main/_navigation.scss */
+.main-navigation { margin-left: -19%; margin-right: -19%; }
+
 @media print { .main-navigation { display: none; } }
 
 .main-navigation ul { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -ms-flex-wrap: wrap; flex-wrap: wrap; padding: 0; margin: 5mm 0; list-style: none; font-size: 1.38em; font-weight: 700; border: 1pt solid; }

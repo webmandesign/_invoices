@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.2.0
- * @version  1.2.0
+ * @version  1.2.1
  */
 
 
@@ -144,6 +144,11 @@
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_exchange_to]]></wp:meta_key>
 			<wp:meta_value><![CDATA[key_invoice_exchange_exchange_to]]></wp:meta_value>
+		</wp:postmeta>
+
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[IMPORTED]]></wp:meta_key>
+			<wp:meta_value><![CDATA[FROM_GENERATED_XML]]></wp:meta_value>
 		</wp:postmeta>
 
 </item>

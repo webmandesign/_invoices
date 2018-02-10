@@ -1,6 +1,8 @@
 /* FILE: main/_navigation.scss */
 
 .main-navigation {
+	margin-left: -19%;
+	margin-right: -19%;
 
 	@media print {
 		display: none;
