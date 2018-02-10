@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.2.2
  *
  * Contents:
  *
@@ -122,11 +122,18 @@ class Invoices_Loop {
 		 * Loop modifications
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.2.2
 		 *
 		 * @param  obj $query
 		 */
 		public static function pre_get_posts( $query ) {
+
+			// Requirements check
+
+				if ( is_admin() ) {
+					return;
+				}
+
 
 			// Helper variables
 

@@ -1,5 +1,17 @@
 # Invoices Changelog
 
+## 1.2.2
+
+* **Fix**: Apply posts count only on front-end
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets/scss/style.scss
+	includes/class-loop.php
+
+
 ## 1.2.1
 
 * **Update**: Improving import XML file generator
