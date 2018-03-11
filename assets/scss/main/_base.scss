@@ -53,7 +53,9 @@ table {
 	}
 
 	th, td {
-		border: 1mm solid transparent;
+		border: ( $gutter / 4 ) solid transparent;
+		border-top: 0;
+		border-bottom: 0;
 	}
 
 img {

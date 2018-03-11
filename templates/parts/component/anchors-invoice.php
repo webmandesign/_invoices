@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.3.0
  */
 
 
@@ -38,6 +38,14 @@
 
 	<a href="#post-number-<?php echo absint( $summary['invoice_count'] + 1 ); ?>" class="invoice-navigation next">
 		&darr;
+	</a>
+
+	<a href="#top" class="top">
+		&#9650;
+	</a>
+
+	<a href="#screen-summary" class="summary">
+		&#9660;
 	</a>
 
 </div>

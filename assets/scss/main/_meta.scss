@@ -19,7 +19,7 @@
 	}
 
 	&-item {
-		padding: $gutter;
+		padding: ( $gutter / 2 ) $gutter;
 		width: calc( 50% - #{ $gutter } );
 		margin: $gutter / 2;
 		border: 1pt solid;
@@ -48,6 +48,7 @@
 	// Companies
 
 		&-company {
+			padding-bottom: $gutter;
 			background: transparent;
 			border: 1pt solid;
 
@@ -58,7 +59,7 @@
 			}
 
 			.invoice-meta-value {
-				margin-top: $gutter;
+				margin-top: $gutter / 2;
 			}
 
 		}
@@ -95,7 +96,7 @@
 		&-total {
 			display: flex;
 			flex-direction: column;
-			padding-top: 0;
+			padding: 0 0 ( $gutter / 2 );
 			text-align: right;
 			background: transparent;
 			border: 0;
@@ -113,7 +114,7 @@
 			.invoice-meta-value {
 				margin-top: auto;
 				margin-bottom: $gutter / 2;
-				font-size: 2.62em;
+				font-size: 2em;
 				font-weight: 700;
 			}
 
@@ -130,7 +131,8 @@
 
 			img {
 				width: auto;
-				max-height: 20mm;
+				max-height: 18mm;
+				vertical-align: top;
 			}
 
 			.invoice-meta-label {

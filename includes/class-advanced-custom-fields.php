@@ -10,7 +10,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.1.0
+ * @version  1.3.0
  *
  * Contents:
  *
@@ -30,6 +30,12 @@ class Invoices_Advanced_Custom_Fields {
 
 		private static $instance;
 
+		/**
+		 * ACF metabox location keys must be numeric, not string!
+		 * We are setting up some predefined ones for our use cases:
+		 */
+		public static $ands = 100;
+
 
 
 		/**
@@ -41,7 +47,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * register and retrieve values from related subfields.
 		 *
 		 * @since    1.0.0
-		 * @version  1.1.0
+		 * @version  1.3.0
 		 */
 		private function __construct() {
 
@@ -53,10 +59,13 @@ class Invoices_Advanced_Custom_Fields {
 
 						add_action( 'init', __CLASS__ . '::invoice_disable_editor' );
 
-						add_action( 'acf/init', __CLASS__ . '::invoice_products' );
-						add_action( 'acf/init', __CLASS__ . '::invoice_setup' );
-						add_action( 'acf/init', __CLASS__ . '::invoice_exchange' );
-						add_action( 'acf/init', __CLASS__ . '::seller_stamp' );
+						$priority = 100; // Late enough for all post types to be registered.
+
+						add_action( 'init', __CLASS__ . '::invoice_products', $priority );
+						add_action( 'init', __CLASS__ . '::invoice_setup', $priority );
+						add_action( 'init', __CLASS__ . '::invoice_exchange', $priority );
+						add_action( 'init', __CLASS__ . '::invoice_attachments', $priority );
+						add_action( 'init', __CLASS__ . '::seller_stamp', $priority );
 
 						add_action( 'admin_menu', __CLASS__ . '::invoice_metabox_hide' );
 
@@ -121,13 +130,13 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice products metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.1.0
+		 * @version  1.3.0
 		 */
 		public static function invoice_products() {
 
 			// Processing
 
-				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_add_local_field_group', array(
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_field_group', array(
 					'id'     => 'group_invoice_products',
 					'title'  => esc_html__( 'Invoiced items', '_invoices' ),
 					'fields' => array(
@@ -223,9 +232,9 @@ class Invoices_Advanced_Custom_Fields {
 					),
 					'location' => array(
 
-						100 => array(
+						self::$ands => array(
 
-							100 => array(
+							'is_post_type_post' => array(
 								'param'    => 'post_type',
 								'operator' => '==',
 								'value'    => 'post',
@@ -248,13 +257,13 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice setup options metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.1.0
+		 * @version  1.3.0
 		 */
 		public static function invoice_setup() {
 
 			// Processing
 
-				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_add_local_field_group', array(
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_field_group', array(
 					'id'     => 'group_invoice_setup',
 					'title'  => esc_html__( 'Invoice setup', '_invoices' ),
 					'fields' => array(
@@ -326,9 +335,9 @@ class Invoices_Advanced_Custom_Fields {
 					),
 					'location' => array(
 
-						100 => array(
+						self::$ands => array(
 
-							100 => array(
+							'is_post_type_post' => array(
 								'param'    => 'post_type',
 								'operator' => '==',
 								'value'    => 'post',
@@ -359,13 +368,13 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice exchange options metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.3.0
 		 */
 		public static function invoice_exchange() {
 
 			// Processing
 
-				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_add_local_field_group', array(
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_field_group', array(
 					'id'     => 'group_invoice_exchange',
 					'title'  => esc_html__( 'Dual currency display', '_invoices' ),
 					'fields' => array(
@@ -408,9 +417,9 @@ class Invoices_Advanced_Custom_Fields {
 					),
 					'location' => array(
 
-						100 => array(
+						self::$ands => array(
 
-							100 => array(
+							'is_post_type_post' => array(
 								'param'    => 'post_type',
 								'operator' => '==',
 								'value'    => 'post',
@@ -419,12 +428,70 @@ class Invoices_Advanced_Custom_Fields {
 						),
 
 					),
-					'menu_order'      => 30,
-					'position'        => 'side',
-					'style'           => 'default',
+					'menu_order' => 30,
+					'position'   => 'side',
+					'style'      => 'default',
 				), 'invoice_exchange' ) );
 
 		} // /invoice_exchange
+
+
+
+		/**
+		 * Invoice attachments metabox
+		 *
+		 * @since    1.3.0
+		 * @version  1.3.0
+		 */
+		public static function invoice_attachments() {
+
+			// Processing
+
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_field_group', array(
+					'id'     => 'group_invoice_attachments',
+					'title'  => esc_html__( 'Invoice attachments', '_invoices' ),
+					'fields' => array(
+
+						10 => array(
+							'key'          => 'key_invoice_attachments',
+							'name'         => 'attachments',
+							'type'         => 'repeater',
+							'label'        => esc_html__( 'Attachments', '_invoices' ),
+							'button_label' => esc_html__( '+ Add Attachment', '_invoices' ),
+							'layout'       => 'table',
+							'sub_fields'   => array(
+
+								100 => array(
+									'key'           => 'key_invoice_attachments_attachment',
+									'name'          => 'attachment',
+									'type'          => 'file',
+									'label'         => esc_html__( 'Attachment', '_invoices' ),
+									'return_format' => 'array',
+								),
+
+							),
+						),
+
+					),
+					'location' => array(
+
+						self::$ands => array(
+
+							'is_post_type_post' => array(
+								'param'    => 'post_type',
+								'operator' => '==',
+								'value'    => 'post',
+							),
+
+						),
+
+					),
+					'menu_order' => 30,
+					'position'   => 'side',
+					'style'      => 'default',
+				), 'invoice_attachments' ) );
+
+		} // /invoice_attachments
 
 
 
@@ -450,13 +517,13 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice seller stamp image
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.3.0
 		 */
 		public static function seller_stamp() {
 
 			// Processing
 
-				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_add_local_field_group', array(
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_field_group', array(
 					'key'    => 'group_seller_stamp',
 					'title'  => esc_html__( 'Seller options', '_invoices' ),
 					'fields' => array(
@@ -473,9 +540,9 @@ class Invoices_Advanced_Custom_Fields {
 					),
 					'location' => array(
 
-						100 => array(
+						self::$ands => array(
 
-							100 => array(
+							'is_taxonomy_category' => array(
 								'param'    => 'taxonomy',
 								'operator' => '==',
 								'value'    => 'category',

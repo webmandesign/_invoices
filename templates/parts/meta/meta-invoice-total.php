@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.3.0
  */
 
 
@@ -35,7 +35,10 @@
 	if ( $invoice_helper['dual_currency'] ) {
 		$total_exchanged = round( $invoice_helper['total'][ $invoice_helper['currency_from'] ] * $invoice_helper['exchange_rate'], 2 );
 		$summary[ $invoice_helper['currency_to'] ]['amount'] += $total_exchanged;
-		$summary[ $invoice_helper['currency_to'] ]['source'][ $post_id ] = $post_title;
+		$summary[ $invoice_helper['currency_to'] ]['source'][ $post_id ]  = $post_title;
+		$summary[ $invoice_helper['currency_to'] ]['source'][ $post_id ] .= ' <span class="exchange-rate">';
+		$summary[ $invoice_helper['currency_to'] ]['source'][ $post_id ] .= sprintf( esc_html__( 'Exchange rate: %s', '_invoices' ), $invoice_helper['exchange_rate'] );
+		$summary[ $invoice_helper['currency_to'] ]['source'][ $post_id ] .= '</span>';
 	}
 
 

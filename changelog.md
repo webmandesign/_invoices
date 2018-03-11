@@ -1,5 +1,25 @@
 # Invoices Changelog
 
+## 1.3.0
+
+* **Add**: Upload invoice attachments
+* **Add**: Currency exchange info in screen summary
+* **Add**: "Summary" and "Back to top" links to invoice anchors
+* **Update**: Redesigning invoice to allow for more invoiced items (products)
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets/scss/style.scss
+	includes/class-advanced-custom-fields.php
+	templates/parts/component/anchors-invoice.php
+	templates/parts/component/summary.php
+	templates/parts/content/content-simple.php
+	templates/parts/menu/menu-primary.php
+	templates/parts/meta/meta-invoice-total.php
+
+
 ## 1.2.2
 
 * **Fix**: Apply posts count only on front-end

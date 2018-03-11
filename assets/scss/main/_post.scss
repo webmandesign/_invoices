@@ -74,6 +74,16 @@
 
 		}
 
+		.summary,
+		.top {
+			padding: $gutter / 4;
+			margin-top: $gutter / 2;
+			margin-bottom: $gutter / 2;
+			line-height: 1;
+			border: 2pt solid;
+			opacity: .25;
+		}
+
 		&:first-child .previous,
 		&:last-child .next {
 			display: none;
@@ -87,7 +97,8 @@
 			margin-bottom: $gutter / 2;
 
 			h1, h2 {
-				font-size: 2.62em;
+				line-height: 1;
+				font-size: 2em;
 				font-weight: 700;
 			}
 
@@ -134,7 +145,7 @@
 			text-align: center;
 
 			.invoice-note + & {
-				margin-top: $gutter;
+				margin-top: $gutter / 2;
 			}
 
 			thead {
@@ -150,7 +161,7 @@
 			}
 
 			th, td {
-				padding: $gutter / 2;
+				padding: ( $gutter / 4 ) ( $gutter / 2 );
 				border-bottom: 1pt dashed;
 			}
 

@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.3.0
  */
 
 
@@ -38,7 +38,7 @@
 					continue;
 				}
 
-			?>
+				?>
 				<th>
 					<?php
 
@@ -50,7 +50,11 @@
 					?>
 					(<?php echo absint( $source_count ); ?>/<?php echo absint( $summary['invoice_count'] ); ?>)
 				</th>
-			<?php endforeach; ?>
+				<?php
+
+			endforeach;
+
+			?>
 			</tr>
 		</thead>
 
@@ -66,15 +70,19 @@
 
 				arsort( $atts['source'] );
 
-			?>
+				?>
 				<td>
 					<?php foreach ( $atts['source'] as $post_id => $post_title ) : ?>
 						<h2 data-id="<?php echo esc_attr( $post_id ); ?>">
-							<?php echo esc_html( Invoices_Post_Types::get_the_title_invoice( $post_title ) ); ?>
+							<?php echo Invoices_Post_Types::get_the_title_invoice( $post_title ); ?>
 						</h2>
 					<?php endforeach; ?>
 				</td>
-			<?php endforeach; ?>
+				<?php
+
+			endforeach;
+
+			?>
 			</tr>
 		</tbody>
 
@@ -91,23 +99,23 @@
 
 			++$i;
 
-		?>
-		<li class="screen-summary-item summary-currency-<?php echo sanitize_html_class( $currency ); ?>" title="<?php printf( esc_html__( 'Number of invoices calculated from: %d', '_invoices' ), absint( $source_count ) ); ?>">
+			?>
+			<li class="screen-summary-item summary-currency-<?php echo sanitize_html_class( $currency ); ?>" title="<?php printf( esc_html__( 'Number of invoices calculated from: %d', '_invoices' ), absint( $source_count ) ); ?>">
 
-			<span class="screen-summary-amount">
-				<?php echo esc_html( sprintf( '%.2f', $atts['amount'] ) ); ?>
-			</span>
+				<span class="screen-summary-amount">
+					<?php echo esc_html( sprintf( '%.2f', $atts['amount'] ) ); ?>
+				</span>
 
-			<span class="screen-summary-currency">
-				<?php echo esc_html( $currency ); ?>
-			</span>
+				<span class="screen-summary-currency">
+					<?php echo esc_html( $currency ); ?>
+				</span>
 
-			<span class="screen-summary-source-count">
-				<?php echo absint( $source_count ); ?>/<?php echo absint( $summary['invoice_count'] ); ?>
-			</span>
+				<span class="screen-summary-source-count">
+					<?php echo absint( $source_count ); ?>/<?php echo absint( $summary['invoice_count'] ); ?>
+				</span>
 
-		</li>
-		<?php
+			</li>
+			<?php
 
 		endforeach;
 
