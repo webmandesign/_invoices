@@ -52,6 +52,14 @@
 		cursor: help;
 	}
 
+	&-expected-payment {
+		display: block;
+		padding-top: 1em;
+		margin-top: 1em;
+		font-size: .72em;
+		border-top: dashed 1pt;
+	}
+
 	&-data {
 		table-layout: fixed;
 		width: 100%;

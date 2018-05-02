@@ -2,11 +2,13 @@
 /**
  * Template Name: Generator
  *
+ * Generates various features, such as import XML.
+ *
  * @package    Invoices
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.2.0
- * @version  1.2.0
+ * @version  1.4.0
  */
 
 /* translators: Custom page template name. */

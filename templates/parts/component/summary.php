@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.3.0
+ * @version  1.4.0
  */
 
 
@@ -112,6 +112,12 @@
 
 				<span class="screen-summary-source-count">
 					<?php echo absint( $source_count ); ?>/<?php echo absint( $summary['invoice_count'] ); ?>
+				</span>
+
+				<span class="screen-summary-expected-payment">
+					<strong><?php esc_html_e( 'Expected payment:', '_invoices' ); ?></strong>
+					<?php echo esc_html( $atts['expected_payment'] ); ?>
+					<?php echo esc_html( $currency ); ?>
 				</span>
 
 			</li>

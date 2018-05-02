@@ -1,5 +1,25 @@
 # Invoices Changelog
 
+## 1.4.0
+
+* **Add**: Product setup metabox
+* **Add**: Expected payment calculation and display (on mouse hover and in summary)
+* **Update**: Improving "Generator" page template description
+
+### Files changed:
+
+	changelog.md
+	header.php
+	style.css
+	assets/scss/style.scss
+	includes/class-advanced-custom-fields.php
+	includes/class-helper.php
+	templates/generator.php
+	templates/parts/component/summary.php
+	templates/parts/loop/loop-products.php
+	templates/parts/meta/meta-invoice-total.php
+
+
 ## 1.3.0
 
 * **Add**: Upload invoice attachments

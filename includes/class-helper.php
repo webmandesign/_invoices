@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.2.0
+ * @version  1.4.0
  *
  * Contents:
  *
@@ -41,7 +41,7 @@ class Invoices_Helper {
 		 * Reset $invoice_helper array
 		 *
 		 * @since    1.0.0
-		 * @version  1.2.0
+		 * @version  1.4.0
 		 */
 		public static function reset_invoice_helper() {
 
@@ -65,6 +65,8 @@ class Invoices_Helper {
 
 					'symbol_constant' => (string) get_post_meta( $post_id, 'symbol_constant', true ),
 
+					'soft_deduct' => Invoices_Customize::get_currencies_array(),
+
 				);
 
 
@@ -78,6 +80,10 @@ class Invoices_Helper {
 				$output['dual_currency'] = (bool) ( $output['currency_from'] !== $output['currency_to'] );
 
 				$output['exchange_rate'] = (float) self::get_exchange_rate( $output );
+
+				foreach ( $output['soft_deduct'] as $key => $value ) {
+					$output['soft_deduct'][ $key ] = 0;
+				}
 
 
 			// Output

@@ -96,10 +96,29 @@
 		&-total {
 			display: flex;
 			flex-direction: column;
+			position: relative;
 			padding: 0 0 ( $gutter / 2 );
 			text-align: right;
 			background: transparent;
 			border: 0;
+
+			&[title]:not([title=""])::after {
+
+				@media screen {
+					content: '?';
+					position: absolute;
+					width: 1.62em;
+					height: 1.62em;
+					right: 0;
+					bottom: 100%;
+					line-height: 1.62;
+					text-align: center;
+					background: #f00;
+					color: #fff;
+					border-radius: 2em;
+				}
+
+			}
 
 			&-container {
 				margin-top: auto;

@@ -169,6 +169,12 @@
 				border-bottom: 1pt solid;
 			}
 
+			tr[title]:not([title=""]) {
+				font-weight: 900;
+				background: #f00;
+				color: #fff;
+			}
+
 			&-column-order {
 				width: 4%;
 				font-size: .81rem;

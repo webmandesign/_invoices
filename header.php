@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.4.0
  */
 
 
@@ -28,8 +28,9 @@
 	$summary = Invoices_Customize::get_currencies_array();
 	foreach ( $summary as $key => $value ) {
 		$summary[ $key ] = array(
-			'amount' => 0,
-			'source' => array(),
+			'amount'           => 0,
+			'source'           => array(),
+			'expected_payment' => 0,
 		);
 	}
 	$summary['invoice_count'] = 0;

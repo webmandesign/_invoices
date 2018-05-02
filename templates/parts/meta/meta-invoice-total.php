@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.3.0
+ * @version  1.4.0
  */
 
 
@@ -24,6 +24,8 @@
 
 	global $invoice_helper, $summary;
 
+	$title_attr = '';
+
 	$post_id    = get_the_ID();
 	$post_title = get_the_title();
 
@@ -40,6 +42,27 @@
 		$summary[ $invoice_helper['currency_to'] ]['source'][ $post_id ] .= sprintf( esc_html__( 'Exchange rate: %s', '_invoices' ), $invoice_helper['exchange_rate'] );
 		$summary[ $invoice_helper['currency_to'] ]['source'][ $post_id ] .= '</span>';
 	}
+
+	/**
+	 * Display expected payment after fees deduction on mouse hover.
+	 */
+
+		$expected_payment = $invoice_helper['total'][ $invoice_helper['currency_from'] ] - $invoice_helper['soft_deduct'][ $invoice_helper['currency_from'] ];
+		$summary[ $invoice_helper['currency_from'] ]['expected_payment'] += $expected_payment;
+
+		if ( $invoice_helper['soft_deduct'][ $invoice_helper['currency_from'] ] ) {
+			$title_attr  = esc_html__( 'Expected payment:', '_invoices' );
+			$title_attr .= ' ' . $expected_payment . ' ' . $invoice_helper['currency_from'];
+		}
+
+		if ( $invoice_helper['dual_currency'] ) {
+			$expected_payment_exchanged = round( $expected_payment * $invoice_helper['exchange_rate'], 2 );
+			$summary[ $invoice_helper['currency_to'] ]['expected_payment'] += $expected_payment_exchanged;
+
+			if ( $invoice_helper['soft_deduct'][ $invoice_helper['currency_from'] ] ) {
+				$title_attr .= ' (' . $expected_payment_exchanged . ' ' . $invoice_helper['currency_to'] . ')';
+			}
+		}
 
 
 ?>
@@ -68,7 +91,7 @@
 
 	</div>
 
-	<div class="invoice-meta-total invoice-meta-item">
+	<div class="invoice-meta-total invoice-meta-item" title="<?php echo esc_attr( $title_attr ); ?>">
 
 		<h2 class="invoice-meta-label">
 			<?php esc_html_e( 'Invoice total', '_invoices' ); ?>

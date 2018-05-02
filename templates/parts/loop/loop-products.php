@@ -13,7 +13,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.1.0
+ * @version  1.4.0
  */
 
 
@@ -34,6 +34,8 @@
 // Helper variables
 
 	global $invoice_helper;
+
+	$product_action = $title_attr = '';
 
 
 ?>
@@ -59,9 +61,28 @@
 			while ( have_rows( 'products' ) ) :
 				the_row();
 
+				$product = get_post( get_sub_field( 'product' ) );
+
+				$product_action = get_field( 'action', $product );
+
+				$price           = round( (float) get_sub_field( 'price' ), 2 );
+				$total_row       = round( (float) get_sub_field( 'total' ), 2 );
+				$total_exchanged = round( $total_row * $invoice_helper['exchange_rate'], 2 );
+
+				/**
+				 * Display error on mouse hover when expecting negative value.
+				 * Count soft deducts (total minus fees).
+				 */
+				if ( 'deduct' === $product_action && $price > 0 ) {
+					$title_attr = esc_html__( 'ERROR: Negative value expected!', '_invoices' );
+				} else if ( 'deduct_soft' === $product_action ) {
+					$invoice_helper['soft_deduct'][ $invoice_helper['currency_from'] ] += $total_row;
+					$invoice_helper['soft_deduct'][ $invoice_helper['currency_to'] ]   += $total_exchanged;
+				}
+
 				?>
 
-				<tr>
+				<tr title="<?php echo esc_attr( $title_attr ); ?>">
 
 					<?php
 
@@ -83,7 +104,7 @@
 						?>
 						<td class="invoice-products-column-description">
 
-							<?php if ( $product = get_post( get_sub_field( 'product' ) ) ) : ?>
+							<?php if ( is_a( $product, 'WP_Post' ) ) : ?>
 								<h3 class="product-title">
 									<?php echo esc_html( $product->post_title ); ?>
 								</h3>
@@ -117,8 +138,6 @@
 					 * Unit price
 					 */
 
-						$price = round( (float) get_sub_field( 'price' ), 2 );
-
 						?>
 						<td class="invoice-products-column-price">
 							<span class="price"><?php echo esc_html( sprintf( '%.2f', $price ) ); ?></span>
@@ -140,13 +159,11 @@
 
 						?>
 						<td class="invoice-products-column-total">
-							<?php $total_row = round( (float) get_sub_field( 'total' ), 2 ); ?>
 							<span class="price"><?php echo esc_html( sprintf( '%.2f', $total_row ) ); ?></span>
 							<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_from'] ); ?></span>
 
 							<?php if ( $invoice_helper['dual_currency'] ) : ?>
 								<small class="dual-currency">
-									<?php $total_exchanged = round( $total_row * $invoice_helper['exchange_rate'], 2 ); ?>
 									<span class="price"><?php echo esc_html( sprintf( '%.2f', $total_exchanged ) ); ?></span>
 									<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
 								</small>

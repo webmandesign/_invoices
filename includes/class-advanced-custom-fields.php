@@ -10,12 +10,14 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.3.0
+ * @version  1.4.0
  *
  * Contents:
  *
  *   0) Init
  *  10) Invoice
+ *  20) Product
+ *  30) Taxonomies
  * 100) Helpers
  */
 class Invoices_Advanced_Custom_Fields {
@@ -47,7 +49,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * register and retrieve values from related subfields.
 		 *
 		 * @since    1.0.0
-		 * @version  1.3.0
+		 * @version  1.4.0
 		 */
 		private function __construct() {
 
@@ -65,6 +67,7 @@ class Invoices_Advanced_Custom_Fields {
 						add_action( 'init', __CLASS__ . '::invoice_setup', $priority );
 						add_action( 'init', __CLASS__ . '::invoice_exchange', $priority );
 						add_action( 'init', __CLASS__ . '::invoice_attachments', $priority );
+						add_action( 'init', __CLASS__ . '::product_setup', $priority );
 						add_action( 'init', __CLASS__ . '::seller_stamp', $priority );
 
 						add_action( 'admin_menu', __CLASS__ . '::invoice_metabox_hide' );
@@ -514,51 +517,6 @@ class Invoices_Advanced_Custom_Fields {
 
 
 		/**
-		 * Invoice seller stamp image
-		 *
-		 * @since    1.0.0
-		 * @version  1.3.0
-		 */
-		public static function seller_stamp() {
-
-			// Processing
-
-				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_field_group', array(
-					'key'    => 'group_seller_stamp',
-					'title'  => esc_html__( 'Seller options', '_invoices' ),
-					'fields' => array(
-
-						100 => array(
-							'key'           => 'key_seller_stamp_image_stamp',
-							'label'         => esc_html__( 'Stamp image', '_invoices' ),
-							'name'          => 'image_stamp',
-							'type'          => 'image',
-							'return_format' => 'id',
-							'preview_size'  => 'medium',
-						),
-
-					),
-					'location' => array(
-
-						self::$ands => array(
-
-							'is_taxonomy_category' => array(
-								'param'    => 'taxonomy',
-								'operator' => '==',
-								'value'    => 'category',
-							),
-
-						),
-
-					),
-					'style' => 'seamless',
-				), 'seller_stamp' ) );
-
-		} // /seller_stamp
-
-
-
-		/**
 		 * Count rows totals before saving the post
 		 *
 		 * @since    1.0.0
@@ -614,7 +572,116 @@ class Invoices_Advanced_Custom_Fields {
 
 
 	/**
-	 * 10) Invoice
+	 * 20) Product
+	 */
+
+		/**
+		 * Product setup options metabox
+		 *
+		 * @since    1.4.0
+		 * @version  1.4.0
+		 */
+		public static function product_setup() {
+
+			// Processing
+
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_field_group', array(
+					'id'     => 'group_product_setup',
+					'title'  => esc_html__( 'Product setup', '_invoices' ),
+					'fields' => array(
+
+						100 => array(
+							'key'          => 'key_product_setup_action',
+							'name'         => 'action',
+							'type'         => 'select',
+							'label'        => esc_html__( 'Action, behavior', '_invoices' ),
+							'instructions' => esc_html__( 'Choose how this product affect invoice total.', '_invoices' ),
+							'default'      => '',
+							'choices'      => array(
+								''            => esc_html__( 'Add to invoice total', '_invoices' ),
+								'deduct'      => esc_html__( 'Deduct from invoice total', '_invoices' ),
+								'deduct_soft' => esc_html__( 'Soft deduct (Only an informative additional invoice total display. Will not affect actual invoice total!)', '_invoices' ),
+							),
+						),
+
+					),
+					'location' => array(
+
+						self::$ands => array(
+
+							'is_post_type_post' => array(
+								'param'    => 'post_type',
+								'operator' => '==',
+								'value'    => 'page',
+							),
+
+						),
+
+					),
+					'menu_order'      => 20,
+					'style'           => 'default',
+					'label_placement' => 'left',
+				), 'product_setup' ) );
+
+		} // /product_setup
+
+
+
+
+
+	/**
+	 * 30) Taxonomies
+	 */
+
+		/**
+		 * Invoice seller stamp image
+		 *
+		 * @since    1.0.0
+		 * @version  1.3.0
+		 */
+		public static function seller_stamp() {
+
+			// Processing
+
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_field_group', array(
+					'key'    => 'group_seller_stamp',
+					'title'  => esc_html__( 'Seller options', '_invoices' ),
+					'fields' => array(
+
+						100 => array(
+							'key'           => 'key_seller_stamp_image_stamp',
+							'label'         => esc_html__( 'Stamp image', '_invoices' ),
+							'name'          => 'image_stamp',
+							'type'          => 'image',
+							'return_format' => 'id',
+							'preview_size'  => 'medium',
+						),
+
+					),
+					'location' => array(
+
+						self::$ands => array(
+
+							'is_taxonomy_category' => array(
+								'param'    => 'taxonomy',
+								'operator' => '==',
+								'value'    => 'category',
+							),
+
+						),
+
+					),
+					'style' => 'seamless',
+				), 'seller_stamp' ) );
+
+		} // /seller_stamp
+
+
+
+
+
+	/**
+	 * 100) Helpers
 	 */
 
 		/**
