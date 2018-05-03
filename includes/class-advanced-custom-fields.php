@@ -10,7 +10,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.4.0
+ * @version  1.4.1
  *
  * Contents:
  *
@@ -579,7 +579,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * Product setup options metabox
 		 *
 		 * @since    1.4.0
-		 * @version  1.4.0
+		 * @version  1.4.1
 		 */
 		public static function product_setup() {
 
@@ -595,7 +595,7 @@ class Invoices_Advanced_Custom_Fields {
 							'name'         => 'action',
 							'type'         => 'select',
 							'label'        => esc_html__( 'Action, behavior', '_invoices' ),
-							'instructions' => esc_html__( 'Choose how this product affect invoice total.', '_invoices' ),
+							'instructions' => esc_html__( 'Choose how this product affects invoice total.', '_invoices' ),
 							'default'      => '',
 							'choices'      => array(
 								''            => esc_html__( 'Add to invoice total', '_invoices' ),

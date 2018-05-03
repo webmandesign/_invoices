@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-02-09 20:31+0100\n"
+"POT-Creation-Date: 2018-05-03 16:28+0200\n"
 "PO-Revision-Date: 2015-05-12 20:39+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.0.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -28,137 +28,179 @@ msgstr ""
 msgid "Generator &rarr;"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:132
-#: includes/class-advanced-custom-fields.php:148
+#: includes/class-advanced-custom-fields.php:144
+#: includes/class-advanced-custom-fields.php:160
 msgid "Invoiced items"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:139
-#: templates/parts/meta/meta-invoice-total.php:71
+#: includes/class-advanced-custom-fields.php:151
+#: templates/parts/meta/meta-invoice-total.php:97
 msgid "Invoice total"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:140
+#: includes/class-advanced-custom-fields.php:152
 msgid "Save/update the invoice to recalculate the value."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:149
+#: includes/class-advanced-custom-fields.php:161
 msgid "+ Add Invoiced Item"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:160
+#: includes/class-advanced-custom-fields.php:172
 msgid "Price"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:171
-#: templates/parts/loop/loop-products.php:47
+#: includes/class-advanced-custom-fields.php:183
+#: templates/parts/loop/loop-products.php:49
 msgid "Qty"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:186
+#: includes/class-advanced-custom-fields.php:198
 msgid "Item"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:201
+#: includes/class-advanced-custom-fields.php:213
 msgid "Optional additional item info"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:213
-#: templates/parts/loop/loop-products.php:49
+#: includes/class-advanced-custom-fields.php:225
+#: templates/parts/loop/loop-products.php:51
 msgid "Total"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:259
+#: includes/class-advanced-custom-fields.php:271
 msgid "Invoice setup"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:266
+#: includes/class-advanced-custom-fields.php:278
 msgid "Seller"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:267
+#: includes/class-advanced-custom-fields.php:279
 msgid "Company issuing the invoice."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:281
+#: includes/class-advanced-custom-fields.php:293
 msgid "Client"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:282
+#: includes/class-advanced-custom-fields.php:294
 msgid "Customer receiving the invoice."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:296
+#: includes/class-advanced-custom-fields.php:308
 msgid "Payment method"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:297
+#: includes/class-advanced-custom-fields.php:309
 msgid "Preferred payment method to pay the invoice."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:311
+#: includes/class-advanced-custom-fields.php:323
 #: templates/parts/meta/meta-invoice-symbols.php:32
 msgid "Constant symbol"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:312
+#: includes/class-advanced-custom-fields.php:324
 msgid "Optional invoice constant symbol."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:313
+#: includes/class-advanced-custom-fields.php:325
 msgctxt "Invoice default constant symbol."
 msgid "308"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:320
+#: includes/class-advanced-custom-fields.php:332
 msgid "Notes"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:321
+#: includes/class-advanced-custom-fields.php:333
 msgid "Optional invoice notes, displayed before invoiced items list."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:370
+#: includes/class-advanced-custom-fields.php:382
 msgid "Dual currency display"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:376
+#: includes/class-advanced-custom-fields.php:388
 msgid ""
 "Dual currency display of the invoice amounts will take place only if "
 "currencies differs."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:379
+#: includes/class-advanced-custom-fields.php:391
 #, php-format
 msgid "Automatic exchange calculation will then be provided using %s API."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:380
+#: includes/class-advanced-custom-fields.php:392
 msgctxt "Currency exchange rate API URL, just for information purposes."
 msgid "http://fixer.io"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:388
+#: includes/class-advanced-custom-fields.php:400
 msgid "Client (invoice) currency (FROM)"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:389
+#: includes/class-advanced-custom-fields.php:401
 msgid "This becomes the main invoice currency."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:400
+#: includes/class-advanced-custom-fields.php:412
 msgid "Seller currency (TO)"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:401
+#: includes/class-advanced-custom-fields.php:413
 msgid "For seller accounting purposes."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:461
+#: includes/class-advanced-custom-fields.php:455
+msgid "Invoice attachments"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:462
+msgid "Attachments"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:463
+msgid "+ Add Attachment"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:471
+msgid "Attachment"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:590
+msgid "Product setup"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:597
+msgid "Action, behavior"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:598
+msgid "Choose how this product affects invoice total."
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:601
+msgid "Add to invoice total"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:602
+msgid "Deduct from invoice total"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:603
+msgid ""
+"Soft deduct (Only an informative additional invoice total display. Will "
+"not affect actual invoice total!)"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:648
 msgid "Seller options"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:466
+#: includes/class-advanced-custom-fields.php:653
 msgid "Stamp image"
 msgstr ""
 
@@ -671,11 +713,11 @@ msgid "Payment methods information provided to pay the invoice."
 msgstr ""
 
 #. translators: Custom page template name.
-#: templates/generator.php:13 templates/generator.php:25
+#: templates/generator.php:15 templates/generator.php:27
 msgid "Generator"
 msgstr ""
 
-#: templates/generator.php:29
+#: templates/generator.php:31
 msgid "Reload this page &#8629;"
 msgstr ""
 
@@ -892,9 +934,14 @@ msgctxt "%s = currency international code."
 msgid "Invoces %s"
 msgstr ""
 
-#: templates/parts/component/summary.php:95
+#: templates/parts/component/summary.php:103
 #, php-format
 msgid "Number of invoices calculated from: %d"
+msgstr ""
+
+#: templates/parts/component/summary.php:118
+#: templates/parts/meta/meta-invoice-total.php:54
+msgid "Expected payment:"
 msgstr ""
 
 #: templates/parts/content/content-none.php:23
@@ -915,6 +962,12 @@ msgstr ""
 #: templates/parts/meta/meta-invoice-companies.php:34
 msgctxt "Invoice company info label."
 msgid "Client"
+msgstr ""
+
+#: templates/parts/content/content-simple.php:80
+#: templates/parts/meta/meta-invoice-total.php:42
+#, php-format
+msgid "Exchange rate: %s"
 msgstr ""
 
 #: templates/parts/generator/generator-import.php:29
@@ -997,19 +1050,23 @@ msgstr ""
 msgid "Generated results:"
 msgstr ""
 
-#: templates/parts/loop/loop-products.php:45
+#: templates/parts/loop/loop-products.php:47
 msgid "#"
 msgstr ""
 
-#: templates/parts/loop/loop-products.php:46
+#: templates/parts/loop/loop-products.php:48
 msgid "Item description"
 msgstr ""
 
-#: templates/parts/loop/loop-products.php:48
+#: templates/parts/loop/loop-products.php:50
 msgid "Unit price"
 msgstr ""
 
-#: templates/parts/loop/loop-products.php:168
+#: templates/parts/loop/loop-products.php:77
+msgid "ERROR: Negative value expected!"
+msgstr ""
+
+#: templates/parts/loop/loop-products.php:185
 msgid "Sorry, something went wrong! Please check your data and/or code!"
 msgstr ""
 
@@ -1018,11 +1075,11 @@ msgid "Primary Menu"
 msgstr ""
 
 #: templates/parts/menu/menu-primary.php:21
-msgid "Summary &darr;"
+msgid "Summary &#9660;"
 msgstr ""
 
 #: templates/parts/menu/menu-primary.php:22
-msgid "Top &uarr;"
+msgid "Top &#9650;"
 msgstr ""
 
 #: templates/parts/meta/meta-invoice-dates.php:32
@@ -1041,6 +1098,6 @@ msgstr ""
 msgid "Variable symbol"
 msgstr ""
 
-#: templates/parts/meta/meta-invoice-total.php:49
+#: templates/parts/meta/meta-invoice-total.php:75
 msgid "Issued by"
 msgstr ""

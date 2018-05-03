@@ -1,5 +1,17 @@
 # Invoices Changelog
 
+## 1.4.1
+
+* **Update**: Localization
+
+### Files changed:
+
+	changelog.md
+	style.css
+	includes/class-advanced-custom-fields.php
+	languages/*.*
+
+
 ## 1.4.0
 
 * **Add**: Product setup metabox
