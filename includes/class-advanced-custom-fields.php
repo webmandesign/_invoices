@@ -10,7 +10,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.4.1
+ * @version  1.5.0
  *
  * Contents:
  *
@@ -371,7 +371,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice exchange options metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.3.0
+		 * @version  1.5.0
 		 */
 		public static function invoice_exchange() {
 
@@ -389,7 +389,7 @@ class Invoices_Advanced_Custom_Fields {
 							             . ' '
 							             . sprintf(
 							             	esc_html__( 'Automatic exchange calculation will then be provided using %s API.', '_invoices' ),
-							             	'<a href="' . esc_url( esc_attr_x( 'http://fixer.io', 'Currency exchange rate API URL, just for information purposes.', '_invoices' ) ) . '" target="_blank">' . str_replace( array( 'http://', 'https://' ), '', esc_attr_x( 'http://fixer.io', 'Currency exchange rate API URL, just for information purposes.', '_invoices' ) ) . '</a>'
+							             	'<a href="' . esc_url( esc_attr_x( 'http://fixer.io', 'Currency exchange rate API URL, just for information purposes.', '_invoices' ) ) . '" target="_blank">' . str_replace( array( 'http://', 'https://' ), '', esc_attr_x( 'https://fixer.io/', 'Currency exchange rate API URL, just for information purposes.', '_invoices' ) ) . '</a>'
 							             ),
 						),
 

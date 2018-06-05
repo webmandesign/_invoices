@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.3.0
+ * @version  1.5.0
  */
 
 
@@ -28,7 +28,7 @@
 
 	<?php edit_post_link( esc_html__( 'Edit', '_invoices' ) ); ?>
 
-	<a href="javascript:window.print()" class="print">
+	<a href="javascript:printAllCurrencies()" class="print" title="<?php esc_attr_e( 'Click the link in the menu to print main currency only.', '_invoices' ); ?>">
 		<?php esc_html_e( 'Print', '_invoices' ); ?>
 	</a>
 

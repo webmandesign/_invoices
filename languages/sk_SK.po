@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-05-03 16:28+0200\n"
-"PO-Revision-Date: 2018-05-03 16:34+0200\n"
+"POT-Creation-Date: 2018-06-05 23:32+0200\n"
+"PO-Revision-Date: 2018-06-05 23:34+0200\n"
 "Last-Translator: Oliver Juhas, WebMan Design\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language: sk_SK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.7\n"
+"X-Generator: Poedit 2.0.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -142,6 +142,11 @@ msgctxt "Currency exchange rate API URL, just for information purposes."
 msgid "http://fixer.io"
 msgstr "http://fixer.io"
 
+#: includes/class-advanced-custom-fields.php:392
+msgctxt "Currency exchange rate API URL, just for information purposes."
+msgid "https://fixer.io/"
+msgstr "https://fixer.io/"
+
 #: includes/class-advanced-custom-fields.php:400
 msgid "Client (invoice) currency (FROM)"
 msgstr "Platobná mena klienta (faktúry) (PREPOČET Z)"
@@ -251,15 +256,23 @@ msgstr ""
 "Nastavte ju pre potreby vášho účtovníctva - bude zobrazená pri kalkulácii "
 "prepočtu vo faktúrach s duálnou menou."
 
-#: includes/class-customize.php:200
+#: includes/class-customize.php:207
+msgid "Fixer.io API access key"
+msgstr "Prístupový kľúč Fixer.io API"
+
+#: includes/class-customize.php:208
+msgid "Get free access key from https://fixer.io/"
+msgstr "Získajte prístupový kľúč zdarma na https://fixer.io/"
+
+#: includes/class-customize.php:222
 msgid "Accounting"
 msgstr "Účtovníctvo"
 
-#: includes/class-customize.php:219
+#: includes/class-customize.php:241
 msgid "Taxation month"
 msgstr "Zdaňovací mesiac"
 
-#: includes/class-customize.php:220
+#: includes/class-customize.php:242
 msgid ""
 "Until this month passes, a previous year invoices will also be displayed on "
 "homepage."
@@ -267,31 +280,31 @@ msgstr ""
 "Kým neprejde tento mesiac, na domovskej stránke sa zobrazia aj faktúry z "
 "predošlého roku."
 
-#: includes/class-customize.php:255
+#: includes/class-customize.php:277
 msgid "Invoice due period in days"
 msgstr "Obdobie splatnosti faktúry v dňoch"
 
-#: includes/class-customize.php:274 includes/class-post-types.php:177
+#: includes/class-customize.php:296 includes/class-post-types.php:177
 msgid "Invoice"
 msgstr "Faktúra"
 
-#: includes/class-customize.php:293
+#: includes/class-customize.php:315
 msgid "Max number of invoices created monthly"
 msgstr "Maximálny počet faktúr vytvorených mesačne"
 
-#: includes/class-customize.php:319
+#: includes/class-customize.php:341
 msgid "Client selector field type"
 msgstr "Typ poľa pre výber klientov"
 
-#: includes/class-customize.php:324
+#: includes/class-customize.php:346
 msgid "Dropdown (select)"
 msgstr "Rozbaľovací zoznam"
 
-#: includes/class-customize.php:325
+#: includes/class-customize.php:347
 msgid "Radio buttons"
 msgstr "Prepínače"
 
-#: includes/class-customize.php:385
+#: includes/class-customize.php:407
 #, php-format
 msgid "Preselected value for: %s"
 msgstr "Prednastavená hodnota pre: %s"
@@ -943,13 +956,16 @@ msgstr "Začíname s %s"
 msgid "Edit"
 msgstr "Upraviť"
 
+#: templates/parts/component/anchors-invoice.php:31
+msgid "Click the link in the menu to print main currency only."
+msgstr "Kliknite na odkaz v menu pre tlač iba hlavnej meny."
+
 #: templates/parts/component/anchors-invoice.php:32
-#: templates/parts/menu/menu-primary.php:23
 msgid "Print"
 msgstr "Tlačiť"
 
 #. translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date.
-#: templates/parts/component/note-invoice.php:48
+#: templates/parts/component/note-invoice.php:49
 #, php-format
 msgid "%1$s to %2$s exchange rate of %3$f valid on %4$s (D/M/Y)"
 msgstr "Zmena %1$s na %2$s podľa kurzu %3$f platného dňa %4$s (ď/m/r)"
@@ -1123,6 +1139,10 @@ msgstr "Zhrnutie &#9660;"
 msgid "Top &#9650;"
 msgstr "Hore &#9650;"
 
+#: templates/parts/menu/menu-primary.php:23
+msgid "Print main currency only"
+msgstr "Tlačiť iba hlavnú menu"
+
 #: templates/parts/meta/meta-invoice-dates.php:32
 msgid "Date of issue (d/m/y)"
 msgstr "Dátum vydania (ď/m/r)"
@@ -1134,6 +1154,10 @@ msgstr "Dátum dodania (ď/m/r)"
 #: templates/parts/meta/meta-invoice-dates.php:50
 msgid "Due date (d/m/y)"
 msgstr "Dátum splatnosti (ď/m/r)"
+
+#: templates/parts/meta/meta-invoice-payment.php:56
+msgid "Or: "
+msgstr "Alebo: "
 
 #: templates/parts/meta/meta-invoice-symbols.php:26
 msgid "Variable symbol"

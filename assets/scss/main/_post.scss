@@ -132,6 +132,15 @@
 
 			&-exchange {
 				font-size: .81em;
+
+				.print-main-currency-only & {
+
+					@media print {
+						display: none;
+					}
+
+				}
+
 			}
 
 		}

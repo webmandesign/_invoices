@@ -176,6 +176,8 @@ small { font-size: .81em; }
 
 .dual-currency { display: block; }
 
+@media print { .print-main-currency-only .dual-currency { display: none; } }
+
 pre, textarea { -moz-tab-size: 2; -o-tab-size: 2; tab-size: 2; }
 
 /* FILE: main/_extenders.scss */
@@ -263,6 +265,8 @@ pre, textarea { -moz-tab-size: 2; -o-tab-size: 2; tab-size: 2; }
 .invoice-note h2, .invoice-note h3 { margin: 0; font-size: 1rem; font-weight: 700; }
 
 .invoice-note-exchange { font-size: .81em; }
+
+@media print { .print-main-currency-only .invoice-note-exchange { display: none; } }
 
 .invoice-products { width: 100%; text-align: center; }
 
@@ -415,7 +419,11 @@ pre, textarea { -moz-tab-size: 2; -o-tab-size: 2; tab-size: 2; }
 
 .invoice-meta-payment .invoice-meta-label { float: left; }
 
-.invoice-meta-payment .invoice-meta-value { margin-left: 33.33%; }
+.invoice-meta-payment .invoice-meta-value { position: relative; margin-left: 33.33%; }
+
+.invoice-meta-payment .invoice-meta-value + .invoice-meta-value { margin-top: .62em; }
+
+.invoice-meta-payment .invoice-meta-value-label { position: absolute; right: 100%; margin-right: .38em; white-space: nowrap; }
 
 /* FILE: main/_footer.scss */
 .site-footer { text-align: center; }

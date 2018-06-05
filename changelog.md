@@ -1,5 +1,28 @@
 # Invoices Changelog
 
+## 1.5.0
+
+* **Add**: Separation between multiple invoice payment options
+* **Add**: Functionality to print only main currency (not dual)
+* **Update**: Fixer API
+* **Update**: Localization
+
+### Files changed:
+
+	changelog.md
+	footer.php
+	style.css
+	assets/scss/style.scss
+	includes/class-advanced-custom-fields.php
+	includes/class-customize.php
+	includes/class-helper.php
+	languages/*.*
+	templates/parts/component/anchors-invoice.php
+	templates/parts/component/note-invoice.php
+	templates/parts/menu/menu-primary.php
+	templates/parts/meta/meta-invoice-payment.php
+
+
 ## 1.4.1
 
 * **Update**: Localization

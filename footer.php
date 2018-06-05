@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.2.0
+ * @version  1.5.0
  */
 
 
@@ -31,6 +31,24 @@
 	</footer>
 
 </div><!-- /.site -->
+
+<script>
+
+	var $page = document.getElementById( 'page' );
+
+	function printMainCurrencyOnly() {
+		$page.classList.remove( 'print-all-currencies' );
+		$page.classList.add( 'print-main-currency-only' );
+		window.print();
+	}
+
+	function printAllCurrencies() {
+		$page.classList.remove( 'print-main-currency-only' );
+		$page.classList.add( 'print-all-currencies' );
+		window.print();
+	}
+
+</script>
 
 <?php wp_footer(); ?>
 

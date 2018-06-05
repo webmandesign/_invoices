@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.4.0
+ * @version  1.5.0
  *
  * Contents:
  *
@@ -26,8 +26,6 @@ class Invoices_Helper {
 	 */
 
 		public static $transient_exchange_rates = 'invoices_exchange_rates';
-
-		public static $base_url_exchange_rates = 'https://api.fixer.io/';
 
 
 
@@ -162,7 +160,7 @@ class Invoices_Helper {
 		 *
 		 * If the invoice is displayed in dual currency mode, the exchange rate
 		 * is taken from cache first, then (if not found in the cache) remotely
-		 * taken using open-source https://api.fixer.io API.
+		 * taken using an API.
 		 *
 		 * Exchange rate value is relevant to invoice (post) publish date.
 		 *
@@ -181,11 +179,8 @@ class Invoices_Helper {
 		 *     ...
 		 *   );
 		 *
-		 * @see  http://fixer.io
-		 * @api  https://api.fixer.io/2015-12-31?base=USD&symbols=EUR
-		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.5.0
 		 *
 		 * @param  array $invoice_helper
 		 */
@@ -213,8 +208,6 @@ class Invoices_Helper {
 				$key_date     = $invoice_helper['publish_date_raw'];
 				$key_currency = $invoice_helper['currency_from'] . ' to ' . $invoice_helper['currency_to'];
 
-				$api_url = self::$base_url_exchange_rates . $invoice_helper['publish_date_raw'];
-
 
 			// Processing
 
@@ -226,13 +219,14 @@ class Invoices_Helper {
 				} else {
 				// No cache? Get the value from remote API.
 
-					$api_url = add_query_arg( array(
-						'base'    => $invoice_helper['currency_from'],
-						'symbols' => $invoice_helper['currency_to'],
-					), $api_url );
-
 					$response = wp_remote_get(
-						esc_url_raw( $api_url ),
+						esc_url_raw(
+							self::get_fixer_api_url(
+								$invoice_helper['publish_date_raw'],
+								$invoice_helper['currency_from'],
+								$invoice_helper['currency_to']
+							)
+						),
 						array(
 							'timeout' => 10,
 						)
@@ -246,7 +240,11 @@ class Invoices_Helper {
 
 						if ( isset( $data['rates'][ $invoice_helper['currency_to'] ] ) ) {
 
-							$output = (float) $data['rates'][ $invoice_helper['currency_to'] ];
+							if ( $invoice_helper['currency_to'] === $data['base'] ) {
+								$output = round( (float) 1 / $data['rates'][ $invoice_helper['currency_from'] ], 6 );
+							} else {
+								$output = (float) $data['rates'][ $invoice_helper['currency_to'] ];
+							}
 
 							// Cache it!
 
@@ -264,6 +262,51 @@ class Invoices_Helper {
 				return (float) $output;
 
 		} // /get_exchange_rate
+
+
+
+		/**
+		 * Get Fixer.io API request URL
+		 *
+		 * @see  https://fixer.io
+		 * @api  https://api.fixer.io/2015-12-31?base=USD&symbols=EUR
+		 *
+		 * @since    1.5.0
+		 * @version  1.5.0
+		 *
+		 * @param  string $date
+		 * @param  string $currency_from
+		 * @param  string $currency_to
+		 */
+		public static function get_fixer_api_url( $date, $currency_from, $currency_to ) {
+
+			// Helper variables
+
+				$output  = '';
+				$api_url = esc_url_raw( 'http://data.fixer.io/api/' . date( 'Y-m-d', strtotime( (string) $date ) ) );
+
+				$access_key = get_theme_mod( 'api_fixer_access_key' );
+
+
+			// Processing
+
+				if ( $access_key ) {
+					$output = add_query_arg(
+						array(
+							// 'base'       => (string) $currency_from, // This is not supported in Fixer.io free plan...
+							'symbols'    => trim( (string) $currency_from ) . ',' . trim( (string) $currency_to ),
+							'access_key' => (string) $access_key,
+						),
+						$api_url
+					);
+				}
+
+
+			// Output
+
+				return $output;
+
+		} // /get_fixer_api_url
 
 
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-05-03 16:28+0200\n"
+"POT-Creation-Date: 2018-06-05 23:32+0200\n"
 "PO-Revision-Date: 2015-05-12 20:39+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.7\n"
+"X-Generator: Poedit 2.0.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -138,6 +138,11 @@ msgctxt "Currency exchange rate API URL, just for information purposes."
 msgid "http://fixer.io"
 msgstr ""
 
+#: includes/class-advanced-custom-fields.php:392
+msgctxt "Currency exchange rate API URL, just for information purposes."
+msgid "https://fixer.io/"
+msgstr ""
+
 #: includes/class-advanced-custom-fields.php:400
 msgid "Client (invoice) currency (FROM)"
 msgstr ""
@@ -241,45 +246,53 @@ msgid ""
 "calculation in dual currency invoices."
 msgstr ""
 
-#: includes/class-customize.php:200
+#: includes/class-customize.php:207
+msgid "Fixer.io API access key"
+msgstr ""
+
+#: includes/class-customize.php:208
+msgid "Get free access key from https://fixer.io/"
+msgstr ""
+
+#: includes/class-customize.php:222
 msgid "Accounting"
 msgstr ""
 
-#: includes/class-customize.php:219
+#: includes/class-customize.php:241
 msgid "Taxation month"
 msgstr ""
 
-#: includes/class-customize.php:220
+#: includes/class-customize.php:242
 msgid ""
 "Until this month passes, a previous year invoices will also be displayed "
 "on homepage."
 msgstr ""
 
-#: includes/class-customize.php:255
+#: includes/class-customize.php:277
 msgid "Invoice due period in days"
 msgstr ""
 
-#: includes/class-customize.php:274 includes/class-post-types.php:177
+#: includes/class-customize.php:296 includes/class-post-types.php:177
 msgid "Invoice"
 msgstr ""
 
-#: includes/class-customize.php:293
+#: includes/class-customize.php:315
 msgid "Max number of invoices created monthly"
 msgstr ""
 
-#: includes/class-customize.php:319
+#: includes/class-customize.php:341
 msgid "Client selector field type"
 msgstr ""
 
-#: includes/class-customize.php:324
+#: includes/class-customize.php:346
 msgid "Dropdown (select)"
 msgstr ""
 
-#: includes/class-customize.php:325
+#: includes/class-customize.php:347
 msgid "Radio buttons"
 msgstr ""
 
-#: includes/class-customize.php:385
+#: includes/class-customize.php:407
 #, php-format
 msgid "Preselected value for: %s"
 msgstr ""
@@ -913,13 +926,16 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+#: templates/parts/component/anchors-invoice.php:31
+msgid "Click the link in the menu to print main currency only."
+msgstr ""
+
 #: templates/parts/component/anchors-invoice.php:32
-#: templates/parts/menu/menu-primary.php:23
 msgid "Print"
 msgstr ""
 
 #. translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date.
-#: templates/parts/component/note-invoice.php:48
+#: templates/parts/component/note-invoice.php:49
 #, php-format
 msgid "%1$s to %2$s exchange rate of %3$f valid on %4$s (D/M/Y)"
 msgstr ""
@@ -1082,6 +1098,10 @@ msgstr ""
 msgid "Top &#9650;"
 msgstr ""
 
+#: templates/parts/menu/menu-primary.php:23
+msgid "Print main currency only"
+msgstr ""
+
 #: templates/parts/meta/meta-invoice-dates.php:32
 msgid "Date of issue (d/m/y)"
 msgstr ""
@@ -1092,6 +1112,10 @@ msgstr ""
 
 #: templates/parts/meta/meta-invoice-dates.php:50
 msgid "Due date (d/m/y)"
+msgstr ""
+
+#: templates/parts/meta/meta-invoice-payment.php:56
+msgid "Or: "
 msgstr ""
 
 #: templates/parts/meta/meta-invoice-symbols.php:26

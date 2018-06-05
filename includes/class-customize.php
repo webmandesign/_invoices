@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.2.0
+ * @version  1.5.0
  *
  * Contents:
  *
@@ -89,7 +89,7 @@ class Invoices_Customize {
 		 * Theme customizer options
 		 *
 		 * @since    1.0.0
-		 * @version  1.2.0
+		 * @version  1.5.0
 		 *
 		 * @param  object $wp_customize  WP customizer object.
 		 */
@@ -131,7 +131,7 @@ class Invoices_Customize {
 							array(
 								'default'           => 'USD,EUR',
 								'transport'         => $transport,
-								'sanitize_callback' => 'esc_textarea',
+								'sanitize_callback' => 'sanitize_text_field',
 							)
 						);
 
@@ -153,7 +153,7 @@ class Invoices_Customize {
 							array(
 								'default'           => 'USD',
 								'transport'         => $transport,
-								'sanitize_callback' => 'esc_textarea',
+								'sanitize_callback' => 'sanitize_text_field',
 							)
 						);
 
@@ -175,7 +175,7 @@ class Invoices_Customize {
 							array(
 								'default'           => 'EUR',
 								'transport'         => $transport,
-								'sanitize_callback' => 'esc_textarea',
+								'sanitize_callback' => 'sanitize_text_field',
 							)
 						);
 
@@ -184,6 +184,28 @@ class Invoices_Customize {
 							array(
 								'label'       => esc_html__( 'Default exchange TO currency', '_invoices' ),
 								'description' => esc_html__( 'Set this to your accounting currency - will be used for exchange calculation in dual currency invoices.', '_invoices' ),
+								'section'     => 'currency',
+								'type'        => 'text',
+								'priority'    => ++$priority,
+							)
+						);
+
+					// Option: currency/api_fixer_access_key
+
+						$wp_customize->add_setting(
+							'api_fixer_access_key',
+							array(
+								'default'           => '',
+								'transport'         => $transport,
+								'sanitize_callback' => 'sanitize_text_field',
+							)
+						);
+
+						$wp_customize->add_control(
+							'api_fixer_access_key',
+							array(
+								'label'       => esc_html__( 'Fixer.io API access key', '_invoices' ),
+								'description' => esc_html__( 'Get free access key from https://fixer.io/', '_invoices' ),
 								'section'     => 'currency',
 								'type'        => 'text',
 								'priority'    => ++$priority,

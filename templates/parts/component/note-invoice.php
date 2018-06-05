@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.1.1
+ * @version  1.5.0
  */
 
 
@@ -37,10 +37,11 @@ if ( $invoice_helper['dual_currency'] ) :
 ?>
 
 <div class="invoice-note invoice-note-exchange">
-	<a href="<?php echo esc_url( add_query_arg( array(
-		'base'    => $invoice_helper['currency_from'],
-		'symbols' => $invoice_helper['currency_to'],
-	), Invoices_Helper::$base_url_exchange_rates . $invoice_helper['publish_date_raw'] ) ); ?>">
+	<a href="<?php echo esc_url( Invoices_Helper::get_fixer_api_url(
+		$invoice_helper['publish_date_raw'],
+		$invoice_helper['currency_from'],
+		$invoice_helper['currency_to']
+	) ); ?>">
 		<?php
 
 		printf(

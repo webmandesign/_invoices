@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.5.0
  */
 
 
@@ -43,6 +43,7 @@
 		?></h2>
 		<?php
 
+		$i = 0;
 		foreach ( $terms as $term ) :
 
 			if ( ! isset( $term->description ) ) {
@@ -52,12 +53,15 @@
 			?>
 
 			<div class="invoice-meta-value">
+				<?php if ( $i ) : ?><span class="invoice-meta-value-label"><?php esc_html_e( 'Or: ', '_invoices' ); ?></span><?php endif; ?>
 				<a href="<?php echo esc_url( get_term_link( $term ) ); ?>">
 					<?php echo apply_filters( 'the_excerpt', $term->description ); ?>
 				</a>
 			</div>
 
 			<?php
+
+			$i++;
 
 		endforeach;
 
