@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.4.0
+ * @version  1.5.1
  */
 
 
@@ -34,7 +34,9 @@
 
 			foreach ( $summary as $currency => $atts ) :
 
-				if ( ! $source_count = count( $atts['source'] ) ) {
+				if (
+					! isset( $atts['source'] )
+					|| ! $source_count = count( (array) $atts['source'] ) ) {
 					continue;
 				}
 
@@ -64,7 +66,10 @@
 
 			foreach ( $summary as $currency => $atts ) :
 
-				if ( ! count( $atts['source'] ) ) {
+				if (
+					! isset( $atts['source'] )
+					|| ! count( $atts['source'] )
+				) {
 					continue;
 				}
 
@@ -93,7 +98,10 @@
 
 		foreach ( $summary as $currency => $atts ) :
 
-			if ( ! $source_count = count( $atts['source'] ) ) {
+			if (
+				! isset( $atts['source'] )
+				|| ! $source_count = count( $atts['source'] )
+			) {
 				continue;
 			}
 
@@ -118,6 +126,12 @@
 					<strong><?php esc_html_e( 'Expected payment:', '_invoices' ); ?></strong>
 					<?php echo esc_html( $atts['expected_payment'] ); ?>
 					<?php echo esc_html( $currency ); ?>
+					<span class="income-net" title="<?php
+						echo esc_html__( 'Approximate net income:', '_invoices' )
+						   . round( .66 * esc_attr( $atts['expected_payment'] ) )
+						   . ' '
+						   . esc_html( $currency );
+						?>"><?php echo esc_html_x( '(Net)', 'Income, wage.', '_invoices' ); ?></span>
 				</span>
 
 			</li>

@@ -1,5 +1,19 @@
 # Invoices Changelog
 
+## 1.5.1
+
+* **Add**: Expected net income calculation (66% of expected total payment)
+* **Fix**: Not countable PHP error on `$atts['source']` in summary
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets/scss/style.scss
+	languages/*.*
+	templates/parts/component/summary.php
+
+
 ## 1.5.0
 
 * **Add**: Separation between multiple invoice payment options
