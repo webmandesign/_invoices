@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-08-09 20:24+0200\n"
-"PO-Revision-Date: 2018-08-09 20:25+0200\n"
+"POT-Creation-Date: 2018-11-19 19:56+0100\n"
+"PO-Revision-Date: 2018-11-19 20:03+0100\n"
 "Last-Translator: Oliver Juhas, WebMan Design\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language: sk_SK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -27,102 +27,110 @@ msgstr "&copy; WebMan Design"
 msgid "Generator &rarr;"
 msgstr "Generátor &rarr;"
 
-#: includes/class-advanced-custom-fields.php:144
-#: includes/class-advanced-custom-fields.php:160
+#: includes/class-advanced-custom-fields.php:146
+#: includes/class-advanced-custom-fields.php:162
 msgid "Invoiced items"
 msgstr "Fakturované položky"
 
-#: includes/class-advanced-custom-fields.php:151
+#: includes/class-advanced-custom-fields.php:153
 #: templates/parts/meta/meta-invoice-total.php:97
 msgid "Invoice total"
 msgstr "Suma na úhradu"
 
-#: includes/class-advanced-custom-fields.php:152
+#: includes/class-advanced-custom-fields.php:154
 msgid "Save/update the invoice to recalculate the value."
 msgstr "Hodnota sa prepočíta po uložení/aktulizovaní faktúry."
 
-#: includes/class-advanced-custom-fields.php:161
+#: includes/class-advanced-custom-fields.php:163
 msgid "+ Add Invoiced Item"
 msgstr "+ Pridať fakturovanú položku"
 
-#: includes/class-advanced-custom-fields.php:172
+#: includes/class-advanced-custom-fields.php:174
 msgid "Price"
 msgstr "Cena"
 
-#: includes/class-advanced-custom-fields.php:183
+#: includes/class-advanced-custom-fields.php:185
 #: templates/parts/loop/loop-products.php:49
 msgid "Qty"
 msgstr "Množstvo"
 
-#: includes/class-advanced-custom-fields.php:198
+#: includes/class-advanced-custom-fields.php:200
 msgid "Item"
 msgstr "Položka"
 
-#: includes/class-advanced-custom-fields.php:213
+#: includes/class-advanced-custom-fields.php:215
 msgid "Optional additional item info"
 msgstr "Dodatočné nepovinné info o položke"
 
-#: includes/class-advanced-custom-fields.php:225
+#: includes/class-advanced-custom-fields.php:227
 #: templates/parts/loop/loop-products.php:51
 msgid "Total"
 msgstr "Spolu"
 
-#: includes/class-advanced-custom-fields.php:271
+#: includes/class-advanced-custom-fields.php:273
 msgid "Invoice setup"
 msgstr "Nastavenia faktúry"
 
-#: includes/class-advanced-custom-fields.php:278
+#: includes/class-advanced-custom-fields.php:280
 msgid "Seller"
 msgstr "Predajca"
 
-#: includes/class-advanced-custom-fields.php:279
+#: includes/class-advanced-custom-fields.php:281
 msgid "Company issuing the invoice."
 msgstr "Spoločnosť vystavujúca faktúru."
 
-#: includes/class-advanced-custom-fields.php:293
+#: includes/class-advanced-custom-fields.php:295
 msgid "Client"
 msgstr "Klient"
 
-#: includes/class-advanced-custom-fields.php:294
+#: includes/class-advanced-custom-fields.php:296
 msgid "Customer receiving the invoice."
 msgstr "Zákazník prijímajúci faktúru."
 
-#: includes/class-advanced-custom-fields.php:308
+#: includes/class-advanced-custom-fields.php:310
 msgid "Payment method"
 msgstr "Spôsob platby"
 
-#: includes/class-advanced-custom-fields.php:309
+#: includes/class-advanced-custom-fields.php:311
 msgid "Preferred payment method to pay the invoice."
 msgstr "Preferovaný spôsob platby za faktúru."
 
-#: includes/class-advanced-custom-fields.php:323
+#: includes/class-advanced-custom-fields.php:325
 #: templates/parts/meta/meta-invoice-symbols.php:32
 msgid "Constant symbol"
 msgstr "Konštantný symbol"
 
-#: includes/class-advanced-custom-fields.php:324
+#: includes/class-advanced-custom-fields.php:326
 msgid "Optional invoice constant symbol."
 msgstr "Nepovinný konštantný symbol faktúry."
 
-#: includes/class-advanced-custom-fields.php:325
+#: includes/class-advanced-custom-fields.php:327
 msgctxt "Invoice default constant symbol."
 msgid "308"
 msgstr "308"
 
-#: includes/class-advanced-custom-fields.php:332
+#: includes/class-advanced-custom-fields.php:334
 msgid "Notes"
 msgstr "Poznámky"
 
-#: includes/class-advanced-custom-fields.php:333
+#: includes/class-advanced-custom-fields.php:335
 msgid "Optional invoice notes, displayed before invoiced items list."
 msgstr ""
 "Nepovinné poznámky k faktúre, zobrazené nad zoznamom fakturovaných položiek."
 
-#: includes/class-advanced-custom-fields.php:382
+#: includes/class-advanced-custom-fields.php:344
+msgid "Due period (days)"
+msgstr "Doba splatnosti (dni)"
+
+#: includes/class-advanced-custom-fields.php:345
+msgid "Optional due period override."
+msgstr "Nepovinné nastavenie doby splatnosti."
+
+#: includes/class-advanced-custom-fields.php:395
 msgid "Dual currency display"
 msgstr "Duálne zobrazenie meny"
 
-#: includes/class-advanced-custom-fields.php:388
+#: includes/class-advanced-custom-fields.php:401
 msgid ""
 "Dual currency display of the invoice amounts will take place only if "
 "currencies differs."
@@ -130,76 +138,76 @@ msgstr ""
 "Duálne zobrazenie čiastok faktúry bude použité iba v prípade, že zvolíte "
 "rôzne meny."
 
-#: includes/class-advanced-custom-fields.php:391
+#: includes/class-advanced-custom-fields.php:404
 #, php-format
 msgid "Automatic exchange calculation will then be provided using %s API."
 msgstr ""
 "Prepočítanie podľa aktuálneho kurzu bude uskutočnené automaticky pomocou %s "
 "API."
 
-#: includes/class-advanced-custom-fields.php:392
+#: includes/class-advanced-custom-fields.php:405
 msgctxt "Currency exchange rate API URL, just for information purposes."
 msgid "http://fixer.io"
 msgstr "http://fixer.io"
 
-#: includes/class-advanced-custom-fields.php:392
+#: includes/class-advanced-custom-fields.php:405
 msgctxt "Currency exchange rate API URL, just for information purposes."
 msgid "https://fixer.io/"
 msgstr "https://fixer.io/"
 
-#: includes/class-advanced-custom-fields.php:400
+#: includes/class-advanced-custom-fields.php:413
 msgid "Client (invoice) currency (FROM)"
 msgstr "Platobná mena klienta (faktúry) (PREPOČET Z)"
 
-#: includes/class-advanced-custom-fields.php:401
+#: includes/class-advanced-custom-fields.php:414
 msgid "This becomes the main invoice currency."
 msgstr "Táto mena sa použije vo faktúre ako hlavná."
 
-#: includes/class-advanced-custom-fields.php:412
+#: includes/class-advanced-custom-fields.php:425
 msgid "Seller currency (TO)"
 msgstr "Platobná mena predajcu (PREPOČET DO)"
 
-#: includes/class-advanced-custom-fields.php:413
+#: includes/class-advanced-custom-fields.php:426
 msgid "For seller accounting purposes."
 msgstr "Pre účtovné záznamy predajcu."
 
-#: includes/class-advanced-custom-fields.php:455
+#: includes/class-advanced-custom-fields.php:468
 msgid "Invoice attachments"
 msgstr "Prílohy faktúry"
 
-#: includes/class-advanced-custom-fields.php:462
+#: includes/class-advanced-custom-fields.php:475
 msgid "Attachments"
 msgstr "Prílohy"
 
-#: includes/class-advanced-custom-fields.php:463
+#: includes/class-advanced-custom-fields.php:476
 msgid "+ Add Attachment"
 msgstr "+ Pridať prílohu"
 
-#: includes/class-advanced-custom-fields.php:471
+#: includes/class-advanced-custom-fields.php:484
 msgid "Attachment"
 msgstr "Príloha"
 
-#: includes/class-advanced-custom-fields.php:590
+#: includes/class-advanced-custom-fields.php:603
 msgid "Product setup"
 msgstr "Nastavenie produktu"
 
-#: includes/class-advanced-custom-fields.php:597
+#: includes/class-advanced-custom-fields.php:610
 msgid "Action, behavior"
 msgstr "Akcia, správanie"
 
-#: includes/class-advanced-custom-fields.php:598
+#: includes/class-advanced-custom-fields.php:611
 msgid "Choose how this product affects invoice total."
 msgstr "Zvoľte ako tento produkt ovplyvní celkovú fakturovanú sumu."
 
-#: includes/class-advanced-custom-fields.php:601
+#: includes/class-advanced-custom-fields.php:614
 msgid "Add to invoice total"
 msgstr "Pripočítať k celkovej fakturovanej sume"
 
-#: includes/class-advanced-custom-fields.php:602
+#: includes/class-advanced-custom-fields.php:615
 msgid "Deduct from invoice total"
 msgstr "Odpočítať z celkovej fakturovanej sumy"
 
-#: includes/class-advanced-custom-fields.php:603
+#: includes/class-advanced-custom-fields.php:616
 msgid ""
 "Soft deduct (Only an informative additional invoice total display. Will not "
 "affect actual invoice total!)"
@@ -207,11 +215,27 @@ msgstr ""
 "Mäkký odpočet (Len informatívne, dodatočné zobrazenie celkovej fakturovanej "
 "sumy. Neovplyvní skutočnú fakturovanú sumu!)"
 
-#: includes/class-advanced-custom-fields.php:648
+#: includes/class-advanced-custom-fields.php:661
+msgid "Expense setup"
+msgstr "Nastavenie výdavku"
+
+#: includes/class-advanced-custom-fields.php:668
+msgid "Amount"
+msgstr "Čiastka"
+
+#: includes/class-advanced-custom-fields.php:679
+msgid "Currency"
+msgstr "Mena"
+
+#: includes/class-advanced-custom-fields.php:690
+msgid "Description"
+msgstr "Popis"
+
+#: includes/class-advanced-custom-fields.php:735
 msgid "Seller options"
 msgstr "Nastavenia predajcu"
 
-#: includes/class-advanced-custom-fields.php:653
+#: includes/class-advanced-custom-fields.php:740
 msgid "Stamp image"
 msgstr "Obrázok pečiatky"
 
@@ -284,7 +308,7 @@ msgstr ""
 msgid "Invoice due period in days"
 msgstr "Obdobie splatnosti faktúry v dňoch"
 
-#: includes/class-customize.php:296 includes/class-post-types.php:177
+#: includes/class-customize.php:296 includes/class-post-types.php:179
 msgid "Invoice"
 msgstr "Faktúra"
 
@@ -309,169 +333,249 @@ msgstr "Prepínače"
 msgid "Preselected value for: %s"
 msgstr "Prednastavená hodnota pre: %s"
 
-#: includes/class-post-types.php:158
+#: includes/class-post-types.php:160
 msgctxt "post type general name"
 msgid "Invoices"
 msgstr "Faktúry"
 
-#: includes/class-post-types.php:159
+#: includes/class-post-types.php:161
 msgctxt "post type singular name"
 msgid "Invoice"
 msgstr "Faktúra"
 
-#: includes/class-post-types.php:160
+#: includes/class-post-types.php:162
 msgid "Add New Invoice"
 msgstr "Pridať novú faktúru"
 
-#: includes/class-post-types.php:161
+#: includes/class-post-types.php:163
 msgid "Edit Invoice"
 msgstr "Upraviť faktúru"
 
-#: includes/class-post-types.php:162
+#: includes/class-post-types.php:164
 msgid "New Invoice"
 msgstr "Nová faktúra"
 
-#: includes/class-post-types.php:163
+#: includes/class-post-types.php:165
 msgid "View Invoice"
 msgstr "Zobraziť faktúru"
 
-#: includes/class-post-types.php:164
+#: includes/class-post-types.php:166
 msgid "View Invoices"
 msgstr "Zobraziť faktúry"
 
-#: includes/class-post-types.php:165
+#: includes/class-post-types.php:167
 msgid "Search Invoices"
 msgstr "Vyhľadať faktúry"
 
-#: includes/class-post-types.php:166
+#: includes/class-post-types.php:168
 msgid "No Invoices found."
 msgstr "Nenašli sa žiadne faktúry."
 
-#: includes/class-post-types.php:167
+#: includes/class-post-types.php:169
 msgid "No Invoices found in Trash."
 msgstr "V koši sa nenašli žiadne faktúry."
 
-#: includes/class-post-types.php:168
+#: includes/class-post-types.php:170
 msgid "All Invoices"
 msgstr "Všetky faktúry"
 
-#: includes/class-post-types.php:169
+#: includes/class-post-types.php:171
 msgid "Invoice Archives"
 msgstr "Archív faktúr"
 
-#: includes/class-post-types.php:170
+#: includes/class-post-types.php:172
 msgid "Invoice Attributes"
 msgstr "Atribúty faktúry"
 
-#: includes/class-post-types.php:171
+#: includes/class-post-types.php:173
 msgid "Insert into Invoice"
 msgstr "Vložiť do faktúry"
 
-#: includes/class-post-types.php:172
+#: includes/class-post-types.php:174
 msgid "Uploaded to this Invoice"
 msgstr "Nahrané do tejto faktúry"
 
-#: includes/class-post-types.php:173
+#: includes/class-post-types.php:175
 msgid "Filter Invoices list"
 msgstr "Filtrovať zoznam faktúr"
 
-#: includes/class-post-types.php:174
+#: includes/class-post-types.php:176
 msgid "Invoices list navigation"
 msgstr "Navigácia v zozname faktúr"
 
-#: includes/class-post-types.php:175
+#: includes/class-post-types.php:177
 msgid "Invoices list"
 msgstr "Zoznam faktúr"
 
-#: includes/class-post-types.php:176
+#: includes/class-post-types.php:178
 msgid "Invoices"
 msgstr "Faktúry"
 
-#: includes/class-post-types.php:539
+#: includes/class-post-types.php:541
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Produkty"
 
-#: includes/class-post-types.php:540
+#: includes/class-post-types.php:542
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Produkt"
 
-#: includes/class-post-types.php:541
+#: includes/class-post-types.php:543
 msgid "Add New Product"
 msgstr "Pridať novy produkt"
 
-#: includes/class-post-types.php:542
+#: includes/class-post-types.php:544
 msgid "Edit Product"
 msgstr "Upraviť produkt"
 
-#: includes/class-post-types.php:543
+#: includes/class-post-types.php:545
 msgid "New Product"
 msgstr "Nový produkt"
 
-#: includes/class-post-types.php:544
+#: includes/class-post-types.php:546
 msgid "View Product"
 msgstr "Zobraziť produkt"
 
-#: includes/class-post-types.php:545
+#: includes/class-post-types.php:547
 msgid "View Products"
 msgstr "Zobraziť produkty"
 
-#: includes/class-post-types.php:546
+#: includes/class-post-types.php:548
 msgid "Search Products"
 msgstr "Vyhľadať produkty"
 
-#: includes/class-post-types.php:547
+#: includes/class-post-types.php:549
 msgid "No Products found."
 msgstr "Nenašli sa žiadne produkty."
 
-#: includes/class-post-types.php:548
+#: includes/class-post-types.php:550
 msgid "No Products found in Trash."
 msgstr "V koši sa nenašli žiadne produkty."
 
-#: includes/class-post-types.php:549
+#: includes/class-post-types.php:551
 msgid "Parent Product:"
 msgstr "Nadradený produkt:"
 
-#: includes/class-post-types.php:550
+#: includes/class-post-types.php:552
 msgid "All Products"
 msgstr "Všetky produkty"
 
-#: includes/class-post-types.php:551
+#: includes/class-post-types.php:553
 msgid "Product Archives"
 msgstr "Archív produktov"
 
-#: includes/class-post-types.php:552
+#: includes/class-post-types.php:554
 msgid "Product Attributes"
 msgstr "Atribúty produktu"
 
-#: includes/class-post-types.php:553
+#: includes/class-post-types.php:555
 msgid "Insert into Product"
 msgstr "Vložiť do produktu"
 
-#: includes/class-post-types.php:554
+#: includes/class-post-types.php:556
 msgid "Uploaded to this Product"
 msgstr "Nahrané do tohto produktu"
 
-#: includes/class-post-types.php:555
+#: includes/class-post-types.php:557
 msgid "Filter Products list"
 msgstr "Filtrovať zoznam produktov"
 
-#: includes/class-post-types.php:556
+#: includes/class-post-types.php:558
 msgid "Products list navigation"
 msgstr "Navigácia v zozname produktov"
 
-#: includes/class-post-types.php:557
+#: includes/class-post-types.php:559
 msgid "Products list"
 msgstr "Zoznam produktov"
 
-#: includes/class-post-types.php:558
+#: includes/class-post-types.php:560
 msgid "Products"
 msgstr "Produkty"
 
-#: includes/class-post-types.php:559
+#: includes/class-post-types.php:561
 msgid "Product"
 msgstr "Produkt"
+
+#: includes/class-post-types.php:598
+msgctxt "Post type general name"
+msgid "Expenses"
+msgstr "Výdavky"
+
+#: includes/class-post-types.php:599
+msgctxt "Post type singular name"
+msgid "Expense"
+msgstr "Výdavok"
+
+#: includes/class-post-types.php:600
+msgctxt "Admin Menu text"
+msgid "Expenses"
+msgstr "Výdavky"
+
+#: includes/class-post-types.php:601
+msgctxt "Add New on Toolbar"
+msgid "Expense"
+msgstr "Výdavok"
+
+#: includes/class-post-types.php:602
+msgid "Add New Expense"
+msgstr "Pridať nový výdavok"
+
+#: includes/class-post-types.php:603
+msgid "New Expense"
+msgstr "Nový výdavok"
+
+#: includes/class-post-types.php:604
+msgid "Edit Expense"
+msgstr "Upraviť výdavok"
+
+#: includes/class-post-types.php:605
+msgid "View Expense"
+msgstr "Zobraziť výdavok"
+
+#: includes/class-post-types.php:606
+msgid "All Expenses"
+msgstr "Všetky výdavky"
+
+#: includes/class-post-types.php:607
+msgid "Search Expenses"
+msgstr "Hľadať výdavky"
+
+#: includes/class-post-types.php:608
+msgid "No Expenses found."
+msgstr "Nenašli sa žiadne výdavky."
+
+#: includes/class-post-types.php:609
+msgid "No Expenses found in Trash."
+msgstr "V koši sa nenašli žiadne výdavky."
+
+#: includes/class-post-types.php:610
+msgctxt ""
+"The post type archive label used in nav menus. Default “Post Archives”. "
+"Added in 4.4"
+msgid "Expense Archives"
+msgstr "Archív výdavkov"
+
+#: includes/class-post-types.php:611
+msgctxt ""
+"Screen reader text for the filter links heading on the post type listing "
+"screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4"
+msgid "Filter Expenses list"
+msgstr "Filtrovať zoznam výdavkov"
+
+#: includes/class-post-types.php:612
+msgctxt ""
+"Screen reader text for the pagination heading on the post type listing "
+"screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4"
+msgid "Expenses list navigation"
+msgstr "Navigácia zoznamu výdavkov"
+
+#: includes/class-post-types.php:613
+msgctxt ""
+"Screen reader text for the items list heading on the post type listing "
+"screen. Default “Posts list”/”Pages list”. Added in 4.4"
+msgid "Expenses list"
+msgstr "Zoznam výdavkov"
 
 #: includes/class-taxonomies.php:136
 msgctxt "taxonomy general name"
@@ -964,11 +1068,11 @@ msgstr "Kliknite na odkaz v menu pre tlač iba hlavnej meny."
 msgid "Print"
 msgstr "Tlačiť"
 
-#. translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date.
+#. translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date, 5: date format.
 #: templates/parts/component/note-invoice.php:49
 #, php-format
-msgid "%1$s to %2$s exchange rate of %3$f valid on %4$s (D/M/Y)"
-msgstr "Zmena %1$s na %2$s podľa kurzu %3$f platného dňa %4$s (ď/m/r)"
+msgid "%1$s to %2$s exchange rate of %3$f valid on %4$s (%5$s)"
+msgstr "Zmena %1$s na %2$s podľa kurzu %3$f platného dňa %4$s (%5$s)"
 
 #: templates/parts/component/summary.php:27
 msgid "Summary:"
@@ -1153,16 +1257,22 @@ msgid "Print main currency only"
 msgstr "Tlačiť iba hlavnú menu"
 
 #: templates/parts/meta/meta-invoice-dates.php:32
-msgid "Date of issue (d/m/y)"
-msgstr "Dátum vydania (ď/m/r)"
+#, php-format
+msgctxt "%s: date format"
+msgid "Date of issue (%s)"
+msgstr "Dátum vystavenia (%s)"
 
 #: templates/parts/meta/meta-invoice-dates.php:45
-msgid "Date of delivery (d/m/y)"
-msgstr "Dátum dodania (ď/m/r)"
+#, php-format
+msgctxt "%s: date format"
+msgid "Date of delivery (%s)"
+msgstr "Dátum dodania (%s)"
 
 #: templates/parts/meta/meta-invoice-dates.php:50
-msgid "Due date (d/m/y)"
-msgstr "Dátum splatnosti (ď/m/r)"
+#, php-format
+msgctxt "%s: date format"
+msgid "Due date (%s)"
+msgstr "Dátum splatnosti (%s)"
 
 #: templates/parts/meta/meta-invoice-payment.php:56
 msgid "Or: "

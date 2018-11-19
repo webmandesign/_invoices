@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-08-09 20:24+0200\n"
+"POT-Creation-Date: 2018-11-19 19:56+0100\n"
 "PO-Revision-Date: 2015-05-12 20:39+0100\n"
 "Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -28,184 +28,208 @@ msgstr ""
 msgid "Generator &rarr;"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:144
-#: includes/class-advanced-custom-fields.php:160
+#: includes/class-advanced-custom-fields.php:146
+#: includes/class-advanced-custom-fields.php:162
 msgid "Invoiced items"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:151
+#: includes/class-advanced-custom-fields.php:153
 #: templates/parts/meta/meta-invoice-total.php:97
 msgid "Invoice total"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:152
+#: includes/class-advanced-custom-fields.php:154
 msgid "Save/update the invoice to recalculate the value."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:161
+#: includes/class-advanced-custom-fields.php:163
 msgid "+ Add Invoiced Item"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:172
+#: includes/class-advanced-custom-fields.php:174
 msgid "Price"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:183
+#: includes/class-advanced-custom-fields.php:185
 #: templates/parts/loop/loop-products.php:49
 msgid "Qty"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:198
+#: includes/class-advanced-custom-fields.php:200
 msgid "Item"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:213
+#: includes/class-advanced-custom-fields.php:215
 msgid "Optional additional item info"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:225
+#: includes/class-advanced-custom-fields.php:227
 #: templates/parts/loop/loop-products.php:51
 msgid "Total"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:271
+#: includes/class-advanced-custom-fields.php:273
 msgid "Invoice setup"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:278
+#: includes/class-advanced-custom-fields.php:280
 msgid "Seller"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:279
+#: includes/class-advanced-custom-fields.php:281
 msgid "Company issuing the invoice."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:293
+#: includes/class-advanced-custom-fields.php:295
 msgid "Client"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:294
+#: includes/class-advanced-custom-fields.php:296
 msgid "Customer receiving the invoice."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:308
+#: includes/class-advanced-custom-fields.php:310
 msgid "Payment method"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:309
+#: includes/class-advanced-custom-fields.php:311
 msgid "Preferred payment method to pay the invoice."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:323
+#: includes/class-advanced-custom-fields.php:325
 #: templates/parts/meta/meta-invoice-symbols.php:32
 msgid "Constant symbol"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:324
+#: includes/class-advanced-custom-fields.php:326
 msgid "Optional invoice constant symbol."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:325
+#: includes/class-advanced-custom-fields.php:327
 msgctxt "Invoice default constant symbol."
 msgid "308"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:332
+#: includes/class-advanced-custom-fields.php:334
 msgid "Notes"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:333
+#: includes/class-advanced-custom-fields.php:335
 msgid "Optional invoice notes, displayed before invoiced items list."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:382
+#: includes/class-advanced-custom-fields.php:344
+msgid "Due period (days)"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:345
+msgid "Optional due period override."
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:395
 msgid "Dual currency display"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:388
+#: includes/class-advanced-custom-fields.php:401
 msgid ""
 "Dual currency display of the invoice amounts will take place only if "
 "currencies differs."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:391
+#: includes/class-advanced-custom-fields.php:404
 #, php-format
 msgid "Automatic exchange calculation will then be provided using %s API."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:392
+#: includes/class-advanced-custom-fields.php:405
 msgctxt "Currency exchange rate API URL, just for information purposes."
 msgid "http://fixer.io"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:392
+#: includes/class-advanced-custom-fields.php:405
 msgctxt "Currency exchange rate API URL, just for information purposes."
 msgid "https://fixer.io/"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:400
+#: includes/class-advanced-custom-fields.php:413
 msgid "Client (invoice) currency (FROM)"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:401
+#: includes/class-advanced-custom-fields.php:414
 msgid "This becomes the main invoice currency."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:412
+#: includes/class-advanced-custom-fields.php:425
 msgid "Seller currency (TO)"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:413
+#: includes/class-advanced-custom-fields.php:426
 msgid "For seller accounting purposes."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:455
+#: includes/class-advanced-custom-fields.php:468
 msgid "Invoice attachments"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:462
+#: includes/class-advanced-custom-fields.php:475
 msgid "Attachments"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:463
+#: includes/class-advanced-custom-fields.php:476
 msgid "+ Add Attachment"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:471
+#: includes/class-advanced-custom-fields.php:484
 msgid "Attachment"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:590
+#: includes/class-advanced-custom-fields.php:603
 msgid "Product setup"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:597
+#: includes/class-advanced-custom-fields.php:610
 msgid "Action, behavior"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:598
+#: includes/class-advanced-custom-fields.php:611
 msgid "Choose how this product affects invoice total."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:601
+#: includes/class-advanced-custom-fields.php:614
 msgid "Add to invoice total"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:602
+#: includes/class-advanced-custom-fields.php:615
 msgid "Deduct from invoice total"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:603
+#: includes/class-advanced-custom-fields.php:616
 msgid ""
 "Soft deduct (Only an informative additional invoice total display. Will "
 "not affect actual invoice total!)"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:648
+#: includes/class-advanced-custom-fields.php:661
+msgid "Expense setup"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:668
+msgid "Amount"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:679
+msgid "Currency"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:690
+msgid "Description"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:735
 msgid "Seller options"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:653
+#: includes/class-advanced-custom-fields.php:740
 msgid "Stamp image"
 msgstr ""
 
@@ -272,7 +296,7 @@ msgstr ""
 msgid "Invoice due period in days"
 msgstr ""
 
-#: includes/class-customize.php:296 includes/class-post-types.php:177
+#: includes/class-customize.php:296 includes/class-post-types.php:179
 msgid "Invoice"
 msgstr ""
 
@@ -297,168 +321,249 @@ msgstr ""
 msgid "Preselected value for: %s"
 msgstr ""
 
-#: includes/class-post-types.php:158
+#: includes/class-post-types.php:160
 msgctxt "post type general name"
 msgid "Invoices"
 msgstr ""
 
-#: includes/class-post-types.php:159
+#: includes/class-post-types.php:161
 msgctxt "post type singular name"
 msgid "Invoice"
 msgstr ""
 
-#: includes/class-post-types.php:160
+#: includes/class-post-types.php:162
 msgid "Add New Invoice"
 msgstr ""
 
-#: includes/class-post-types.php:161
+#: includes/class-post-types.php:163
 msgid "Edit Invoice"
 msgstr ""
 
-#: includes/class-post-types.php:162
+#: includes/class-post-types.php:164
 msgid "New Invoice"
 msgstr ""
 
-#: includes/class-post-types.php:163
+#: includes/class-post-types.php:165
 msgid "View Invoice"
 msgstr ""
 
-#: includes/class-post-types.php:164
+#: includes/class-post-types.php:166
 msgid "View Invoices"
 msgstr ""
 
-#: includes/class-post-types.php:165
+#: includes/class-post-types.php:167
 msgid "Search Invoices"
 msgstr ""
 
-#: includes/class-post-types.php:166
+#: includes/class-post-types.php:168
 msgid "No Invoices found."
 msgstr ""
 
-#: includes/class-post-types.php:167
+#: includes/class-post-types.php:169
 msgid "No Invoices found in Trash."
 msgstr ""
 
-#: includes/class-post-types.php:168
+#: includes/class-post-types.php:170
 msgid "All Invoices"
 msgstr ""
 
-#: includes/class-post-types.php:169
+#: includes/class-post-types.php:171
 msgid "Invoice Archives"
 msgstr ""
 
-#: includes/class-post-types.php:170
+#: includes/class-post-types.php:172
 msgid "Invoice Attributes"
 msgstr ""
 
-#: includes/class-post-types.php:171
+#: includes/class-post-types.php:173
 msgid "Insert into Invoice"
 msgstr ""
 
-#: includes/class-post-types.php:172
+#: includes/class-post-types.php:174
 msgid "Uploaded to this Invoice"
 msgstr ""
 
-#: includes/class-post-types.php:173
+#: includes/class-post-types.php:175
 msgid "Filter Invoices list"
 msgstr ""
 
-#: includes/class-post-types.php:174
+#: includes/class-post-types.php:176
 msgid "Invoices list navigation"
 msgstr ""
 
-#: includes/class-post-types.php:175
+#: includes/class-post-types.php:177
 msgid "Invoices list"
 msgstr ""
 
-#: includes/class-post-types.php:176
+#: includes/class-post-types.php:178
 msgid "Invoices"
 msgstr ""
 
-#: includes/class-post-types.php:539
+#: includes/class-post-types.php:541
 msgctxt "post type general name"
 msgid "Products"
 msgstr ""
 
-#: includes/class-post-types.php:540
+#: includes/class-post-types.php:542
 msgctxt "post type singular name"
 msgid "Product"
 msgstr ""
 
-#: includes/class-post-types.php:541
+#: includes/class-post-types.php:543
 msgid "Add New Product"
 msgstr ""
 
-#: includes/class-post-types.php:542
+#: includes/class-post-types.php:544
 msgid "Edit Product"
 msgstr ""
 
-#: includes/class-post-types.php:543
+#: includes/class-post-types.php:545
 msgid "New Product"
 msgstr ""
 
-#: includes/class-post-types.php:544
+#: includes/class-post-types.php:546
 msgid "View Product"
 msgstr ""
 
-#: includes/class-post-types.php:545
+#: includes/class-post-types.php:547
 msgid "View Products"
 msgstr ""
 
-#: includes/class-post-types.php:546
+#: includes/class-post-types.php:548
 msgid "Search Products"
 msgstr ""
 
-#: includes/class-post-types.php:547
+#: includes/class-post-types.php:549
 msgid "No Products found."
 msgstr ""
 
-#: includes/class-post-types.php:548
+#: includes/class-post-types.php:550
 msgid "No Products found in Trash."
 msgstr ""
 
-#: includes/class-post-types.php:549
+#: includes/class-post-types.php:551
 msgid "Parent Product:"
 msgstr ""
 
-#: includes/class-post-types.php:550
+#: includes/class-post-types.php:552
 msgid "All Products"
 msgstr ""
 
-#: includes/class-post-types.php:551
+#: includes/class-post-types.php:553
 msgid "Product Archives"
 msgstr ""
 
-#: includes/class-post-types.php:552
+#: includes/class-post-types.php:554
 msgid "Product Attributes"
 msgstr ""
 
-#: includes/class-post-types.php:553
+#: includes/class-post-types.php:555
 msgid "Insert into Product"
 msgstr ""
 
-#: includes/class-post-types.php:554
+#: includes/class-post-types.php:556
 msgid "Uploaded to this Product"
 msgstr ""
 
-#: includes/class-post-types.php:555
+#: includes/class-post-types.php:557
 msgid "Filter Products list"
 msgstr ""
 
-#: includes/class-post-types.php:556
+#: includes/class-post-types.php:558
 msgid "Products list navigation"
 msgstr ""
 
-#: includes/class-post-types.php:557
+#: includes/class-post-types.php:559
 msgid "Products list"
 msgstr ""
 
-#: includes/class-post-types.php:558
+#: includes/class-post-types.php:560
 msgid "Products"
 msgstr ""
 
-#: includes/class-post-types.php:559
+#: includes/class-post-types.php:561
 msgid "Product"
+msgstr ""
+
+#: includes/class-post-types.php:598
+msgctxt "Post type general name"
+msgid "Expenses"
+msgstr ""
+
+#: includes/class-post-types.php:599
+msgctxt "Post type singular name"
+msgid "Expense"
+msgstr ""
+
+#: includes/class-post-types.php:600
+msgctxt "Admin Menu text"
+msgid "Expenses"
+msgstr ""
+
+#: includes/class-post-types.php:601
+msgctxt "Add New on Toolbar"
+msgid "Expense"
+msgstr ""
+
+#: includes/class-post-types.php:602
+msgid "Add New Expense"
+msgstr ""
+
+#: includes/class-post-types.php:603
+msgid "New Expense"
+msgstr ""
+
+#: includes/class-post-types.php:604
+msgid "Edit Expense"
+msgstr ""
+
+#: includes/class-post-types.php:605
+msgid "View Expense"
+msgstr ""
+
+#: includes/class-post-types.php:606
+msgid "All Expenses"
+msgstr ""
+
+#: includes/class-post-types.php:607
+msgid "Search Expenses"
+msgstr ""
+
+#: includes/class-post-types.php:608
+msgid "No Expenses found."
+msgstr ""
+
+#: includes/class-post-types.php:609
+msgid "No Expenses found in Trash."
+msgstr ""
+
+#: includes/class-post-types.php:610
+msgctxt ""
+"The post type archive label used in nav menus. Default “Post Archives”. "
+"Added in 4.4"
+msgid "Expense Archives"
+msgstr ""
+
+#: includes/class-post-types.php:611
+msgctxt ""
+"Screen reader text for the filter links heading on the post type listing "
+"screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4"
+msgid "Filter Expenses list"
+msgstr ""
+
+#: includes/class-post-types.php:612
+msgctxt ""
+"Screen reader text for the pagination heading on the post type listing "
+"screen. Default “Posts list navigation”/”Pages list navigation”. Added in "
+"4.4"
+msgid "Expenses list navigation"
+msgstr ""
+
+#: includes/class-post-types.php:613
+msgctxt ""
+"Screen reader text for the items list heading on the post type listing "
+"screen. Default “Posts list”/”Pages list”. Added in 4.4"
+msgid "Expenses list"
 msgstr ""
 
 #: includes/class-taxonomies.php:136
@@ -934,10 +1039,10 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-#. translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date.
+#. translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date, 5: date format.
 #: templates/parts/component/note-invoice.php:49
 #, php-format
-msgid "%1$s to %2$s exchange rate of %3$f valid on %4$s (D/M/Y)"
+msgid "%1$s to %2$s exchange rate of %3$f valid on %4$s (%5$s)"
 msgstr ""
 
 #: templates/parts/component/summary.php:27
@@ -1112,15 +1217,21 @@ msgid "Print main currency only"
 msgstr ""
 
 #: templates/parts/meta/meta-invoice-dates.php:32
-msgid "Date of issue (d/m/y)"
+#, php-format
+msgctxt "%s: date format"
+msgid "Date of issue (%s)"
 msgstr ""
 
 #: templates/parts/meta/meta-invoice-dates.php:45
-msgid "Date of delivery (d/m/y)"
+#, php-format
+msgctxt "%s: date format"
+msgid "Date of delivery (%s)"
 msgstr ""
 
 #: templates/parts/meta/meta-invoice-dates.php:50
-msgid "Due date (d/m/y)"
+#, php-format
+msgctxt "%s: date format"
+msgid "Due date (%s)"
 msgstr ""
 
 #: templates/parts/meta/meta-invoice-payment.php:56

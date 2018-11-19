@@ -16,13 +16,14 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.1.0
+ * @version  1.6.0
  *
  * Contents:
  *
  *  0) Init
  * 10) Invoices
  * 20) Products
+ * 30) Expenses
  */
 class Invoices_Post_Types {
 
@@ -42,7 +43,7 @@ class Invoices_Post_Types {
 		 * Constructor
 		 *
 		 * @since    1.0.0
-		 * @version  1.1.0
+		 * @version  1.6.0
 		 */
 		private function __construct() {
 
@@ -53,10 +54,11 @@ class Invoices_Post_Types {
 					// Actions
 
 						add_action( 'init', __CLASS__ . '::invoice_setup' );
-						add_action( 'init', __CLASS__ . '::products_setup' );
+						add_action( 'init', __CLASS__ . '::product_setup' );
+						add_action( 'init', __CLASS__ . '::expense_register' );
 
 						add_action( 'registered_post_type', __CLASS__ . '::invoice_post_type_object', 10, 2 );
-						add_action( 'registered_post_type', __CLASS__ . '::products_post_type_object', 10, 2 );
+						add_action( 'registered_post_type', __CLASS__ . '::product_post_type_object', 10, 2 );
 
 						add_action( 'edit_form_top', __CLASS__ . '::invoice_predefined' );
 
@@ -141,7 +143,7 @@ class Invoices_Post_Types {
 		 * @version  1.0.0
 		 *
 		 * @param  string       $post_type         Post type.
-     * @param  WP_Post_Type $post_type_object  Arguments used to register the post type.
+		 * @param  WP_Post_Type $post_type_object  Arguments used to register the post type.
 		 */
 		public static function invoice_post_type_object( $post_type, $post_type_object ) {
 
@@ -499,9 +501,9 @@ class Invoices_Post_Types {
 		 * Setup Product CPT from "Pages"
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.6.0
 		 */
-		public static function products_setup() {
+		public static function product_setup() {
 
 			// Processing
 
@@ -511,7 +513,7 @@ class Invoices_Post_Types {
 					remove_post_type_support( 'page', 'trackbacks' );
 					remove_post_type_support( 'page', 'page-attributes' );
 
-		} // /products_setup
+		} // /product_setup
 
 
 
@@ -519,12 +521,12 @@ class Invoices_Post_Types {
 		 * Modify Product post type object
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.6.0
 		 *
 		 * @param  string       $post_type         Post type.
-     * @param  WP_Post_Type $post_type_object  Arguments used to register the post type.
+		 * @param  WP_Post_Type $post_type_object  Arguments used to register the post type.
 		 */
-		public static function products_post_type_object( $post_type, $post_type_object ) {
+		public static function product_post_type_object( $post_type, $post_type_object ) {
 
 			// Requirements check
 
@@ -572,7 +574,62 @@ class Invoices_Post_Types {
 
 					$post_type_object->menu_icon = 'dashicons-products';
 
-		} // /products_post_type_object
+		} // /product_post_type_object
+
+
+
+
+
+	/**
+	 * 30) Expenses
+	 */
+
+		/**
+		 * Register Expense CPT.
+		 *
+		 * @since    1.6.0
+		 * @version  1.6.0
+		 */
+		public static function expense_register() {
+
+			// Processing
+
+				$labels = array(
+					'name'                  => esc_html_x( 'Expenses', 'Post type general name', '_invoices' ),
+					'singular_name'         => esc_html_x( 'Expense', 'Post type singular name', '_invoices' ),
+					'menu_name'             => esc_html_x( 'Expenses', 'Admin Menu text', '_invoices' ),
+					'name_admin_bar'        => esc_html_x( 'Expense', 'Add New on Toolbar', '_invoices' ),
+					'add_new_item'          => esc_html__( 'Add New Expense', '_invoices' ),
+					'new_item'              => esc_html__( 'New Expense', '_invoices' ),
+					'edit_item'             => esc_html__( 'Edit Expense', '_invoices' ),
+					'view_item'             => esc_html__( 'View Expense', '_invoices' ),
+					'all_items'             => esc_html__( 'All Expenses', '_invoices' ),
+					'search_items'          => esc_html__( 'Search Expenses', '_invoices' ),
+					'not_found'             => esc_html__( 'No Expenses found.', '_invoices' ),
+					'not_found_in_trash'    => esc_html__( 'No Expenses found in Trash.', '_invoices' ),
+					'archives'              => esc_html_x( 'Expense Archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', '_invoices' ),
+					'filter_items_list'     => esc_html_x( 'Filter Expenses list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', '_invoices' ),
+					'items_list_navigation' => esc_html_x( 'Expenses list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', '_invoices' ),
+					'items_list'            => esc_html_x( 'Expenses list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', '_invoices' ),
+				);
+
+				$args = array(
+					'labels'      => $labels,
+					'public'      => true,
+					'has_archive' => true,
+					'menu_icon'   => 'dashicons-money',
+					'supports'    => array(
+						'title',
+						'author',
+					),
+				);
+
+
+			// Processing
+
+				register_post_type( 'expense', $args );
+
+		} // /expense_register
 
 
 

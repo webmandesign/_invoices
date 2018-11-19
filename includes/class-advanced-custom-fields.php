@@ -10,14 +10,15 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.5.0
+ * @version  1.6.0
  *
  * Contents:
  *
  *   0) Init
  *  10) Invoice
  *  20) Product
- *  30) Taxonomies
+ *  30) Expense
+ *  40) Taxonomies
  * 100) Helpers
  */
 class Invoices_Advanced_Custom_Fields {
@@ -49,7 +50,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * register and retrieve values from related subfields.
 		 *
 		 * @since    1.0.0
-		 * @version  1.4.0
+		 * @version  1.6.0
 		 */
 		private function __construct() {
 
@@ -68,6 +69,7 @@ class Invoices_Advanced_Custom_Fields {
 						add_action( 'init', __CLASS__ . '::invoice_exchange', $priority );
 						add_action( 'init', __CLASS__ . '::invoice_attachments', $priority );
 						add_action( 'init', __CLASS__ . '::product_setup', $priority );
+						add_action( 'init', __CLASS__ . '::expense_setup', $priority );
 						add_action( 'init', __CLASS__ . '::seller_stamp', $priority );
 
 						add_action( 'admin_menu', __CLASS__ . '::invoice_metabox_hide' );
@@ -133,7 +135,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice products metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.3.0
+		 * @version  1.6.0
 		 */
 		public static function invoice_products() {
 
@@ -214,7 +216,7 @@ class Invoices_Advanced_Custom_Fields {
 									'wrapper'  => array(
 										'width' => '40',
 									),
-									'rows'      => 2,
+									'rows'      => 3,
 									'new_lines' => 'br',
 								),
 
@@ -260,7 +262,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice setup options metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.3.0
+		 * @version  1.6.0
 		 */
 		public static function invoice_setup() {
 
@@ -333,6 +335,17 @@ class Invoices_Advanced_Custom_Fields {
 							'instructions' => esc_html__( 'Optional invoice notes, displayed before invoiced items list.', '_invoices' ),
 							'rows'         => 3,
 							'new_lines'    => 'br',
+						),
+
+						600 => array(
+							'key'          => 'key_invoice_setup_due_period',
+							'name'         => 'due_period',
+							'type'         => 'number',
+							'label'        => esc_html__( 'Due period (days)', '_invoices' ),
+							'instructions' => esc_html__( 'Optional due period override.', '_invoices' ),
+							'placeholder'  => absint( get_theme_mod( 'invoice_due_period', 21 ) ),
+							'min'          => 0,
+							'max'          => 90
 						),
 
 					),
@@ -630,7 +643,81 @@ class Invoices_Advanced_Custom_Fields {
 
 
 	/**
-	 * 30) Taxonomies
+	 * 30) Expense
+	 */
+
+		/**
+		 * Expense setup options metabox.
+		 *
+		 * @since    1.6.0
+		 * @version  1.6.0
+		 */
+		public static function expense_setup() {
+
+			// Processing
+
+				acf_add_local_field_group( (array) apply_filters( 'wmhook_invoices_acf_field_group', array(
+					'id'     => 'group_expense_setup',
+					'title'  => esc_html__( 'Expense setup', '_invoices' ),
+					'fields' => array(
+
+						100 => array(
+							'key'      => 'key_expense_setup_amount',
+							'name'     => 'amount',
+							'type'     => 'number',
+							'label'    => esc_html__( 'Amount', '_invoices' ),
+							'required' => 1,
+							'wrapper'  => array(
+								'width' => '15',
+							),
+						),
+
+						200 => array(
+							'key'           => 'key_expense_setup_currency',
+							'name'          => 'currency',
+							'type'          => 'select',
+							'label'         => esc_html__( 'Currency', '_invoices' ),
+							'choices'       => Invoices_Customize::get_currencies_array(),
+							'default_value' => Invoices_Customize::get_currency_exchange_from(),
+							'return_format' => 'value',
+							'required'      => 1,
+						),
+
+						300 => array(
+							'key'   => 'key_expense_setup_description',
+							'name'  => 'description',
+							'type'  => 'wysiwyg',
+							'label' => esc_html__( 'Description', '_invoices' ),
+							'rows'  => 3,
+						),
+
+					),
+					'location' => array(
+
+						self::$ands => array(
+
+							'is_post_type_post' => array(
+								'param'    => 'post_type',
+								'operator' => '==',
+								'value'    => 'expense',
+							),
+
+						),
+
+					),
+					'menu_order'      => 20,
+					'style'           => 'default',
+					'label_placement' => 'left',
+				), 'expense_setup' ) );
+
+		} // /expense_setup
+
+
+
+
+
+	/**
+	 * 40) Taxonomies
 	 */
 
 		/**

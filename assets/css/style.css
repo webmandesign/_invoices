@@ -238,7 +238,11 @@ pre, textarea { -moz-tab-size: 2; -o-tab-size: 2; tab-size: 2; }
 
 @media print { .invoice-anchors { display: none; } }
 
-.invoice-anchors a { display: block; min-width: 15mm; padding: 2.5mm; margin: 5mm 0; }
+.invoice-anchors > a { display: block; min-width: 15mm; padding: 2.5mm; margin: 5mm 0; }
+
+.invoice-anchors .datelink { display: block; margin: 5mm 0; text-transform: uppercase; font-size: .62em; white-space: nowrap; }
+
+.invoice-anchors .sep { opacity: .33; }
 
 .invoice .permalink, .invoice .post-edit-link, .invoice .print { font-size: .62em; }
 

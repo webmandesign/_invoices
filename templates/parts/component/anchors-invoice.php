@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.5.0
+ * @version  1.6.0
  */
 
 
@@ -15,7 +15,7 @@
 
 // Helper variables
 
-	global $summary;
+	global $summary, $invoice_helper;
 
 
 ?>
@@ -31,6 +31,21 @@
 	<a href="javascript:printAllCurrencies()" class="print" title="<?php esc_attr_e( 'Click the link in the menu to print main currency only.', '_invoices' ); ?>">
 		<?php esc_html_e( 'Print', '_invoices' ); ?>
 	</a>
+
+	<span class="datelink">
+		<a href="<?php echo esc_url( get_month_link(
+			date( 'Y', strtotime( $invoice_helper['publish_date_raw'] ) ),
+			date( 'm', strtotime( $invoice_helper['publish_date_raw'] ) )
+		) ); ?>">
+			<?php echo date( 'M', strtotime( $invoice_helper['publish_date_raw'] ) ); ?>
+		</a>
+		<span class="sep">/</span>
+		<a href="<?php echo esc_url( get_year_link(
+			date( 'Y', strtotime( $invoice_helper['publish_date_raw'] ) )
+		) ); ?>">
+			<?php echo date( 'Y', strtotime( $invoice_helper['publish_date_raw'] ) ); ?>
+		</a>
+	</span>
 
 	<a href="#post-number-<?php echo absint( $summary['invoice_count'] - 1 ); ?>" class="invoice-navigation previous">
 		&uarr;

@@ -41,11 +41,23 @@
 				display: none;
 			}
 
-			a {
+			> a {
 				display: block;
 				min-width: $gutter * 3;
 				padding: $gutter / 2;
 				margin: $gutter 0;
+			}
+
+			.datelink {
+				display: block;
+				margin: $gutter 0;
+				text-transform: uppercase;
+				font-size: .62em;
+				white-space: nowrap;
+			}
+
+			.sep {
+				opacity: .33;
 			}
 
 		}

@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.5.0
+ * @version  1.6.0
  */
 
 
@@ -45,12 +45,13 @@ if ( $invoice_helper['dual_currency'] ) :
 		<?php
 
 		printf(
-			/* translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date. */
-			esc_html__( '%1$s to %2$s exchange rate of %3$f valid on %4$s (D/M/Y)', '_invoices' ),
+			/* translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date, 5: date format. */
+			esc_html__( '%1$s to %2$s exchange rate of %3$f valid on %4$s (%5$s)', '_invoices' ),
 			$invoice_helper['currency_from'],
 			$invoice_helper['currency_to'],
 			$invoice_helper['exchange_rate'],
-			$invoice_helper['publish_date_display']
+			$invoice_helper['publish_date_display'],
+			Invoices_Helper::get_readable_date_format()
 		);
 
 		?>

@@ -1,5 +1,27 @@
 # Invoices Changelog
 
+## 1.6.0
+
+* **Add**: "Expense" custom post type
+* **Add**: Option to override due period per invoice
+* **Add**: Links to month and year archives
+* **Add**: Date output helper methods
+* **Update**: Localization
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets/scss/style.scss
+	includes/class-advanced-custom-fields.php
+	includes/class-helper.php
+	includes/class-post-types.php
+	languages/*.*
+	templates/parts/component/anchors-invoice.php
+	templates/parts/component/note-invoice.php
+	templates/parts/meta/meta-invoice-dates.php
+
+
 ## 1.5.1
 
 * **Add**: Expected net income calculation (66% of expected total payment)

@@ -6,14 +6,15 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.5.0
+ * @version  1.6.0
  *
  * Contents:
  *
- *  0) Init
- * 10) Reset
- * 20) Invoice companies
- * 30) Exchange rate
+ *   0) Init
+ *  10) Reset
+ *  20) Invoice companies
+ *  30) Exchange rate
+ * 100) Others
  */
 class Invoices_Helper {
 
@@ -39,13 +40,15 @@ class Invoices_Helper {
 		 * Reset $invoice_helper array
 		 *
 		 * @since    1.0.0
-		 * @version  1.4.0
+		 * @version  1.6.0
 		 */
 		public static function reset_invoice_helper() {
 
-			// Helper variables
+			// Variables
 
 				$post_id = get_the_ID();
+
+				$due_period = get_post_meta( $post_id, 'due_period', true );
 
 				$output = array(
 
@@ -64,6 +67,8 @@ class Invoices_Helper {
 					'symbol_constant' => (string) get_post_meta( $post_id, 'symbol_constant', true ),
 
 					'soft_deduct' => Invoices_Customize::get_currencies_array(),
+
+					'due_period' => ( $due_period ) ? ( absint( $due_period ) ) : ( absint( get_theme_mod( 'invoice_due_period', 21 ) ) ),
 
 				);
 
@@ -307,6 +312,81 @@ class Invoices_Helper {
 				return $output;
 
 		} // /get_fixer_api_url
+
+
+
+
+
+	/**
+	 * 100) Others
+	 */
+
+		/**
+		 * Get date for output with separators.
+		 *
+		 * @since    1.6.0
+		 * @version  1.6.0
+		 *
+		 * @param  string $date
+		 */
+		public static function get_output_date( $date = '' ) {
+
+			// Output
+
+				return str_replace(
+					array(
+						'-',
+						'/',
+					),
+					array(
+						'<span class="sep">-</span>',
+						'<span class="sep">/</span>',
+					),
+					$date
+				);
+
+		} // /get_output_date
+
+
+
+		/**
+		 * Get date format readable.
+		 *
+		 * @link  http://php.net/manual/en/function.date.php
+		 *
+		 * @since    1.6.0
+		 * @version  1.6.0
+		 *
+		 * @param  string $date_format
+		 */
+		public static function get_readable_date_format( $date_format = '' ) {
+
+			// Variables
+
+				if ( empty( $date_format ) ) {
+					$date_format = get_option( 'date_format' );
+				}
+
+
+			// Output
+
+				return strtoupper( str_replace(
+					array(
+						'o',
+						'F', 'n',
+						'j',
+						'S',
+					),
+					array(
+						'Y',
+						'M', 'M',
+						'D',
+						'',
+					),
+					$date_format
+				) );
+
+		} // /get_readable_date_format
 
 
 
