@@ -1,6 +1,13 @@
 /* FILE: main/_header.scss */
 
 .site-header {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: $gutter 6%;
+	background: #111;
+	color: #fff;
 
 	@media print {
 		display: none;
@@ -11,9 +18,7 @@
 .page {
 
 	&-header {
-		padding: $gutter;
-		margin-bottom: $gutter * 4;
-		border: 3pt double;
+		margin: ( $gutter * 2 ) 0 ( $gutter * 4 );
 
 		@media print {
 			display: none;
@@ -32,7 +37,6 @@
 
 	&-branding {
 		margin: $gutter 0;
-		text-align: center;
 		text-transform: uppercase;
 		letter-spacing: .05em;
 

@@ -1,5 +1,20 @@
 # Invoices Changelog
 
+## 1.7.0
+
+* **Update**: Redesigned
+
+### Files changed:
+
+	changelog.md
+	footer.php
+	header.php
+	style.css
+	assets/scss/style.scss
+	templates/generator.php
+	templates/parts/loop/loop.php
+
+
 ## 1.6.0
 
 * **Add**: "Expense" custom post type

@@ -1,0 +1,19 @@
+/* FILE: main/_content.scss */
+
+.site-content {
+
+	@media screen {
+		max-width: 210mm; // A4 paper size: 210 x 297 mm
+		padding: ( $gutter * 2 ) 0;
+		margin: 0 auto;
+
+		.home & {
+			max-width: none;
+			padding-left: 4%;
+			padding-right: 4%;
+			background: #eee;
+		}
+
+	}
+
+}

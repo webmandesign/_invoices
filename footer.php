@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.5.0
+ * @version  1.7.0
  */
 
 
@@ -16,6 +16,8 @@
 
 
 ?>
+
+	</div><!-- /.site-content -->
 
 	<footer class="site-footer">
 

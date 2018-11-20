@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.2.0
- * @version  1.4.0
+ * @version  1.7.0
  */
 
 /* translators: Custom page template name. */
@@ -24,7 +24,9 @@ get_header();
 
 <section class="generator">
 
-	<h1><?php esc_html_e( 'Generator', '_invoices' ); ?></h1>
+	<header class="page-header">
+		<h1><?php esc_html_e( 'Generator', '_invoices' ); ?></h1>
+	</header>
 
 	<?php do_action( 'generator_content' ); ?>
 

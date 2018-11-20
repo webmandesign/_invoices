@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.4.0
+ * @version  1.7.0
  */
 
 
@@ -71,3 +71,5 @@ wp_head();
 
 		?>
 	</header>
+
+	<div class="site-content">

@@ -1,8 +1,6 @@
 /* FILE: main/_navigation.scss */
 
 .main-navigation {
-	margin-left: -19%;
-	margin-right: -19%;
 
 	@media print {
 		display: none;
@@ -17,7 +15,11 @@
 		list-style: none;
 		font-size: 1.38em;
 		font-weight: 700;
-		border: 1pt solid;
+
+		.site-footer & {
+			margin: ( $gutter * 2 ) 0;
+		}
+
 	}
 
 	a {

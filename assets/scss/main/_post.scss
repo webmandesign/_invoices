@@ -14,7 +14,7 @@
 
 	@media screen {
 		background-color: #fff;
-		box-shadow: 0 5mm 20mm rgba( #000, .1 );
+		border: 1px solid rgba( #000, .15 );
 	}
 
 	@media print {
@@ -41,16 +41,21 @@
 				display: none;
 			}
 
-			> a {
+			a {
+				color: inherit;
+			}
+
+			> a,
+			.datelink {
 				display: block;
 				min-width: $gutter * 3;
 				padding: $gutter / 2;
 				margin: $gutter 0;
+				background: #111;
+				color: #fff;
 			}
 
 			.datelink {
-				display: block;
-				margin: $gutter 0;
 				text-transform: uppercase;
 				font-size: .62em;
 				white-space: nowrap;
@@ -72,13 +77,11 @@
 		.print {
 			text-transform: uppercase;
 			font-weight: 700;
-			border: 1pt dashed;
 		}
 
 		&-navigation {
 			font-weight: 900;
 			color: inherit;
-			border: 1pt solid;
 
 			.single & {
 				display: none;
@@ -91,9 +94,6 @@
 			padding: $gutter / 4;
 			margin-top: $gutter / 2;
 			margin-bottom: $gutter / 2;
-			line-height: 1;
-			border: 2pt solid;
-			opacity: .25;
 		}
 
 		&:first-child .previous,

@@ -6,8 +6,9 @@
 		text-align: center;
 
 		@media screen {
-			padding: 0 0 ( $gutter * 2 );
-			margin: ( $gutter * 4 ) 0 0;
+			padding: ( $gutter * 4 ) 6%;
+			background: #111;
+			color: #fff;
 		}
 
 		@media print {
@@ -33,11 +34,14 @@
 
 		}
 
+		a {
+			color: inherit;
+		}
+
 	}
 
 	&-info {
 		margin-top: $gutter * 2;
-		font-size: .81em;
 
 		@media screen {
 			margin-top: $gutter;
