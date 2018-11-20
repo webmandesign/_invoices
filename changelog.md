@@ -1,5 +1,18 @@
 # Invoices Changelog
 
+## 1.8.0
+
+* **Add**: Month separator in homepage invoices list
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets/scss/style.scss
+	templates/parts/content/content-simple.php
+	templates/parts/loop/loop.php
+
+
 ## 1.7.0
 
 * **Update**: Redesigned

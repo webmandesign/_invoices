@@ -43,6 +43,7 @@
 		margin: $gutter / 2;
 		background: #fff;
 		border: 1px solid rgba( #000, .15 );
+		transition: box-shadow .3s;
 
 		&-list {
 			display: flex;
@@ -51,12 +52,8 @@
 		}
 
 		&-date {
+			margin-bottom: $gutter * 2;
 			text-transform: uppercase;
-
-			.year {
-				font-weight: 700;
-			}
-
 		}
 
 			// &:first-child {
@@ -83,6 +80,8 @@
 				font-size: .81rem;
 				font-weight: 400;
 				letter-spacing: .05em;
+				opacity: .33;
+				transition: opacity .3s;
 
 				&::before {
 					content: '[';
@@ -101,6 +100,11 @@
 		&-company {
 			font-weight: 700;
 
+			&-item {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
 			&-label {
 				text-transform: uppercase;
 				font-weight: 400;
@@ -108,15 +112,65 @@
 				letter-spacing: .05em;
 			}
 
+			&-value {
+				margin-left: auto;
+			}
+
 		}
 
 		&-total {
-			margin: $gutter 0 0;
+			margin: ( $gutter * 2 ) 0 0;
+			font-size: 1.38em;
 			font-weight: 700;
 
+			a {
+				display: flex;
+				align-items: flex-end;
+				color: inherit;
+			}
+
 			.dual-currency {
-				font-size: inherit;
+				display: inline-block;
+				margin-left: auto;
 				cursor: help;
+				opacity: .33;
+				transition: opacity .3s;
+			}
+
+		}
+
+		&:hover {
+			box-shadow: 0 1em 4em rgba( #000, .15 );
+
+			.post-edit-link,
+			.dual-currency {
+				opacity: 1;
+			}
+
+		}
+
+	}
+
+	.separator {
+
+		&-month {
+			width: 100%;
+			padding: $gutter 0;
+			font-size: 1.38em;
+			text-align: center;
+			text-transform: uppercase;
+
+			&:first-child {
+				padding-top: 0;
+			}
+
+			span {
+				margin: 0 .25em;
+
+				&:first-child {
+					font-weight: 800;
+				}
+
 			}
 
 		}

@@ -8,7 +8,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.3.0
+ * @version  1.8.0
  */
 
 
@@ -43,21 +43,24 @@
 
 	<div class="invoice-simple-company">
 		<?php if ( isset( $invoice_helper['company']['category'] ) && isset( $invoice_helper['company']['category']->name ) ) : ?>
+		<div class="invoice-simple-company-item">
 			<span class="invoice-simple-company-label">
 				<?php echo esc_html_x( 'Supplier', 'Invoice company info label.', '_invoices' ); ?>
 			</span>
-			<a href="<?php echo esc_url( get_term_link( $invoice_helper['company']['category'] ) ); ?>">
+			<a href="<?php echo esc_url( get_term_link( $invoice_helper['company']['category'] ) ); ?>" class="invoice-simple-company-value">
 				<?php echo esc_html( $invoice_helper['company']['category']->name ); ?>
 			</a>
+		</div>
 		<?php endif; ?>
-		<br>
 		<?php if ( isset( $invoice_helper['company']['client'] ) && isset( $invoice_helper['company']['client']->name ) ) : ?>
+		<div class="invoice-simple-company-item">
 			<span class="invoice-simple-company-label">
 				<?php echo esc_html_x( 'Client', 'Invoice company info label.', '_invoices' ); ?>
 			</span>
-			<a href="<?php echo esc_url( get_term_link( $invoice_helper['company']['client'] ) ); ?>">
+			<a href="<?php echo esc_url( get_term_link( $invoice_helper['company']['client'] ) ); ?>" class="invoice-simple-company-value">
 				<?php echo esc_html( $invoice_helper['company']['client']->name ); ?>
 			</a>
+		</div>
 		<?php endif; ?>
 	</div>
 
@@ -83,11 +86,13 @@
 
 		?>
 		<a href="<?php echo esc_url( get_permalink() ); ?>">
-			<span class="price">
-				<?php echo esc_html( sprintf( '%.2f', $invoice_helper['total'][ $invoice_helper['currency_from'] ] ) ); ?>
-			</span>
-			<span class="currency-code">
-				<?php echo esc_html( $invoice_helper['currency_from'] ); ?>
+			<span class="invoice-currency">
+				<span class="price">
+					<?php echo esc_html( sprintf( '%.2f', $invoice_helper['total'][ $invoice_helper['currency_from'] ] ) ); ?>
+				</span>
+				<span class="currency-code">
+					<?php echo esc_html( $invoice_helper['currency_from'] ); ?>
+				</span>
 			</span>
 
 			<?php if ( $invoice_helper['dual_currency'] ) : ?>

@@ -1,6 +1,8 @@
 /* FILE: main/_summary.scss */
 
 .screen-summary {
+	max-width: 1280px;
+	margin: 0 auto;
 
 	&-title {
 		margin: 0 0 ( $gutter / 2 );
