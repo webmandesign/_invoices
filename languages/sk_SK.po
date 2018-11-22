@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-11-19 19:56+0100\n"
-"PO-Revision-Date: 2018-11-19 20:03+0100\n"
+"POT-Creation-Date: 2018-11-22 22:51+0100\n"
+"PO-Revision-Date: 2018-11-22 22:52+0100\n"
 "Last-Translator: Oliver Juhas, WebMan Design\n"
 "Language-Team: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
 "Language: sk_SK\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: footer.php:27
+#: footer.php:29
 msgid "&copy; WebMan Design"
 msgstr "&copy; WebMan Design"
 
-#: footer.php:28
+#: footer.php:30
 msgid "Generator &rarr;"
 msgstr "Generátor &rarr;"
 
@@ -239,20 +239,40 @@ msgstr "Nastavenia predajcu"
 msgid "Stamp image"
 msgstr "Obrázok pečiatky"
 
-#: includes/class-customize.php:111
+#: includes/class-customize.php:127
+msgid "Body background & overlay color"
+msgstr "Farba pozadia a prekrytia stránky"
+
+#: includes/class-customize.php:147
+msgid "Body text color"
+msgstr "Farba textu stránky"
+
+#: includes/class-customize.php:170
+msgid "Body overlay opacity"
+msgstr "Nepriehľadnosť prekrytia stránky"
+
+#: includes/class-customize.php:199
+msgid "Invoice background color"
+msgstr "Farba pozadia faktúry"
+
+#: includes/class-customize.php:223
+msgid "Invoice text color"
+msgstr "Farba textu faktúry"
+
+#: includes/class-customize.php:236
 #: templates/parts/admin/dashboard-welcome-panel-columns-boxes.php:58
 msgid "Theme Options"
 msgstr "Nastavenia témy"
 
-#: includes/class-customize.php:122
+#: includes/class-customize.php:247
 msgid "Currency Exchange"
 msgstr "Zmenáreň"
 
-#: includes/class-customize.php:141
+#: includes/class-customize.php:266
 msgid "Currencies"
 msgstr "Platobné meny"
 
-#: includes/class-customize.php:142
+#: includes/class-customize.php:267
 msgid ""
 "List accountable currencies international codes, separated with comma (no "
 "empty spaces)."
@@ -260,19 +280,19 @@ msgstr ""
 "Zadajte medzinárodné kódy platobných mien pre účtovné účely, každú menu "
 "oddeľte čiarkou (bez akýchkoľvek medzier)."
 
-#: includes/class-customize.php:163
+#: includes/class-customize.php:288
 msgid "Default exchange FROM currency"
 msgstr "Predvolená mena PREPOČTU Z"
 
-#: includes/class-customize.php:164
+#: includes/class-customize.php:289
 msgid "This becomes the default invoice currency selected."
 msgstr "Táto mena sa použije vo faktúre ako hlavná predvolená mena."
 
-#: includes/class-customize.php:185
+#: includes/class-customize.php:310
 msgid "Default exchange TO currency"
 msgstr "Predvolená mena PREPOČTU DO"
 
-#: includes/class-customize.php:186
+#: includes/class-customize.php:311
 msgid ""
 "Set this to your accounting currency - will be used for exchange calculation "
 "in dual currency invoices."
@@ -280,23 +300,23 @@ msgstr ""
 "Nastavte ju pre potreby vášho účtovníctva - bude zobrazená pri kalkulácii "
 "prepočtu vo faktúrach s duálnou menou."
 
-#: includes/class-customize.php:207
+#: includes/class-customize.php:332
 msgid "Fixer.io API access key"
 msgstr "Prístupový kľúč Fixer.io API"
 
-#: includes/class-customize.php:208
+#: includes/class-customize.php:333
 msgid "Get free access key from https://fixer.io/"
 msgstr "Získajte prístupový kľúč zdarma na https://fixer.io/"
 
-#: includes/class-customize.php:222
+#: includes/class-customize.php:347
 msgid "Accounting"
 msgstr "Účtovníctvo"
 
-#: includes/class-customize.php:241
+#: includes/class-customize.php:366
 msgid "Taxation month"
 msgstr "Zdaňovací mesiac"
 
-#: includes/class-customize.php:242
+#: includes/class-customize.php:367
 msgid ""
 "Until this month passes, a previous year invoices will also be displayed on "
 "homepage."
@@ -304,31 +324,31 @@ msgstr ""
 "Kým neprejde tento mesiac, na domovskej stránke sa zobrazia aj faktúry z "
 "predošlého roku."
 
-#: includes/class-customize.php:277
+#: includes/class-customize.php:402
 msgid "Invoice due period in days"
 msgstr "Obdobie splatnosti faktúry v dňoch"
 
-#: includes/class-customize.php:296 includes/class-post-types.php:179
+#: includes/class-customize.php:421 includes/class-post-types.php:179
 msgid "Invoice"
 msgstr "Faktúra"
 
-#: includes/class-customize.php:315
+#: includes/class-customize.php:440
 msgid "Max number of invoices created monthly"
 msgstr "Maximálny počet faktúr vytvorených mesačne"
 
-#: includes/class-customize.php:341
+#: includes/class-customize.php:466
 msgid "Client selector field type"
 msgstr "Typ poľa pre výber klientov"
 
-#: includes/class-customize.php:346
+#: includes/class-customize.php:471
 msgid "Dropdown (select)"
 msgstr "Rozbaľovací zoznam"
 
-#: includes/class-customize.php:347
+#: includes/class-customize.php:472
 msgid "Radio buttons"
 msgstr "Prepínače"
 
-#: includes/class-customize.php:407
+#: includes/class-customize.php:532
 #, php-format
 msgid "Preselected value for: %s"
 msgstr "Prednastavená hodnota pre: %s"
@@ -842,11 +862,11 @@ msgid "Payment methods information provided to pay the invoice."
 msgstr "Informácia o spôsobe platby za faktúru."
 
 #. translators: Custom page template name.
-#: templates/generator.php:15 templates/generator.php:27
+#: templates/generator.php:15 templates/generator.php:28
 msgid "Generator"
 msgstr "Generátor"
 
-#: templates/generator.php:31
+#: templates/generator.php:33
 msgid "Reload this page &#8629;"
 msgstr "Obnoviť túto stránku &#8629;"
 
@@ -1111,19 +1131,19 @@ msgstr "Nenašli sa žiadne záznamy"
 msgid "It seems we can not find what you are looking for, sorry."
 msgstr "Prepáčte, zdá sa, že nemôžeme nájsť, čo hľadáte."
 
-#: templates/parts/content/content-simple.php:47
+#: templates/parts/content/content-simple.php:48
 #: templates/parts/meta/meta-invoice-companies.php:30
 msgctxt "Invoice company info label."
 msgid "Supplier"
 msgstr "Dodávateľ"
 
-#: templates/parts/content/content-simple.php:56
+#: templates/parts/content/content-simple.php:58
 #: templates/parts/meta/meta-invoice-companies.php:34
 msgctxt "Invoice company info label."
 msgid "Client"
 msgstr "Odberateľ"
 
-#: templates/parts/content/content-simple.php:80
+#: templates/parts/content/content-simple.php:83
 #: templates/parts/meta/meta-invoice-total.php:42
 #, php-format
 msgid "Exchange rate: %s"

@@ -6,13 +6,14 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.5.0
+ * @version  1.9.1
  *
  * Contents:
  *
  *   0) Init
  *  10) Customizer
  *  20) Getters
+ *  30) Assets
  * 100) Others
  */
 class Invoices_Customize {
@@ -27,6 +28,13 @@ class Invoices_Customize {
 
 		private static $instance;
 
+		public static $default_appearance = array(
+			'color_body_text'          => 'ffffff',
+			'overlay_opacity_body'     => 50,
+			'color_invoice_background' => 'ffffff',
+			'color_invoice_text'       => '000000',
+		);
+
 		public static $default_value_fields = array(
 			'category'       => 'seller',
 			'client'         => 'client',
@@ -40,7 +48,7 @@ class Invoices_Customize {
 		 * Constructor
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.9.1
 		 */
 		private function __construct() {
 
@@ -51,6 +59,10 @@ class Invoices_Customize {
 					// Actions
 
 						add_action( 'customize_register', __CLASS__ . '::theme_options' );
+
+						add_action( 'customize_preview_init', __CLASS__ . '::assets_customize_preview' );
+
+						add_action( 'wp_enqueue_scripts', __CLASS__ . '::enqueue_styles_customized' );
 
 		} // /__construct
 
@@ -89,7 +101,7 @@ class Invoices_Customize {
 		 * Theme customizer options
 		 *
 		 * @since    1.0.0
-		 * @version  1.5.0
+		 * @version  1.9.1
 		 *
 		 * @param  object $wp_customize  WP customizer object.
 		 */
@@ -102,6 +114,119 @@ class Invoices_Customize {
 
 
 			// Processing
+
+				// Modifying WP native options
+
+					$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+					$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+
+
+
+				// Colors
+
+					$wp_customize->get_control( 'background_color' )->label = esc_html__( 'Body background & overlay color', '_invoices' );
+
+					// Option: colors/color_body_text
+
+						$option_id = 'color_body_text';
+
+						$wp_customize->add_setting(
+							$option_id,
+							array(
+								'default'              => maybe_hash_hex_color( self::$default_appearance[ $option_id ] ),
+								'transport'            => 'postMessage',
+								'sanitize_callback'    => 'sanitize_hex_color',
+								'sanitize_js_callback' => 'maybe_hash_hex_color',
+							)
+						);
+
+						$wp_customize->add_control( new WP_Customize_Color_Control(
+							$wp_customize,
+							$option_id,
+							array(
+								'label'   => esc_html__( 'Body text color', '_invoices' ),
+								'section' => 'colors',
+								'type'    => 'color',
+							)
+						) );
+
+					// Option: colors/overlay_opacity_body
+
+						$option_id = 'overlay_opacity_body';
+
+						$wp_customize->add_setting(
+							$option_id,
+							array(
+								'default'              => self::$default_appearance[ $option_id ],
+								'transport'            => 'refresh', // jQuery can not access pseudo elements...
+								'sanitize_callback'    => 'absint',
+								'sanitize_js_callback' => 'absint',
+							)
+						);
+
+						$wp_customize->add_control(
+							$option_id,
+							array(
+								'label'       => esc_html__( 'Body overlay opacity', '_invoices' ),
+								'section'     => 'colors',
+								'type'        => 'range',
+								'input_attrs' => array(
+									'min'     => 0,
+									'max'     => 95,
+									'step'    => 5,
+								),
+							)
+						);
+
+					// Option: colors/color_invoice_background
+
+						$option_id = 'color_invoice_background';
+
+						$wp_customize->add_setting(
+							$option_id,
+							array(
+								'default'              => maybe_hash_hex_color( self::$default_appearance[ $option_id ] ),
+								'transport'            => 'postMessage',
+								'sanitize_callback'    => 'sanitize_hex_color',
+								'sanitize_js_callback' => 'maybe_hash_hex_color',
+							)
+						);
+
+						$wp_customize->add_control( new WP_Customize_Color_Control(
+							$wp_customize,
+							$option_id,
+							array(
+								'label'   => esc_html__( 'Invoice background color', '_invoices' ),
+								'section' => 'colors',
+								'type'    => 'color',
+							)
+						) );
+
+					// Option: colors/color_invoice_text
+
+						$option_id = 'color_invoice_text';
+
+						$wp_customize->add_setting(
+							$option_id,
+							array(
+								'default'              => maybe_hash_hex_color( self::$default_appearance[ $option_id ] ),
+								'transport'            => 'postMessage',
+								'sanitize_callback'    => 'sanitize_hex_color',
+								'sanitize_js_callback' => 'maybe_hash_hex_color',
+							)
+						);
+
+						$wp_customize->add_control( new WP_Customize_Color_Control(
+							$wp_customize,
+							$option_id,
+							array(
+								'label'   => esc_html__( 'Invoice text color', '_invoices' ),
+								'section' => 'colors',
+								'type'    => 'color',
+							)
+						) );
+
+
 
 				// Panel
 
@@ -481,6 +606,89 @@ class Invoices_Customize {
 				return self::currency_code( (string) get_theme_mod( 'currency_exchange_to', 'EUR' ) );
 
 		} // /get_currency_exchange_to
+
+
+
+
+
+	/**
+	 * 30) Assets
+	 */
+
+		/**
+		 * Customizer preview assets enqueue.
+		 *
+		 * @since    1.9.1
+		 * @version  1.9.1
+		 */
+		public static function assets_customize_preview() {
+
+			// Processing
+
+				wp_enqueue_script(
+					'invoices-customize-preview',
+					get_theme_file_uri( 'assets/js/customize-preview.js' ),
+					array( 'jquery', 'customize-preview' ),
+					wp_get_theme( '_invoices' )->get( 'Version' ),
+					true
+				);
+
+		} // /assets_customize_preview
+
+
+
+		/**
+		 * Enqueue customized styles.
+		 *
+		 * @since    1.9.1
+		 * @version  1.9.1
+		 */
+		public static function enqueue_styles_customized() {
+
+			// Processing
+
+				wp_add_inline_style(
+					'invoices-stylesheet',
+					'
+					body {
+						color: ' . maybe_hash_hex_color(
+							get_theme_mod(
+								'color_body_text',
+								self::$default_appearance[ 'color_body_text' ]
+							)
+						) . ';
+					}
+
+					body::before {
+						opacity: ' . round(
+							absint( get_theme_mod(
+								'overlay_opacity_body',
+								self::$default_appearance[ 'overlay_opacity_body' ]
+							) ) / 100,
+							2
+						) . ';
+					}
+
+					.invoice,
+					.generator-section,
+					.invoice-simple {
+						background-color: ' . maybe_hash_hex_color(
+							get_theme_mod(
+								'color_invoice_background',
+								self::$default_appearance[ 'color_invoice_background' ]
+							)
+						) . ';
+						color: ' . maybe_hash_hex_color(
+							get_theme_mod(
+								'color_invoice_text',
+								self::$default_appearance[ 'color_invoice_text' ]
+							)
+						) . ';
+					}
+					'
+				);
+
+		} // /enqueue_styles_customized
 
 
 

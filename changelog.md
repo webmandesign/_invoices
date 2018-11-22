@@ -1,5 +1,24 @@
 # Invoices Changelog
 
+## 1.9.1
+
+* **Add**: Color theme options
+* **Update**: Localization
+* **Update**: Screenshot
+
+### Files changed:
+
+	changelog.md
+	screenshot.jpg
+	screenshot-alt.jpg
+	style.css
+	assets/js/customize-preview.js
+	assets/scss/style.scss
+	includes/class-customize.php
+	includes/class-setup.php
+	languages/*.*
+
+
 ## 1.9.0
 
 * **Update**: Redesigned, allowing background images

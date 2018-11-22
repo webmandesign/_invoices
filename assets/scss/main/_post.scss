@@ -1,6 +1,7 @@
 /* FILE: main/_post.scss */
 
 .invoice {
+	@extend %invoice_background;
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -12,16 +13,13 @@
 		margin-top: $gutter * 4;
 	}
 
-	@media screen {
-		background-color: #fff;
-		color: #000;
-		border: 1px solid rgba( #000, .15 );
-	}
-
 	@media print {
 		page-break-before: always;
 		page-break-inside: avoid;
 		margin: 0 !important;
+		background: none !important;
+		color: #000 !important;
+		border: none !important;
 	}
 
 
@@ -245,6 +243,12 @@
 	max-width: 210mm; // A4 paper size: 210 x 297 mm
 	margin: 0 auto;
 
+	&-section {
+		@extend %invoice_background;
+		padding: 2em;
+		margin: 2em 0;
+	}
+
 	h1, h2 {
 		font-size: 1.38em;
 		font-weight: 700;
@@ -319,14 +323,6 @@
 		margin-top: $gutter / 4;
 		font-size: .81em;
 		font-style: italic;
-	}
-
-	&-section {
-		padding: 2em;
-		margin: 2em 0;
-		background-color: #fff;
-		color: #111;
-		border: 1px solid rgba( #000, .15 );
 	}
 
 }

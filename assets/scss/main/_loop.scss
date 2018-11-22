@@ -11,7 +11,8 @@
 		// Full display in archive pages
 		@media screen {
 
-			&::after {
+			&::after,
+			&::before {
 				content: '';
 				display: block;
 				position: absolute;
@@ -19,8 +20,13 @@
 				height: 100%;
 				left: 4px;
 				top: 6px;
-				background-color: inherit;
+				background: inherit;
 				border: inherit;
+				z-index: -2;
+			}
+
+			&::before {
+				background: rgba( #000, .2 );
 				z-index: -1;
 			}
 
@@ -35,15 +41,13 @@
 // Simple invoice display in homepage posts list
 
 	.invoice-simple {
+		@extend %invoice_background;
 		position: relative;
 		min-width: 320px;
 		max-width: 480px;
 		height: auto;
 		padding: $gutter * 2;
 		margin: $gutter / 2;
-		background: #fff;
-		color: #111;
-		border: 1px solid rgba( #000, .15 );
 		transition: box-shadow .3s;
 
 		a {
@@ -145,7 +149,7 @@
 		}
 
 		&:hover {
-			box-shadow: 0 1em 4em rgba( #000, .15 );
+			box-shadow: 0 1em 6em rgba( #000, .5 );
 
 			.post-edit-link,
 			.dual-currency {

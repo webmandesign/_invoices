@@ -22,6 +22,12 @@
 
 }
 
+%invoice_background {
+	background-color: #fff;
+	color: #000;
+	border: 1px solid rgba( #000, .15 );
+}
+
 
 
 @mixin background_gradient( $direciton : to bottom, $color : #000 ) {

@@ -49,7 +49,6 @@
 
 		&-company {
 			padding-bottom: $gutter;
-			background: transparent;
 			border: 1pt solid;
 
 			h3 {
@@ -99,7 +98,6 @@
 			position: relative;
 			padding: 0 0 ( $gutter / 2 );
 			text-align: right;
-			background: transparent;
 			border: 0;
 
 			&[title]:not([title=""])::after {
@@ -145,8 +143,6 @@
 
 		&-stamp {
 			text-align: left;
-			background: transparent;
-			color: inherit;
 
 			img {
 				width: auto;
