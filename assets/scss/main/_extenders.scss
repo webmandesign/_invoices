@@ -21,3 +21,35 @@
 	}
 
 }
+
+
+
+@mixin background_gradient( $direciton : to bottom, $color : #000 ) {
+
+	// background: rgba( $color, .25 );
+	background-image:
+		// https://larsenwork.com/easing-gradients/#editor
+		// Curve handles position (in the 4x4 mash, handle placed in the middle of the box):
+		// - Top    = [ 2, 0 ]
+		// - Bottom = [ 2, 3 ]
+		linear-gradient(
+			$direciton,
+			rgba( $color, 1 ) 0%,
+			rgba( $color, .966 ) 11.8%,
+			rgba( $color, .919 ) 22%,
+			rgba( $color, .86 ) 30.9%,
+			rgba( $color, .791 ) 38.7%,
+			rgba( $color, .714 ) 45.5%,
+			rgba( $color, .632 ) 51.5%,
+			rgba( $color, .547 ) 56.9%,
+			rgba( $color, .461 ) 61.8%,
+			rgba( $color, .375 ) 66.5%,
+			rgba( $color, .293 ) 71.2%,
+			rgba( $color, .215 ) 76%,
+			rgba( $color, .145 ) 81.1%,
+			rgba( $color, .085 ) 86.6%,
+			rgba( $color, .036 ) 92.9%,
+			rgba( $color, 0 ) 100%
+		);
+
+} // /background_gradient

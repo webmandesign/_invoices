@@ -6,11 +6,15 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: $gutter 6%;
-	background: #111;
+	@include background_gradient( to bottom );
 	color: #fff;
 
 	@media print {
 		display: none;
+	}
+
+	a {
+		text-decoration: none;
 	}
 
 }

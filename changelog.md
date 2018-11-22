@@ -1,5 +1,18 @@
 # Invoices Changelog
 
+## 1.9.0
+
+* **Update**: Redesigned, allowing background images
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets/images/*.*
+	assets/scss/style.scss
+	includes/class-setup.php
+
+
 ## 1.8.0
 
 * **Add**: Month separator in homepage invoices list

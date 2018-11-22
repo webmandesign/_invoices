@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  1.9.0
  *
  * Contents:
  *
@@ -146,7 +146,7 @@ class Invoices_Setup {
 		 * Theme setup
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  1.9.0
 		 */
 		public static function setup() {
 
@@ -183,6 +183,22 @@ class Invoices_Setup {
 					 * @link  https://codex.wordpress.org/Theme_Logo
 					 */
 					add_theme_support( 'custom-logo' );
+
+				// Custom background
+
+					/**
+					 * @link  https://codex.wordpress.org/Function_Reference/add_theme_support#Custom_Background
+					 */
+					add_theme_support( 'custom-background', (array) apply_filters( 'wmhook_invoices_setup_custom_background_args', array(
+						'default-image'      => get_theme_file_uri( '/assets/images/dmitri-popov-226894-unsplash.jpg' ),
+						'default-preset'     => 'fill', // 'default', 'fill', 'fit', 'repeat', 'custom'
+						'default-position-x' => 'center', // 'left', 'center', 'right'
+						'default-position-y' => 'center', // 'top', 'center', 'bottom'
+						'default-size'       => 'cover', // 'auto', 'contain', 'cover'
+						'default-repeat'     => 'no-repeat', // 'repeat-x', 'repeat-y', 'repeat', 'no-repeat'
+						'default-attachment' => 'fixed', // 'scroll', 'fixed'
+						'default-color'      => '111111',
+					) ) );
 
 		} // /setup
 
