@@ -128,6 +128,7 @@
 					<?php echo esc_html( $currency ); ?>
 					<span class="income-net" title="<?php
 						echo esc_html__( 'Approximate net income:', '_invoices' )
+						   . ' '
 						   . round( .66 * esc_attr( $atts['expected_payment'] ) )
 						   . ' '
 						   . esc_html( $currency );

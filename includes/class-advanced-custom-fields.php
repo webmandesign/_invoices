@@ -10,7 +10,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.6.0
+ * @version  1.9.2
  *
  * Contents:
  *
@@ -262,7 +262,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice setup options metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.6.0
+		 * @version  1.9.2
 		 */
 		public static function invoice_setup() {
 
@@ -345,7 +345,7 @@ class Invoices_Advanced_Custom_Fields {
 							'instructions' => esc_html__( 'Optional due period override.', '_invoices' ),
 							'placeholder'  => absint( get_theme_mod( 'invoice_due_period', 21 ) ),
 							'min'          => 0,
-							'max'          => 90
+							'max'          => 182
 						),
 
 					),

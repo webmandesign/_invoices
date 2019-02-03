@@ -1,5 +1,16 @@
 # Invoices Changelog
 
+## 1.9.2
+
+* **Update**: Rising due day allowed period for per invoice override
+
+### Files changed:
+
+	changelog.md
+	style.css
+	includes/class-advanced-custom-fields.php
+
+
 ## 1.9.1
 
 * **Add**: Color theme options
