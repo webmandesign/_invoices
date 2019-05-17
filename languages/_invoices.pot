@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2018-11-22 22:51+0100\n"
+"POT-Creation-Date: 2019-05-17 20:54+0200\n"
 "PO-Revision-Date: 2015-05-12 20:39+0100\n"
-"Last-Translator: WebMan - Oliver Juhas <webmandesigneu@gmail.com>\n"
-"Language-Team: \n"
+"Last-Translator: Oliver Juhas, WebMan Design\n"
+"Language-Team: WebMan Design\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -586,6 +586,11 @@ msgctxt ""
 msgid "Expenses list"
 msgstr ""
 
+#: includes/class-setup.php:206
+msgctxt "Navigational menu location"
+msgid "Secondary"
+msgstr ""
+
 #: includes/class-taxonomies.php:136
 msgctxt "taxonomy general name"
 msgid "Sellers"
@@ -1089,7 +1094,7 @@ msgstr ""
 msgid "Approximate net income:"
 msgstr ""
 
-#: templates/parts/component/summary.php:134
+#: templates/parts/component/summary.php:135
 msgctxt "Income, wage."
 msgid "(Net)"
 msgstr ""
@@ -1234,6 +1239,10 @@ msgstr ""
 
 #: templates/parts/menu/menu-primary.php:23
 msgid "Print main currency only"
+msgstr ""
+
+#: templates/parts/menu/menu-secondary.php:27
+msgid "Secondary Menu"
 msgstr ""
 
 #: templates/parts/meta/meta-invoice-dates.php:32

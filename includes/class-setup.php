@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.9.1
+ * @version  2.0.0
  *
  * Contents:
  *
@@ -146,7 +146,7 @@ class Invoices_Setup {
 		 * Theme setup
 		 *
 		 * @since    1.0.0
-		 * @version  1.9.1
+		 * @version  2.0.0
 		 */
 		public static function setup() {
 
@@ -199,6 +199,12 @@ class Invoices_Setup {
 						'default-attachment' => 'fixed', // 'scroll', 'fixed'
 						'default-color'      => '000000',
 					) ) );
+
+				// Menus
+
+					register_nav_menus( array(
+						'secondary' => esc_html_x( 'Secondary', 'Navigational menu location', '_invoices' ),
+					) );
 
 		} // /setup
 

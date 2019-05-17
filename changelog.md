@@ -1,5 +1,22 @@
 # Invoices Changelog
 
+## 2.0.0
+
+* **Add**: WordPress custom menu support
+* **Update**: Localization
+* **Update**: Removing obsolete `development.md` file
+
+### Files changed:
+
+	changelog.md
+	header.php
+	style.css
+	assets/scss/style.scss
+	includes/class-setup.php
+	languages/*.*
+	templates/parts/menu/menu-secondary.php
+
+
 ## 1.9.2
 
 * **Update**: Rising due day allowed period for per invoice override

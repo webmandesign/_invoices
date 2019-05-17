@@ -1,6 +1,7 @@
 /* FILE: main/_navigation.scss */
 
-.main-navigation {
+.main-navigation,
+.secondary-navigation {
 
 	@media print {
 		display: none;
@@ -81,4 +82,16 @@
 
 	}
 
+}
+
+.main-navigation {
+
+	.site-header & {
+		margin-left: auto;
+	}
+
+}
+
+.secondary-navigation {
+	margin-left: 6%;
 }

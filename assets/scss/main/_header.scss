@@ -3,7 +3,6 @@
 .site-header {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 	align-items: center;
 	padding: $gutter 6%;
 	@include background_gradient( to bottom );
