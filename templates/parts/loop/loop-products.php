@@ -4,16 +4,14 @@
  *
  * CURRENCY EXCHANGE CALCULATION
  *
- * Exchange rate value is relevant to invoice (post) publish date.
+ * Exchange rate value is relevant to each invoice publish date.
  * An informational note will be displayed above invoice products list.
- *
- * @see  Invoices_Helper::get_exchange_rate()
  *
  * @package    Invoices
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.4.0
+ * @version  2.1.0
  */
 
 

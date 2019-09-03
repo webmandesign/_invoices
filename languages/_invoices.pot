@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Invoices\n"
 "Report-Msgid-Bugs-To: https://www.webmandesign.eu\n"
-"POT-Creation-Date: 2019-05-17 20:54+0200\n"
+"POT-Creation-Date: 2019-09-03 14:50+0200\n"
 "PO-Revision-Date: 2015-05-12 20:39+0100\n"
 "Last-Translator: Oliver Juhas, WebMan Design\n"
 "Language-Team: WebMan Design\n"
@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.2\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -51,7 +51,7 @@ msgid "Price"
 msgstr ""
 
 #: includes/class-advanced-custom-fields.php:185
-#: templates/parts/loop/loop-products.php:49
+#: templates/parts/loop/loop-products.php:47
 msgid "Qty"
 msgstr ""
 
@@ -64,7 +64,7 @@ msgid "Optional additional item info"
 msgstr ""
 
 #: includes/class-advanced-custom-fields.php:227
-#: templates/parts/loop/loop-products.php:51
+#: templates/parts/loop/loop-products.php:49
 msgid "Total"
 msgstr ""
 
@@ -136,100 +136,89 @@ msgid ""
 "currencies differs."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:404
-#, php-format
-msgid "Automatic exchange calculation will then be provided using %s API."
-msgstr ""
-
-#: includes/class-advanced-custom-fields.php:405
-msgctxt "Currency exchange rate API URL, just for information purposes."
-msgid "http://fixer.io"
-msgstr ""
-
-#: includes/class-advanced-custom-fields.php:405
-msgctxt "Currency exchange rate API URL, just for information purposes."
-msgid "https://fixer.io/"
-msgstr ""
-
-#: includes/class-advanced-custom-fields.php:413
+#: includes/class-advanced-custom-fields.php:408
 msgid "Client (invoice) currency (FROM)"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:414
+#: includes/class-advanced-custom-fields.php:409
 msgid "This becomes the main invoice currency."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:425
+#: includes/class-advanced-custom-fields.php:420
 msgid "Seller currency (TO)"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:426
+#: includes/class-advanced-custom-fields.php:421
 msgid "For seller accounting purposes."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:468
+#: includes/class-advanced-custom-fields.php:432
+msgid "Exchange rate"
+msgstr ""
+
+#: includes/class-advanced-custom-fields.php:474
 msgid "Invoice attachments"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:475
+#: includes/class-advanced-custom-fields.php:481
 msgid "Attachments"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:476
+#: includes/class-advanced-custom-fields.php:482
 msgid "+ Add Attachment"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:484
+#: includes/class-advanced-custom-fields.php:490
 msgid "Attachment"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:603
+#: includes/class-advanced-custom-fields.php:609
 msgid "Product setup"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:610
+#: includes/class-advanced-custom-fields.php:616
 msgid "Action, behavior"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:611
+#: includes/class-advanced-custom-fields.php:617
 msgid "Choose how this product affects invoice total."
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:614
+#: includes/class-advanced-custom-fields.php:620
 msgid "Add to invoice total"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:615
+#: includes/class-advanced-custom-fields.php:621
 msgid "Deduct from invoice total"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:616
+#: includes/class-advanced-custom-fields.php:622
 msgid ""
 "Soft deduct (Only an informative additional invoice total display. Will "
 "not affect actual invoice total!)"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:661
+#: includes/class-advanced-custom-fields.php:667
 msgid "Expense setup"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:668
+#: includes/class-advanced-custom-fields.php:674
 msgid "Amount"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:679
+#: includes/class-advanced-custom-fields.php:685
 msgid "Currency"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:690
+#: includes/class-advanced-custom-fields.php:696
 msgid "Description"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:735
+#: includes/class-advanced-custom-fields.php:741
 msgid "Seller options"
 msgstr ""
 
-#: includes/class-advanced-custom-fields.php:740
+#: includes/class-advanced-custom-fields.php:746
 msgid "Stamp image"
 msgstr ""
 
@@ -258,85 +247,81 @@ msgstr ""
 msgid "Theme Options"
 msgstr ""
 
-#: includes/class-customize.php:247
+#: includes/class-customize.php:248
 msgid "Currency Exchange"
 msgstr ""
 
-#: includes/class-customize.php:266
+#: includes/class-customize.php:267
 msgid "Currencies"
 msgstr ""
 
-#: includes/class-customize.php:267
+#: includes/class-customize.php:268
 msgid ""
 "List accountable currencies international codes, separated with comma (no "
 "empty spaces)."
 msgstr ""
 
-#: includes/class-customize.php:288
+#: includes/class-customize.php:289
 msgid "Default exchange FROM currency"
 msgstr ""
 
-#: includes/class-customize.php:289
+#: includes/class-customize.php:290
 msgid "This becomes the default invoice currency selected."
 msgstr ""
 
-#: includes/class-customize.php:310
+#: includes/class-customize.php:311
 msgid "Default exchange TO currency"
 msgstr ""
 
-#: includes/class-customize.php:311
+#: includes/class-customize.php:312
 msgid ""
 "Set this to your accounting currency - will be used for exchange "
 "calculation in dual currency invoices."
 msgstr ""
 
-#: includes/class-customize.php:332
-msgid "Fixer.io API access key"
-msgstr ""
-
-#: includes/class-customize.php:333
-msgid "Get free access key from https://fixer.io/"
-msgstr ""
-
-#: includes/class-customize.php:347
+#: includes/class-customize.php:326
 msgid "Accounting"
 msgstr ""
 
-#: includes/class-customize.php:366
+#: includes/class-customize.php:345
 msgid "Taxation month"
 msgstr ""
 
-#: includes/class-customize.php:367
+#: includes/class-customize.php:346
 msgid ""
 "Until this month passes, a previous year invoices will also be displayed "
 "on homepage."
 msgstr ""
 
-#: includes/class-customize.php:402
+#: includes/class-customize.php:381
 msgid "Invoice due period in days"
 msgstr ""
 
-#: includes/class-customize.php:421 includes/class-post-types.php:179
+#: includes/class-customize.php:400 includes/class-post-types.php:179
 msgid "Invoice"
 msgstr ""
 
-#: includes/class-customize.php:440
+#: includes/class-customize.php:419
 msgid "Max number of invoices created monthly"
 msgstr ""
 
-#: includes/class-customize.php:466
+#: includes/class-customize.php:420
+msgid "This is used to calculate `posts_per_page` query value."
+msgstr ""
+
+#: includes/class-customize.php:446
 msgid "Client selector field type"
 msgstr ""
 
-#: includes/class-customize.php:471
+#: includes/class-customize.php:451
 msgid "Dropdown (select)"
 msgstr ""
 
-#: includes/class-customize.php:472
+#: includes/class-customize.php:452
 msgid "Radio buttons"
 msgstr ""
 
-#: includes/class-customize.php:532
+#: includes/class-customize.php:512
 #, php-format
 msgid "Preselected value for: %s"
 msgstr ""
@@ -967,8 +952,8 @@ msgstr ""
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:53
 msgid ""
-"Theme will automatically exchange invoice totals depending on exchange "
-"rate (with open-source Fixer.io API) relevant to invoice publish date."
+"Theme will exchange invoice totals depending on exchange rate provided in "
+"the invoice option field."
 msgstr ""
 
 #: templates/parts/admin/dashboard-welcome-panel-columns-info.php:61
@@ -1064,10 +1049,10 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-#. translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate, 4: invoice publish date, 5: date format.
-#: templates/parts/component/note-invoice.php:49
+#. translators: 1: currency to exchange from, 2: currency to exchange to, 3: exchange rate.
+#: templates/parts/component/note-invoice.php:45
 #, php-format
-msgid "%1$s to %2$s exchange rate of %3$f valid on %4$s (%5$s)"
+msgid "%1$s to %2$s exchange rate of %3$f"
 msgstr ""
 
 #: templates/parts/component/summary.php:27
@@ -1205,23 +1190,23 @@ msgstr ""
 msgid "Generated results:"
 msgstr ""
 
-#: templates/parts/loop/loop-products.php:47
+#: templates/parts/loop/loop-products.php:45
 msgid "#"
 msgstr ""
 
-#: templates/parts/loop/loop-products.php:48
+#: templates/parts/loop/loop-products.php:46
 msgid "Item description"
 msgstr ""
 
-#: templates/parts/loop/loop-products.php:50
+#: templates/parts/loop/loop-products.php:48
 msgid "Unit price"
 msgstr ""
 
-#: templates/parts/loop/loop-products.php:77
+#: templates/parts/loop/loop-products.php:75
 msgid "ERROR: Negative value expected!"
 msgstr ""
 
-#: templates/parts/loop/loop-products.php:185
+#: templates/parts/loop/loop-products.php:183
 msgid "Sorry, something went wrong! Please check your data and/or code!"
 msgstr ""
 

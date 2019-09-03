@@ -353,7 +353,7 @@ pre, textarea { -moz-tab-size: 2; -o-tab-size: 2; tab-size: 2; }
 
 .invoice-simple-total .dual-currency { display: inline-block; margin-left: auto; cursor: help; opacity: .33; -webkit-transition: opacity .3s; -o-transition: opacity .3s; transition: opacity .3s; }
 
-.invoice-simple:hover { -webkit-box-shadow: 0 1em 6em rgba(0, 0, 0, 0.5); box-shadow: 0 1em 6em rgba(0, 0, 0, 0.5); }
+.invoice-simple:hover { -webkit-box-shadow: 0 1em 6em rgba(0, 0, 0, 0.5); box-shadow: 0 1em 6em rgba(0, 0, 0, 0.5); z-index: 20; }
 
 .invoice-simple:hover .post-edit-link, .invoice-simple:hover .dual-currency { opacity: 1; }
 

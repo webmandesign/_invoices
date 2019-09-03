@@ -57,6 +57,10 @@
 
 		.acf-field-key-invoice-total {
 
+			.acf-input-wrap {
+				height: auto;
+			}
+
 			input[type="number"][readonly] {
 				height: auto;
 				padding: .38em;

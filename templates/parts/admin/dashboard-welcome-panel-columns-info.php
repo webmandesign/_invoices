@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  2.1.0
  */
 
 
@@ -50,7 +50,7 @@
 			<?php esc_html_e( 'For dual currency invoice display select a different exchange currencies when editing the invoice.', '_invoices' ); ?>
 		</p>
 		<p>
-			<?php esc_html_e( 'Theme will automatically exchange invoice totals depending on exchange rate (with open-source Fixer.io API) relevant to invoice publish date.', '_invoices' ); ?>
+			<?php esc_html_e( 'Theme will exchange invoice totals depending on exchange rate provided in the invoice option field.', '_invoices' ); ?>
 		</p>
 	</div>
 

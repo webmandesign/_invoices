@@ -150,6 +150,7 @@
 
 		&:hover {
 			box-shadow: 0 1em 6em rgba( #000, .5 );
+			z-index: 20;
 
 			.post-edit-link,
 			.dual-currency {

@@ -10,7 +10,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.9.2
+ * @version  2.1.0
  *
  * Contents:
  *
@@ -384,7 +384,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice exchange options metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.5.0
+		 * @version  2.1.0
 		 */
 		public static function invoice_exchange() {
 
@@ -398,12 +398,7 @@ class Invoices_Advanced_Custom_Fields {
 						50 => array(
 							'key'     => 'key_invoice_exchange_message',
 							'type'    => 'message',
-							'message' => esc_html__( 'Dual currency display of the invoice amounts will take place only if currencies differs.', '_invoices' )
-							             . ' '
-							             . sprintf(
-							             	esc_html__( 'Automatic exchange calculation will then be provided using %s API.', '_invoices' ),
-							             	'<a href="' . esc_url( esc_attr_x( 'http://fixer.io', 'Currency exchange rate API URL, just for information purposes.', '_invoices' ) ) . '" target="_blank">' . str_replace( array( 'http://', 'https://' ), '', esc_attr_x( 'https://fixer.io/', 'Currency exchange rate API URL, just for information purposes.', '_invoices' ) ) . '</a>'
-							             ),
+							'message' => esc_html__( 'Dual currency display of the invoice amounts will take place only if currencies differs.', '_invoices' ),
 						),
 
 						100 => array(
@@ -428,6 +423,17 @@ class Invoices_Advanced_Custom_Fields {
 							'default_value' => Invoices_Customize::get_currency_exchange_to(),
 							'return_format' => 'value',
 							'required'      => 1,
+						),
+
+						300 => array(
+							'key'           => 'key_invoice_exchange_exchange_rate',
+							'name'          => 'exchange_rate',
+							'type'          => 'text',
+							'label'         => esc_html__( 'Exchange rate', '_invoices' ),
+							'default_value' => '1.0000',
+							// Requires https://wordpress.org/plugins/acf-quickedit-fields/ plugin.
+							'allow_quickedit' => 1,
+							'allow_bulkedit'  => 1,
 						),
 
 					),

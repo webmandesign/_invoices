@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.2.0
- * @version  1.2.1
+ * @version  2.1.0
  */
 
 
@@ -88,7 +88,7 @@
 					id="import-setup_columns"
 					type="text"
 					name="setup_columns"
-					value="tf:withdrawal;cm:withdrawal;bb:affiliate" >
+					value="en:withdrawal;cm:withdrawal;fm:affiliate" >
 				<span class="description">
 					<?php esc_html_e( 'This has to match the number of CSV columns minus 1 (the first column is treated as invoice date, remember?).', '_invoices' ); ?>
 				</span>

@@ -1,5 +1,29 @@
 # Invoices Changelog
 
+## 2.1.0
+
+* **Update**: Removing Fixer.io API functionality due to inaccurate exchange rates
+* **Update**: Compatibility with https://wordpress.org/plugins/acf-quickedit-fields/ plugin
+* **Update**: Customizer theme options
+* **Update**: Generator client slugs example
+* **Update**: Styles
+* **Update**: Localization
+
+### Files changed:
+
+	changelog.md
+	style.css
+	assets\scss\admin.scss
+	assets\scss\style.scss
+	includes\class-advanced-custom-fields.php
+	includes\class-customize.php
+	includes\class-helper.php
+	templates\parts\admin\dashboard-welcome-panel-columns-info.php
+	templates\parts\component\note-invoice.php
+	templates\parts\generator\generator-import.php
+	templates\parts\loop\loop-products.php
+
+
 ## 2.0.0
 
 * **Add**: WordPress custom menu support

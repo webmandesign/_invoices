@@ -1,0 +1,19 @@
+/* FILE: admin/_notice.scss */
+
+// Custom notice styles
+
+	.invoice-notice {
+		padding: 1.618em !important;
+		background-color: #e5f5fa !important;
+		border-left: 5px solid #00a0d2 !important;
+
+		p {
+			margin: 0 0 1em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+		}
+
+	}
