@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.0.0
+ * @version  2.2.0
  */
 
 
@@ -23,11 +23,15 @@
 		<h3>
 			<?php esc_html_e( 'Manage your content', '_invoices' ); ?>
 		</h3>
+		<div>
+			<h4><?php esc_html_e( 'Invoice Management', '_invoices' ); ?></h4>
+			<p><?php esc_html_e( 'Add, remove, duplicate and edit your invoices with ease.', '_invoices' ); ?></p>
+			<?php printf(
+				'<a href="%s" class="button button-primary button-hero"><span class="dashicons dashicons-admin-page"></span> ' . esc_html__( 'Manage Invoices', '_invoices' ) . '</a>',
+				admin_url( 'edit.php' )
+			); ?>
+		</div>
 		<ul>
-			<li><?php printf(
-				'<a href="%s" class="welcome-icon dashicons-before dashicons-media-document">' . esc_html__( 'Add an Invoice', '_invoices' ) . '</a>',
-				admin_url( 'post-new.php' )
-			); ?></li>
 			<li><?php printf(
 				'<a href="%s" class="welcome-icon dashicons-before dashicons-products">' . esc_html__( 'Add a Product (or Service)', '_invoices' ) . '</a>',
 				admin_url( 'post-new.php?post_type=page' )
@@ -61,7 +65,7 @@
 			<?php esc_html_e( 'Set currency exchange, accounting and invoices display options in theme customizer.', '_invoices' ); ?>
 		</p>
 		<?php if ( current_user_can( 'customize' ) ) : ?>
-			<a class="button button-primary button-hero load-customize hide-if-no-customize" href="<?php echo wp_customize_url(); ?>">
+			<a class="button button-hero load-customize hide-if-no-customize" href="<?php echo wp_customize_url(); ?>">
 				<?php esc_html_e( 'Set Theme Options &rarr;', '_invoices' ); ?>
 			</a>
 		<?php else : ?>

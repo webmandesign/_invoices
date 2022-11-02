@@ -99,3 +99,74 @@
 input[type="number"][readonly]::-webkit-inner-spin-button {
 	display: none;
 }
+
+[class*="acf-field-key-invoice-products"] {
+
+	textarea,
+	.select2-selection {
+		font-size: 16px;
+	}
+
+}
+
+.acf-field-key-invoice-products {
+
+	&-product {
+
+		.select2-selection {
+			font-style: italic;
+		}
+
+		.select2-container {
+
+			&:not(:hover),
+			&:not(.select2-container--open) {
+
+				.select2-selection {
+					background: transparent;
+					border-color: transparent;
+				}
+
+			}
+
+		}
+
+	}
+
+	&-description {
+
+		textarea {
+			font-weight: 700;
+		}
+
+		&:not(:hover),
+		&:not(:focus-within) {
+
+			textarea {
+				background: transparent;
+				border-color: transparent;
+			}
+
+		}
+
+	}
+
+	&-price,
+	&-total {
+
+		.acf-input input {
+			font-family: monospace;
+			font-size: 16px;
+		}
+
+	}
+
+	&-total {
+
+		.acf-input input {
+			font-weight: 700;
+		}
+
+	}
+
+}

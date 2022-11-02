@@ -1,5 +1,24 @@
 # Invoices Changelog
 
+## 2.2.0
+
+### Updated
+- Improving custom field forms
+- Dashboard styles
+
+### Fixed
+- Removing WordPress dashboard welcome panel
+
+### Files changed:
+	changelog.md
+	style.css
+	assets/scss/admin.scss
+	assets/scss/admin-dashboard.scss
+	includes/class-advanced-custom-fields.php
+	includes/class-setup.php
+	templates/parts/admin/dashboard-welcome-panel-columns-boxes.php
+
+
 ## 2.1.0
 
 * **Update**: Removing Fixer.io API functionality due to inaccurate exchange rates

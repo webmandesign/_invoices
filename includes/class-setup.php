@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.0.0
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -34,7 +34,7 @@ class Invoices_Setup {
 		 * Constructor
 		 *
 		 * @since    1.0.0
-		 * @version  1.0.0
+		 * @version  2.2.0
 		 */
 		private function __construct() {
 
@@ -58,8 +58,10 @@ class Invoices_Setup {
 
 						add_action( 'template_redirect', __CLASS__ . '::login_required' );
 
-						remove_action( 'welcome_panel', 'wp_welcome_panel' );
-						   add_action( 'welcome_panel', __CLASS__ . '::dashboard_welcome_panel' );
+						add_action( 'admin_init', function() {
+							remove_all_actions( 'welcome_panel' );
+							add_action( 'welcome_panel', __CLASS__ . '::dashboard_welcome_panel' );
+						} );
 
 		} // /__construct
 

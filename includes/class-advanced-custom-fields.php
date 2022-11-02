@@ -10,7 +10,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.1.0
+ * @version  2.2.0
  *
  * Contents:
  *
@@ -135,7 +135,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice products metabox
 		 *
 		 * @since    1.0.0
-		 * @version  1.6.0
+		 * @version  2.2.0
 		 */
 		public static function invoice_products() {
 
@@ -168,24 +168,13 @@ class Invoices_Advanced_Custom_Fields {
 							'sub_fields'   => array(
 
 								100 => array(
-									'key'      => 'key_invoice_products_price',
-									'name'     => 'price',
-									'type'     => 'number',
-									'label'    => esc_html__( 'Price', '_invoices' ),
-									'required' => 1,
-									'wrapper'  => array(
-										'width' => '15',
-									),
-								),
-
-								200 => array(
 									'key'      => 'key_invoice_products_quantity',
 									'name'     => 'quantity',
 									'type'     => 'number',
 									'label'    => esc_html__( 'Qty', '_invoices' ),
 									'required' => 1,
 									'wrapper'  => array(
-										'width' => '8',
+										'width' => '5',
 									),
 									'default_value' => 1,
 									'min'           => 1,
@@ -193,13 +182,13 @@ class Invoices_Advanced_Custom_Fields {
 									'step'          => 1,
 								),
 
-								300 => array(
+								200 => array(
 									'key'      => 'key_invoice_products_product',
 									'name'     => 'product',
 									'type'     => 'post_object',
 									'label'    => esc_html__( 'Item', '_invoices' ),
 									'wrapper'  => array(
-										'width' => '25',
+										'width' => '20',
 									),
 									'post_type' => array(
 										0 => 'page',
@@ -208,19 +197,30 @@ class Invoices_Advanced_Custom_Fields {
 									'return_format' => 'id',
 								),
 
-								400 => array(
+								300 => array(
 									'key'      => 'key_invoice_products_description',
 									'name'     => 'description',
 									'type'     => 'textarea',
 									'label'    => esc_html__( 'Optional additional item info', '_invoices' ),
 									'wrapper'  => array(
-										'width' => '40',
+										'width' => '60',
 									),
-									'rows'      => 3,
+									'rows'      => 1,
 									'new_lines' => 'br',
 								),
 
-								500 => array(
+								400 => array(
+									'key'      => 'key_invoice_products_price',
+									'name'     => 'price',
+									'type'     => 'number',
+									'label'    => esc_html__( 'Price', '_invoices' ),
+									'required' => 1,
+									'wrapper'  => array(
+										'width' => '10',
+									),
+								),
+
+								900 => array(
 									'key'      => 'key_invoice_products_total',
 									'name'     => 'total',
 									'type'     => 'number',
