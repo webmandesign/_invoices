@@ -10,7 +10,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.2.0
+ * @version  2.3.0
  *
  * Contents:
  *
@@ -135,7 +135,7 @@ class Invoices_Advanced_Custom_Fields {
 		 * Invoice products metabox
 		 *
 		 * @since    1.0.0
-		 * @version  2.2.0
+		 * @version  2.3.0
 		 */
 		public static function invoice_products() {
 
@@ -174,7 +174,7 @@ class Invoices_Advanced_Custom_Fields {
 									'label'    => esc_html__( 'Qty', '_invoices' ),
 									'required' => 1,
 									'wrapper'  => array(
-										'width' => '5',
+										'class' => 'has-width-60px',
 									),
 									'default_value' => 1,
 									'min'           => 1,
@@ -216,7 +216,7 @@ class Invoices_Advanced_Custom_Fields {
 									'label'    => esc_html__( 'Price', '_invoices' ),
 									'required' => 1,
 									'wrapper'  => array(
-										'width' => '10',
+										'class' => 'has-width-90px',
 									),
 								),
 
@@ -226,7 +226,7 @@ class Invoices_Advanced_Custom_Fields {
 									'type'     => 'number',
 									'label'    => esc_html__( 'Total', '_invoices' ),
 									'wrapper'  => array(
-										'width' => '12',
+										'class' => 'has-width-120px',
 									),
 									'default_value' => 0,
 								),

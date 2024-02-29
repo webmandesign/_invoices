@@ -113,16 +113,13 @@ small {
 }
 
 .dual-currency {
-	display: block;
 
 	.print-main-currency-only & {
 
 		@media print {
 			display: none;
 		}
-
 	}
-
 }
 
 pre,

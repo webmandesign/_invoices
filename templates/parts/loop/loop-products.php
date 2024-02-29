@@ -11,7 +11,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  2.1.0
+ * @version  2.4.0
  */
 
 
@@ -103,18 +103,15 @@
 						<td class="invoice-products-column-description">
 
 							<?php if ( is_a( $product, 'WP_Post' ) ) : ?>
-								<h3 class="product-title">
-									<?php echo esc_html( $product->post_title ); ?>
-								</h3>
-								<div class="product-content product-description">
-									<?php echo apply_filters( 'the_content', $product->post_content ); ?>
-								</div>
+								<h3 class="product-title"><?php echo esc_html( $product->post_title ); ?></h3>
+							<?php endif; ?>
+
+							<?php if ( $product->post_content ) : ?>
+								<div class="product-content product-description">— <?php echo apply_filters( 'the_content', $product->post_content ); ?></div>
 							<?php endif; ?>
 
 							<?php if ( $description = get_sub_field( 'description' ) ) : ?>
-								<div class="product-description">
-									<?php echo apply_filters( 'the_content', $description ); ?>
-								</div>
+								<div class="product-description">— <?php echo apply_filters( 'the_content', $description ); ?></div>
 							<?php endif; ?>
 
 						</td>
@@ -143,8 +140,8 @@
 
 							<?php if ( $invoice_helper['dual_currency'] ) : ?>
 								<small class="dual-currency">
-									<span class="price"><?php echo esc_html( sprintf( '%.2f', round( $price * $invoice_helper['exchange_rate'], 2 ) ) ); ?></span>
-									<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
+									(<span class="price"><?php echo esc_html( sprintf( '%.2f', round( $price * $invoice_helper['exchange_rate'], 2 ) ) ); ?></span>
+									<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>)
 								</small>
 							<?php endif; ?>
 						</td>
@@ -162,8 +159,8 @@
 
 							<?php if ( $invoice_helper['dual_currency'] ) : ?>
 								<small class="dual-currency">
-									<span class="price"><?php echo esc_html( sprintf( '%.2f', $total_exchanged ) ); ?></span>
-									<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>
+									(<span class="price"><?php echo esc_html( sprintf( '%.2f', $total_exchanged ) ); ?></span>
+									<span class="currency-code"><?php echo esc_html( $invoice_helper['currency_to'] ); ?></span>)
 								</small>
 							<?php endif; ?>
 						</td>

@@ -197,7 +197,8 @@
 			}
 
 			&-column-order {
-				width: 4%;
+				width: 2ch;
+				padding-inline: 0 !important;
 				font-size: .81rem;
 			}
 
@@ -206,35 +207,44 @@
 				text-align: left;
 
 				h2, h3,
+				p,
+				div {
+					display: inline;
+				}
+
+				h2, h3,
 				strong:first-child {
 					margin: 0;
 					font-size: 1rem; // Required for when inside .description
 					font-weight: 700;
 				}
 
-				.description {
-					font-size: .91em;
+				.product-description {
+					font-size: .81em;
 				}
-
 			}
 
 			&-column-quantity {
-				width: 5%;
+				width: 2ch;
+				padding-inline: 0 !important;
 			}
 
-			&-column-price {
-				width: 18%;
-				text-align: right;
-			}
-
+			&-column-price,
 			&-column-total {
 				width: 18%;
 				text-align: right;
-				font-weight: 700;
+				white-space: nowrap;
+
+				.dual-currency {
+					margin-left: .25em;
+					font-size: .75em;
+				}
 			}
 
+			&-column-total {
+				font-weight: 700;
+			}
 		}
-
 }
 
 

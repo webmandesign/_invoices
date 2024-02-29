@@ -1,5 +1,29 @@
 # Invoices Changelog
 
+## 2.4.0
+
+### Updated
+- Loop HTML and styles
+
+### Files changed:
+	changelog.md
+	style.css
+	assets/scss/style.scss
+	templates/parts/loop/loop-products.php
+
+
+## 2.3.0
+
+### Updated
+- Improving custom field width setup
+
+### Files changed:
+	changelog.md
+	style.css
+	assets/scss/admin.scss
+	includes/class-advanced-custom-fields.php
+
+
 ## 2.2.0
 
 ### Updated
@@ -32,15 +56,15 @@
 
 	changelog.md
 	style.css
-	assets\scss\admin.scss
-	assets\scss\style.scss
-	includes\class-advanced-custom-fields.php
-	includes\class-customize.php
-	includes\class-helper.php
-	templates\parts\admin\dashboard-welcome-panel-columns-info.php
-	templates\parts\component\note-invoice.php
-	templates\parts\generator\generator-import.php
-	templates\parts\loop\loop-products.php
+	assets/scss/admin.scss
+	assets/scss/style.scss
+	includes/class-advanced-custom-fields.php
+	includes/class-customize.php
+	includes/class-helper.php
+	templates/parts/admin/dashboard-welcome-panel-columns-info.php
+	templates/parts/component/note-invoice.php
+	templates/parts/generator/generator-import.php
+	templates/parts/loop/loop-products.php
 
 
 ## 2.0.0

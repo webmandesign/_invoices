@@ -1,0 +1,13 @@
+/* FILE: admin/_mods.scss */
+
+@for $i from 5 through 20 {
+	$i: $i * 10px;
+
+  .has-width-#{$i} {
+    width: $i !important;
+
+    > .acf-input {
+      width: inherit;
+    }
+  }
+}
